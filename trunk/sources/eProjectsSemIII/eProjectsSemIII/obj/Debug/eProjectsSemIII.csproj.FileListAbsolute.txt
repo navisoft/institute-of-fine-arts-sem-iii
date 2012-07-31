@@ -5,3 +5,10 @@ D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\eProjectsSemIII\bin\E
 D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\eProjectsSemIII\obj\Debug\ResolveAssemblyReference.cache
 D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.dll
 D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.pdb
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\bin\eProjectsSemIII.dll
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\bin\eProjectsSemIII.pdb
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\bin\EntityFramework.dll
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\bin\EntityFramework.xml
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\obj\Debug\ResolveAssemblyReference.cache
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.dll
+D:\eProjectsSemIII\sources\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.pdb
