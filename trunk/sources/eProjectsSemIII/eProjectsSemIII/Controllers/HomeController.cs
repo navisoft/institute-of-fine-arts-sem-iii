@@ -11,12 +11,16 @@ namespace eProjectsSemIII.Controllers
     {
         public ActionResult Index()
         {
-            CompetitionModels competitionModels = new CompetitionModels();
-            List<CompetitionModels> listCompetition = competitionModels.getAllCompetition();
-            foreach (CompetitionModels competition in listCompetition)
-            {
-                Response.Write(competition.Name);
-            }
+            //CompetitionModels competitionModels = new CompetitionModels();
+            //List<CompetitionModels> listCompetition = competitionModels.getAllCompetition();
+            //foreach (CompetitionModels competition in listCompetition)
+            //{
+            //    Response.Write(competition.Name);
+            //}
+            var com = new CompetitionModels { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
+            var db = new FineArtContext();
+            db.Competitions.Add(com);
+            db.SaveChanges();
             return View();
         }
 
