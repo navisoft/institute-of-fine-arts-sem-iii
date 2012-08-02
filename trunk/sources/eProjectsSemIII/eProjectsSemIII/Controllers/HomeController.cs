@@ -17,10 +17,14 @@ namespace eProjectsSemIII.Controllers
             //{
             //    Response.Write(competition.Name);
             //}
-            var com = new CompetitionModels { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
+            var com = new Competitions { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
             var db = new FineArtContext();
             db.Competitions.Add(com);
             db.SaveChanges();
+            //var com = new CompetitionModels { Name = "Competition First 1", StartDate = "12/12/1212" };
+            //var db = new FineArtContext();
+            //db.Competitions.Add(com);
+            //db.SaveChanges();
             return View();
         }
 

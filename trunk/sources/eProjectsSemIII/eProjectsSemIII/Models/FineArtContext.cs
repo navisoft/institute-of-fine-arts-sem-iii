@@ -13,8 +13,8 @@ namespace eProjectsSemIII.Models
         {
 
         }
-        public DbSet<CompetitionModels> Competitions { get; set; }
-        public DbSet<AwardModels> Awards { get; set; }
-        public DbSet<ConditionModels> Conditions { get; set; }
+        public DbSet<Competitions> Competitions { get; set; }
+        public DbSet<Awards> Awards { get; set; }
+        public DbSet<Conditions> Conditions { get; set; }
     }
 }
