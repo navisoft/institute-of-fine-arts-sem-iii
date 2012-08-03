@@ -72,9 +72,18 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Awards.cs" />
+    <Compile Include="Models\Classs.cs" />
     <Compile Include="Models\Competitions.cs" />
     <Compile Include="Models\Conditions.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Designs.cs" />
+    <Compile Include="Models\Exhibitions.cs" />
     <Compile Include="Models\FineArtContext.cs" />
+    <Compile Include="Models\Kinds.cs" />
+    <Compile Include="Models\Members.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\Staffs.cs" />
+    <Compile Include="Models\Students.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
