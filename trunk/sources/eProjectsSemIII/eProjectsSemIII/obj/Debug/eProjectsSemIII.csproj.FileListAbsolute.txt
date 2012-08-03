@@ -1,0 +1,6 @@
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\bin\eProjectsSemIII.dll
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\bin\eProjectsSemIII.pdb
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\bin\EntityFramework.dll
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\bin\EntityFramework.xml
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.dll
+C:\Users\minhp_000\Desktop\svn\sources\eProjectsSemIII\eProjectsSemIII\obj\Debug\eProjectsSemIII.pdb
