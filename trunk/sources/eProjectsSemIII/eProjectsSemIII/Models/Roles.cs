@@ -5,11 +5,10 @@ using System.Web;
 
 namespace eProjectsSemIII.Models
 {
-    public class Conditions
+    public class Roles
     {
         public int ID { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
-        // many to many with competition
-        public ICollection<Competitions> Competition { get; set; }
     }
 }
