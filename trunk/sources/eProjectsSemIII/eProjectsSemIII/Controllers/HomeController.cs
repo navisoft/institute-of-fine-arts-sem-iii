@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using eProjectsSemIII.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace eProjectsSemIII.Controllers
 {
@@ -17,10 +19,10 @@ namespace eProjectsSemIII.Controllers
             //{
             //    Response.Write(competition.Name);
             //}
-            var com = new Competitions { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
-            var db = new FineArtContext();
-            db.Competitions.Add(com);
-            db.SaveChanges();
+            //var com = new Competitions { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
+            //var db = new FineArtContext();
+            //db.Competitions.Add(com);
+            //db.SaveChanges();
             //var com = new CompetitionModels { Name = "Competition First 1", StartDate = "12/12/1212" };
             //var db = new FineArtContext();
             //db.Competitions.Add(com);
