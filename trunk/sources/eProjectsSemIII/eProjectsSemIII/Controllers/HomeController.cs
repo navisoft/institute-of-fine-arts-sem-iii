@@ -11,9 +11,15 @@ namespace eProjectsSemIII.Controllers
 {
     public class HomeController : Controller
     {
+        /**
+         * Method: Index
+         * Create database demo using Entity Framework
+         * Author: Le Dang Son
+         * Date: 04/08/2012
+         */
         public ActionResult Index()
         {
-            //CompetitionModels competitionModels = new CompetitionModels();
+            //Competitions competitionModels = new Competitions();
             //List<CompetitionModels> listCompetition = competitionModels.getAllCompetition();
             //foreach (CompetitionModels competition in listCompetition)
             //{
@@ -23,10 +29,12 @@ namespace eProjectsSemIII.Controllers
             //var db = new FineArtContext();
             //db.Competitions.Add(com);
             //db.SaveChanges();
-            //var com = new CompetitionModels { Name = "Competition First 1", StartDate = "12/12/1212" };
-            //var db = new FineArtContext();
-            //db.Competitions.Add(com);
-            //db.SaveChanges();
+            using (var db = new FineArtContext())
+            {
+                var competition = new Competitions { Name = "Competition First 1", StartDate = "04/08/2012", EndDate = "04/09/2012" };
+                db.Competitions.Add(competition);
+                db.SaveChanges();
+            }
             return View();
         }
 
