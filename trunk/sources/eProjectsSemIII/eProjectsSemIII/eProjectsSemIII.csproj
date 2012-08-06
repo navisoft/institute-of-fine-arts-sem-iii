@@ -91,6 +91,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\admins\icon.jpg" />
+    <Content Include="Content\Images\admins\menu-icon\add_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\add_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\add_icon_35_new.png" />
+    <Content Include="Content\Images\admins\menu-icon\add_icon_35_new_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\add_news_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\bg_tab.png" />
+    <Content Include="Content\Images\admins\menu-icon\bg_tab_item.png" />
+    <Content Include="Content\Images\admins\menu-icon\bg_tab_item_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\customer_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\delete_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\delete_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\edit_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\edit_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\go_back_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\go_back_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\help_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\help_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\home_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\marketing_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\news_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\new_contact_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\new_order_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\order_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\product_icon.png" />
+    <Content Include="Content\Images\admins\menu-icon\update_icon_35.png" />
+    <Content Include="Content\Images\admins\menu-icon\update_icon_35_hover.png" />
+    <Content Include="Content\Images\admins\menu-icon\video-icon.png" />
     <Content Include="Content\Images\advertise.jpg" />
     <Content Include="Content\Images\animation.jpg" />
     <Content Include="Content\Images\articles\article-1.jpg" />
@@ -113,13 +140,17 @@
     <Content Include="Content\Images\students\student-4.jpg" />
     <Content Include="Content\Images\students\student-5.jpg" />
     <Content Include="Content\Images\students\student-6.jpg" />
+    <Content Include="Content\Styles\admin-index.css" />
     <Content Include="Content\Styles\admin-login.css" />
+    <Content Include="Content\Styles\admin-style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\admin-app.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -160,6 +191,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
