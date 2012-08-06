@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Areas/Administrator/Views/Shared/Login.cshtml";
+}
+<div class="main">
+        <div class="header">
+        	<div class="title">
+            	Administrator Login
+            </div>
+        	<div class="navigation">
+            	<a href="#">Go to site home page</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header_content">
+            	Login Form
+            </div>
+            <div class="left_content">
+            	<span>Use a valid username and password to gain access to the administrator backend.</span>
+                <a href="#">Go to site home page</a>
+                <img src="@Url.Content("~/Content/Images/admins/icon.jpg")" alt="icon" width="120" />
+            </div>
+            <div class="right_content">
+            	<form action="" method="post">
+                    <div class="form_error">
+                        @ViewBag.form_error
+                    </div>
+                	<div class="form_item">
+                    	<div class="form_item_title">
+                        	Username:
+                        </div>
+                    	<div class="form_item_input">
+                        	<input type="text" name="username" class="txt_user"/>
+                        </div>
+                    </div>
+                	<div class="form_item">
+                    	<div class="form_item_title">
+                        	Password:
+                        </div>
+                    	<div class="form_item_input">
+                        	<input type="password" name="password" class="txt_user"/>
+                        </div>
+                    </div>
+                	<div class="form_item">
+                    	<div class="form_item_title">
+                        	Language:
+                        </div>
+                    	<div class="form_item_input">
+                        	<select name="lang" class="sel_lang">
+                            	<option value="">Default</option>
+                            	<option value="vi">Tiếng Việt</option>
+                            	<option value="en">English</option>
+                            </select>
+                        </div>
+                    </div>
+                	<div class="form_item">
+                    	<div class="form_item_submit">
+                        	<input type="submit" name="submit_admin_login" class="bt_submit" value="Login Admin" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+       <span class="name">:: Tình Phong Pro ::</span> <span class="email"> sonld.hv@gmail.com</span>
+    </div>
