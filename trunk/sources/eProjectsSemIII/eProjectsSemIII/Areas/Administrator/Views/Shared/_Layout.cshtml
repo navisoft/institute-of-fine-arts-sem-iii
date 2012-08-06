@@ -1,1 +1,68 @@
-﻿@RenderBody()
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/admin-style.css")"/>
+
+<!--HOME-->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/admin-index.css")"/>
+<!--ADD NEW PRODUCT-->
+<!--ckeditor-->
+
+<title>Untitled Document</title>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/admin-app.js")"></script>
+
+</head>
+
+<body>
+	<div class="wrapper">
+        <div class="main">
+            <div class="header">
+                <div class="title">
+                    Administrator Manage Page
+                </div>
+                <div class="navigation">
+                    <a href="#">Site home</a> |
+                    <a href="#">Help</a> |
+                    <a href="#">Admin Profile</a>|
+                    <span>Welcome Tinhphong</span>|
+                    <a href="#">Logout</a>
+                </div>
+                <div class="banner">
+                
+                </div>
+            </div><!--#END header-->
+            <div class="content">
+			    <div class="navigation_content">
+                    <a href="" class="item_navigation_content">
+                        <div>
+                    	    <div class='logo_item_navigation'>
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/home_icon.png")" />
+                            </div>
+                            <div class='text_item_navigation'>
+                                Trang chủ
+                            </div>
+                        </div> 
+                    </a>
+                    <div class='item_navigation_son'>
+                        <div class='item_son_navigation_son'>
+                            <a href="">
+                                <div class="item_son_name">Bán hàng online</div>
+                                <div class="item_son_des">fsjfnsdf sdf sdf sd fs fsd fsd f sdf sd fs df sdf sd fsd </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+				<div class="main_content">
+                @RenderBody()                	
+                </div><!--#END main_content-->
+            </div><!--#END content-->
+        </div><!--#END main-->
+        <div class="footer">
+			<span class="name">:: Tình Phong Pro ::</span> <span class="email"> sonld.hv@gmail.com</span>
+        </div><!--#END footer-->
+    </div><!--#END wrapper-->
+</body>
+</html>
