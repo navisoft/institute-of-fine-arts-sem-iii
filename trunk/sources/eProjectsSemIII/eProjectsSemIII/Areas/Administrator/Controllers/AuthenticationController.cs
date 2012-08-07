@@ -36,8 +36,9 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     Roles role = new Roles();
                     role.ID = member.RoleID;
                     role = role.GetMenuRole();
-                    ICollection<Menus> listMenu = role.Menu;
-                    Response.Write("");
+                    ICollection<Menus> listMenu = new List<Menus>();
+                    listMenu = role.Menu;
+                    Response.Write(listMenu.Count);
                     //foreach (Menus menu in listMenu)
                     //{
                     //    Response.Write(menu.Name);

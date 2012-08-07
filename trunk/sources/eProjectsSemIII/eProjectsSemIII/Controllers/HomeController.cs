@@ -4,42 +4,49 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using eProjectsSemIII.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace eProjectsSemIII.Controllers
 {
     public class HomeController : Controller
     {
-        /**
-         * Method: Index
-         * Create database demo using Entity Framework
-         * Author: Le Dang Son
-         * Date: 04/08/2012
-         */
+
+        private FineArtContext db = new FineArtContext();
         public ActionResult Index()
         {
-            //Competitions competitionModels = new Competitions();
-            //List<CompetitionModels> listCompetition = competitionModels.getAllCompetition();
-            //foreach (CompetitionModels competition in listCompetition)
-            //{
-            //    Response.Write(competition.Name);
-            //}
-            //var com = new Competitions { Name = "OKKKKKKKKKKKKKKKKKKKKKKK", StartDate = "121132" };
-            //var db = new FineArtContext();
-            //db.Competitions.Add(com);
-            //db.SaveChanges();
-            using (var db = new FineArtContext())
-            {
-                db.Members.ToList();
-            }
-            //FinelArtInitializer fine = new FinelArtInitializer();
-            //FineArtContext context = new FineArtContext();
-            //fine.initData(context);
-            return View();
+            var upcomming = db.Competitions.ToList();
+
+            return View(upcomming);
         }
 
-        public ActionResult About()
+        // list kind as menu left
+
+        [ChildActionOnly]
+        public virtual ActionResult Kind()
         {
-            return View();
+            var kinds = db.Kinds.ToList();
+            ViewBag.kind = kinds;
+            return PartialView();
+
         }
+
+        //list design follow design
+
+        public virtual ActionResult Browse(int kinid)
+        {
+            // Retrieve Design and its Associated Kind from database 
+            var design = db.Kinds.Include("Design").Single(g => g.ID == kinid);
+            return View(design);
+
+
+        }
+
+        //// detail of design when click a single design
+        //public virtual ActionResult Details(int id)
+        //{
+        //    var album = db.Designs.Find(id);
+        //    return View(album);
+        //}
     }
 }
