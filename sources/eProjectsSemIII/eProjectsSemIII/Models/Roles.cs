@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Objects.DataClasses;
 
 namespace eProjectsSemIII.Models
 {
@@ -14,7 +15,7 @@ namespace eProjectsSemIII.Models
         //one to many with member
         public ICollection<Members> Member { get; set; }
 
-        //many to many with Menu
+        ////many to many with Menu
         public ICollection<Menus> Menu { get; set; }
         public Roles GetMenuRole()
         {
