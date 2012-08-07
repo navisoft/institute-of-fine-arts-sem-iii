@@ -17,17 +17,5 @@ namespace eProjectsSemIII.Models
 
         ////many to many with Menu
         public ICollection<Menus> Menu { get; set; }
-        public Roles GetMenuRole()
-        {
-            Roles role = new Roles();
-            using (var db = new FineArtContext())
-            {
-                var query = (from r in db.Roles
-                             where r.ID == this.ID
-                             select r).FirstOrDefault();
-                role = (Roles)query;
-            }
-            return role;
-        }
     }
 }
