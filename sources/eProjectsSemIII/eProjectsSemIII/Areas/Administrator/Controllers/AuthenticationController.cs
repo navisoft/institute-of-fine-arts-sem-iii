@@ -33,7 +33,15 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     ViewBag.Name = member.Name;
                     string controller = RouteData.Values["controller"].ToString();
                     string action = RouteData.Values["action"].ToString();
-
+                    Roles role = new Roles();
+                    role.ID = member.RoleID;
+                    role = role.GetMenuRole();
+                    ICollection<Menus> listMenu = role.Menu;
+                    Response.Write
+                    //foreach (Menus menu in listMenu)
+                    //{
+                    //    Response.Write(menu.Name);
+                    //}
                 }
                 else
                 {
