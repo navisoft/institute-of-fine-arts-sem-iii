@@ -21,5 +21,10 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             base.Authentication();
             return View();
         }
+        public ActionResult Roles()
+        {
+            base.Authentication();
+            return View();
+        }
     }
 }

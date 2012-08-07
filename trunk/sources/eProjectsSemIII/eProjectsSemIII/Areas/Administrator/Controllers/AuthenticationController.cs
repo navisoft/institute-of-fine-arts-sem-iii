@@ -24,25 +24,17 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public void Authentication()
         {
-
             if (Session["admin"] != null)
             {
                 Members member = (Members)Session["admin"];
-                if (member.Name != null && member.Name != "")
+                if (member.Name != null && member.Name != "" && member.RoleID < 4)
                 {
                     ViewBag.Name = member.Name;
-                    string controller = RouteData.Values["controller"].ToString();
-                    string action = RouteData.Values["action"].ToString();
-                    Roles role = new Roles();
-                    role.ID = member.RoleID;
-                    role = role.GetMenuRole();
-                    ICollection<Menus> listMenu = new List<Menus>();
-                    listMenu = role.Menu;
-                    Response.Write(listMenu.Count);
-                    //foreach (Menus menu in listMenu)
-                    //{
-                    //    Response.Write(menu.Name);
-                    //}
+                    Menus menusModels = new Menus();
+                    menusModels.Controller = RouteData.Values["controller"].ToString();
+                    menusModels.Action = RouteData.Values["action"].ToString();
+                    if (menusModels.CheckMenuOfRole(member.RoleID) == false)
+                        Response.Redirect("/administrator/", true);
                 }
                 else
                 {
