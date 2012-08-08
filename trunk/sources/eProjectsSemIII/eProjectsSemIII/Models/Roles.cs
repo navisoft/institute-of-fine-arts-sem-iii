@@ -11,6 +11,7 @@ namespace eProjectsSemIII.Models
         public int ID { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
+        public string Alias { get; set; }
         //one to many with member
         public ICollection<Members> Member { get; set; }
 
