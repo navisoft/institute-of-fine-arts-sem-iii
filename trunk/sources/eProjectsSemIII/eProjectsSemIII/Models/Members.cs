@@ -42,5 +42,14 @@ namespace eProjectsSemIII.Models
         //many to many with class
         //navigation property
         public ICollection<Classs> Class { get; set; }
+
+        public Members GetMemberByUserAndPass(string user, string pass)
+        {
+            FineArtContext context = new FineArtContext();
+            var query = (from d in context.Members
+                         where d.Username == user && d.Password == pass
+                         select d).FirstOrDefault();
+            return query;
+        }
     }
 }
