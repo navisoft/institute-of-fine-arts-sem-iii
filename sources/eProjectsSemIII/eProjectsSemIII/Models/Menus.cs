@@ -44,5 +44,9 @@ namespace eProjectsSemIII.Models
             }
             return false;
         }
+        public void TestModel()
+        {
+            
+        }
     }
 }
