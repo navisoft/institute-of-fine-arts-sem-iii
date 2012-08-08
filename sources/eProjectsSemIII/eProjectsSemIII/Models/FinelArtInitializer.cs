@@ -82,11 +82,11 @@ namespace eProjectsSemIII.Models
 
             var member = new List<Members>
             {
-                new Members {Images="/Content/Images/students/student-1.jpg",Username="minhphong1",Password="1371988", Name="Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=1},
-                new Members {Images="/Content/Images/students/student-2.jpg", Username="minhphong2",Password="1371988", Name="Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=2},
-                new Members {Images="/Content/Images/students/student-3.jpg", Username="minhphong3",Password="1371988", Name="Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="/Content/Images/students/student-4.jpg", Username="minhphong4",Password="1371988", Name="Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="/Content/Images/students/student-4.jpg", Username="minhphong5",Password="1371988", Name="Kim1",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="/Content/Images/students/student-1.jpg",Username="minhphong1",Password="123456", Name="Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=1},
+                new Members {Images="/Content/Images/students/student-2.jpg", Username="minhphong2",Password="123456", Name="Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=2},
+                new Members {Images="/Content/Images/students/student-3.jpg", Username="minhphong3",Password="123456", Name="Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="/Content/Images/students/student-4.jpg", Username="minhphong4",Password="123456", Name="Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="/Content/Images/students/student-4.jpg", Username="minhphong5",Password="123456", Name="Kim1",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
               
                
             };
