@@ -1,0 +1,45 @@
+﻿@model eProjectsSemIII.Models.Kinds
+@{
+    ViewBag.Title = "ASP.NET MVC Finel Art ";
+}
+                    <!--------------------THE UPCOMING COMPETITIONS--------------------->
+                	<div class="content-left-title">
+                    	THE DESIGN OF KIND
+                    </div>
+                   @foreach (var items in Model.Design) 
+                   { 
+                    <div class="content-left-content">
+                    	<div class="content-left-content-item">
+                        	<div class="item-image">
+                            
+                            	<img src="@items.Images" alt="@items.Name" />
+                       
+                            </div>
+                            <div class="item-detail">
+                            	<div class="item-detail-note">
+                                	 November 9, 2012 (deadline)
+                                </div>
+                            	<div class="item-detail-title">
+                                    @items.Name
+                                	
+                                </div>
+                            	<div class="item-detail-content">
+                              
+                                	@items.Description
+                                </div>
+                            	<div class="item-detail-date">
+                                  
+                                    Start date:@items.DatePost
+                                </div>
+                                <div class="item-detail-link">
+                                 @*@Html.ActionLink("View detail", "Details", "Home", new { designid = items.ID }, null)		*@
+                                 <a href="@Url.Content("~/Home/Details/"+@items.ID)")>@items.Name</a>
+                                	
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                                
+                    }   
+                   

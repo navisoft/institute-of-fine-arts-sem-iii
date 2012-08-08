@@ -33,20 +33,41 @@ namespace eProjectsSemIII.Controllers
 
         //list design follow design
 
-        public virtual ActionResult Browse(int kinid)
+        public virtual ActionResult Browse(int id)
         {
             // Retrieve Design and its Associated Kind from database 
-            var design = db.Kinds.Include("Design").Single(g => g.ID == kinid);
+            var design = db.Kinds.Include("Design").Single(g => g.ID == id);
             return View(design);
 
 
         }
 
-        //// detail of design when click a single design
-        //public virtual ActionResult Details(int id)
+        // detail of design when click a single design
+        public virtual ActionResult Details(int id)
+        {
+            var design = db.Designs.Include("Member").Include("Competition").Single(g => g.ID == id);
+            //var album = db.Designs.Find(designid);
+            return View(design);
+        }
+
+        // list all student which had a ward of competition 
+
+        //public virtual ActionResult List_Student()
         //{
-        //    var album = db.Designs.Find(id);
-        //    return View(album);
+        //    //var student = db.AwardMembers.Where(s=>s.MemberID==1).ToList();
+        //    var student = from am in db.AwardMembers
+        //                  join mb in db.Members on am.MemberID equals mb.ID
+        //                  select mb.Images ;
+        //    ViewBag.students = student;
+
+        //    return PartialView();
         //}
+        [ChildActionOnly]
+        public virtual ActionResult list_student()
+        {
+            var student = db.AwardMembers.Include("Member").Include("Award").Include("Competition").ToList();
+            ViewBag.students = student;
+            return PartialView();
+        }
     }
 }

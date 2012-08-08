@@ -15,7 +15,9 @@ namespace eProjectsSemIII.Models
         public string Name { get; set; }
        [Required(ErrorMessage = "Address is required.")]
     
-        public string Address { get; set; }
+       public string Address { get; set; }
+       public string Images { get; set; }
+
         public string Phone { get; set; }
        [Required(ErrorMessage = "Gender is required.")]
 

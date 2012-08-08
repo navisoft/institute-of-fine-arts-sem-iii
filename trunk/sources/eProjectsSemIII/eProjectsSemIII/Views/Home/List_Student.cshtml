@@ -1,0 +1,24 @@
+﻿@using eProjectsSemIII.Models;
+@{
+    ViewBag.Title = "List_Student";
+}
+
+<!--------------------LIST OF STUDENTS--------------------->
+                	<div class="content-left-title">
+                    	LIST OF STUDENTS AWARDED
+                    </div>
+
+                    <div class="content-left-content">
+                     @foreach ( AwardMembers item in ViewBag.students)
+                     {
+                    	<div class="student-item">
+                        	@*<img alt="" src="@Url.Content("~/Content/Images/students/student-1.jpg")" />*@
+                            <img src="@item.Member.Images"/>
+                        </div>
+                         <div class="student-item">
+                        	@*<img alt="" src="@Url.Content("~/Content/Images/students/student-1.jpg")" />*@
+                           @item.Competition.Name
+                        </div>
+                     }
+                    	
+                    </div>

@@ -1,0 +1,11 @@
+﻿@using eProjectsSemIII.Models;
+<ul>
+    @foreach (Kinds item in ViewBag.kind)
+    {
+            
+        <li>
+            @Html.ActionLink(item.Name, "Browse", "Home", new { id = item.ID },null)		
+        </li>
+                          
+    }
+</ul>

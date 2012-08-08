@@ -15,9 +15,13 @@ namespace eProjectsSemIII.Models
 
         [Required]
         public string Images { get; set; }
-        //one to many
+        //one to many with student and staff.
         public int MemberID { get; set; }
         public Members Member { get; set; }
+
+        // one to many
+        public int StaffID { get; set; }
+
         //one to many
         public int KindID { get; set; }
         public Kinds Kind { get; set; }
@@ -31,7 +35,8 @@ namespace eProjectsSemIII.Models
 
         public int Remark { get; set; }
         public int Mark { get; set; }
-     
+        
+        
      
     }
 }

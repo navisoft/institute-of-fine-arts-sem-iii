@@ -9,8 +9,9 @@ namespace eProjectsSemIII.Models
     {
         public int ID { get; set; }
 
-       [Required(ErrorMessage = "DEscription is required.")]
+        [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }
+
         // many to many with competition
         public ICollection<Competitions> Competition { get; set; }
        

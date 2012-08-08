@@ -1,32 +1,45 @@
-﻿
+﻿@model List<eProjectsSemIII.Models.Competitions>
+@{
+    ViewBag.Title = "ASP.NET MVC Finel Art ";
+}
                     <!--------------------THE UPCOMING COMPETITIONS--------------------->
                 	<div class="content-left-title">
                     	THE UPCOMING COMPETITIONS
                     </div>
+                    @foreach (var upcomming in Model)
+                    {
                     <div class="content-left-content">
                     	<div class="content-left-content-item">
                         	<div class="item-image">
-                            	<img alt="" src="@Url.Content("~/Content/Images/competitions/competition-1.jpg")" />
+                            
+                            	<img src="@upcomming.Images" alt="@upcomming.Name" />
+                       
                             </div>
                             <div class="item-detail">
                             	<div class="item-detail-note">
-                                	Graphic Design / November 9, 2012 (deadline)
+                                	 November 9, 2012 (deadline)
                                 </div>
                             	<div class="item-detail-title">
-                                	Gentletude Design Award 2012
+                                    @upcomming.Name
+                                	
                                 </div>
                             	<div class="item-detail-content">
-                                	The Gentletude Design Award is an international award for typhographic design students. The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. The award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications...
+                              
+                                	@upcomming.summary
                                 </div>
                             	<div class="item-detail-date">
-                                    Start date: 12/12/2012 - 20/01/2013
+                                  
+                                    Start date:@upcomming.StartDate
                                 </div>
                                 <div class="item-detail-link">
                                 	<a href="#">View detail...</a>
                                 </div>
                             </div>
+                         
                         </div>
                     </div>
+                                
+                    }   
                     <!--------------------ONGOING COMPETITIONS--------------------->
                 	<div class="content-left-title">
                     	ONGOING COMPETITIONS
@@ -82,7 +95,7 @@
                     	LIST OF STUDENTS AWARDED
                     </div>
                     <div class="content-left-content">
-                    	<div class="student-item">
+                    	@*<div class="student-item">
                         	<img alt="" src="@Url.Content("~/Content/Images/students/student-1.jpg")" />
                         </div>
                     	<div class="student-item">
@@ -99,6 +112,7 @@
                         </div>
                     	<div class="student-item">
                         	<img alt="" src="@Url.Content("~/Content/Images/students/student-6.jpg")" />
-                        </div>
+                        </div>*@
+                         @{Html.RenderAction("list_student", "Home");} 
                     </div>
                     <div class="content-left-title">d dsf</div>
