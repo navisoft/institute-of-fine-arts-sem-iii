@@ -48,5 +48,9 @@ namespace eProjectsSemIII.Models
         {
             
         }
+        public void OKK()
+        {
+
+        }
     }
 }
