@@ -22,7 +22,7 @@ namespace eProjectsSemIII.Models
             Roles roles = new Roles();
             using (var db = new FineArtContext())
             {
-                roles = (Roles)db.Roles.Include("Menu").Where(r => r.ID == this.ID);
+                roles = (Roles)db.Roles.Include("Menu").Where(r => r.ID == this.ID).FirstOrDefault();
             }
             return roles;
         }
