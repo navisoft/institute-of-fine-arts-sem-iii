@@ -14,7 +14,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
      * @author: Le Dang Son
      * @date: 06/08/2012
      */
-    public class MemberController : Controller
+    public class MembersController : Controller
     {
         /**
          * @function: Index
@@ -87,7 +87,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         public ActionResult Logout()
         {
             Session["admin"] = null;
-            return Redirect("/administrator/member/");
+            return Redirect("/administrator/members/");
         }
     }
 }

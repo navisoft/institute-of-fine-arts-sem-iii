@@ -10,7 +10,7 @@
 <!--ADD NEW PRODUCT-->
 <!--ckeditor-->
 
-<title>Untitled Document</title>
+<title>@ViewBag.Title</title>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/admin-app.js")"></script>
 
@@ -24,7 +24,7 @@
                     Administrator Manage Page
                 </div>
                 <div class="navigation">
-                    <a href="#">Site home</a> |
+                    <a href="@Url.Content("~/")">Site home</a> |
                     <a href="#">Help</a> |
                     <a href="#">Admin Profile</a>|
                     <span>Welcome @ViewBag.Name</span>|
@@ -36,24 +36,35 @@
             </div><!--#END header-->
             <div class="content">
 			    <div class="navigation_content">
-                    <a href="" class="item_navigation_content">
+                @{
+                    ICollection<eProjectsSemIII.Models.Menus> listMenu = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenu;
+                    var listParentMenu = listMenu.Where(m => m.ParentID == -1);
+                }
+                @foreach (eProjectsSemIII.Models.Menus parentMenu in listParentMenu)
+                {
+                    <a href="@Url.Content("~/administrator/" + parentMenu.Controller + "/" + parentMenu.Action)" class="item_navigation_content">
                         <div>
                     	    <div class='logo_item_navigation'>
-                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/home_icon.png")" />
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/"+parentMenu.Icon)" />
                             </div>
                             <div class='text_item_navigation'>
-                                Trang chủ
+                                @parentMenu.Name
                             </div>
                         </div> 
                     </a>
+                    var listChildMenu = listMenu.Where(m => m.ParentID == parentMenu.ID);
                     <div class='item_navigation_son'>
+                        @foreach (eProjectsSemIII.Models.Menus childMenu in listChildMenu)
+                        {
                         <div class='item_son_navigation_son'>
-                            <a href="">
-                                <div class="item_son_name">Bán hàng online</div>
-                                <div class="item_son_des">fsjfnsdf sdf sdf sd fs fsd fsd f sdf sd fs df sdf sd fsd </div>
+                            <a href="@Url.Content("~/administrator/" + childMenu.Controller + "/" + childMenu.Action)">
+                                <div class="item_son_name">@childMenu.Name</div>
+                                <div class="item_son_des">@childMenu.Description</div>
                             </a>
                         </div>
+                        }
                     </div>
+                }
                 </div>
 				<div class="main_content">
                 @RenderBody()                	

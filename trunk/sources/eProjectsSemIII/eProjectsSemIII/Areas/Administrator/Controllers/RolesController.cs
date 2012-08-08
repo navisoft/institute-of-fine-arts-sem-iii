@@ -6,21 +6,18 @@ using System.Web.Mvc;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
-    public class IndexController : AuthenticationController
+    public class RolesController : AuthenticationController
     {
         //
-        // GET: /Administrator/Home/
+        // GET: /Administrator/Roles/
+
         public ActionResult Index()
         {
             //base.Authentication();
             base.LoadMenu();
-            ViewBag.Title += " Home";
+            ViewBag.Title += " Roles";
             return View();
         }
-        public ActionResult Roles()
-        {
-            base.Authentication();
-            return View();
-        }
+
     }
 }
