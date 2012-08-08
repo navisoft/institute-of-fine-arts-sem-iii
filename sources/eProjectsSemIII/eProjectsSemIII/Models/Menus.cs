@@ -13,7 +13,6 @@ namespace eProjectsSemIII.Models
         public string Action { get; set; }
 
         [Required(ErrorMessage = "Number of credits is required.")]
-        [Range(0, 5, ErrorMessage = "Number of credits must be between 0 and 9.")]
         public int ParentID { get; set; }
 
         public string Icon { get; set; }
