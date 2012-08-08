@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using eProjectsSemIII.Models;
+using eProjectsSemIII.Areas.Administrator.Models;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -30,7 +31,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 if (member.Name != null && member.Name != "" && member.RoleID < 4)
                 {
                     ViewBag.Name = member.Name;
-                    Menus menusModels = new Menus();
+                    MenusAdmin menusModels = new MenusAdmin();
                     menusModels.Controller = RouteData.Values["controller"].ToString();
                     menusModels.Action = RouteData.Values["action"].ToString();
                     if (menusModels.CheckMenuOfRole(member.RoleID) == false)
