@@ -217,10 +217,10 @@ namespace eProjectsSemIII.Models
 
             var menu = new List<Menus>
             {
-                new Menus {Name = "Home Page", Controller="Index", Action = "Index",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "Logout", Controller="Index", Action = "Logout",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
-                new Menus {Name = "Menus", Controller="Index", Action = "Menus",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
-                new Menus {Name = "Roles", Controller="Index", Action = "Roles",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                new Menus {Name = "Home Page", Controller="", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},
+                new Menus {Name = "Logout", Controller="members", Action = "logout",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                new Menus {Name = "Menus", Controller="menus", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                new Menus {Name = "Roles", Controller="roles", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
                                
             };
             menu.ForEach(s => context.Menus.Add(s));
