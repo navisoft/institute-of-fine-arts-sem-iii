@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using eProjectsSemIII.Models;
-using eProjectsSemIII.Areas.Administrator.Models;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -31,11 +30,13 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 if (member.Name != null && member.Name != "" && member.RoleID < 4)
                 {
                     ViewBag.Name = member.Name;
-                    MenusAdmin menusModels = new MenusAdmin();
-                    menusModels.Controller = RouteData.Values["controller"].ToString();
-                    menusModels.Action = RouteData.Values["action"].ToString();
+                    Menus menusModels = new Menus();
+                    menusModels.Controller = RouteData.Values["controller"].ToString().ToLower();
+                    menusModels.Action = RouteData.Values["action"].ToString().ToLower();
                     if (menusModels.CheckMenuOfRole(member.RoleID) == false)
+                    {
                         Response.Redirect("/administrator/", true);
+                    }
                 }
                 else
                 {
@@ -46,6 +47,29 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             {
                 Response.Redirect("/administrator/member/", true);
             }
+        }
+
+        public void LoadMenu()
+        {
+            //if (Session["admin"] != null)
+            //{
+                //Members member = (Members)Session["admin"];
+                Roles rolesModels = new Roles();
+                rolesModels.ID = 1;//member.RoleID;
+                rolesModels = rolesModels.GetRoleWithID();
+                ViewBag.Title = rolesModels.Name + " Page:";
+                ICollection<Menus> listMenu = rolesModels.Menu;
+                //var listParentMenu = listMenu.Where(m => m.ParentID == -1);
+                //foreach (Menus parentMenu in listParentMenu)
+                //{
+                //    var listChildMenu = listMenu.Where(m => m.ParentID == parentMenu.ID);
+                //    foreach (Menus childMenu in listChildMenu)
+                //    {
+                //        Response.Write(childMenu.Name);
+                //    }
+                //}
+                ViewBag.listMenu = listMenu;
+            //}
         }
     }
 }
