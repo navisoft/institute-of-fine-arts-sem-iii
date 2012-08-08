@@ -10,6 +10,7 @@ namespace eProjectsSemIII.Models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public string Alias { get; set; }
 
         //one to many with design
         public ICollection<Designs> Design { get; set; }

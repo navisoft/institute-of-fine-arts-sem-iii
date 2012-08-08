@@ -10,8 +10,9 @@ namespace eProjectsSemIII.Models
     {
         public int ID { get; set; }
         [Required]
-     
+
         public string Name { get; set; }
+        public string Alias { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
