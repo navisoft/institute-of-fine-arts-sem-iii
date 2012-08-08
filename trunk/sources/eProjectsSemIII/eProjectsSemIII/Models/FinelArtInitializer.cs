@@ -71,7 +71,7 @@ namespace eProjectsSemIII.Models
 
             var role = new List<Roles>
             {
-                new Roles {Name = "Admin"},
+                new Roles {Name = "Administrator"},
                 new Roles {Name = "Manager"},
                 new Roles {Name = "Staff"},
                 new Roles {Name = "Student"},
