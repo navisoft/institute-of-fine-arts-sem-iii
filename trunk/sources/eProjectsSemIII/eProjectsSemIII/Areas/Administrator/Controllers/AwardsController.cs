@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
-    public class KindsController : AuthenticationController
+    public class AwardsController : AuthenticationController
     {
         //
-        // GET: /Administrator/Kinds/
+        // GET: /Administrator/Awards/
 
         public ActionResult Index()
         {

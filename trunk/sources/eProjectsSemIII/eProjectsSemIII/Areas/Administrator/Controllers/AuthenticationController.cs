@@ -33,14 +33,17 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     Menus menusModels = new Menus();
                     menusModels.Controller = RouteData.Values["controller"].ToString().ToLower();
                     menusModels.Action = RouteData.Values["action"].ToString().ToLower();
+
                     if (menusModels.CheckMenuOfRole(member.RoleID) == false)
                     {
-                        Response.Redirect("/administrator/", true);
+                        Session["admin"] = null;
+                        Response.Redirect("/", true);
                     }
                 }
                 else
                 {
-                    Response.Redirect("/administrator/members/", true);
+                    Session["admin"] = null;
+                    Response.Redirect("/", true);
                 }
             }
             else
