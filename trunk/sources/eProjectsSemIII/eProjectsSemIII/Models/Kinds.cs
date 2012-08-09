@@ -14,5 +14,8 @@ namespace eProjectsSemIII.Models
 
         //one to many with design
         public ICollection<Designs> Design { get; set; }
+
+        // many to many with competion
+         public ICollection<Competitions> Competition { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace eProjectsSemIII.Models
         public ICollection<Conditions> Condition { get; set; }
         public ICollection<Awards> Award { get; set; }
 
+        // many to many with competion
+        public ICollection<Kinds> Kind { get; set; }
+
         //one to many with design
         public ICollection<Designs> Design { get; set; }
        
