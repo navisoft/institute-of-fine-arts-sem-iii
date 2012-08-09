@@ -9,20 +9,23 @@ using eProjectsSemIII.Models;
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
     /**
-     * @class: MemberController
-     * @Any user who wants to go to administrator page must login
-     * @author: Le Dang Son
-     * @date: 06/08/2012
+     * Class: MemberController
+     * Any user who wants to go to administrator page must login
+     * Author: Le Dang Son
+     * Date: 06/08/2012
      */
     public class MembersController : Controller
     {
         /**
-         * @function: Index
-         * @Show login form and check admin
+         * Controller: Members
+         * Action: Index
+         * Show login form and check admin
+         * 
          * @param name="form":data for login
          * @returns:if is admin:redirect to admin index page else show login form
-         * @author: Le Dang Son
-         * @date: 06/08/2012
+         * 
+         * Author: Le Dang Son
+         * Date: 06/08/2012
          */
         public ActionResult Index(FormCollection form)
         {
@@ -83,7 +86,13 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             return View();
         }
-
+        /**
+         * Controller: Members
+         * Action: Logout
+         * User logout system
+         * Author: Le Dang Son
+         * Date: 06/08/2012
+         */
         public ActionResult Logout()
         {
             Session["admin"] = null;

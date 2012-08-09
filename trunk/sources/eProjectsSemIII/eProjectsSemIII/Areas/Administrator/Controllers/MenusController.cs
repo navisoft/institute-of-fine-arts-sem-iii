@@ -6,11 +6,22 @@ using System.Web.Mvc;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
+    /**
+     * Class: MenusController
+     * Manage Menus System
+     * Author: Le Dang Son
+     * Date: 08/08/2012
+     */
     public class MenusController : AuthenticationController
     {
-        //
-        // GET: /Administrator/Menus/
 
+        /**
+         * Controller: Menus
+         * Action: Index
+         * List All menu system
+         * Author: Le Dang Son
+         * Date: 08/08/2012
+         */
         public ActionResult Index()
         {
             //base.Authentication();
