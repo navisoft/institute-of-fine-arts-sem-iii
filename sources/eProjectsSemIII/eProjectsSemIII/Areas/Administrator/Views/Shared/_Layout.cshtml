@@ -39,8 +39,8 @@
             <div class="content">
 			    <div class="navigation_content">
                 @{
-                    ICollection<eProjectsSemIII.Models.Menus> listMenu = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenu;
-                    var listParentMenu = listMenu.Where(m => m.ParentID == -1);
+                    ICollection<eProjectsSemIII.Models.Menus> listMenuMain = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenuMain;
+                    var listParentMenu = listMenuMain.Where(m => m.ParentID == -1);
                 }
                 @foreach (eProjectsSemIII.Models.Menus parentMenu in listParentMenu)
                 {
@@ -54,7 +54,7 @@
                             </div>
                         </div> 
                     </a>
-                    var listChildMenu = listMenu.Where(m => m.ParentID == parentMenu.ID);
+                    var listChildMenu = listMenuMain.Where(m => m.ParentID == parentMenu.ID && m.Display == true);
                     <div class='item_navigation_son'>
                         @foreach (eProjectsSemIII.Models.Menus childMenu in listChildMenu)
                         {

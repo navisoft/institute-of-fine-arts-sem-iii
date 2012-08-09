@@ -58,7 +58,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 rolesModels.ID = 1;//member.RoleID;
                 rolesModels = rolesModels.GetRoleWithID();
                 ViewBag.Title = rolesModels.Name + " Page:";
-                ICollection<Menus> listMenu = rolesModels.Menu;
+                ICollection<Menus> listMenus = rolesModels.Menu;
                 //var listParentMenu = listMenu.Where(m => m.ParentID == -1);
                 //foreach (Menus parentMenu in listParentMenu)
                 //{
@@ -68,7 +68,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 //        Response.Write(childMenu.Name);
                 //    }
                 //}
-                ViewBag.listMenu = listMenu;
+                ViewBag.listMenuMain = listMenus;
             //}
         }
     }
