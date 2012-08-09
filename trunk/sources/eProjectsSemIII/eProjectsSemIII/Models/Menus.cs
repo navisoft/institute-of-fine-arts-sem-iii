@@ -47,5 +47,9 @@ namespace eProjectsSemIII.Models
         {
             return true;
         }
+        public bool Check2()
+        {
+            return true;
+        }
     }
 }
