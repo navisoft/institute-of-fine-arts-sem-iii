@@ -163,6 +163,24 @@ td.text-left{border-right:1px solid #e7e7e7;line-height:22px;padding:15px 0 15px
 .gi{color:#b7b7b7;margin-right: 5px;}
 .num-id{font-weight:bold}
 
+/********************************************PAGING**************************************************/
+.paging{float: left;width: 90%;padding:10px 0;text-align: right;padding-left: .5%;}
+.notlink
+{
+    float: left;border: 1px solid #d0d0d0;margin: 0px 7px;padding: 2px 7px;border-radius:3px;font-weight:bold;
+    border-bottom:1px solid #fff;
+    border-right:1px solid #fff;
+    font-size:120%;color:#0681C8
+}
+.link
+{
+    float: left;margin: 0px 7px;border: 1px solid #d0d0d0;border-radius:3px;
+    border-top:1px solid #fff;
+    border-left:1px solid #fff;
+}
+.link a{color:#f90;display:block;padding: 2px 7px;font-weight:bold;font-size:120%;text-decoration: none;} 
+.link a:hover{color:#f90;} 
+
 
 
 
