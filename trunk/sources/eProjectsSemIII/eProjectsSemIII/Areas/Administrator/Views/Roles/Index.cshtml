@@ -3,15 +3,15 @@
         <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/menus/")">Menus</a>
+        <a href="@Url.Content("~/administrator/roles/")">Role</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/menus/")">List systems menus</a>
+        <a href="@Url.Content("~/administrator/roles/")">List systems roles</a>
     </div>
 </div>
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List systems menus
+        List systems role
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -50,38 +50,43 @@
     <div class="list_item">
         <table>
             <tr class="table_title">
+                <td class="text-center">No.</td>
+                <td class="text-left">Role Name</td>
+                <td class="text-left">Alias</td>
+                <td class="text-left">Role Description</td>
+                <td class="text-center">View Menu of Role</td>
+                <td class="text-center">Edit</td>
+                <td class="text-center">Delete</td>
+            </tr>
+            @foreach (var role in ViewBag.listRole)
+            {
+            <tr>
+                <td class="text-center num-id">@role.ID</td>
+                <td class="text-left">@role.Name</td>
+                <td class="text-left">@role.Alias</td>
+                <td class="text-left">@role.Description</td>
                 <td class="text-center">
-                    No.
-                </td>
-                <td class="text-left">
-                    Menu name
-                </td>
-                <td class="text-left">
-                    Controller
-                </td>
-                <td class="text-left">
-                    Action
-                </td>
-                <td class="text-left">
-                    Menu Description
-                </td>
-                <td class="text-center">
-                    Display
-                </td>
-                <td class="text-center">
-                    Sửa
+                    <a href="">View Menus</a>
                 </td>
                 <td class="text-center">
-                    Xóa
+                    <a href="">
+                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="">
+                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                    </a>
                 </td>
             </tr>
+            }
         </table>
     </div>
 </div>
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List systems menus
+        List systems roles
     </div>
     <div class="content_action">
         <div class="item_content_action">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using eProjectsSemIII.Models;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -26,6 +27,8 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         {
             //base.Authentication();
             base.LoadMenu();
+            Roles rolesModels = new Roles();
+            ViewBag.listRole = rolesModels.ListRole();
             ViewBag.Title += " Roles";
             return View();
         }
