@@ -51,20 +51,50 @@
 <div class="path_menu">
     <div class="list_item">
         <table>
-            <tr class="form_categories_title">
-                <td>STT</td>
-                <td>Tên menu</td>
-                <td>Url Menu</td>
-                <td>Mô tả menu</td>
-                <td>Hiển thị</td>
-                <td>Trạng thái đối với gian hàng</td>
-                <td>Sửa</td>
-                <td>Xóa</td>
+            <tr class="table_title">
+                <td class="text-left">No.</td>
+                <td class="text-left">Menu name</td>
+                <td class="text-left">Controller</td>
+                <td class="text-left">Action</td>
+                <td class="text-left">Menu Description</td>
+                <td class="text-center">Display</td>
+                <td class="text-center">Sửa</td>
+                <td class="text-center">Xóa</td>
             </tr>
-        
+            @foreach (var menu in ViewBag.listMenu)
+            {
             <tr>
-                <td colspan="7"></td>
+                <td class="text-left">@menu.ID</td>
+                <td class="text-left">@menu.Name</td>
+                <td class="text-left">@menu.Controller</td>
+                <td class="text-left">@menu.Action</td>
+                <td class="text-left">@menu.Description</td>
+                <td class="text-center">
+                @if (menu.Display)
+                {
+                <a title="Disable" href="" >
+                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_enable.png")" />
+                </a>
+                }
+                else
+                {
+                <a title="Enable" href="" >
+                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_disable.png")" />
+                </a>
+                }
+                </td>
+                <td class="text-center">
+                <a href="">
+                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                </a>
+                </td>
+                <td class="text-center">
+                <a href="">
+                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                </a>
+                </td>
             </tr>
+            }
         </table>
     </div>
 </div>
