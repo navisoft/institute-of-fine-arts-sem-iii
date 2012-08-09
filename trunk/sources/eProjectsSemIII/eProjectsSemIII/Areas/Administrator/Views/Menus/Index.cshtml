@@ -1,139 +1,200 @@
 ﻿<div class="path_menu">
-	<div class="path_menu_item">
-    	<a href="">Home Page</a>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
-	<div class="path_menu_item">
-    	<a href="">Menus</a>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/menus/")">Menus</a>
     </div>
-	<div class="path_menu_item">
-    	<a href="">List systems menus</a>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/menus/")">List systems menus</a>
     </div>
 </div>
-
 <div class="path_menu title_and_action">
-	<div class="content_title">
-    	List systems menus
+    <div class="content_title">
+        List systems menus
     </div>
     <div class="content_action">
-    	<div class="item_content_action">
+        <div class="item_content_action">
             <a href="#">
-            	<div class="img_item_content_action" id="help_action">
-                
+                <div class="img_item_content_action" id="help_action">
                 </div>
-            	<div class="text_item_content_action">
-                	Help
+                <div class="text_item_content_action">
+                    Help
                 </div>
             </a>
         </div>
-    	<div class="item_content_action">
+        <div class="item_content_action">
             <a href="#">
-            	<div class="img_item_content_action" id="go_back_action">
-                
+                <div class="img_item_content_action" id="go_back_action">
                 </div>
-            	<div class="text_item_content_action">
-                	Go back
-                </div>
-            </a>
-        </div><div class="item_content_action">
-            <a href="#">
-            	<div class="img_item_content_action" id="add_action">
-                
-                </div>
-            	<div class="text_item_content_action">
-                	Add
+                <div class="text_item_content_action">
+                    Go back
                 </div>
             </a>
         </div>
-    </div><!--#END content_action-->
-</div><!--#END path_menu title_and_action-->
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="add_action">
+                </div>
+                <div class="text_item_content_action">
+                    Add
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
 <!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
-
 <div class="path_menu">
     <div class="list_item">
         <table>
             <tr class="table_title">
-                <td class="text-left">No.</td>
-                <td class="text-left">Menu name</td>
-                <td class="text-left">Controller</td>
-                <td class="text-left">Action</td>
-                <td class="text-left">Menu Description</td>
-                <td class="text-center">Display</td>
-                <td class="text-center">Sửa</td>
-                <td class="text-center">Xóa</td>
-            </tr>
-            @foreach (var menu in ViewBag.listMenu)
-            {
-            <tr>
-                <td class="text-left">@menu.ID</td>
-                <td class="text-left">@menu.Name</td>
-                <td class="text-left">@menu.Controller</td>
-                <td class="text-left">@menu.Action</td>
-                <td class="text-left">@menu.Description</td>
                 <td class="text-center">
-                @if (menu.Display)
-                {
-                <a title="Disable" href="" >
-                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_enable.png")" />
-                </a>
-                }
-                else
-                {
-                <a title="Enable" href="" >
-                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_disable.png")" />
-                </a>
-                }
+                    No.
+                </td>
+                <td class="text-left">
+                    Menu name
+                </td>
+                <td class="text-left">
+                    Controller
+                </td>
+                <td class="text-left">
+                    Action
+                </td>
+                <td class="text-left">
+                    Menu Description
                 </td>
                 <td class="text-center">
-                <a href="">
-                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                </a>
+                    Display
                 </td>
                 <td class="text-center">
-                <a href="">
-                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                </a>
+                    Sửa
+                </td>
+                <td class="text-center">
+                    Xóa
                 </td>
             </tr>
+            @{
+                var listMenu = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenu;
+                var listParentMenu = listMenu.Where(m => m.ParentID == -1);
+                foreach (var menu in listParentMenu)
+                {
+                <tr>
+                    <td class="text-center num-id">@menu.ID
+                    </td>
+                    <td class="text-left">@menu.Name
+                    </td>
+                    <td class="text-left">@menu.Controller
+                    </td>
+                    <td class="text-left">@menu.Action
+                    </td>
+                    <td class="text-left">@menu.Description
+                    </td>
+                    <td class="text-center">
+                        @if (menu.Display)
+                        {
+                            <a title="Disable" href="">
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_enable.png")" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a title="Enable" href="">
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_disable.png")" />
+                            </a>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <a href="">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                </tr>
+                        var listChildMenu = listMenu.Where(m => m.ParentID == menu.ID);
+                        foreach (var childMenu in listChildMenu)
+                        {
+                <tr>
+                    <td class="text-center num-id">@childMenu.ID
+                    </td>
+                    <td class="text-left"><span class="gi">|—</span>@childMenu.Name
+                    </td>
+                    <td class="text-left">@childMenu.Controller
+                    </td>
+                    <td class="text-left">@childMenu.Action
+                    </td>
+                    <td class="text-left">@childMenu.Description
+                    </td>
+                    <td class="text-center">
+                        @if (childMenu.Display)
+                        {
+                            <a title="Disable" href="">
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_enable.png")" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a title="Enable" href="">
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_disable.png")" />
+                            </a>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <a href="">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                </tr>
+                        }
+                }
             }
         </table>
     </div>
 </div>
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
-
 <div class="path_menu title_and_action">
-	<div class="content_title">
-    	List systems menus
+    <div class="content_title">
+        List systems menus
     </div>
     <div class="content_action">
-    	<div class="item_content_action">
+        <div class="item_content_action">
             <a href="#">
-            	<div class="img_item_content_action" id="help_action1">
-                
+                <div class="img_item_content_action" id="help_action1">
                 </div>
-            	<div class="text_item_content_action">
-                	Help
+                <div class="text_item_content_action">
+                    Help
                 </div>
             </a>
         </div>
-    	<div class="item_content_action">
+        <div class="item_content_action">
             <a href="#">
-            	<div class="img_item_content_action" id="go_back_action1">
-                
+                <div class="img_item_content_action" id="go_back_action1">
                 </div>
-            	<div class="text_item_content_action">
-                	Go back
+                <div class="text_item_content_action">
+                    Go back
                 </div>
             </a>
         </div>
-    	<div class="item_content_action">
+        <div class="item_content_action">
             <a href="#">
-            	<div class="img_item_content_action" id="add_action1">
-                
+                <div class="img_item_content_action" id="add_action1">
                 </div>
-            	<div class="text_item_content_action">
-                	Add
+                <div class="text_item_content_action">
+                    Add
                 </div>
             </a>
         </div>
-    </div><!--#END content_action-->
-</div><!--#END path_menu title_and_action-->
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
