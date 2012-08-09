@@ -40,12 +40,12 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
                 else
                 {
-                    Response.Redirect("/administrator/member/", true);
+                    Response.Redirect("/administrator/members/", true);
                 }
             }
             else
             {
-                Response.Redirect("/administrator/member/", true);
+                Response.Redirect("/administrator/members/", true);
             }
         }
 
