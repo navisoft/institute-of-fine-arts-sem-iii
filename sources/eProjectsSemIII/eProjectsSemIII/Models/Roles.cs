@@ -35,5 +35,11 @@ namespace eProjectsSemIII.Models
             }
             return roles;
         }
+        public List<Roles> ListRole()
+        {
+            var db = new FineArtContext();
+            var query = db.Roles.ToList();
+            return query;
+        }
     }
 }
