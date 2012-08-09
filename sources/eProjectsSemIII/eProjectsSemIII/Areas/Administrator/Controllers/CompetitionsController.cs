@@ -27,7 +27,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             float totalRecord = 5;
