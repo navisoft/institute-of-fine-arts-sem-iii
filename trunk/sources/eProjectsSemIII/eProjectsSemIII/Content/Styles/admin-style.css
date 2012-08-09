@@ -15,7 +15,7 @@ img{border:none}
 	box-shadow:0px 0px 10px #999;
 }
 
-.header{float:left;width:96%;height:30px;padding:5px 2%;border-bottom:5px solid #FFCC00;font-weight:bold;color:#0681C8}
+.header{float:left;width:96%;height:40px;padding:10px 2% 0 2%;border-bottom:5px solid #FFCC00;font-weight:bold;color:#0681C8}
 .title{float:left;width:40%;font-size:200%}
 .navigation{float:right;margin-top:5px;}
 .navigation a{color:#0681C8;text-decoration:none;margin:0 5px}
@@ -23,7 +23,7 @@ img{border:none}
 .navigation span{margin:0 5px}
 
 .content{float:left;width:100%;}
-.navigation_content{float:left;width:100%;margin-top:10px;border-bottom:1px solid #dfdfdf;}
+.navigation_content{float:left;width:100%;margin:10px 0 5px 0;border-bottom:1px solid #dfdfdf;}
 .navigation_content a{border: 1px solid #dfdfdf;border-bottom: none;}
 a .item_navigation_content{border:1px solid #dfdfdf;border-bottom: none;}
 .item_navigation_content{
