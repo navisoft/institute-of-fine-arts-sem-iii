@@ -149,6 +149,7 @@
 
 .list_item{float:left;width:100%}
 .list_item table{width:100%;font-size:120%;border-collapse:collapse;color:Black}
+.list_item table td a{color:#0681C8;text-decoration:none}
 .list_item table tr{border-bottom:1px solid #e7e7e7}
 .list_item table tr:last-child{border-bottom:none}
 tr.table_title{font-weight:bold;background:#e7e7e7;color:#0681C8}
