@@ -24,6 +24,16 @@ namespace eProjectsSemIII.Models
         //many to many with Roles
         public ICollection<Roles> Role { get; set; }
 
+        /**
+         * Function: CheckMenuOfRole
+         * Check exists of menu by roleID
+         * @param name="roleID": role ID of user
+         * @returns: 
+         * true: exists menu with role
+         * false: not exists menu with role
+         * Author: Le Dang Son
+         * Date: 06/08/2012
+         */
         public bool CheckMenuOfRole(int roleID)
         {
             using (var db = new FineArtContext())

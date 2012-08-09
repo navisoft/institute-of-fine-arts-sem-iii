@@ -43,6 +43,15 @@ namespace eProjectsSemIII.Models
         //navigation property
         public ICollection<Classs> Class { get; set; }
 
+        /**
+         * Function: GetMemberByUserAndPass
+         * Get Member by username and password
+         * @param name="pass": password
+         * @param name="user": username
+         * @returns: A member
+         * Author: Le Dang Son
+         * Date: 06/08/2012
+         */
         public Members GetMemberByUserAndPass(string user, string pass)
         {
             FineArtContext context = new FineArtContext();
