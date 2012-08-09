@@ -228,6 +228,7 @@ namespace eProjectsSemIII.Models
                 new Menus {Name = "Menus", Controller="menus", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
                 new Menus {Name = "Roles", Controller="roles", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
                 new Menus {Name = "Competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=-1,Display=true},
+                new Menus {Name = "List of competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=5,Display=true},
                                
             };
             menu.ForEach(s => context.Menus.Add(s));
@@ -238,6 +239,7 @@ namespace eProjectsSemIII.Models
             menu[2].Role.Add(role[0]);
             menu[3].Role.Add(role[0]);
             menu[4].Role.Add(role[0]);
+            menu[5].Role.Add(role[0]);
             context.SaveChanges();
 
             

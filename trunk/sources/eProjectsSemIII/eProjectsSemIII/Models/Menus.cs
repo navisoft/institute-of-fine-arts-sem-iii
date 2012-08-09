@@ -12,11 +12,11 @@ namespace eProjectsSemIII.Models
         public string Controller { get; set; }
         public string Action { get; set; }
 
-        [Required(ErrorMessage = "Number of credits is required.")]
+        //[Required(ErrorMessage = "Number of credits is required.")]
         public int ParentID { get; set; }
 
         public string Icon { get; set; }
-        [Required(ErrorMessage = "Description is required.")]
+        //[Required(ErrorMessage = "Description is required.")]
       
         public string Description { get; set; }
         public bool Display { get; set; }
