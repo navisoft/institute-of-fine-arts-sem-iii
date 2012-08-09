@@ -53,5 +53,18 @@ namespace eProjectsSemIII.Models
             }
             return false;
         }
+
+        /**
+         * Function: ListMenu
+         * Get list menus system
+         * Author: Le Dang Son
+         * Date: 06/08/2012
+         */
+        public List<Menus> ListMenu()
+        {
+            var db = new FineArtContext();
+            var query = db.Menus.ToList();
+            return query;
+        }
     }
 }
