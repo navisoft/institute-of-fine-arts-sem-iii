@@ -19,7 +19,7 @@ namespace eProjectsSemIII.Models
         public DateTime EndDate { get; set; }
 
         public string Images { get; set; }
-        public string summary { get; set; }
+        public string Summary { get; set; }
 
         //many to many
         public ICollection<Conditions> Condition { get; set; }

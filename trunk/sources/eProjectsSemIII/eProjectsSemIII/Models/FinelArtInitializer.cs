@@ -12,12 +12,38 @@ namespace eProjectsSemIII.Models
         {
             var compatition = new List<Competitions>
             {
-                new Competitions {Name="Pain1", StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
-                new Competitions {Name="Pain2", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain3", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain4", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain5", StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
-                new Competitions {Name="Pain6", StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {
+                    Name="The Eros Award 2012",
+                    Alias="the-eros-award-2012", 
+                    StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="the-eros-award-2012.jpg",
+                    Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {
+                    Name="The Climate Change Ad Competition 2012",
+                    Alias="the-climate-change-ad-competition-2012",  
+                    StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="the-climate-change-ad-competition-2012.jpg",
+                    Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {
+                    Name="ILFORD Student Photo Competition 2012",
+                    Alias="ilford-student-photo-competition-2012",  
+                    StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="ilford-student-photo-competition-2012.jpg",Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {
+                    Name="Embracing Our Differences 2013",
+                    Alias="embracing-our-differences-2013",  
+                    StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="embracing-our-differences-2013.jpg",Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {
+                    Name="Pink Lady Food Photographer Of The Year 2013",
+                    Alias="pink-lady-food-photographer-of-the-year-2013",  
+                    StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="pink-lady-food-photographer-of-the-year-2013.jpg",Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {
+                    Name="Greenham Common Open 2012 Competition",
+                    Alias="greenham-common-open-2012-competition",  
+                    StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") ,
+                    Images="greenham-common-open-2012-competition.jpg",Summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
                
             };
             compatition.ForEach(s => context.Competitions.Add(s));
