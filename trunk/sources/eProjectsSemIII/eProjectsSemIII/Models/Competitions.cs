@@ -49,7 +49,11 @@ namespace eProjectsSemIII.Models
             var query = db.Competitions.OrderBy(o=>o.StartDate).Skip(skip).Take(take).ToList();
             return query;
         }
-        
 
+        public int TotalCompetition()
+        {
+            var db = new FineArtContext();
+            return db.Competitions.Count();
+        }
     }
 }
