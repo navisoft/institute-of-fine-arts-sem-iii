@@ -34,12 +34,22 @@ namespace eProjectsSemIII.Models
         //one to many with design
         public ICollection<Designs> Design { get; set; }
 
-        public List<Competitions> ListAllCompetition(int skip, int take)
+        /**
+         * Function: ListAllCompetition
+         * @param name="skip": The number of elements to skip before returning the remaining elements.
+         * @param name="take": The number of elements to return.
+         * Return: List Competition
+         * Author: Le Dang Son
+         * Date: 09/08/2012
+         */
+
+        public List<Competitions> ListCompetition(int skip, int take)
         {
             var db = new FineArtContext();
             var query = db.Competitions.OrderBy(o=>o.StartDate).Skip(skip).Take(take).ToList();
             return query;
         }
-       
+        
+
     }
 }
