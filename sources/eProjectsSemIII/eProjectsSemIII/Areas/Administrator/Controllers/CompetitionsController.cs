@@ -13,7 +13,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
      * Date: 08/08/2012
      */
 
-    public class CompetitionController : Controller
+    public class CompetitionsController : AuthenticationController
     {
         /**
          * Controller: Competition
@@ -24,6 +24,9 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index()
         {
+            //base.Authentication();
+            base.LoadMenu();
+            ViewBag.Title += " Competitions";
             return View();
         }
     }
