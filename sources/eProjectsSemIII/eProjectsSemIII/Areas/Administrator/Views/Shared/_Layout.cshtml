@@ -39,10 +39,10 @@
             <div class="content">
 			    <div class="navigation_content">
                 @{
-                    ICollection<eProjectsSemIII.Models.Menus> listMenuMain = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenuMain;
+                    var listMenuMain = (ICollection<eProjectsSemIII.Models.Menus>)ViewBag.listMenuMain;
                     var listParentMenu = listMenuMain.Where(m => m.ParentID == -1);
                 }
-                @foreach (eProjectsSemIII.Models.Menus parentMenu in listParentMenu)
+                @foreach (var parentMenu in listParentMenu)
                 {
                     <a href="@Url.Content("~/administrator/" + parentMenu.Controller + "/" + parentMenu.Action)" class="item_navigation_content">
                         <div>
@@ -56,7 +56,7 @@
                     </a>
                     var listChildMenu = listMenuMain.Where(m => m.ParentID == parentMenu.ID && m.Display == true);
                     <div class='item_navigation_son'>
-                        @foreach (eProjectsSemIII.Models.Menus childMenu in listChildMenu)
+                        @foreach (var childMenu in listChildMenu)
                         {
                         <div class='item_son_navigation_son'>
                             <a href="@Url.Content("~/administrator/" + childMenu.Controller + "/" + childMenu.Action)">
