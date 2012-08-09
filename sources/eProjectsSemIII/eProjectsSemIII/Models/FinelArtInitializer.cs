@@ -12,12 +12,12 @@ namespace eProjectsSemIII.Models
         {
             var compatition = new List<Competitions>
             {
-                new Competitions {Name="Pain1", StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
-                new Competitions {Name="Pain2", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain3", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain4", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
-                new Competitions {Name="Pain5", StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
-                new Competitions {Name="Pain6", StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") ,Images="/Content/Images/competitions/competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {Name="Pain1", StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {Name="Pain2", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {Name="Pain3", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {Name="Pain4", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-1.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..."},
+                new Competitions {Name="Pain5", StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-2.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
+                new Competitions {Name="Pain6", StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") ,Images="competition-3.jpg",summary="The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani. he award aims is to encourage.Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications..." },
                
             };
             compatition.ForEach(s => context.Competitions.Add(s));
@@ -94,14 +94,20 @@ namespace eProjectsSemIII.Models
 
             var kind = new List<Kinds>
             {
-                new Kinds {Name = "Graphic Design",Alias = "graphic-design"},
-                new Kinds {Name = "Photography",Alias = "photography"},
-                new Kinds {Name = "Illustration",Alias = "illustration"},
-                new Kinds {Name = "Animation",Alias = "animation"},
-                new Kinds {Name = "Multiple Disciplines",Alias = "multiple-disciplines"},
-                new Kinds {Name = "Students Only",Alias = "students-only"},
+                new Kinds {Name = "Graphic Design",Alias = "graphic-design",Competition = new List<Competitions>()},
+                new Kinds {Name = "Photography",Alias = "photography",Competition = new List<Competitions>()},
+                new Kinds {Name = "Illustration",Alias = "illustration",Competition = new List<Competitions>()},
+                new Kinds {Name = "Animation",Alias = "animation",Competition = new List<Competitions>()},
+                new Kinds {Name = "Multiple Disciplines",Alias = "multiple-disciplines",Competition = new List<Competitions>()},
+                new Kinds {Name = "Students Only",Alias = "students-only",Competition = new List<Competitions>()},
             };
             kind.ForEach(s => context.Kinds.Add(s));
+            context.SaveChanges();
+
+            kind[0].Competition.Add(compatition[0]);
+            kind[1].Competition.Add(compatition[1]);
+            kind[2].Competition.Add(compatition[2]);
+            kind[3].Competition.Add(compatition[3]);
             context.SaveChanges();
 
 
