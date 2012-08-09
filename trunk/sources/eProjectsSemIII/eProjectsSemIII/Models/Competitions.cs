@@ -12,10 +12,13 @@ namespace eProjectsSemIII.Models
         public string Name { get; set; }
         public string Alias { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime DeadlineDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
         public string Images { get; set; }
@@ -30,6 +33,13 @@ namespace eProjectsSemIII.Models
 
         //one to many with design
         public ICollection<Designs> Design { get; set; }
+
+        public List<Competitions> ListAllCompetition(int skip, int take)
+        {
+            var db = new FineArtContext();
+            var query = db.Competitions.OrderBy(o=>o.StartDate).Skip(skip).Take(take).ToList();
+            return query;
+        }
        
     }
 }
