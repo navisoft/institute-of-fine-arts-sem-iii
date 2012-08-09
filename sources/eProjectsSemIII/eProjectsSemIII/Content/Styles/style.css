@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+﻿
 /* CSS Document */
 
 
@@ -90,7 +90,7 @@
 .content-left-content{float:left;width:700px;padding:10px 0 0 0}
 .content-left-content-item{float:left;width:700px;margin-bottom:10px}
 .item-image{float:left;width:200px}
-.item-image img{border:5px solid #f1f1f1}
+.item-image img{border:5px solid #f1f1f1;width:180px}
 
 .item-detail{float:left;width:490px;padding-left:10px}
 .item-detail-note{float:left;width:490px;color:#969696;font-size:120%}
