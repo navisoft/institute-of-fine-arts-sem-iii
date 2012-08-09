@@ -18,6 +18,13 @@ namespace eProjectsSemIII.Models
         //many to many with Menu
         public ICollection<Menus> Menu { get; set; }
 
+        /**
+         * Function: GetRoleWithID
+         * List Menu through Role ID
+         * @returns: Roles and list Menus
+         * Author: Le Dang Son
+         * Date: 06/08/2012
+         */
         public Roles GetRoleWithID()
         {
             Roles roles = new Roles();
