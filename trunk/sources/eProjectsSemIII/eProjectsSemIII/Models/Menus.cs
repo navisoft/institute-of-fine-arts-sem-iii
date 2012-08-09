@@ -43,17 +43,5 @@ namespace eProjectsSemIII.Models
             }
             return false;
         }
-        public bool Check()
-        {
-            return true;
-        }
-        public bool OK()
-        {
-            return true;
-        }
-        public bool Check2()
-        {
-            return true;
-        }
     }
 }
