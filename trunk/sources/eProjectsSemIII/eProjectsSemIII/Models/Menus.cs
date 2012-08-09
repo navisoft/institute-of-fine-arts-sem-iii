@@ -36,22 +36,27 @@ namespace eProjectsSemIII.Models
          */
         public bool CheckMenuOfRole(int roleID)
         {
-            using (var db = new FineArtContext())
+            var db = new FineArtContext();
+            var query = db.Menus.Include("Role")
+                .Where(m=>m.Controller == ((this.Controller == "index")?"":this.Controller)
+                    && m.Action == ((this.Action == "index")?"":this.Action))
+                    .FirstOrDefault();
+            if (query != null)
             {
-                var query = from m in db.Menus.Include("Role")
-                            where m.Controller == this.Controller && m.Action == this.Action
-                            select m;
-                foreach (Menus menus in query)
+                var query2 = query.Role.Where(r => r.ID == roleID).FirstOrDefault();
+                if (query2 == null)
                 {
-                    ICollection<Roles> listRole = menus.Role;
-                    foreach (Roles roles in listRole)
-                    {
-                        if (roles.ID == roleID)
-                            return true;
-                    }
+                    return false;
+                }
+                else
+                {
+                    return true;
                 }
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         /**
