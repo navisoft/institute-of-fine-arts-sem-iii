@@ -43,5 +43,9 @@ namespace eProjectsSemIII.Models
             }
             return false;
         }
+        public bool Check()
+        {
+            return true;
+        }
     }
 }
