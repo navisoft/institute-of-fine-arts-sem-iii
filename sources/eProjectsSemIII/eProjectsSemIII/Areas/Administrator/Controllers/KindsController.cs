@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using eProjectsSemIII.Models;
+using eProjectsSemIII.Libs;
+using eProjectsSemIII.Configs;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -11,11 +14,22 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         //
         // GET: /Administrator/Kinds/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             base.Authentication();
             base.LoadMenu();
-            return View();
+            int currentPage = Paging.GetPage(id);
+            decimal totalRecord = GlobalInfo.NumberRecordInPage;
+            Kinds kindsModels = new Kinds();
+            decimal totalCompetition = kindsModels.TotalCompetition();
+            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalCompetition / totalRecord));
+            Paging.numPage = totalPage;
+            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+            Paging.currentPage = currentPage;
+            string url = "administrator/kinds/index";
+            ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+            ViewBag.Title += " Kinds";
+            return View(kindsModels.ListKind((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
 
     }

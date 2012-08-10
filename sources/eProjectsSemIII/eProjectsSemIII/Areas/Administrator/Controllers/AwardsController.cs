@@ -15,6 +15,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         {
             base.Authentication();
             base.LoadMenu();
+
             return View();
         }
 
