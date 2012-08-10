@@ -16,6 +16,19 @@ namespace eProjectsSemIII.Models
         public ICollection<Designs> Design { get; set; }
 
         // many to many with competion
-         public ICollection<Competitions> Competition { get; set; }
+        public ICollection<Competitions> Competition { get; set; }
+
+        public List<Kinds> ListKind(int skip, int take)
+        {
+            var db = new FineArtContext();
+            var query = db.Kinds.OrderBy(k => k.Name).Skip(skip).Take(take).ToList();
+            return query;
+        }
+
+        public decimal TotalCompetition()
+        {
+            var db = new FineArtContext();
+            return db.Kinds.Count();
+        }
     }
 }
