@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eProjectsSemIII.Models;
 using System.Globalization;
 using eProjectsSemIII.Libs;
+using eProjectsSemIII.Configs;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {   
@@ -30,12 +31,12 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
-            float totalRecord = 5;
+            decimal totalRecord = GlobalInfo.NumberRecordInPage;
             Competitions competitionsModels = new Competitions();
-            float totalCompetition = competitionsModels.TotalCompetition();
+            decimal totalCompetition = competitionsModels.TotalCompetition();
             int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalCompetition / totalRecord));
             Paging.numPage = totalPage;
-            Paging.numLinkDisplay = 5;
+            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
             Paging.currentPage = currentPage;
             string url = "administrator/competitions/index";
             ViewBag.pagingString = Paging.GenerateLinkPaging(url);
