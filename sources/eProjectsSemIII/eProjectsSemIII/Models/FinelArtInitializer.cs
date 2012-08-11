@@ -243,19 +243,6 @@ namespace eProjectsSemIII.Models
 
             
 
-            //var designexhibition = new List<DesignExhibitions>
-            //{
-            //   new DesignExhibitions {DesignID=1, CustomerID =1,ExhibitionID=1,Price=100,PriceSold=80,IsSold=true, IsPaidStudent=false},
-            //   new DesignExhibitions {DesignID=2, CustomerID =2,ExhibitionID=1,Price=100,PriceSold=80,IsSold=true, IsPaidStudent=false},
-            //   new DesignExhibitions {DesignID=3, CustomerID =4,ExhibitionID=3,Price=100,PriceSold=80,IsSold=true, IsPaidStudent=false},
-            //   new DesignExhibitions {DesignID=4, CustomerID =4,ExhibitionID=4,Price=100,PriceSold=80,IsSold=true, IsPaidStudent=false},
-               
-              
-               
-            //};
-            //designexhibition.ForEach(s => context.DesignExhibitions.Add(s));
-            //context.SaveChanges();
-
             var menu = new List<Menus>
             {
                 new Menus {Name = "Home Page", Controller="", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},
