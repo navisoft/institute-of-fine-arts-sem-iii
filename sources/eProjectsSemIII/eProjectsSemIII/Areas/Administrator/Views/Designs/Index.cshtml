@@ -61,9 +61,9 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-left">Image</td>
+                <td class="text-center">Image</td>
                 <td class="text-left">Kind</td>
-                <td class="text-center">Competition</td>
+                <td class="text-left">Competition</td>
                 <td class="text-center">Member</td>
                 <td class="text-center">Award</td>
                 <td class="text-center">Price</td>
@@ -77,11 +77,11 @@
             <tr>
                 <td class="text-center num-id">@design.ID</td>
                 <td class="text-left">@design.Name</td>
-                <td class="text-left"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnail/" + design.Images)" /></td>
+                <td class="text-center"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnail/" + design.Images)" /></td>
                 <td class="text-left">@design.Kind.Name</td>
                 <td class="text-left">@design.Competition.Name</td>
-                <td class="text-left">@design.Member.Name</td>
-                <td class="text-left">
+                <td class="text-center">@design.Member.Name</td>
+                <td class="text-center">
                 @{
                 try
                 { 
@@ -89,13 +89,13 @@
                 }
                 catch (Exception e)
                 {
-                    
+                    Console.Write(e.Message);
                 }
                 }
                 
                 </td>
-                <td class="text-left">@design.PriceSold</td>
-                <td class="text-left">@design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center">@design.PriceSold</td>
+                <td class="text-center">@design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center"><a href="">Exhibition</a></td>
                 <td class="text-center">
                     <a href="">
