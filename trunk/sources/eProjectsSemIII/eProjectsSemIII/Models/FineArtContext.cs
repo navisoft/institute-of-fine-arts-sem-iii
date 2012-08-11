@@ -35,13 +35,13 @@ namespace eProjectsSemIII.Models
                         MapRightKey("CompetitionID").
                         ToTable("CompetitionAwards"));
 
-            modelBuilder.Entity<Classs>().
-               HasMany(c => c.Member).
-               WithMany(i => i.Class).
-               Map(t =>
-                        t.MapLeftKey("ClassID").
-                        MapRightKey("MemberID").
-                        ToTable("ClassMember"));
+            //modelBuilder.Entity<Classes>().
+            //   HasMany(c => c.Member).
+            //   WithMany(i => i.Class).
+            //   Map(t =>
+            //            t.MapLeftKey("ClassID").
+            //            MapRightKey("MemberID").
+            //            ToTable("ClassMember"));
 
             modelBuilder.Entity<Roles>().
               HasMany(c => c.Menu).
@@ -59,7 +59,7 @@ namespace eProjectsSemIII.Models
         }
        
         public DbSet<Awards> Awards { get; set; }
-        public DbSet<Classs> Classs { get; set; }
+        public DbSet<Classes> Classes { get; set; }
         public DbSet<Competitions> Competitions { get; set; }
         public DbSet<Conditions> Conditions { get; set; }
         public DbSet<Customers> Customers { get; set; }
