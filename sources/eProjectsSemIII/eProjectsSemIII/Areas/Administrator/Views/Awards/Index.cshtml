@@ -1,5 +1,136 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model List<eProjectsSemIII.Models.Awards>
+<div class="path_menu">
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/")">Home Page</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/awards/")">Awards</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/awards/")">List of Awards</a>
+    </div>
+</div>
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        List of Awards
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="help_action">
+                </div>
+                <div class="text_item_content_action">
+                    Help
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="go_back_action">
+                </div>
+                <div class="text_item_content_action">
+                    Go back
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="add_action">
+                </div>
+                <div class="text_item_content_action">
+                    Add
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+@if (ViewBag.pagingString != "")
+{
+<div class="path_menu">
+    <div class="paging">
+        @Html.Raw(ViewBag.pagingString)
+    </div>
+</div>
 }
+<!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
+<div class="path_menu">
+    <div class="list_item">
+        <table>
+            <tr class="table_title">
+                <td class="text-center">No.</td>
+                <td class="text-left">Name</td>
+                <td class="text-left">Description</td>
+                <td class="text-left">Date Update</td>
+                <td class="text-center">Edit</td>
+                <td class="text-center">Delete</td>
+            </tr>
+            @foreach (var kinds in Model)
+            {
+            <tr>
+                <td class="text-center num-id">@kinds.ID</td>
+                <td class="text-left">@kinds.Name</td>
+                <td class="text-left">@kinds.Description</td>
+                <td class="text-left">@kinds.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center">
+                    <a href="">
+                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="">
+                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                    </a>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
 
-<h2>Index</h2>
+@if (ViewBag.pagingString != "")
+{
+<div class="path_menu">
+    <div class="paging">
+        @Html.Raw(ViewBag.pagingString)
+    </div>
+</div>
+}
+<!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        List of Awards
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="help_action1">
+                </div>
+                <div class="text_item_content_action">
+                    Help
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="go_back_action1">
+                </div>
+                <div class="text_item_content_action">
+                    Go back
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <a href="#">
+                <div class="img_item_content_action" id="add_action1">
+                </div>
+                <div class="text_item_content_action">
+                    Add
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->

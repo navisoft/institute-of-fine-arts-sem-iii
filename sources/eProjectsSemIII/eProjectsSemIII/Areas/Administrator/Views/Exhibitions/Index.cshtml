@@ -1,18 +1,18 @@
-﻿@model List<eProjectsSemIII.Models.Kinds>
+﻿@model List<eProjectsSemIII.Models.Competitions>
 <div class="path_menu">
     <div class="path_menu_item">
         <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/kinds/")">Kinds</a>
+        <a href="@Url.Content("~/administrator/exhibitions/")">Exhibition</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/kinds/")">List of kinds</a>
+        <a href="@Url.Content("~/administrator/exhibitions/")">List of Exhibition</a>
     </div>
 </div>
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of kinds
+        List of Exhibition
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -61,24 +61,28 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-left">Alias</td>
-                <td class="text-left">Description</td>
-                <td class="text-left">Date Update</td>
+                <td class="text-left">Start Date</td>
+                <td class="text-left">Deadline Date</td>
+                <td class="text-left">End Date</td>
+                <td class="text-center">Kind</td>
+                <td class="text-center">Conditions</td>
+                <td class="text-center">Awards</td>
                 <td class="text-center">Designs</td>
-                <td class="text-center">Competition</td>
                 <td class="text-center">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
-            @foreach (var kinds in Model)
+            @foreach (var competition in Model)
             {
             <tr>
-                <td class="text-center num-id">@kinds.ID</td>
-                <td class="text-left">@kinds.Name</td>
-                <td class="text-left">@kinds.Alias</td>
-                <td class="text-left">@kinds.Description</td>
-                <td class="text-left">@kinds.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center num-id">@competition.ID</td>
+                <td class="text-left">@competition.Name</td>
+                <td class="text-left">@competition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-left">@competition.DeadlineDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-left">@competition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center"><a href="">Kind</a></td>
+                <td class="text-center"><a href="">Conditions</a></td>
+                <td class="text-center"><a href="">Awards</a></td>
                 <td class="text-center"><a href="">Designs</a></td>
-                <td class="text-center"><a href="">Competition</a></td>
                 <td class="text-center">
                     <a href="">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
@@ -106,7 +110,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of kinds
+        List of Exhibition
     </div>
     <div class="content_action">
         <div class="item_content_action">

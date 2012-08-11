@@ -1,18 +1,18 @@
-﻿@model List<eProjectsSemIII.Models.Kinds>
+﻿@model List<eProjectsSemIII.Models.Conditions>
 <div class="path_menu">
     <div class="path_menu_item">
         <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/kinds/")">Kinds</a>
+        <a href="@Url.Content("~/administrator/conditions/")">Conditions</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/kinds/")">List of kinds</a>
+        <a href="@Url.Content("~/administrator/conditions/")">List of Conditions</a>
     </div>
 </div>
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of kinds
+        List of Conditions
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -61,11 +61,8 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-left">Alias</td>
                 <td class="text-left">Description</td>
                 <td class="text-left">Date Update</td>
-                <td class="text-center">Designs</td>
-                <td class="text-center">Competition</td>
                 <td class="text-center">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
@@ -74,11 +71,8 @@
             <tr>
                 <td class="text-center num-id">@kinds.ID</td>
                 <td class="text-left">@kinds.Name</td>
-                <td class="text-left">@kinds.Alias</td>
-                <td class="text-left">@kinds.Description</td>
+                <td class="text-left description">@kinds.Description</td>
                 <td class="text-left">@kinds.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center"><a href="">Designs</a></td>
-                <td class="text-center"><a href="">Competition</a></td>
                 <td class="text-center">
                     <a href="">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
@@ -106,7 +100,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of kinds
+        List of Conditions
     </div>
     <div class="content_action">
         <div class="item_content_action">
