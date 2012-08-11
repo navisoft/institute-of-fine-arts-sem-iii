@@ -30,6 +30,7 @@ namespace eProjectsSemIII.Models
         //one to many
         public int CompetitionID { get; set; }
         public Competitions Competition { get; set; }
+        public Awards Award { get; set; }
         public bool IsSold { get; set; }
         public decimal PriceSold { get; set; }
         public bool IsPaidStudent { get; set; }
