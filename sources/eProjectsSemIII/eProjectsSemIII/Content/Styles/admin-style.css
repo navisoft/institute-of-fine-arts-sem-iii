@@ -27,7 +27,7 @@ img{border:none}
 .navigation_content a{border: 1px solid #dfdfdf;border-bottom: none;}
 a .item_navigation_content{border:1px solid #dfdfdf;border-bottom: none;}
 .item_navigation_content{
-	padding:6px 10px 7px 10px;
+	padding:6px 5px 7px 5px;
 	float:left;margin:0 1px;background:#f8f8f8;border:1px solid #dfdfdf;
 	border-bottom:none;
 	border-radius:3px 3px 0px 0px;
