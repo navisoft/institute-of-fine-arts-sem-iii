@@ -46,8 +46,7 @@ namespace eProjectsSemIII.Models
         public List<Competitions> ListCompetition(int skip, int take)
         {
             var db = new FineArtContext();
-            var query = db.Competitions.OrderBy(o=>o.StartDate).Skip(skip).Take(take).ToList();
-            return query;
+            return db.Competitions.OrderBy(o => o.StartDate).Skip(skip).Take(take).ToList();
         }
 
         public int TotalCompetition()
