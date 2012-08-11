@@ -55,16 +55,17 @@ namespace eProjectsSemIII.Models
 
             var award = new List<Awards>
             {
-                new Awards { Description = "motobike",Competition = new List<Competitions>()},
-                new Awards { Description = "Audion",Competition = new List<Competitions>()},
-                new Awards { Description = "Toyota",Competition = new List<Competitions>()},
-                new Awards { Description = "Rollroi",Competition = new List<Competitions>()},
-                new Awards { Description = "Carson4",Competition = new List<Competitions>()},
-                new Awards { Description = "Carson3",Competition = new List<Competitions>()},
-                new Awards { Description = "Carson2",Competition = new List<Competitions>()},
-                new Awards { Description = "Carson1",Competition = new List<Competitions>()},
-                new Awards { Description = "Sh",Competition = new List<Competitions>()},
-                new Awards { Description = "House",Competition = new List<Competitions>()},
+                new Awards {Name="1 International winner", Description = "1,000 Euro per student or team (up to four members)",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="2 International runners-up", Description = "500 Euro for each",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="10 international finalists", Description = "Gentletude Award Certificate",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="1st prizes", Description = "3000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="2st prizes", Description = "1000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="1 International winner", Description = "The jury will also award up to a maximum of 4, non-monetary, special mentions",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="1st Place", Description = " R$ 6.000,00 (approx. 3,000 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="2nd Place", Description = "R$ 3.000,00 (approx. 1,500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="3rd Place", Description = "R$ 1.000,00 (approx. 500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="First Award", Description = "5,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Name="Award of Merit", Description = "(for 5 caricaturists) is 1,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
                
             };
             award.ForEach(s => context.Awards.Add(s));
@@ -81,11 +82,15 @@ namespace eProjectsSemIII.Models
 
             var condition = new List<Conditions>
             {
-                new Conditions {Description="not use document",Competition = new List<Competitions>() },
-                new Conditions {Description="not use paper" ,Competition = new List<Competitions>()},
-                new Conditions {Description="not use pain" ,Competition = new List<Competitions>()},
-                new Conditions {Description="not use document" ,Competition = new List<Competitions>()},
-                new Conditions {Description="not use document" ,Competition = new List<Competitions>()},
+                new Conditions {Name="Condition Name", Description="The Competition is open to all the caricaturists from all over the world.",Competition = new List<Competitions>(),DateUpdate=DateTime.Now },
+                new Conditions {Name="Condition Name",Description="The competition open to all photographers, creative professionals, publishers, agencies, representatives, students and teachers from all the world." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Conditions {
+                    Name="Condition Name",
+                    Description="Books that are published with a 2011 or 2012 copyright or that were released in 2011 or 2012 are eligible. The contest is for published books, but ISBN is not required. Submission of galley copies is permissible if finished copies are not yet available.E-books and audio-books are eligible, but there’re no separate categories for them at this time." ,
+                    Competition = new List<Competitions>(),DateUpdate=DateTime.Now
+                },
+                new Conditions {Name="Condition Name",Description="The competition is open to amateur and professional photographers worldwide." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Conditions {Name="Condition Name",Description="All cartoonists from all over the world are welcome to enter the competition." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
                
             };
             condition.ForEach(s => context.Conditions.Add(s));
@@ -124,12 +129,12 @@ namespace eProjectsSemIII.Models
 
             var kind = new List<Kinds>
             {
-                new Kinds {Name = "Graphic Design",Alias = "graphic-design",Competition = new List<Competitions>()},
-                new Kinds {Name = "Photography",Alias = "photography",Competition = new List<Competitions>()},
-                new Kinds {Name = "Illustration",Alias = "illustration",Competition = new List<Competitions>()},
-                new Kinds {Name = "Animation",Alias = "animation",Competition = new List<Competitions>()},
-                new Kinds {Name = "Multiple Disciplines",Alias = "multiple-disciplines",Competition = new List<Competitions>()},
-                new Kinds {Name = "Students Only",Alias = "students-only",Competition = new List<Competitions>()},
+                new Kinds {Name = "Graphic Design",Alias = "graphic-design",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Kinds {Name = "Photography",Alias = "photography",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Kinds {Name = "Illustration",Alias = "illustration",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Kinds {Name = "Animation",Alias = "animation",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Kinds {Name = "Multiple Disciplines",Alias = "multiple-disciplines",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Kinds {Name = "Students Only",Alias = "students-only",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
             };
             kind.ForEach(s => context.Kinds.Add(s));
             context.SaveChanges();
@@ -263,6 +268,10 @@ namespace eProjectsSemIII.Models
                 new Menus {Name = "List of kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=7,Display=true},
                 new Menus {Name = "Awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
                 new Menus {Name = "List of awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=9,Display=true},
+                new Menus {Name = "Conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                new Menus {Name = "List of conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=11,Display=true},
+                new Menus {Name = "Exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                new Menus {Name = "List of exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=13,Display=true},
                                
             };
             menu.ForEach(s => context.Menus.Add(s));
@@ -278,6 +287,10 @@ namespace eProjectsSemIII.Models
             menu[7].Role.Add(role[0]);
             menu[8].Role.Add(role[0]);
             menu[9].Role.Add(role[0]);
+            menu[10].Role.Add(role[0]);
+            menu[11].Role.Add(role[0]);
+            menu[12].Role.Add(role[0]);
+            menu[13].Role.Add(role[0]);
             context.SaveChanges();
 
             

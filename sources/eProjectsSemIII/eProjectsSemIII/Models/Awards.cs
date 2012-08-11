@@ -14,9 +14,20 @@ namespace eProjectsSemIII.Models
         [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }
 
+        public DateTime DateUpdate { get; set; }
+
         // many to many with competition
         public ICollection<Competitions> Competition { get; set; }
-       
-      
+
+        public List<Awards> ListAward(int skip, int take)
+        {
+            var db = new FineArtContext();
+            return db.Awards.OrderBy(a => a.Name).Skip(skip).Take(take).ToList();
+        }
+
+        public decimal TotalAward()
+        {
+            return new FineArtContext().Awards.Count();
+        }
     }
 }

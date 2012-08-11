@@ -11,6 +11,8 @@ namespace eProjectsSemIII.Models
         [Required]
         public string Name { get; set; }
         public string Alias { get; set; }
+        public string Description { get; set; }
+        public DateTime DateUpdate { get; set; }
 
         //one to many with design
         public ICollection<Designs> Design { get; set; }
@@ -25,7 +27,7 @@ namespace eProjectsSemIII.Models
             return query;
         }
 
-        public decimal TotalCompetition()
+        public decimal TotalKind()
         {
             var db = new FineArtContext();
             return db.Kinds.Count();

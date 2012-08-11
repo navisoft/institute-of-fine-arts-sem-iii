@@ -21,6 +21,13 @@ namespace eProjectsSemIII.Models
         public DateTime EndDate { get; set; }
 
         // relationship many to many with design and Customers
-
+         public int TotalExhibition()
+         {
+             return new FineArtContext().Exhibitions.Count();
+         }
+         public List<Exhibitions> ListExhibition(int skip, int take)
+         {
+             return new FineArtContext().Exhibitions.OrderBy(e => e.ID).Skip(skip).Take(take).ToList();
+         }
     }
 }
