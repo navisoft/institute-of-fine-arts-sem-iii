@@ -16,13 +16,13 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            base.Authentication();
+            //base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
             Exhibitions exhibitionsModels = new Exhibitions();
-            decimal totalCompetition = exhibitionsModels.TotalExhibition();
-            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalCompetition / totalRecord));
+            decimal totalExhibition = exhibitionsModels.TotalExhibition();
+            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalExhibition / totalRecord));
             Paging.numPage = totalPage;
             Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
             Paging.currentPage = currentPage;
