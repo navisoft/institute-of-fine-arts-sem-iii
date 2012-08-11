@@ -151,27 +151,32 @@ namespace eProjectsSemIII.Models
                 new Designs {
                     Name = "The Climate Change Ad Competition 2012",Alias = "the-climate-change-ad-competition-2012",
                     Description="TZIPAC is excited to launch The Eros Award 2012. This is an international juried competition that celebrates the magic of fine art nude photography, honouring the finest in classic and contemporary nude photography..", 
-                    MemberID = 4, KindID = 1,CompetitionID=1,Mark=10,Remark=10,DatePost=DateTime.Parse("1988-09-06"),Images="competition-1.jpg"
+                    MemberID = 4, KindID = 1,CompetitionID=1,Mark=10,Remark=10,DatePost=DateTime.Parse("1988-09-06"),
+                    Images="the-climate-change-ad-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "ILFORD Student Photo Competition 2012",Alias = "ilford-student-photo-competition-2012",
                     Description="Climate change is recognized as a priority challenge that humanity is facing in the 21st century and some of its consequences – like increased frequency and intensity of natural hazards – are already being felt. The..", 
-                    MemberID = 4, KindID = 1,CompetitionID=2,Mark=10,Remark=9,DatePost=DateTime.Parse("1988-09-06"),Images="competition-1.jpg"
+                    MemberID = 4, KindID = 1,CompetitionID=2,Mark=10,Remark=9,DatePost=DateTime.Parse("1988-09-06"),
+                    Images="ilford-student-photo-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "Embracing Our Differences 2013",Alias = "embracing-our-differences-2013",
                     Description="The theme of the competition is FAMILY. There is no limit to the number of entries permitted per student. Images must be printed on ILFORD black and white darkroom paper. Negatives or digital files will be called..", 
-                    MemberID =4, KindID = 2,CompetitionID=3,Mark=10,Remark=8,DatePost=DateTime.Parse("1988-09-06"),Images="competition-1.jpg"
+                    MemberID =4, KindID = 2,CompetitionID=3,Mark=10,Remark=8,DatePost=DateTime.Parse("1988-09-06"),
+                    Images="embracing-our-differences-2013.jpg"
                 },
                 new Designs {
                     Name = "Pink Lady Food Photographer Of The Year 2013",Alias = "pink-lady-food-photographer-of-the-year-2013",
                     Description="Embracing Our Differences invites artists, photographers, professionals, amateurs, teachers and students to participate in its new visual art exhibit celebrating diversity. 45 artists will be selected for the exhibit...", 
-                    MemberID = 4, KindID = 3,CompetitionID=4,Mark=10,Remark=7,DatePost=DateTime.Parse("1988-09-06"),Images="competition-1.jpg"
+                    MemberID = 4, KindID = 3,CompetitionID=4,Mark=10,Remark=7,DatePost=DateTime.Parse("1988-09-06"),
+                    Images="pink-lady-food-photographer-of-the-year-2013.jpg"
                 },
                 new Designs {
                     Name = "Greenham Common Open 2012 Competition",Alias = "greenham-common-open-2012-competition",
                     Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
-                    MemberID = 5, KindID = 4,CompetitionID=1,Mark=6,Remark=10,DatePost=DateTime.Parse("1988-09-06"),Images="competition-1.jpg"
+                    MemberID = 5, KindID = 4,CompetitionID=1,Mark=6,Remark=10,DatePost=DateTime.Parse("1988-09-06"),
+                    Images="greenham-common-open-2012-competition.jpg"
                 },
 
                 
