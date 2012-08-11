@@ -65,8 +65,9 @@ namespace eProjectsSemIII.Controllers
         [ChildActionOnly]
         public virtual ActionResult list_student()
         {
-            var student = db.AwardMembers.Include("Member").Include("Award").Include("Competition").ToList();
-            ViewBag.students = student;
+            //var student = db.AwardMembers.Include("Member").Include("Award").Include("Competition").ToList();
+            //ViewBag.students = student;
+
             return PartialView();
         }
     }
