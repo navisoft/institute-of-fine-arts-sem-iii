@@ -42,6 +42,20 @@ namespace eProjectsSemIII.Models
         public int Mark { get; set; }
 
         public ICollection<Exhibitions> Exhibitions { get; set; }
-     
+
+
+        public decimal TotalDesign()
+        {
+            return new FineArtContext().Designs.Count();
+        }
+        public List<Designs> ListDesign(int skip, int take)
+        {
+            var db = new FineArtContext();
+            return db.Designs
+                .Include("Member")
+                .Include("Kind")
+                .Include("Competition")
+                .OrderBy(d => d.ID).Skip(skip).Take(take).ToList();
+        }
     }
 }
