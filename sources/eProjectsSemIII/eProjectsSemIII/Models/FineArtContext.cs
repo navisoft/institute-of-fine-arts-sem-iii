@@ -16,8 +16,8 @@ namespace eProjectsSemIII.Models
             //modelBuilder.Entity<DesignExhibitions>().
             //  HasKey(t => new { t.CustomerID, t.DesignID, t.ExhibitionID });
 
-            modelBuilder.Entity<AwardMembers>().
-              HasKey(t => new { t.CompetitionID, t.AwardID, t.MemberID });
+            //modelBuilder.Entity<AwardMembers>().
+            //  HasKey(t => new { t.CompetitionID, t.AwardID, t.MemberID });
 
             modelBuilder.Entity<Conditions>().
                HasMany(c => c.Competition).
@@ -69,7 +69,7 @@ namespace eProjectsSemIII.Models
         public DbSet<Members> Members { get; set; }
         public DbSet<Roles> Roles { get; set; }
         //public DbSet<DesignExhibitions> DesignExhibitions { get; set; }
-        public DbSet<AwardMembers> AwardMembers { get; set; }
+        //public DbSet<AwardMembers> AwardMembers { get; set; }
         public DbSet<Menus> Menus { get; set; }
     }
 
