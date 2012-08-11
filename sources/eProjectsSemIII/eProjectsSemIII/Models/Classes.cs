@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 namespace eProjectsSemIII.Models
 {
-    public class Classs
+    public class Classes
     {
         public int ID { get; set; }
         [Required]
@@ -14,6 +14,18 @@ namespace eProjectsSemIII.Models
 
         //many to many with members
         public ICollection<Members> Member { get; set; }
-                
+
+        public DateTime DateUpdate { get; set; }
+
+
+        internal decimal TotalClasses()
+        {
+            return new FineArtContext().Classes.Count();
+        }
+
+        internal List<Classes> ListClasses(int skip, int take)
+        {
+            return new FineArtContext().Classes.OrderBy(c => c.ID).Skip(skip).Take(take).ToList();
+        }
     }
 }

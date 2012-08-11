@@ -114,18 +114,7 @@ namespace eProjectsSemIII.Models
             role.ForEach(s => context.Roles.Add(s));
             context.SaveChanges();
 
-            var member = new List<Members>
-            {
-                new Members {Images="student-1.jpg",Username="minhphong1",Password="123456", Name="Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=1},
-                new Members {Images="student-2.jpg", Username="minhphong2",Password="123456", Name="Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=2},
-                new Members {Images="student-3.jpg", Username="minhphong3",Password="123456", Name="Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="student-4.jpg", Username="minhphong4",Password="123456", Name="Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="student-4.jpg", Username="minhphong5",Password="123456", Name="Kim1",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-              
-               
-            };
-            member.ForEach(s => context.Members.Add(s));
-            context.SaveChanges();
+            
 
             var kind = new List<Kinds>
             {
@@ -145,7 +134,40 @@ namespace eProjectsSemIII.Models
             kind[3].Competition.Add(compatition[3]);
             context.SaveChanges();
 
+            var member = new List<Members>
+            {
+                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="123456", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=1},
+                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="123456", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=2},
+                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="123456", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="123456", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="123456", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+              
+               
+            };
+            member.ForEach(s => context.Members.Add(s));
+            context.SaveChanges();
 
+            var classs = new List<Classes>
+            {
+                new Classes {Name="0910E",Alias = "0910e", Member = new List<Members>(),DateUpdate = DateTime.Now},
+                new Classes {Name="0910F",Alias = "0910f", Member = new List<Members>(),DateUpdate = DateTime.Now},
+                new Classes {Name="0910G",Alias = "0910g", Member = new List<Members>(),DateUpdate = DateTime.Now},
+                new Classes {Name="0910H",Alias = "0910h", Member = new List<Members>(),DateUpdate = DateTime.Now},
+            };
+            classs.ForEach(s => context.Classes.Add(s));
+            context.SaveChanges();
+
+            classs[0].Member.Add(member[3]);
+            classs[1].Member.Add(member[4]);
+            classs[2].Member.Add(member[5]);
+            classs[3].Member.Add(member[6]);
+            classs[3].Member.Add(member[7]);
+            classs[3].Member.Add(member[8]);
+            context.SaveChanges();
             var design = new List<Designs>
             {
                 new Designs {
@@ -183,9 +205,6 @@ namespace eProjectsSemIII.Models
             };
             design.ForEach(s => context.Designs.Add(s));
             context.SaveChanges();
-
-           
-
             
             var exhibition = new List<Exhibitions>
             {
@@ -211,28 +230,6 @@ namespace eProjectsSemIII.Models
             };
             customer.ForEach(s => context.Customers.Add(s));
             context.SaveChanges();
-
-
-           
-
-            var classs = new List<Classs>
-            {
-                new Classs {Name="0910E",Alias = "0910e", Member = new List<Members>()},
-                new Classs {Name="0910F",Alias = "0910f", Member = new List<Members>()},
-                new Classs {Name="0910G",Alias = "0910g", Member = new List<Members>()},
-                new Classs {Name="0910H",Alias = "0910h", Member = new List<Members>()},
-              
-               
-            };
-            classs.ForEach(s => context.Classs.Add(s));
-            context.SaveChanges();
-
-            classs[0].Member.Add(member[0]);
-            classs[1].Member.Add(member[1]);
-            classs[2].Member.Add(member[2]);
-            classs[3].Member.Add(member[3]);
-            context.SaveChanges();
-
             var menu = new List<Menus>
             {
                 new Menus {Name = "Home Page", Controller="", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},

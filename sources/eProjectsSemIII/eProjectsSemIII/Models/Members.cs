@@ -41,7 +41,7 @@ namespace eProjectsSemIII.Models
 
         //many to many with class
         //navigation property
-        public ICollection<Classs> Class { get; set; }
+        public Classes Class { get; set; }
 
         /**
          * Function: GetMemberByUserAndPass
@@ -59,6 +59,16 @@ namespace eProjectsSemIII.Models
                          where d.Username == user && d.Password == pass
                          select d).FirstOrDefault();
             return query;
+        }
+
+        public decimal TotalMember()
+        {
+            return new FineArtContext().Members.Count();
+        }
+
+        public List<Members> ListMembers(int skip, int take)
+        {
+            return new FineArtContext().Members.Include("Class").Include("Role").OrderBy(m => m.ID).Skip(skip).Take(take).ToList();
         }
     }
 }
