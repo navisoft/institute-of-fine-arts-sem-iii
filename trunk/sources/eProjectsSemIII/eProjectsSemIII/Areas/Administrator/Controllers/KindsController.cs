@@ -21,8 +21,8 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
             Kinds kindsModels = new Kinds();
-            decimal totalCompetition = kindsModels.TotalCompetition();
-            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalCompetition / totalRecord));
+            decimal totalKind = kindsModels.TotalKind();
+            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalKind / totalRecord));
             Paging.numPage = totalPage;
             Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
             Paging.currentPage = currentPage;
