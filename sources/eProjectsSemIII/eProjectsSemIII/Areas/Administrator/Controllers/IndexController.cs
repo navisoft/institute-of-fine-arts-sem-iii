@@ -23,7 +23,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index()
         {
-            base.Authentication();
+            //base.Authentication();
             base.LoadMenu();
             ViewBag.Title += " Home";
             return View();

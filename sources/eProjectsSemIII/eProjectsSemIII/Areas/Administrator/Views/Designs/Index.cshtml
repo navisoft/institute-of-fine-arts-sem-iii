@@ -1,18 +1,18 @@
-﻿@model List<eProjectsSemIII.Models.Exhibitions>
+﻿@model List<eProjectsSemIII.Models.Designs>
 <div class="path_menu">
     <div class="path_menu_item">
         <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/exhibitions/")">Exhibition</a>
+        <a href="@Url.Content("~/administrator/designs/")">Designs</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/exhibitions/")">List of Exhibition</a>
+        <a href="@Url.Content("~/administrator/designs/")">List of Designs</a>
     </div>
 </div>
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of Exhibition
+        List of Designs
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -61,20 +61,45 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-left">Start Date</td>
-                <td class="text-left">End Date</td>
-                <td class="text-center">Designs</td>
+                <td class="text-left">Image</td>
+                <td class="text-left">Kind</td>
+                <td class="text-center">Competition</td>
+                <td class="text-center">Member</td>
+                <td class="text-center">Award</td>
+                <td class="text-center">Price</td>
+                <td class="text-center">Date Post</td>
+                <td class="text-center">Exhibition</td>
                 <td class="text-center">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
-            @foreach (var exhibition in Model)
+            @foreach (var design in Model)
             {
             <tr>
-                <td class="text-center num-id">@exhibition.ID</td>
-                <td class="text-left">@exhibition.Name</td>
-                <td class="text-left">@exhibition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-left">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center"><a href="">Designs</a></td>
+                <td class="text-center num-id">@design.ID</td>
+                <td class="text-left">@design.Name</td>
+                <td class="text-left"><img alt="" src="@Url.Content("~/Content/Images/designs/" + design.Images)" /></td>
+                <td class="text-left">@design.Kind.Name</td>
+                <td class="text-left">@design.Competition.Name</td>
+                <td class="text-left">@design.Member.Name</td>
+                <td class="text-left">
+                @{
+                try
+                {
+                    if (design.Award.Name != null)
+                    {
+                            @design.Award.Name
+                    }
+                }
+                catch (Exception e)
+                {
+                    
+                }
+                }
+                
+                </td>
+                <td class="text-left">@design.PriceSold</td>
+                <td class="text-left">@design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center"><a href="">Exhibition</a></td>
                 <td class="text-center">
                     <a href="">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
@@ -102,7 +127,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of Exhibition
+        List of Designs
     </div>
     <div class="content_action">
         <div class="item_content_action">
