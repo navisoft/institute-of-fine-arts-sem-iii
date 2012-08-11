@@ -156,6 +156,7 @@ tr.table_title{font-weight:bold;background:#e7e7e7;color:#0681C8}
 tr.table_title td.text-left{padding:10px 0 10px 1%;line-height:normal;border-right:1px solid #d7d7d7}
 tr.table_title td.text-center{padding:10px 5px;line-height:normal;border-right:1px solid #d7d7d7}
 .list_item table td:last-child{border:none}
+.description{max-width:300px;}
 
 td.text-center{text-align:center;border-right:1px solid #e7e7e7;}
 td.text-left{border-right:1px solid #e7e7e7;line-height:22px;padding:15px 0 15px 1%}
