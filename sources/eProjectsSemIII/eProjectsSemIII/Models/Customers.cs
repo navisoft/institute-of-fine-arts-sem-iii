@@ -20,7 +20,7 @@ namespace eProjectsSemIII.Models
        [Required(ErrorMessage = "Gender is required.")]
      
         public string Gender { get; set; }
-      
+
         // relationship many to many with design and Exhibitions
        
     }

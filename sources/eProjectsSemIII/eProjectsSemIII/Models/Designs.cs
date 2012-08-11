@@ -30,14 +30,17 @@ namespace eProjectsSemIII.Models
         //one to many
         public int CompetitionID { get; set; }
         public Competitions Competition { get; set; }
+        public bool IsSold { get; set; }
+        public decimal PriceSold { get; set; }
+        public bool IsPaidStudent { get; set; }
         
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime DatePost { get; set; }
 
         public int Remark { get; set; }
         public int Mark { get; set; }
-        
-        
+
+        public ICollection<Exhibitions> Exhibitions { get; set; }
      
     }
 }

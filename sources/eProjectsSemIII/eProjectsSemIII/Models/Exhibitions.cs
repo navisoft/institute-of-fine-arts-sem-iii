@@ -17,8 +17,11 @@ namespace eProjectsSemIII.Models
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
-         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+
+        public ICollection<Designs> Designs { get; set; }
+
 
         // relationship many to many with design and Customers
          public int TotalExhibition()
