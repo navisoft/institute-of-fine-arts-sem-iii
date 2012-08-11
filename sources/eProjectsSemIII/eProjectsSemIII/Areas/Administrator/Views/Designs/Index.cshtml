@@ -77,18 +77,15 @@
             <tr>
                 <td class="text-center num-id">@design.ID</td>
                 <td class="text-left">@design.Name</td>
-                <td class="text-left"><img alt="" src="@Url.Content("~/Content/Images/designs/" + design.Images)" /></td>
+                <td class="text-left"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnail/" + design.Images)" /></td>
                 <td class="text-left">@design.Kind.Name</td>
                 <td class="text-left">@design.Competition.Name</td>
                 <td class="text-left">@design.Member.Name</td>
                 <td class="text-left">
                 @{
                 try
-                {
-                    if (design.Award.Name != null)
-                    {
-                            @design.Award.Name
-                    }
+                { 
+                    @design.Award.Name
                 }
                 catch (Exception e)
                 {
