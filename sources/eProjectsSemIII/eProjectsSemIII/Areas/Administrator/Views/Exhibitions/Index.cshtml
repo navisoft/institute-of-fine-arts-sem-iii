@@ -61,10 +61,10 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-left">Start Date</td>
-                <td class="text-left">End Date</td>
+                <td class="text-center">Start Date</td>
+                <td class="text-center">End Date</td>
                 <td class="text-center">Designs</td>
-                <td class="text-center">Edit</td>
+                <td class="text-center edit">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
             @foreach (var exhibition in Model)
@@ -72,8 +72,8 @@
             <tr>
                 <td class="text-center num-id">@exhibition.ID</td>
                 <td class="text-left">@exhibition.Name</td>
-                <td class="text-left">@exhibition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-left">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center">@exhibition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center"><a href="">Designs</a></td>
                 <td class="text-center">
                     <a href="">

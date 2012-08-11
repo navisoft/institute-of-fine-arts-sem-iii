@@ -48,7 +48,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             else
             {
-                Response.Redirect("/administrator/members/", true);
+                Response.Redirect("/administrator/members/login", true);
             }
         }
 

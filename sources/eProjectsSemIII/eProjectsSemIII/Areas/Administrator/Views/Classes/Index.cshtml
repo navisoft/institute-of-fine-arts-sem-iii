@@ -1,18 +1,18 @@
-﻿@model List<eProjectsSemIII.Models.Competitions>
+﻿@model List<eProjectsSemIII.Models.Classes>
 <div class="path_menu">
     <div class="path_menu_item">
         <a href="@Url.Content("~/administrator/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/competitions/")">Competitions</a>
+        <a href="@Url.Content("~/administrator/classes/")">Classes</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/competitions/")">List of competition</a>
+        <a href="@Url.Content("~/administrator/classes/")">List of Classes</a>
     </div>
 </div>
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of competition
+        List of Classes
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -61,31 +61,23 @@
             <tr class="table_title">
                 <td class="text-center">No.</td>
                 <td class="text-left">Name</td>
-                <td class="text-center">Start Date</td>
-                <td class="text-center">Deadline Date</td>
-                <td class="text-center">End Date</td>
-                <td class="text-center">Kind</td>
-                <td class="text-center">Conditions</td>
-                <td class="text-center">Awards</td>
-                <td class="text-center">Designs</td>
+                <td class="text-left">Alias</td>
+                <td class="text-center">Members</td>
+                <td class="text-center">Date Update</td>
                 <td class="text-center edit">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
             @{
                 ViewBag.i = 0;
             }
-            @foreach (var competition in Model)
+            @foreach (var class_item in Model)
             {
             <tr>
                 <td class="text-center num-id">@{ViewBag.i++;} @ViewBag.i</td>
-                <td class="text-left">@competition.Name</td>
-                <td class="text-center">@competition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center">@competition.DeadlineDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center">@competition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center"><a href="">Kind</a></td>
-                <td class="text-center"><a href="">Conditions</a></td>
-                <td class="text-center"><a href="">Awards</a></td>
-                <td class="text-center"><a href="">Designs</a></td>
+                <td class="text-left">@class_item.Name</td>
+                <td class="text-left">@class_item.Alias</td>
+                <td class="text-center"><a href="">Members</a></td>
+                <td class="text-center">@class_item.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center">
                     <a href="">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
@@ -113,7 +105,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        List of competition
+        List of Classes
     </div>
     <div class="content_action">
         <div class="item_content_action">

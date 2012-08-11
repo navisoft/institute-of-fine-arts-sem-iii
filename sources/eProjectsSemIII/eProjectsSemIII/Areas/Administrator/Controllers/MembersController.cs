@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using eProjectsSemIII.Libs;
 using eProjectsSemIII.Models;
+using eProjectsSemIII.Configs;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -14,7 +15,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
      * Author: Le Dang Son
      * Date: 06/08/2012
      */
-    public class MembersController : Controller
+    public class MembersController : AuthenticationController
     {
         /**
          * Controller: Members
@@ -27,7 +28,24 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          * Author: Le Dang Son
          * Date: 06/08/2012
          */
-        public ActionResult Index(FormCollection form)
+        public ActionResult Index(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            int currentPage = Paging.GetPage(id);
+            decimal totalRecord = GlobalInfo.NumberRecordInPage;
+            Members membersModels = new Members();
+            decimal totalMember = membersModels.TotalMember();
+            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalMember / totalRecord));
+            Paging.numPage = totalPage;
+            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+            Paging.currentPage = currentPage;
+            string url = "administrator/members/index";
+            ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+            ViewBag.Title += " Members";
+            return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
+        }
+        public ActionResult Login(FormCollection form)
         {
             if (Session["total_login"] != null && 4 - (int)Session["total_login"] <= 0)
             {
@@ -66,7 +84,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     catch (Exception e)
                     {
                         string path = Server.MapPath("~/");
-                        Log log = new Log(path, "LoginController.Index");
+                        Log log = new Log(path, "LoginController.Login");
                         if (Session["total_login"] == null)
                         {
                             Session["total_login"] = 1;
@@ -74,7 +92,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                         else
                         {
                             string pathother = Server.MapPath("~/");
-                            Log objLog = new Log(path, "LoginController.Index");
+                            Log objLog = new Log(path, "LoginController.Login");
                             objLog.WriteLog(e.Message.ToString());
                             log.WriteLog("Username: " + form["username"] + " Password: " + form["password"]);
                             Session["total_login"] = (int)Session["total_login"] + 1;
@@ -96,7 +114,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         public ActionResult Logout()
         {
             Session["admin"] = null;
-            return Redirect("/administrator/members/");
+            return Redirect("/administrator/members/login");
         }
     }
 }
