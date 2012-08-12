@@ -45,14 +45,18 @@ namespace eProjectsSemIII.Models
 
         public List<Competitions> ListCompetition(int skip, int take)
         {
-            var db = new FineArtContext();
-            return db.Competitions.OrderBy(o => o.StartDate).Skip(skip).Take(take).ToList();
+            return new FineArtContext().Competitions.OrderBy(o => o.StartDate).Skip(skip).Take(take).ToList();
         }
+
+        public Competitions ListNavigation(string navigation)
+        {
+            return new FineArtContext().Competitions.Include(navigation).Where(c=>c.ID == this.ID).FirstOrDefault();
+        }
+
 
         public int TotalCompetition()
         {
-            var db = new FineArtContext();
-            return db.Competitions.Count();
+            return new FineArtContext().Competitions.Count();
         }
     }
 }

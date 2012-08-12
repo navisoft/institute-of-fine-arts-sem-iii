@@ -32,5 +32,14 @@ namespace eProjectsSemIII.Models
             var db = new FineArtContext();
             return db.Kinds.Count();
         }
+
+        public Kinds GetNavigationWithID(string navigation)
+        {
+            return new FineArtContext()
+                .Kinds
+                .Include(navigation)
+                .Where(d => d.ID == this.ID)
+                .FirstOrDefault();
+        }
     }
 }
