@@ -70,5 +70,9 @@ namespace eProjectsSemIII.Models
         {
             return new FineArtContext().Members.Include("Class").Include("Role").OrderBy(m => m.ID).Skip(skip).Take(take).ToList();
         }
+        public Members GetMemberWithID()
+        {
+            return new FineArtContext().Members.Include("Class").Include("Role").Include("Design").Where(m => m.ID == this.ID).FirstOrDefault();
+        }
     }
 }

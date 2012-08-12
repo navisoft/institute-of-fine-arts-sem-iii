@@ -57,5 +57,25 @@ namespace eProjectsSemIII.Models
                 .Include("Competition")
                 .OrderBy(d => d.ID).Skip(skip).Take(take).ToList();
         }
+
+        public Designs GetDesignByID()
+        {
+            return new FineArtContext().Designs
+                .Include("Member")
+                .Include("Kind")
+                .Include("Competition")
+                .Include("Award")
+                .Where(d => d.ID == this.ID)
+                .FirstOrDefault();
+        }
+
+        public Designs GetNavigationWithID(string navigation)
+        {
+            return new FineArtContext()
+                .Designs
+                .Include(navigation)
+                .Where(d => d.ID == this.ID)
+                .FirstOrDefault();
+        }
     }
 }

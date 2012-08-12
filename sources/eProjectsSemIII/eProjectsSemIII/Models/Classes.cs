@@ -27,5 +27,9 @@ namespace eProjectsSemIII.Models
         {
             return new FineArtContext().Classes.OrderBy(c => c.ID).Skip(skip).Take(take).ToList();
         }
+        public Classes GetNavigationWithID(string navigation)
+        {
+            return new FineArtContext().Classes.Include(navigation).Where(c => c.ID == this.ID).FirstOrDefault();
+        }
     }
 }
