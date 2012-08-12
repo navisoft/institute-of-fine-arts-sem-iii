@@ -210,7 +210,7 @@ namespace eProjectsSemIII.Models
             {
                 new Exhibitions {Name="Exhibition graphic design summer 2012",Alias="exhibition-graphic-design-summer-2012",Image="exhibition-graphic-design-summer-2012.jpg", StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Spring 2012 exhibition",Alias="spring-2012-exhibition",Image="spring-2012-exhibition.jpg", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") },
-                new Exhibitions {Name="Exhibition, to family life",Alias="exhibition,-to-family-life",Image="exhibition,-to-family-life.jpg", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") },
+                new Exhibitions {Name="Exhibition, to family life",Alias="exhibition-to-family-life",Image="exhibition-to-family-life.jpg", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Outdoor Exhibition 2013",Alias="outdoor-exhibition-2013",Image="outdoor-exhibition-2013.jpg", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Annual Exhibition June 2011",Alias="annual-exhibition-june-2011",Image="annual-exhibition-june-2011.jpg", StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Life is beautiful",Alias="life-is-beautiful",Image="life-is-beautiful.jpg", StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") },
