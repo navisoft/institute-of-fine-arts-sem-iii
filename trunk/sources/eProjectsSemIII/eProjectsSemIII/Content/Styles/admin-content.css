@@ -158,11 +158,16 @@ tr.table_title td.text-center{padding:10px 5px;line-height:normal;border-right:1
 .list_item table td:last-child{border:none}
 .description{max-width:300px;}
 
+.description-menu{width:350px;padding-right:10px}
+
 .design-image img{width:100px}
 .student-image img{width:70px}
+.exhibition-image{width:120px}
+.exhibition-image img{width:100px}
 .paddings{padding:10px 5px}
 
 .edit{min-width:40px}
+.delete{min-width:40px}
 .date{min-width:100px}
 
 td.text-center{text-align:center;border-right:1px solid #e7e7e7;}
