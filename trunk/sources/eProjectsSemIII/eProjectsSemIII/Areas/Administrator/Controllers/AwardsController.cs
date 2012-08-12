@@ -31,6 +31,23 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             ViewBag.Title += " Awards";
             return View(awardsModels.ListAward((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
-
+        public ActionResult AwardCompetition(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Competitions competitionsModels = new Competitions();
+                competitionsModels.ID = idd;
+                competitionsModels = competitionsModels.ListNavigation("Award");
+                ViewBag.Title += " Awards of " + competitionsModels.Name + " Competition";
+                return View(competitionsModels.Award.ToList());
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
     }
 }

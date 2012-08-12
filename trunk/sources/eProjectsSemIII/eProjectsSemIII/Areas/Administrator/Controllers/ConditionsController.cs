@@ -31,5 +31,23 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             ViewBag.Title += " Conditions";
             return View(conditionsModels.ListCondition((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
+        public ActionResult ConditionCompetition(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Competitions competitionsModels = new Competitions();
+                competitionsModels.ID = idd;
+                competitionsModels = competitionsModels.ListNavigation("Condition");
+                ViewBag.Title += " Conditions of "+competitionsModels.Name + " Competition";
+                return View(competitionsModels.Condition.ToList());
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
     }
 }

@@ -11,9 +11,6 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
     public class ExhibitionsController : AuthenticationController
     {
-        //
-        // GET: /Administrator/Exhibitions/
-
         public ActionResult Index(string id)
         {
             //base.Authentication();
@@ -32,5 +29,23 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             return View(exhibitionsModels.ListExhibition((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
 
+        public ActionResult ExhibitionDesign(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Designs designsModels = new Designs();
+                designsModels.ID = idd;
+                designsModels = designsModels.GetNavigationWithID("Exhibitions");
+                ViewBag.Title += " Exhinitions of " + designsModels.Name + " Designs";
+                return View(designsModels.Exhibitions.ToList());
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
     }
 }

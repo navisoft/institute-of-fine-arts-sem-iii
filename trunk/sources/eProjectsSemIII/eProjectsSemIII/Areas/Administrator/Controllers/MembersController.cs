@@ -45,6 +45,33 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             ViewBag.Title += " Members";
             return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
+
+        public ActionResult MembersClass(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Classes classModels = new Classes();
+                classModels.ID = idd;
+                classModels = classModels.GetNavigationWithID("Member");
+                ViewBag.Title += " Members of " + classModels.Name + " Class";
+                List<Members> listMembers = classModels.Member.ToList();
+                List<Members> listMembersNew = new List<Members>();
+                listMembers.ForEach(delegate(Members member)
+                {
+                    member = member.GetMemberWithID();
+                    listMembersNew.Add(member);
+                });
+                return View(listMembersNew);
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
+
         public ActionResult Login(FormCollection form)
         {
             if (Session["total_login"] != null && 4 - (int)Session["total_login"] <= 0)
