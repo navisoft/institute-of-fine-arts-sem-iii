@@ -43,5 +43,24 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             ViewBag.Title += " Competitions";
             return View(competitionsModels.ListCompetition((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
+
+        public ActionResult CompetitionKind(string id)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Kinds kindsModels = new Kinds();
+                kindsModels.ID = idd;
+                kindsModels = kindsModels.GetNavigationWithID("Competition");
+                ViewBag.Title += " Competition have " + kindsModels.Name + " Kind";
+                return View(kindsModels.Competition.ToList());
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
     }
 }

@@ -16,8 +16,8 @@ namespace eProjectsSemIII.Areas.Administrator
         {
             context.MapRoute(
                 "Administrator_default",
-                "Administrator/{controller}/{action}/{id}",
-                new { controller = "Index", action = "Index", id = UrlParameter.Optional }
+                "Administrator/{controller}/{action}/{id}/{param}",
+                new { controller = "Index", action = "Index", id = UrlParameter.Optional,param = UrlParameter.Optional }
             );
         }
     }

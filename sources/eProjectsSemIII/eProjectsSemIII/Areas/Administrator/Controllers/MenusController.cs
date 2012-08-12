@@ -24,30 +24,50 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          * Author: Le Dang Son
          * Date: 08/08/2012
          */
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             //base.Authentication();
             base.LoadMenu();
-            Menus menusModels = new Menus();
-            List<Menus> listMenu = menusModels.ListMenu();
-            listMenu.ForEach(delegate(Menus menu)
+            try
             {
-                if (menu.Controller == "")
+                Menus menusModels = new Menus();
+                List<Menus> listMenu;
+                if (id != null && id != "")
                 {
-                    menu.Controller = "Index";
+                    string[] arrID = id.Split('-');
+                    Roles role = new Roles();
+                    role.ID = Convert.ToInt16(arrID[1]);
+                    role = role.GetRoleWithID();
+                    listMenu = role.Menu.ToList();
+                    ViewBag.Title += " Menus for "+role.Name;
                 }
-                if (menu.Action == "")
+                else
                 {
-                    menu.Action = "Index";
-                }
-                Strings stringsLibs = new Strings();
-                menu.Controller = stringsLibs.Capacital(menu.Controller);
-                menu.Action = stringsLibs.Capacital(menu.Action);
-            });
-            ViewBag.listMenu = listMenu;
-            ViewBag.Title += " Menus";
-            return View();
+                    listMenu = menusModels.ListMenu();
+                    ViewBag.Title += " Menus";
+                } 
+                listMenu.ForEach(delegate(Menus menu)
+                {
+                    if (menu.Controller == "")
+                    {
+                        menu.Controller = "Index";
+                    }
+                    if (menu.Action == "")
+                    {
+                        menu.Action = "Index";
+                    }
+                    Strings stringsLibs = new Strings();
+                    menu.Controller = stringsLibs.Capacital(menu.Controller);
+                    menu.Action = stringsLibs.Capacital(menu.Action);
+                });
+                ViewBag.listMenu = listMenu;
+                return View();
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
         }
-
     }
 }
