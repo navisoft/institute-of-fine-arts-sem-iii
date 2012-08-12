@@ -15,7 +15,7 @@ img{border:none}
 	box-shadow:0px 0px 10px #999;
 }
 
-.header{float:left;width:96%;height:40px;padding:10px 2% 0 2%;border-bottom:5px solid #FFCC00;font-weight:bold;color:#0681C8}
+.header{float:left;width:96%;padding:10px 2% 10px 2%;border-bottom:5px solid #FFCC00;font-weight:bold;color:#0681C8}
 .title{float:left;width:40%;font-size:200%}
 .navigation{float:right;margin-top:5px;}
 .navigation a{color:#0681C8;text-decoration:none;margin:0 5px}
