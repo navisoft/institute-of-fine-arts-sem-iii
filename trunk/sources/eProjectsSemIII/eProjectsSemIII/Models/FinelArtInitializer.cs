@@ -211,15 +211,15 @@ namespace eProjectsSemIII.Models
 
             var mark = new List<Marks>
             {
-                new Marks{Design=design[0],Staff=member[9],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[0],Staff=member[10],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[0],Staff=member[11],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[1],Staff=member[9],Mark=4,Competition=compatition[0]},
-                new Marks{Design=design[1],Staff=member[10],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[1],Staff=member[11],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[2],Staff=member[9],Mark=3,Competition=compatition[0]},
-                new Marks{Design=design[2],Staff=member[10],Mark=5,Competition=compatition[0]},
-                new Marks{Design=design[2],Staff=member[11],Mark=5,Competition=compatition[0]},
+                new Marks{Design=design[0],Staff=member[9],Mark=5},//,Competition=compatition[0]
+                new Marks{Design=design[0],Staff=member[10],Mark=5},//,Competition=compatition[0]
+                new Marks{Design=design[0],Staff=member[11],Mark=5},
+                new Marks{Design=design[1],Staff=member[9],Mark=4},
+                new Marks{Design=design[1],Staff=member[10],Mark=5},
+                new Marks{Design=design[1],Staff=member[11],Mark=5},
+                new Marks{Design=design[2],Staff=member[9],Mark=3},
+                new Marks{Design=design[2],Staff=member[10],Mark=5},
+                new Marks{Design=design[2],Staff=member[11],Mark=5},
 
             };
 
