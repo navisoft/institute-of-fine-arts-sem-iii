@@ -62,7 +62,6 @@ namespace eProjectsSemIII.Models
                 .Include("Member")
                 .Include("Kind")
                 .Include("Competition")
-                .Include("Award")
                 .Where(d => d.ID == this.ID)
                 .FirstOrDefault();
         }
