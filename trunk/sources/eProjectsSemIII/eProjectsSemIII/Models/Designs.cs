@@ -16,7 +16,7 @@ namespace eProjectsSemIII.Models
 
         [Required]
         public string Images { get; set; }
-        //one to many with student and staff.
+        //one to many with member
         public int MemberID { get; set; }
         public Members Member { get; set; }
 
