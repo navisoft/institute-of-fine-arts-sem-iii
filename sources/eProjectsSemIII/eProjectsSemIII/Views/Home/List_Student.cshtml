@@ -1,7 +1,4 @@
-﻿@using eProjectsSemIII.Models;
-@{
-    ViewBag.Title = "List_Student";
-}
+﻿@using  eProjectsSemIII.Models
 
 <!--------------------LIST OF STUDENTS--------------------->
                 	<div class="content-left-title">
@@ -9,16 +6,14 @@
                     </div>
 
                     <div class="content-left-content">
-                     @foreach ( Awards item in ViewBag.students)
+                    <div class="content-left-content-item">
+                     @{
+                         foreach (Designs item in ViewBag.designs)
                      {
                     	<div class="student-item">
-                        	@*<img alt="" src="@Url.Content("~/Content/Images/students/student-1.jpg")" />*@
-                            <img src="@item.Member.Images"/>
-                        </div>
-                         <div class="student-item">
-                        	@*<img alt="" src="@Url.Content("~/Content/Images/students/student-1.jpg")" />*@
-                           @item.Competition.Name
+                        	<img alt="@item.Member.Name" src="@Url.Content("~/Content/Images/students/"+@item.Member.Images)" />
                         </div>
                      }
-                    	
+                     }
+                    	</div>
                     </div>
