@@ -251,6 +251,7 @@ namespace eProjectsSemIII.Models
                 new Menus {Name = "Members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
                 new Menus {Name = "List of Members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=19,Display=true},
                 new Menus {Name = "List of Customers", Controller="customers", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=15,Display=true},
+                new Menus {Name = "Awards of Competition", Controller="awards", Action = "awardcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=11,Display=false},
                                
             };
             menu.ForEach(s => context.Menus.Add(s));
