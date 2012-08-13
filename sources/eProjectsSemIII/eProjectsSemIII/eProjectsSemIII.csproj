@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\AuthenticationController.cs" />
-    <Compile Include="Areas\Administrator\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Administrator\Controllers\IndexController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MembersController.cs" />
     <Compile Include="Areas\Administrator\Controllers\MenusController.cs" />
@@ -74,13 +73,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Libs\Log.cs" />
-    <Compile Include="Models\AwardMembers.cs" />
     <Compile Include="Models\Awards.cs" />
-    <Compile Include="Models\Classs.cs" />
+    <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Competitions.cs" />
     <Compile Include="Models\Conditions.cs" />
     <Compile Include="Models\Customers.cs" />
-    <Compile Include="Models\DesignExhibitions.cs" />
     <Compile Include="Models\Designs.cs" />
     <Compile Include="Models\Exhibitions.cs" />
     <Compile Include="Models\FineArtContext.cs" />
@@ -89,8 +86,6 @@
     <Compile Include="Models\Members.cs" />
     <Compile Include="Models\Menus.cs" />
     <Compile Include="Models\Roles.cs" />
-    <Compile Include="Models\Staffs.cs" />
-    <Compile Include="Models\Students.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +222,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administrator\Views\Roles\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\detail_upcomming.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Oncomming.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\listAllOnComming.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

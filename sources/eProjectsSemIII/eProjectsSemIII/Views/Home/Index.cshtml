@@ -1,4 +1,4 @@
-﻿@model List<eProjectsSemIII.Models.Competitions>
+﻿@using eProjectsSemIII.Models;
 @{
     ViewBag.Title = "ASP.NET MVC Finel Art ";
 }
@@ -6,7 +6,7 @@
                 	<div class="content-left-title">
                     	THE UPCOMING COMPETITIONS
                     </div>
-                    @foreach (var upcomming in Model)
+                    @foreach (Competitions upcomming in ViewBag.upcomming)
                     {
                     <div class="content-left-content">
                     	<div class="content-left-content-item">
@@ -17,21 +17,23 @@
                             </div>
                             <div class="item-detail">
                             	<div class="item-detail-note">
-                                	 November 9, 2012 (deadline)
+                               @upcomming.DeadlineDate.ToString("dd/MMM/yyyy") (deadline)
+                                	
                                 </div>
                             	<div class="item-detail-title">
                                     <a href="#">@upcomming.Name</a>
                                 </div>
                             	<div class="item-detail-content">
                               
-                                	@upcomming.Summary
+                                	@upcomming.Summary.Substring(0,80);
                                 </div>
                             	<div class="item-detail-date">
                                   
-                                    Start date:@upcomming.StartDate
+                                    Start date:@upcomming.StartDate.ToString("dd/MMM/yyyy") <br />
+                                    End date:@upcomming.EndDate.ToString("dd/MMM/yyyy")
                                 </div>
                                 <div class="item-detail-link">
-                                	<a href="#">View detail...</a>
+                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @upcomming.ID)")>View detail...</a>
                                 </div>
                             </div>
                          
@@ -39,34 +41,7 @@
                     </div>
                                 
                     }   
-                    <!--------------------ONGOING COMPETITIONS--------------------->
-                	<div class="content-left-title">
-                    	ONGOING COMPETITIONS
-                    </div>
-                    <div class="content-left-content">
-                    	<div class="content-left-content-item">
-                        	<div class="item-image">
-                            	<img alt="" src="@Url.Content("~/Content/Images/competitions/competition-2.jpg")" />
-                            </div>
-                            <div class="item-detail">
-                            	<div class="item-detail-note">
-                                	Graphic Design / November 9, 2012 (deadline)
-                                </div>
-                            	<div class="item-detail-title">
-                                	<a href="#">IACE International Awards</a>
-                                </div>
-                            	<div class="item-detail-content">
-                                	The International Awards for Creative Excellence (IACE) is a high-profile design award scheme, recogniz the outstanding work creatives all over the world do for their clients, establishing image and identity, promoting.The Gentletude Design Award is an international award for typhographic design students.The Award is run by the NGO Gentletude, a not-for-profit organization founded by Cristina Milani...
-                                </div>
-                            	<div class="item-detail-date">
-                                    Start date: 12/12/2012 - 20/01/2013
-                                </div>
-                                <div class="item-detail-link">
-                                	<a href="#">View detail...</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                      @{Html.RenderAction("Oncomming", "Home");} 
                     <!--------------------LIST OF STUDENTS--------------------->
                 	<div class="content-left-title">
                     	LIST OF STUDENTS AWARDED

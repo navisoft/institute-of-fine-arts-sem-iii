@@ -25,7 +25,7 @@ namespace eProjectsSemIII.Models
         public string Summary { get; set; }
 
         //many to many
-        public ICollection<Conditions> Condition { get; set; }
+        public virtual ICollection<Conditions> Condition { get; set; }
         public ICollection<Awards> Award { get; set; }
 
         // many to many with competion

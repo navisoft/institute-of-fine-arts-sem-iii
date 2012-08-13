@@ -13,12 +13,58 @@ namespace eProjectsSemIII.Controllers
     {
 
         private FineArtContext db = new FineArtContext();
+        const int pagsize=3;
+
+        // list all upcomming
         public ActionResult Index()
         {
-            var upcomming = db.Competitions.ToList();
+           
+            var upcomming = db.Competitions.Where(s=>s.StartDate>DateTime.Now).ToList();
+            ViewBag.upcomming = upcomming;
+            return View(upcomming);
+           
 
+        }
+
+        public ActionResult Oncomming()
+        {
+            var oncomming = db.Competitions
+                              .Where(p => p.StartDate < DateTime.Now && p.EndDate >= DateTime.Now)
+                              .Take(4)
+                              .ToList();
+            
+            ViewBag.oncomming = oncomming;
+           return PartialView();
+        }
+
+
+        //paging oncomming
+        public ActionResult listAllOnComming(int page = 1)
+        {
+            var oncomming = db.Competitions
+                              .Where(p => p.StartDate < DateTime.Now && p.EndDate >= DateTime.Now)
+                              .OrderBy(p => p.ID)
+                              .Skip((page - 1) * pagsize)
+                              .Take(pagsize)
+                              .ToList();
+            ViewBag.currentpage = page;
+            ViewBag.PageSize = pagsize;
+            ViewBag.TotalPage = Math.Ceiling((double)db.Competitions.Count() / pagsize);
+
+            
+            return View(oncomming);
+        }
+
+
+        // detail upcomming
+        public ActionResult detail_upcomming(int id)
+        {
+
+            var upcomming = db.Competitions.Include("Condition").Include("Award").Single(g => g.ID == id);
             return View(upcomming);
         }
+
+
 
         // list kind as menu left
 
@@ -65,7 +111,7 @@ namespace eProjectsSemIII.Controllers
         [ChildActionOnly]
         public virtual ActionResult list_student()
         {
-            //var student = db.AwardMembers.Include("Member").Include("Award").Include("Competition").ToList();
+            //var student = db.Awards.Include("Member").Include("Competition").ToList();
             //ViewBag.students = student;
 
             return PartialView();

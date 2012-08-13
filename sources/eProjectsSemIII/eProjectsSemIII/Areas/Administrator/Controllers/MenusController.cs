@@ -56,9 +56,9 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     {
                         menu.Action = "Index";
                     }
-                    Strings stringsLibs = new Strings();
-                    menu.Controller = stringsLibs.Capacital(menu.Controller);
-                    menu.Action = stringsLibs.Capacital(menu.Action);
+                    //Strings stringsLibs = new Strings();
+                    //menu.Controller = stringsLibs.Capacital(menu.Controller);
+                    //menu.Action = stringsLibs.Capacital(menu.Action);
                 });
                 ViewBag.listMenu = listMenu;
                 return View();
