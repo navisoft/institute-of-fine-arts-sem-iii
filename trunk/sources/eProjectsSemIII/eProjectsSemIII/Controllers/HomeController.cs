@@ -18,6 +18,23 @@ namespace eProjectsSemIII.Controllers
         // list all upcomming
         public ActionResult Index()
         {
+            Competitions competition = new Competitions();
+            competition.ID = 1;
+            //var marks = db.Marks.Where(m => m.Competition == competition).GroupBy(m => m.Design.ID).ToList();
+            //foreach (Marks mark in marks)
+            //{
+            //    Response.Write(mark.Mark);
+            //}
+            var query = from m in db.Marks
+                        where m.competition.ID == 1
+                        group m by m.Design into gr
+
+                        select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
+            foreach (var item in query)
+            {
+                Response.Write(item.Id+"<br>");
+                Response.Write(item.avgMark + "<br>");
+            }
             var upcomming = db.Competitions.Where(s=>s.StartDate>DateTime.Now).ToList();
             ViewBag.upcomming = upcomming;
             return View(upcomming);
@@ -64,7 +81,6 @@ namespace eProjectsSemIII.Controllers
         }
 
 
-
         // list kind as menu left
 
         [ChildActionOnly]
@@ -100,10 +116,25 @@ namespace eProjectsSemIII.Controllers
        
         public ActionResult list_student()
         {
-            var designs = db.Designs.Include("Award").Include("Member")
-                                    .Where(d => d.Award.ID != null)
-                                    .ToList();
-            ViewBag.designs = designs;
+            //var designs = db.Designs.Include("Award").Include("Member")
+            //                        .Where(d => d.Award.ID != null)
+            //                        .ToList();
+            //ViewBag.designs = designs;
+            Competitions competition = new Competitions();
+            competition.ID = 1;
+            //var marks = db.Marks.Where(m => m.Competition == competition).GroupBy(m => m.Design.ID).ToList();
+            //foreach (Marks mark in marks)
+            //{
+            //    Response.Write(mark.Mark);
+            //}
+            var query = from m in db.Marks
+                        where m.competition.ID == 1
+                        group m by m.Design into gr
+                        select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
+            foreach (var item in query)
+            {
+                Response.Write(item.avgMark);
+            }
             return PartialView();
         }
     }
