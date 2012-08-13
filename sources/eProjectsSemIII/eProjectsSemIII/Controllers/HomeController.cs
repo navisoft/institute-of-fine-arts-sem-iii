@@ -28,7 +28,6 @@ namespace eProjectsSemIII.Controllers
             var query = from m in db.Marks
                         where m.Design.Competition.ID == 1
                         group m by m.Design into gr
-
                         select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
             foreach (var item in query)
             {
