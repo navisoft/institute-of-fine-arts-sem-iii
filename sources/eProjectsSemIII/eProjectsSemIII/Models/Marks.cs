@@ -12,6 +12,5 @@ namespace eProjectsSemIII.Models
         public int Mark { get; set; }
         public string ReMark { get; set; }
         public Designs Design { get; set; }
-        public Competitions Competition { get; set; }
     }
 }
