@@ -69,7 +69,6 @@ namespace eProjectsSemIII.Models
         public DbSet<Members> Members { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Marks> Marks { get; set; }
-       
         public DbSet<Menus> Menus { get; set; }
     }
 
