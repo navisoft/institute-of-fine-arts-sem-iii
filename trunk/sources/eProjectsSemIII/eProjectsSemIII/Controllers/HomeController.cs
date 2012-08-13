@@ -18,7 +18,6 @@ namespace eProjectsSemIII.Controllers
         // list all upcomming
         public ActionResult Index()
         {
-           
             var upcomming = db.Competitions.Where(s=>s.StartDate>DateTime.Now).ToList();
             ViewBag.upcomming = upcomming;
             return View(upcomming);
@@ -97,23 +96,14 @@ namespace eProjectsSemIII.Controllers
         }
 
         // list all student which had a ward of competition 
-
-        //public virtual ActionResult List_Student()
-        //{
-        //    //var student = db.AwardMembers.Where(s=>s.MemberID==1).ToList();
-        //    var student = from am in db.AwardMembers
-        //                  join mb in db.Members on am.MemberID equals mb.ID
-        //                  select mb.Images ;
-        //    ViewBag.students = student;
-
-        //    return PartialView();
-        //}
-        [ChildActionOnly]
-        public virtual ActionResult list_student()
+      
+       
+        public ActionResult list_student()
         {
-            //var student = db.Awards.Include("Member").Include("Competition").ToList();
-            //ViewBag.students = student;
-
+            var designs = db.Designs.Include("Award").Include("Member")
+                                    .Where(d => d.Award.ID != null)
+                                    .ToList();
+            ViewBag.designs = designs;
             return PartialView();
         }
     }
