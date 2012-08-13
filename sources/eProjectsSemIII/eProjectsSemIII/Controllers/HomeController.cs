@@ -26,7 +26,7 @@ namespace eProjectsSemIII.Controllers
             //    Response.Write(mark.Mark);
             //}
             var query = from m in db.Marks
-                        where m.competition.ID == 1
+                        where m.Competition.ID == 1
                         group m by m.Design into gr
 
                         select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
@@ -128,7 +128,7 @@ namespace eProjectsSemIII.Controllers
             //    Response.Write(mark.Mark);
             //}
             var query = from m in db.Marks
-                        where m.competition.ID == 1
+                        where m.Competition.ID == 1
                         group m by m.Design into gr
                         select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
             foreach (var item in query)
