@@ -221,12 +221,10 @@ namespace eProjectsSemIII.Models
 
             var customer = new List<Customers>
             {
-                new Customers {Name="Phong", Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male" },
-                new Customers {Name="Son", Address="Tp.HCM",Phone="0128.66.01282",Gender="Male" },
-                new Customers {Name="Phong", Address="TP.HCM",Phone="0128.66.01283",Gender="Male" },
-                new Customers {Name="Kim", Address="TP.HCM",Phone="0128.66.01284",Gender="Female" },
-              
-               
+                new Customers {Name="Phong", Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",DateBuy=DateTime.Now,Design=design[0],Exhibition=exhibition[0] },
+                new Customers {Name="Son", Address="Tp.HCM",Phone="0128.66.01282",Gender="Male" ,DateBuy=DateTime.Now,Design=design[0],Exhibition=exhibition[0]},
+                new Customers {Name="Phong", Address="TP.HCM",Phone="0128.66.01283",Gender="Male",DateBuy=DateTime.Now ,Design=design[0],Exhibition=exhibition[0]},
+                new Customers {Name="Kim", Address="TP.HCM",Phone="0128.66.01284",Gender="Female",DateBuy=DateTime.Now ,Design=design[0],Exhibition=exhibition[0]},
             };
             customer.ForEach(s => context.Customers.Add(s));
             context.SaveChanges();
