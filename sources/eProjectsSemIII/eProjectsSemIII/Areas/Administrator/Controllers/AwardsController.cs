@@ -33,7 +33,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult AwardCompetition(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {

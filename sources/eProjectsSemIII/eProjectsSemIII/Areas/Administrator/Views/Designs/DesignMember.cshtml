@@ -33,15 +33,6 @@
                 </div>
             </a>
         </div>
-        <div class="item_content_action">
-            <a href="#">
-                <div class="img_item_content_action" id="add_action">
-                </div>
-                <div class="text_item_content_action">
-                    Add
-                </div>
-            </a>
-        </div>
     </div>
     <!--#END content_action-->
 </div>
@@ -80,8 +71,8 @@
                 <td class="text-center paddings design-image"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/" + design.Images)" /></td>
                 <td class="text-left">@design.Kind.Name</td>
                 <td class="text-left">@design.Competition.Name</td>
-                <td class="text-center">@design.Member.Name</td>
-                <td class="text-center">
+                <td class="text-center paddings">@design.Member.Name</td>
+                <td class="text-center paddings">
                 @{
                 try
                 { 
@@ -142,15 +133,6 @@
                 </div>
                 <div class="text_item_content_action">
                     Go back
-                </div>
-            </a>
-        </div>
-        <div class="item_content_action">
-            <a href="#">
-                <div class="img_item_content_action" id="add_action1">
-                </div>
-                <div class="text_item_content_action">
-                    Add
                 </div>
             </a>
         </div>

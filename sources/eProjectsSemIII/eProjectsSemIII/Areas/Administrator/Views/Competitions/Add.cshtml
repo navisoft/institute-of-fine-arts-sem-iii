@@ -1,12 +1,12 @@
 ﻿<div class="path_menu">
 	<div class="path_menu_item">
-    	<a href="#">Trang chủ</a>
+    	<a href="@Url.Content("~/")">Home Page</a>
     </div>
 	<div class="path_menu_item">
-    	<a href="#">Nội dung</a>
+    	<a href="@Url.Content("~/administrator/competitions")">Conpetitions</a>
     </div>
 	<div class="path_menu_item">
-    	<a href="#">Thêm mới nội dung</a>
+    	<a href="">Add new competition</a>
     </div>
 </div>
 <div class="path_menu context_menu">
@@ -20,7 +20,7 @@
 
 <div class="path_menu title_and_action">
 	<div class="content_title">
-    	Thêm mới sản phẩm
+    	Add new competition
     </div>
     <div class="content_action">
     	<div class="item_content_action">
@@ -32,30 +32,6 @@
             </div>
         </div>
     	<div class="item_content_action">
-        	<div class="img_item_content_action" id="add_action">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Save
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="update_action">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Update
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="delete_action">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Delete
-            </div>
-        </div>
-    	<div class="item_content_action">
         	<div class="img_item_content_action" id="go_back_action">
             
             </div>
@@ -64,11 +40,11 @@
             </div>
         </div>
     	<div class="item_content_action">
-        	<div class="img_item_content_action" id="edit_action">
+        	<div class="img_item_content_action" id="add_action">
             
             </div>
         	<div class="text_item_content_action">
-            	Edit
+            	Save
             </div>
         </div>
     </div><!--#END content_action-->
@@ -77,30 +53,34 @@
 <div class="path_menu">
 	<div class="form_panel">
     	<div class="tab_form_panel">
-        	<div class="item_tab_form_panel" id="item_tab_form_panel1">
-            	Chi tiết sản phẩm
-            </div>
-        	<div class="item_tab_form_panel" id="item_tab_form_panel2">
-            	Thông tin khác
-            </div>
-        	<div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel3">
-            	Sản phẩm liên quan
-            </div>
-        	<div class="item_tab_form_panel" id="item_tab_form_panel4">
-            	Hình sản phẩm
-            </div>
-        	<div class="item_tab_form_panel" id="item_tab_form_panel5">
-            	Bài viết đánh giá
+        	<div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
+            	Competition Detail
             </div>
         </div>
         <div class="content_form_panel">
         	<div class="item_content_form_panel" id="item_content_form_panel1">
             	<div class="item_item_content_form">
                 	<div class="title_item_item_form">
-                    	<span>*</span> Tên sản phẩm
+                    	<span>*</span> Competition Name
                     </div>
                 	<div class="input_item_item_form">
                     	<input type="text" id="d" class="txt_input_item_item" />
+                    </div>
+                </div>
+            	<div class="item_item_content_form">
+                	<div class="title_item_item_form">
+                    	<span>*</span> Competition Alias
+                    </div>
+                	<div class="input_item_item_form">
+                    	<input type="text" id="d" class="txt_input_item_item" />
+                    </div>
+                </div>
+            	<div class="item_item_content_form">
+                	<div class="title_item_item_form">
+                    	<span>*</span> Competition Image
+                    </div>
+                	<div class="input_item_item_form">
+                    	<input type="file" id="d" class="" />
                     </div>
                 </div>
             	<div class="item_item_content_form">
@@ -164,64 +144,6 @@
                     </div>
                 </div>
             </div>
-            <!--===================================#END CHI TIET SAN PHAM======================================-->
-        	<div class="item_content_form_panel" id="item_content_form_panel2">
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Cho phép đặt hàng
-                    </div>
-                	<div class="input_item_item_form">
-                    	<select>
-                            <option>Cho phép</option>
-                            <option>Không cho phép</option>
-                        </select>
-                    </div>
-                </div><!--#-->
-                <div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Thời hạn bảo hành
-                    </div>
-                	<div class="input_item_item_form">
-                    	<textarea name="" class="txt_textarea_product"></textarea>
-                    </div>
-                </div><!--#-->
-                <div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Tình trạng
-                    </div>
-                	<div class="input_item_item_form">
-                    	<select>
-                            <option>Hàng mới nguyên kiện</option>
-                            <option>Hàng đã qua sử dụng</option>
-                            <option>Hàng tái chế</option>
-                        </select>
-                    </div>
-                </div><!--#-->
-                <div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Cho vào module
-                    </div>
-                	<div class="input_item_item_form">
-                    	<select>
-                            <option>Sản phẩm nổi bật</option>
-                            <option>Sản phẩm mới</option>
-                            <option>Sản phẩm khuyến mãi</option>
-                        </select>
-                    </div>
-                </div><!--#-->
-                <div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Nhà sản xuất
-                    </div>
-                	<div class="input_item_item_form">
-                    	<select>
-                            <option>Hãy chọn nhà sản xuất</option>
-                            <option>Sony</option>
-                            <option>Vaio</option>
-                        </select>
-                    </div>
-                </div><!--#-->
-            </div>
         </div>
     </div>
 </div>
@@ -240,30 +162,6 @@
             </div>
         </div>
     	<div class="item_content_action">
-        	<div class="img_item_content_action" id="add_action1">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Save
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="update_action1">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Update
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="delete_action1">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Delete
-            </div>
-        </div>
-    	<div class="item_content_action">
         	<div class="img_item_content_action" id="go_back_action1">
             
             </div>
@@ -272,11 +170,11 @@
             </div>
         </div>
     	<div class="item_content_action">
-        	<div class="img_item_content_action" id="edit_action1">
+        	<div class="img_item_content_action" id="add_action1">
             
             </div>
         	<div class="text_item_content_action">
-            	Edit
+            	Save
             </div>
         </div>
     </div><!--#END content_action-->

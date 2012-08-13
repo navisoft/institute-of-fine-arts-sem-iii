@@ -62,5 +62,12 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 return Redirect("~/");
             }
         }
+
+        public ActionResult Add(FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            return View();
+        }
     }
 }
