@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eProjectsSemIII.Libs;
 using eProjectsSemIII.Models;
 using eProjectsSemIII.Areas.Administrator;
+using eProjectsSemIII.Configs;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -30,21 +31,20 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index(string id)
         {
-            ////base.Authentication();
-            //base.LoadMenu();
-            //int currentPage = Paging.GetPage(id);
-            //decimal totalRecord = GlobalInfo.NumberRecordInPage;
-            //Members membersModels = new Members();
-            //decimal totalMember = membersModels.TotalMember();
-            //int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalMember / totalRecord));
-            //Paging.numPage = totalPage;
-            //Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
-            //Paging.currentPage = currentPage;
-            //string url = "administrator/members/index";
-            //ViewBag.pagingString = Paging.GenerateLinkPaging(url);
-            //ViewBag.Title += " Members";
-            //return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
-            return View();
+            //base.Authentication();
+            base.LoadMenu();
+            int currentPage = Paging.GetPage(id);
+            decimal totalRecord = GlobalInfo.NumberRecordInPage;
+            Members membersModels = new Members();
+            decimal totalMember = membersModels.TotalMember();
+            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalMember / totalRecord));
+            Paging.numPage = totalPage;
+            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+            Paging.currentPage = currentPage;
+            string url = "administrator/members/index";
+            ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+            ViewBag.Title += " Members";
+            return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
 
         public ActionResult MembersClass(string id)
