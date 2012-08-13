@@ -145,6 +145,9 @@ namespace eProjectsSemIII.Models
                 new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
                 new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
                 new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
               
                
             };
@@ -173,37 +176,54 @@ namespace eProjectsSemIII.Models
                 new Designs {
                     Name = "The Climate Change Ad Competition 2012",Alias = "the-climate-change-ad-competition-2012",
                     Description="TZIPAC is excited to launch The Eros Award 2012. This is an international juried competition that celebrates the magic of fine art nude photography, honouring the finest in classic and contemporary nude photography..", 
-                    MemberID = 4, KindID = 1,CompetitionID=1,Mark=10,Remark=10,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    MemberID = 4, KindID = 1,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
                     Images="the-climate-change-ad-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "ILFORD Student Photo Competition 2012",Alias = "ilford-student-photo-competition-2012",
                     Description="Climate change is recognized as a priority challenge that humanity is facing in the 21st century and some of its consequences – like increased frequency and intensity of natural hazards – are already being felt. The..", 
-                    MemberID = 4, KindID = 1,CompetitionID=2,Mark=10,Remark=9,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    MemberID = 4, KindID = 1,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
                     Images="ilford-student-photo-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "Embracing Our Differences 2013",Alias = "embracing-our-differences-2013",
                     Description="The theme of the competition is FAMILY. There is no limit to the number of entries permitted per student. Images must be printed on ILFORD black and white darkroom paper. Negatives or digital files will be called..", 
-                    MemberID =4, KindID = 2,CompetitionID=3,Mark=10,Remark=8,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    MemberID =4, KindID = 2,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
                     Images="embracing-our-differences-2013.jpg"
                 },
                 new Designs {
                     Name = "Pink Lady Food Photographer Of The Year 2013",Alias = "pink-lady-food-photographer-of-the-year-2013",
                     Description="Embracing Our Differences invites artists, photographers, professionals, amateurs, teachers and students to participate in its new visual art exhibit celebrating diversity. 45 artists will be selected for the exhibit...", 
-                    MemberID = 4, KindID = 3,CompetitionID=4,Mark=10,Remark=7,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    MemberID = 4, KindID = 3,CompetitionID=4,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
                     Images="pink-lady-food-photographer-of-the-year-2013.jpg"
                 },
                 new Designs {
                     Name = "Greenham Common Open 2012 Competition",Alias = "greenham-common-open-2012-competition",
                     Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
-                    MemberID = 5, KindID = 4,CompetitionID=1,Mark=6,Remark=10,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    MemberID = 5, KindID = 4,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
                     Images="greenham-common-open-2012-competition.jpg"
                 },
 
                 
             };
             design.ForEach(s => context.Designs.Add(s));
+            context.SaveChanges();
+
+            var mark = new List<Marks>
+            {
+                new Marks{Design=design[0],Staff=member[9],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[0],Staff=member[10],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[0],Staff=member[11],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[1],Staff=member[9],Mark=4,competition=compatition[0]},
+                new Marks{Design=design[1],Staff=member[10],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[1],Staff=member[11],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[2],Staff=member[9],Mark=3,competition=compatition[0]},
+                new Marks{Design=design[2],Staff=member[10],Mark=5,competition=compatition[0]},
+                new Marks{Design=design[2],Staff=member[11],Mark=5,competition=compatition[0]},
+
+            };
+
+            mark.ForEach(mm => context.Marks.Add(mm));
             context.SaveChanges();
             
             var exhibition = new List<Exhibitions>

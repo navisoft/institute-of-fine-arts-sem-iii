@@ -39,6 +39,8 @@ namespace eProjectsSemIII.Models
         //navigation property
         public ICollection<Designs> Design { get; set; }
 
+        public ICollection<Competitions> Competitions { get; set; }
+
         //many to many with class
         //navigation property
         public Classes Class { get; set; }

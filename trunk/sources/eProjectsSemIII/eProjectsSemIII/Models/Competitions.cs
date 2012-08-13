@@ -24,6 +24,8 @@ namespace eProjectsSemIII.Models
         public string Images { get; set; }
         public string Summary { get; set; }
 
+        public ICollection<Members> Staffs { get; set; }
+
         //many to many
         public virtual ICollection<Conditions> Condition { get; set; }
         public ICollection<Awards> Award { get; set; }

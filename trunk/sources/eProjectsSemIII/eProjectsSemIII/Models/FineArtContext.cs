@@ -68,8 +68,8 @@ namespace eProjectsSemIII.Models
         public DbSet<Kinds> Kinds { get; set; }
         public DbSet<Members> Members { get; set; }
         public DbSet<Roles> Roles { get; set; }
-        //public DbSet<DesignExhibitions> DesignExhibitions { get; set; }
-        //public DbSet<AwardMembers> AwardMembers { get; set; }
+        public DbSet<Marks> Marks { get; set; }
+       
         public DbSet<Menus> Menus { get; set; }
     }
 
