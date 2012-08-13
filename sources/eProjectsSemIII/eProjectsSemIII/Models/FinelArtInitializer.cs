@@ -82,15 +82,15 @@ namespace eProjectsSemIII.Models
 
             var condition = new List<Conditions>
             {
-                new Conditions {Name="Condition Name test", Description="The Competition is open to all the caricaturists from all over the world.",Competition = new List<Competitions>(),DateUpdate=DateTime.Now },
-                new Conditions {Name="Condition Name",Description="The competition open to all photographers, creative professionals, publishers, agencies, representatives, students and teachers from all the world." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Conditions {Name="Condition Name1", Description="The Competition is open to all the caricaturists from all over the world.",Competition = new List<Competitions>(),DateUpdate=DateTime.Now },
+                new Conditions {Name="Condition Name2",Description="The competition open to all photographers, creative professionals, publishers, agencies, representatives, students and teachers from all the world." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
                 new Conditions {
-                    Name="Condition Name",
+                    Name="Condition Name3",
                     Description="Books that are published with a 2011 or 2012 copyright or that were released in 2011 or 2012 are eligible. The contest is for published books, but ISBN is not required. Submission of galley copies is permissible if finished copies are not yet available.E-books and audio-books are eligible, but there’re no separate categories for them at this time." ,
                     Competition = new List<Competitions>(),DateUpdate=DateTime.Now
                 },
-                new Conditions {Name="Condition Name",Description="The competition is open to amateur and professional photographers worldwide." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Conditions {Name="Condition Name",Description="All cartoonists from all over the world are welcome to enter the competition." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Conditions {Name="Condition Name4",Description="The competition is open to amateur and professional photographers worldwide." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Conditions {Name="Condition Name5",Description="All cartoonists from all over the world are welcome to enter the competition." ,Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
                
             };
             condition.ForEach(s => context.Conditions.Add(s));
@@ -211,8 +211,8 @@ namespace eProjectsSemIII.Models
 
             var mark = new List<Marks>
             {
-                new Marks{Design=design[0],Staff=member[9],Mark=5},//,Competition=compatition[0]
-                new Marks{Design=design[0],Staff=member[10],Mark=5},//,Competition=compatition[0]
+                new Marks{Design=design[0],Staff=member[9],Mark=5},
+                new Marks{Design=design[0],Staff=member[10],Mark=5},
                 new Marks{Design=design[0],Staff=member[11],Mark=5},
                 new Marks{Design=design[1],Staff=member[9],Mark=4},
                 new Marks{Design=design[1],Staff=member[10],Mark=5},
