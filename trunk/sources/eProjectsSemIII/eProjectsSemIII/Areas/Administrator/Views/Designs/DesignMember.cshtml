@@ -56,7 +56,6 @@
                 <td class="text-left">Kind</td>
                 <td class="text-left">Competition</td>
                 <td class="text-center">Member</td>
-                <td class="text-center">Award</td>
                 <td class="text-center paddings">Price</td>
                 <td class="text-center date">Date Post</td>
                 <td class="text-center">Exhibition</td>
@@ -72,19 +71,6 @@
                 <td class="text-left">@design.Kind.Name</td>
                 <td class="text-left">@design.Competition.Name</td>
                 <td class="text-center paddings">@design.Member.Name</td>
-                <td class="text-center paddings">
-                @{
-                try
-                { 
-                    @design.Award.Name
-                }
-                catch (Exception e)
-                {
-                    Console.Write(e.Message);
-                }
-                }
-                
-                </td>
                 <td class="text-center paddings">@design.PriceSold</td>
                 <td class="text-center">@design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center"><a href="@Url.Content("~/administrator/exhibitions/exhibitiondesign/" + @design.ID)">Exhibition</a></td>

@@ -66,13 +66,13 @@
                 <td class="text-center edit">Edit</td>
                 <td class="text-center">Delete</td>
             </tr>
-            @foreach (var kinds in Model)
+            @foreach (var award in Model)
             {
             <tr>
-                <td class="text-center num-id">@kinds.ID</td>
-                <td class="text-left">@kinds.Name</td>
-                <td class="text-left">@kinds.Description</td>
-                <td class="text-left">@kinds.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
+                <td class="text-center num-id">@award.ID</td>
+                <td class="text-left">@award.Name</td>
+                <td class="text-left">@award.Description</td>
+                <td class="text-left">@award.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center">
                     <a href="">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />

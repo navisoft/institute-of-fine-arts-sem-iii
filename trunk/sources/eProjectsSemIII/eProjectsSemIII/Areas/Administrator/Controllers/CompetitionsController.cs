@@ -67,6 +67,13 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         {
             //base.Authentication();
             base.LoadMenu();
+
+            Competitions competitionsModels = new Competitions
+            {
+                Name = "Add new Competition",
+                Alias = "add-new-competition",
+                
+            };
             return View();
         }
     }
