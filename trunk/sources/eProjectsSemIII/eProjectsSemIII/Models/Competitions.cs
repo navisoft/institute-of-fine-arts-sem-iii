@@ -60,5 +60,10 @@ namespace eProjectsSemIII.Models
         {
             return new FineArtContext().Competitions.Count();
         }
+
+        public Competitions GetCompetitionWithID()
+        {
+            return new FineArtContext().Competitions.Where(c => c.ID == this.ID).FirstOrDefault();
+        }
     }
 }
