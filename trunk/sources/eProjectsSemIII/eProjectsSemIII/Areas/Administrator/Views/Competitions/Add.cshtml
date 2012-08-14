@@ -1,146 +1,275 @@
 ﻿<div class="path_menu">
-	<div class="path_menu_item">
-    	<a href="@Url.Content("~/")">Home Page</a>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/")">Home Page</a>
     </div>
-	<div class="path_menu_item">
-    	<a href="@Url.Content("~/administrator/competitions")">Conpetitions</a>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/competitions")">Conpetitions</a>
     </div>
-	<div class="path_menu_item">
-    	<a href="">Add new competition</a>
+    <div class="path_menu_item">
+        <a href="">Add new competition</a>
     </div>
 </div>
 <div class="path_menu context_menu">
-	<a href="#">Danh sách sản phẩm</a>
-    <span>|</span>
-	<a href="#">Danh mục sản phẩm</a>
-    
-    <span>|</span>
-	<a href="#">Đánh giá, nhận xét sản phẩm</a>
+    <a href="#">Danh sách sản phẩm</a> <span>|</span> <a href="#">Danh mục sản phẩm</a>
+    <span>|</span> <a href="#">Đánh giá, nhận xét sản phẩm</a>
 </div>
-
+<form action="" method="post" enctype="multipart/form-data">
 <div class="path_menu title_and_action">
-	<div class="content_title">
-    	Add new competition
+    <div class="content_title">
+        Add new competition
     </div>
     <div class="content_action">
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="help_action">
-            
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action">
             </div>
-        	<div class="text_item_content_action">
-            	Help
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="go_back_action">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Go back
+            <div class="text_item_content_action">
+                Help
             </div>
         </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="add_action">
-            
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="go_back_action">
             </div>
-        	<div class="text_item_content_action">
-            	Save
+            <div class="text_item_content_action">
+                Go back
             </div>
         </div>
-    </div><!--#END content_action-->
-</div><!--#END path_menu title_and_action-->
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_competition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+@if (ViewBag.error != null)
+{
+    <div class="path_menu error">
+        @Html.Raw(ViewBag.error)
+    </div>
+}
 <!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
 <div class="path_menu">
-	<div class="form_panel">
-    	<div class="tab_form_panel">
-        	<div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
-            	Competition Detail
+    <div class="form_panel">
+        <div class="tab_form_panel">
+            <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
+                Competition Detail
             </div>
         </div>
         <div class="content_form_panel">
-        	<div class="item_content_form_panel" id="item_content_form_panel1">
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Competition Name
+            <div class="item_content_form_panel" id="item_content_form_panel1">
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Competition Name
                     </div>
-                	<div class="input_item_item_form">
-                    	<input type="text" id="d" class="txt_input_item_item" />
-                    </div>
-                </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Competition Alias
-                    </div>
-                	<div class="input_item_item_form">
-                    	<input type="text" id="d" class="txt_input_item_item" />
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" name="Name" value="@try
+                                                                                          {@ViewBag.dataForm["Name"]}
+                                                                                          catch { }"/>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Competition Image
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Competition Alias
                     </div>
-                	<div class="input_item_item_form">
-                    	<input type="file" id="d" class="" />
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" name="Alias" value="@try
+                                                                                           {@ViewBag.dataForm["Alias"]}
+                                                                                           catch { }"/>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Danh mục sản phẩm
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Competition Image
                     </div>
-                	<div class="input_item_item_form">
-                    	<select>
-                            <option selected="selected" style="color:#FC0">Chose a category item...</option>
-                        	<optgroup label="May anh">
-                            	<option>Sony</option>
-                            	<option>Campus</option>
-                            	<option>Halloe</option>
-                            </optgroup>
-                        	<optgroup label="May tinh">
-                            	<option>Vaio</option>
-                            	<option>Samsung</option>
-                            	<option>Dell</option>
-                            </optgroup>
+                    <div class="input_item_item_form">
+                        <input type="file" class="" name="Images" />
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Teachers scoring
+                    </div>
+                    <div class="input_item_item_form">
+                        <select multiple="multiple" size="10" name="Staffs">
+                            <option value="-1" selected="selected">Chose teachers scoring for competition...</option>
+                            @foreach (eProjectsSemIII.Models.Members member in ViewBag.listStaff)
+                            {
+                                try
+                                {
+                                    bool hasItem = false;
+                                    foreach (int item in ViewBag.IDStaffs)
+                                    {
+                                        if (item == member.ID)
+                                        {
+                                            hasItem = true;
+                                <option value="@member.ID" selected="selected">@member.Name</option>
+                                            break;
+                                        }
+
+                                    }
+                                    if (hasItem == false)
+                                    {
+                                <option value="@member.ID">@member.Name</option>
+                                    }
+                                }
+                                catch
+                                {
+                                <option value="@member.ID">@member.Name</option>
+                                }
+
+                            }
                         </select>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Giá sản phẩm
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Conditions of Competition
                     </div>
-                	<div class="input_item_item_form">
-                    	<input type="text" id="dd" class="txt_input_item_item" />
+                    <div class="input_item_item_form">
+                        <select multiple="multiple" size="10" name="Conditions">
+                            <option value="-1" selected="selected">Chose conditions for competition...</option>
+                            @foreach (eProjectsSemIII.Models.Conditions condition in ViewBag.listCondition)
+                            {
+                                try
+                                {
+                                    bool hasItem = false;
+                                    foreach (int item in ViewBag.IDConditions)
+                                    {
+                                        if (item == condition.ID)
+                                        {
+                                            hasItem = true;
+                                <option value="@condition.ID" selected="selected">@condition.Description</option>
+                                            break;
+                                        }
+
+                                    }
+                                    if (hasItem == false)
+                                    {
+                                <option value="@condition.ID">@condition.Description</option>
+                                    }
+                                }
+                                catch
+                                {
+                                <option value="@condition.ID">@condition.Description</option>
+                                }
+                            }
+                        </select>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Giá bao gồm VAT
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Awards of Competition
                     </div>
-                	<div class="input_item_item_form">
-                    	<input type="checkbox" class="check_item_item" />
+                    <div class="input_item_item_form">
+                        <select multiple="multiple" size="10" name="Awards">
+                            <option value="-1" selected="selected">Chose awards for competition...</option>
+                            @foreach (eProjectsSemIII.Models.Awards award in ViewBag.listAward)
+                            {
+                                try
+                                {
+                                    bool hasItem = false;
+                                    foreach (int item in ViewBag.IDAwards)
+                                    {
+                                        if (item == award.ID)
+                                        {
+                                            hasItem = true;
+                                <option value="@award.ID" selected="selected">@award.Description</option>
+                                            break;
+                                        }
+
+                                    }
+                                    if (hasItem == false)
+                                    {
+                                <option value="@award.ID">@award.Description</option>
+                                    }
+                                }
+                                catch
+                                {
+                                <option value="@award.ID">@award.Description</option>
+                                }
+                            }
+                        </select>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	<span>*</span> Hiển thị
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Kinds of Competition
                     </div>
-                	<div class="input_item_item_form">
-                    	<input type="checkbox" class="check_item_item" />
+                    <div class="input_item_item_form">
+                        <select multiple="multiple" size="10" name="Kinds">
+                            <option value="-1" selected="selected">Chose kinds for competition...</option>
+                            @foreach (eProjectsSemIII.Models.Kinds kind in ViewBag.listKind)
+                            {
+                                try
+                                {
+                                    bool hasItem = false;
+                                    foreach (int item in ViewBag.IDKinds)
+                                    {
+                                        if (item == kind.ID)
+                                        {
+                                            hasItem = true;
+                                <option value="@kind.ID" selected="selected">@kind.Name</option>
+                                            break;
+                                        }
+
+                                    }
+                                    if (hasItem == false)
+                                    {
+                                <option value="@kind.ID">@kind.Name</option>
+                                    }
+                                }
+                                catch
+                                {
+                                <option value="@kind.ID">@kind.Name</option>
+                                }
+                            }
+                        </select>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Mô tả tóm tắt
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Start Date (dd/MM/yyyy)
                     </div>
-                	<div class="input_item_item_form">
-                    	<textarea cols="" rows="" name="aa" class="txt_textarea_product"></textarea>
+                    <div class="input_item_item_form">
+                        <input type="text" id="StartDate" name="StartDate" class="txt_input_item_item" value="@try
+                                                                                                              {@ViewBag.dataForm["StartDate"]}
+                                                                                                              catch { }"/>
                     </div>
                 </div>
-            	<div class="item_item_content_form">
-                	<div class="title_item_item_form">
-                    	Thuộc tính sản phẩm
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Deadline Date (dd/MM/yyyy)
                     </div>
-                	<div class="input_item_item_form">
-                    	<textarea name="summary" class="ckeditor" id="editor1"></textarea>
+                    <div class="input_item_item_form">
+                        <input type="text" id="DeadlineDate" name="DeadlineDate" value="@try
+                                                                                        {@ViewBag.dataForm["DeadlineDate"]}
+                                                                                        catch { }" class="txt_input_item_item" />
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> End Date (dd/MM/yyyy)
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" id="EndDate" name="EndDate" value="@try
+                                                                              {@ViewBag.dataForm["EndDate"]}
+                                                                              catch { }" class="txt_input_item_item" />
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        Description
+                    </div>
+                    <div class="input_item_item_form">
+                        <textarea cols="" rows="" name="Summary" class="txt_textarea_product">
+                         @try
+                         {@ViewBag.dataForm["Summary"]}
+                         catch { }
+                        </textarea>
                     </div>
                 </div>
             </div>
@@ -149,33 +278,34 @@
 </div>
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
-	<div class="content_title">
-    	Thêm mới sản phẩm
+    <div class="content_title">
+        Thêm mới sản phẩm
     </div>
     <div class="content_action">
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="help_action1">
-            
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action1">
             </div>
-        	<div class="text_item_content_action">
-            	Help
-            </div>
-        </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="go_back_action1">
-            
-            </div>
-        	<div class="text_item_content_action">
-            	Go back
+            <div class="text_item_content_action">
+                Help
             </div>
         </div>
-    	<div class="item_content_action">
-        	<div class="img_item_content_action" id="add_action1">
-            
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="go_back_action1">
             </div>
-        	<div class="text_item_content_action">
-            	Save
+            <div class="text_item_content_action">
+                Go back
             </div>
         </div>
-    </div><!--#END content_action-->
-</div><!--#END path_menu title_and_action-->
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_competition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+</form>
