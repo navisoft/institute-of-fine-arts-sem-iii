@@ -22,5 +22,24 @@ namespace eProjectsSemIII.Libs
             }
         }
 
+        public int[] ListID(string str)
+        {
+            string[] IDStr =  str.Split(',');
+            int[] ID = new int[IDStr.Length];
+            try
+            {
+                int i = 0;
+                foreach (string id in IDStr)
+                {
+                    ID[i] = Convert.ToInt16(id);
+                    i++;
+                }
+           }
+           catch
+           {
+
+           }
+            return ID;
+        }
     }
 }
