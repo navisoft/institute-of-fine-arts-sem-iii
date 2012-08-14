@@ -20,11 +20,48 @@ $(document).ready(function () {
     });
     $('.item_tab_form_panel').click(function () {
         var id = $(this).attr('id');
-        var id = id.substring(id.length - 1, id.length);
+        id = id.substring(id.length - 1, id.length);
         $('.item_content_form_panel').hide();
         $('#item_content_form_panel' + id).show();
         $('.item_tab_form_panel').removeClass('item_tab_form_panel_show');
         $(this).addClass('item_tab_form_panel_show');
+    });
+    ///////////////////////////////////////////////DATE TIME////////////////////////////////////////////////////////
+    $("#StartDate").glDatePicker(
+    {
+        cssName: "android",
+        onChange: function (target, newDate) {
+            target.val
+            (
+                newDate.getDate() + "/" +
+                (newDate.getMonth() + 1) + "/" +
+                newDate.getFullYear()
+            );
+        }
+    });
+    $("#DeadlineDate").glDatePicker(
+    {
+        cssName: "android",
+        onChange: function (target, newDate) {
+            target.val
+            (
+                newDate.getDate() + "/" +
+                (newDate.getMonth() + 1) + "/" +
+                newDate.getFullYear()
+            );
+        }
+    });
+    $("#EndDate").glDatePicker(
+    {
+        cssName: "android",
+        onChange: function (target, newDate) {
+            target.val
+            (
+                newDate.getDate() + "/" +
+                (newDate.getMonth() + 1) + "/" +
+                newDate.getFullYear()
+            );
+        }
     });
 });
 //
