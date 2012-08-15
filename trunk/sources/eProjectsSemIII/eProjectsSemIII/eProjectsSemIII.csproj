@@ -137,6 +137,13 @@
     <Content Include="Content\Images\competitions\competition-1.jpg" />
     <Content Include="Content\Images\competitions\competition-2.jpg" />
     <Content Include="Content\Images\competitions\competition-3.jpg" />
+    <Content Include="Content\Images\exhibitions\annual-exhibition-june-2011.jpg" />
+    <Content Include="Content\Images\exhibitions\download.jpg" />
+    <Content Include="Content\Images\exhibitions\exhibition-graphic-design-summer-2012.jpg" />
+    <Content Include="Content\Images\exhibitions\exhibition-to-family-life.jpg" />
+    <Content Include="Content\Images\exhibitions\life-is-beautiful.jpg" />
+    <Content Include="Content\Images\exhibitions\outdoor-exhibition-2013.jpg" />
+    <Content Include="Content\Images\exhibitions\spring-2012-exhibition.jpg" />
     <Content Include="Content\Images\facebook-stauts.jpg" />
     <Content Include="Content\Images\flickr-group.jpg" />
     <Content Include="Content\Images\free-goodies-icon-1.jpg" />
@@ -145,12 +152,15 @@
     <Content Include="Content\Images\key-icon.png" />
     <Content Include="Content\Images\line_border_right.jpg" />
     <Content Include="Content\Images\logo.jpg" />
-    <Content Include="Content\Images\students\student-1.jpg" />
-    <Content Include="Content\Images\students\student-2.jpg" />
-    <Content Include="Content\Images\students\student-3.jpg" />
-    <Content Include="Content\Images\students\student-4.jpg" />
-    <Content Include="Content\Images\students\student-5.jpg" />
-    <Content Include="Content\Images\students\student-6.jpg" />
+    <Content Include="Content\Images\students\minhphong1.jpg" />
+    <Content Include="Content\Images\students\minhphong2.jpg" />
+    <Content Include="Content\Images\students\minhphong3.jpg" />
+    <Content Include="Content\Images\students\minhphong4.jpg" />
+    <Content Include="Content\Images\students\minhphong5.jpg" />
+    <Content Include="Content\Images\students\minhphong6.jpg" />
+    <Content Include="Content\Images\students\minhphong7.jpg" />
+    <Content Include="Content\Images\students\minhphong8.jpg" />
+    <Content Include="Content\Images\students\minhphong9.jpg" />
     <Content Include="Content\Styles\admin-index.css" />
     <Content Include="Content\Styles\admin-login.css" />
     <Content Include="Content\Styles\admin-style.css" />
@@ -211,15 +221,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\detail_upcomming.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\Oncomming.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\listAllOnComming.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Administrator\Views\Awards\AwardCompetition.cshtml" />
     <Content Include="Areas\Administrator\Views\Awards\Index.cshtml" />
     <Content Include="Areas\Administrator\Views\Classes\Index.cshtml" />
@@ -250,6 +251,23 @@
     <Content Include="Areas\Administrator\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administrator\Views\Web.config" />
     <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Oncomming.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\listAllCompetition.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ListAllDesign.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ListAllExhibition.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Images\exhibitions\Thumbs.db" />
+    <None Include="Content\Images\students\Thumbs.db" />
+    <Content Include="Views\Home\detail_upcomming.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

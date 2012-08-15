@@ -15,7 +15,7 @@ namespace eProjectsSemIII.Models
                 new Competitions {
                     Name="The Eros Award 2012",
                     Alias="the-eros-award-2012", 
-                    StartDate = DateTime.Parse("2012-09-10"), EndDate = DateTime.Parse("2012-12-10") ,DeadlineDate = DateTime.Parse("2012-12-05"),
+                    StartDate = DateTime.Parse("2012-09-10"), EndDate = DateTime.Parse("2012-12-10") ,DeadlineDate = DateTime.Parse("2012-07-05"),
                     Images="the-eros-award-2012.jpg",
                     Summary="TZIPAC is excited to launch The Eros Award 2012. This is an international juried competition that celebrates the magic of fine art nude photography, honouring the finest in classic and contemporary nude photography.." },
                 new Competitions {

@@ -33,7 +33,7 @@
                                     End date:@upcomming.EndDate.ToString("dd/MMM/yyyy")
                                 </div>
                                 <div class="item-detail-link">
-                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @upcomming.ID)")>View detail...</a>
+                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @upcomming.Alias)")>View detail...</a>
                                 </div>
                             </div>
                          
@@ -41,7 +41,7 @@
                     </div>
                                 
                     }   
-                      @*@{Html.RenderAction("Oncomming", "Home");} *@
+                      @{Html.RenderAction("Oncomming", "Home");} 
                 
                 	  
                        @{Html.RenderAction("list_Student", "Home");} 
