@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/kinds/add/")">
                 <div class="img_item_content_action" id="add_action">
                 </div>
                 <div class="text_item_content_action">
@@ -80,12 +80,12 @@
                 <td class="text-center"><a href="@Url.Content("~/administrator/designs/designkind/"+kinds.ID)">Designs</a></td>
                 <td class="text-center"><a href="@Url.Content("~/administrator/competitions/competitionkind/" + kinds.ID)">Competition</a></td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/kinds/edit/"+kinds.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/kinds/delete/"+kinds.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
@@ -128,7 +128,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/kinds/add/")">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
                 <div class="text_item_content_action">

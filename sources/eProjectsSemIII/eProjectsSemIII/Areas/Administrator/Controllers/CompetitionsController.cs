@@ -63,8 +63,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 return Redirect("~/");
             }
         }
-
-        [HttpPost]
+        
         public ActionResult Add(FormCollection form, HttpPostedFileBase Images)
         {
             //base.Authentication();
@@ -83,7 +82,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 {
                     stringBuilder.Append("<li>Please type competition name</li>");
                 }
-                if (form["Alias"].Trim() == "")
+                if (form["Alias"].Trim() == "" || !Validator.ISAlias(form["Alias"]))
                 {
                     stringBuilder.Append("<li>Please type competition alias</li>");
                 }
@@ -181,11 +180,14 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
                 if (stringBuilder.ToString() == "<ul>")
                 {
+                    ImagesClass objImageClass = new ImagesClass(Images);
+                    string fileSaveName = Server.MapPath("~/Content/Images/competitions/"+form["Alias"]+".jpg");
+                    objImageClass.CreateNewImage(fileSaveName, 190, 190);
                     Competitions competitionsModels = new Competitions
                     {
                         Name = form["Name"],
                         Alias = form["Alias"],
-                        Images = form["Alias"]+".jpg",
+                        Images = form["Alias"] + ".jpg",
                         Staffs = listStaffs,
                         Condition = listConditions,
                         Award = listAwards,
@@ -197,6 +199,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     };
                     db.Competitions.Add(competitionsModels);
                     db.SaveChanges();
+                    ViewBag.success = "Add competition success!";
                 }
                 else
                 {
@@ -206,6 +209,229 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult Edit(string id, FormCollection form, HttpPostedFileBase Images)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                ICollection<Members> listStaffs;
+                ICollection<Conditions> listConditions;
+                ICollection<Awards> listAwards;
+                ICollection<Kinds> listKinds;
+                int[] IDStaffs;
+                int[] IDConditions;
+                int[] IDAwards;
+                int[] IDKinds;
+
+                Competitions competiton = db.Competitions.Include("Staffs").Include("Condition").Include("Award").Include("Kind").Where(c => c.ID == idd).FirstOrDefault();
+
+                ViewBag.listStaff = db.Members.Where(m => m.Role.ID == 3).ToList();
+                ViewBag.listCOndition = db.Conditions.ToList();
+                ViewBag.listAward = db.Awards.ToList();
+                ViewBag.listKind = db.Kinds.ToList();
+                if (form["submit_competition"] == null)
+                {
+                    form["Name"] = competiton.Name;
+                    form["Alias"] = competiton.Alias;
+                    form["StartDate"] = competiton.StartDate.ToString("dd/MM/yyyy");
+                    form["DeadlineDate"] = competiton.DeadlineDate.ToString("dd/MM/yyyy"); ;
+                    form["EndDate"] = competiton.EndDate.ToString("dd/MM/yyyy");
+                    form["Summary"] = competiton.Summary;
+                    ViewBag.dataForm = form;
+
+                    listStaffs = competiton.Staffs;
+                    listConditions = competiton.Condition;
+                    listAwards = competiton.Award;
+                    listKinds = competiton.Kind;
+                    IDStaffs = new int[listStaffs.Count];
+                    IDConditions = new int[listConditions.Count];
+                    IDAwards = new int[listAwards.Count];
+                    IDKinds = new int[listKinds.Count];
+                    int i = 0;
+                    foreach (Members member in listStaffs)
+                    {
+                        IDStaffs[i] = member.ID;
+                        i++;
+                    }
+                    i = 0;
+                    foreach (Conditions condition in listConditions)
+                    {
+                        IDConditions[i] = condition.ID;
+                        i++;
+                    }
+                    i = 0;
+                    foreach (Awards award in listAwards)
+                    {
+                        IDAwards[i] = award.ID;
+                        i++;
+                    }
+                    i = 0;
+                    foreach (Kinds kind in listKinds)
+                    {
+                        IDKinds[i] = kind.ID;
+                        i++;
+                    }
+
+                    ViewBag.IDStaffs = IDStaffs;
+                    ViewBag.IDConditions = IDConditions;
+                    ViewBag.IDAwards = IDAwards;
+                    ViewBag.IDKinds = IDKinds;
+                }else{
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.Append("<ul>");
+                    Strings stringsLibs = new Strings();
+                    if (form["Name"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type competition name</li>");
+                    }
+                    if (form["Alias"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type competition alias</li>");
+                    }
+                    else
+                    {
+                        if (form["Alias"].Trim() != competiton.Alias)
+                        {
+                            try
+                            {
+                                string alias = form["Alias"].Trim().ToString();
+                                var competition = db.Competitions.Where(c => c.Alias == alias).First();
+                                stringBuilder.Append("<li>This competition alias had been in database, try a different</li>");
+                            }
+                            catch { }
+                        }
+                    }
+                    IDStaffs = stringsLibs.ListID(form["Staffs"]);
+                    IDConditions = stringsLibs.ListID(form["Conditions"]);
+                    IDAwards = stringsLibs.ListID(form["Awards"]);
+                    IDKinds = stringsLibs.ListID(form["Kinds"]);
+                    ViewBag.IDStaffs = IDStaffs;
+                    ViewBag.IDConditions = IDConditions;
+                    ViewBag.IDAwards = IDAwards;
+                    ViewBag.IDKinds = IDKinds;
+                    listStaffs = db.Members.Where(s => IDStaffs.Contains(s.ID)).ToList();
+                    listConditions = db.Conditions.Where(c => IDConditions.Contains(c.ID)).ToList();
+                    listAwards = db.Awards.Where(a => IDAwards.Contains(a.ID)).ToList();
+                    listKinds = db.Kinds.Where(k => IDKinds.Contains(k.ID)).ToList();
+                    if (listStaffs.Count == 0)
+                    {
+                        stringBuilder.Append("<li>Please chose teachers scoring for this competition</li>");
+                    }
+                    if (listConditions.Count == 0)
+                    {
+                        stringBuilder.Append("<li>Please chose conditions for this competition</li>");
+                    }
+                    if (listAwards.Count == 0)
+                    {
+                        stringBuilder.Append("<li>Please chose awards for this competition</li>");
+                    }
+                    if (listKinds.Count == 0)
+                    {
+                        stringBuilder.Append("<li>Please chose kinds for this competition</li>");
+                    }
+                    DateTime StartDate = new DateTime();
+                    DateTime DeadlineDate = new DateTime();
+                    DateTime EndDate = new DateTime();
+                    try
+                    {
+                        StartDate = DateTime.Parse(form["StartDate"]);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Please type competition start date</li>");
+                    }
+                    try
+                    {
+                        DeadlineDate = DateTime.Parse(form["DeadlineDate"]);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Please type competition deadline date</li>");
+                    }
+                    try
+                    {
+                        EndDate = DateTime.Parse(form["EndDate"]);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Please type competition deadline date</li>");
+                    }
+                    try
+                    {
+                        if (DateTime.Parse(form["DeadlineDate"]) <= DateTime.Parse(form["StartDate"]))
+                        {
+                            stringBuilder.Append("<li>Deadline date should after start date</li>");
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                    try
+                    {
+                        if (DateTime.Parse(form["EndDate"]) <= DateTime.Parse(form["DeadlineDate"]))
+                        {
+                            stringBuilder.Append("<li>End date should after deadline date</li>");
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
+                    if (stringBuilder.ToString() == "<ul>")
+                    {
+                        if (Images != null)
+                        {
+                            string fileOldName = Server.MapPath("~/Content/Images/competitions/" + competiton.Alias + ".jpg");
+                            FilesClass.DeleteFile(fileOldName);
+                            ImagesClass objImageClass = new ImagesClass(Images);
+                            string fileSaveName = Server.MapPath("~/Content/Images/competitions/" + form["Alias"] + ".jpg");
+                            objImageClass.CreateNewImage(fileSaveName, 190, 190);
+                        }
+                        else
+                        {
+                            if (form["Alias"].Trim() != competiton.Alias)
+                            {
+                                string fileOldName = Server.MapPath("~/Content/Images/competitions/" + competiton.Alias + ".jpg");
+                                string fileNewName = Server.MapPath("~/Content/Images/competitions/" + form["Alias"] + ".jpg");
+                                FilesClass.RenameFile(fileOldName, fileNewName);
+                            }
+                        }
+                        Competitions competitonsModels;
+                        competitonsModels = db.Competitions.Where(c => c.ID == idd).FirstOrDefault();
+                        competitonsModels.Name = form["Name"];
+                        competitonsModels.Alias = form["Alias"];
+                        competitonsModels.Images = form["Alias"] + ".jpg";
+                        competitonsModels.StartDate = StartDate;
+                        competitonsModels.DeadlineDate = DeadlineDate;
+                        competitonsModels.EndDate = EndDate;
+                        competitonsModels.Staffs = listStaffs;
+                        competitonsModels.Condition = listConditions;
+                        competitonsModels.Award = listAwards;
+                        competitonsModels.Kind = listKinds;
+                        ViewBag.dataForm = form;
+                        ViewBag.success = "Update competition success!";
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        stringBuilder.Append("</ul>");
+                        ViewBag.error = stringBuilder.ToString();
+                        ViewBag.dataForm = form;
+                    }
+                }
+                
+                return View();
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
         }
         public ActionResult Delete(string id)
         {
@@ -239,25 +465,6 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 return Redirect("~/");
             }
 
-        }
-        public ActionResult Edit(string id)
-        {
-            //base.Authentication();
-            base.LoadMenu();
-            try
-            {
-                int idd = Convert.ToInt16(id);
-                var db = new FineArtContext();
-                Competitions competitonsModels;
-                competitonsModels = db.Competitions.Where(c => c.ID == idd).FirstOrDefault();
-                competitonsModels.Name = "New Name2";
-                db.SaveChanges();
-                return Redirect("~/administrator/competitions/");
-            }
-            catch
-            {
-                return Redirect("~/");
-            }
         }
     }
 }
