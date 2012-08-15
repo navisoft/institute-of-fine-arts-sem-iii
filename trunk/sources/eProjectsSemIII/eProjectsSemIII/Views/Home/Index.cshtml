@@ -24,8 +24,14 @@
                                     <a href="#">@upcomming.Name</a>
                                 </div>
                             	<div class="item-detail-content">
-                              
-                                	@upcomming.Summary.Substring(0,80);
+                                @if (upcomming.Summary.Length > 80)
+                                {
+                                	@upcomming.Summary.Substring(0, 80);
+                                }
+                                else
+                                {
+                                    @upcomming.Summary
+                                }
                                 </div>
                             	<div class="item-detail-date">
                                   
