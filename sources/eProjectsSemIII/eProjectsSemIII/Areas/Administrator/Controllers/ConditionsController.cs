@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eProjectsSemIII.Libs;
 using eProjectsSemIII.Configs;
 using eProjectsSemIII.Models;
+using System.Text;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -46,6 +47,113 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+        }
+        public ActionResult Add(FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            var db = new FineArtContext();
+            if (form["submit_condition"] != null)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("<ul>");
+                Strings stringsLibs = new Strings();
+                if (form["Name"].Trim() == "")
+                {
+                    stringBuilder.Append("<li>Please type condition name</li>");
+                }
+                if (form["Description"].Trim() == "")
+                {
+                    stringBuilder.Append("<li>Please type condition description</li>");
+                }
+                if (stringBuilder.ToString() == "<ul>")
+                {
+                    Conditions condition = new Conditions { Name = form["Name"], DateUpdate = DateTime.Now, Description = form["Description"].Trim() };
+                    db.Conditions.Add(condition);
+                    db.SaveChanges();
+                    ViewBag.success = "Add condition success!";
+                }
+                else
+                {
+                    stringBuilder.Append("</ul>");
+                    ViewBag.error = stringBuilder.ToString();
+                    ViewBag.dataForm = form;
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Edit(string id, FormCollection form)
+        {
+            //base.Authentication();
+            var db = new FineArtContext();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                Conditions condition = db.Conditions.Where(c => c.ID == idd).FirstOrDefault();
+                if (form["submit_condition"] == null)
+                {
+                    form["Name"] = condition.Name;
+                    form["Description"] = condition.Description;
+                    ViewBag.dataForm = form;
+                }
+                else
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.Append("<ul>");
+                    Strings stringsLibs = new Strings();
+                    if (form["Name"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type condition name</li>");
+                    }
+                    if (form["Description"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type condition description</li>");
+                    }
+                    if (stringBuilder.ToString() == "<ul>")
+                    {
+                        condition.Name = form["Name"];
+                        condition.Description = form["Description"].Trim();
+                        db.SaveChanges();
+                        ViewBag.dataForm = form;
+                        ViewBag.success = "Update condition success!";
+                    }
+                    else
+                    {
+                        stringBuilder.Append("</ul>");
+                        ViewBag.error = stringBuilder.ToString();
+                        ViewBag.dataForm = form;
+                    }
+                }
+                return View();
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+        }
+
+
+        public ActionResult Delete(string id)
+        {
+            //base.Authentication();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                Conditions condition = db.Conditions.Where(c => c.ID == idd).First();
+                db.Conditions.Remove(condition);
+                db.SaveChanges();
+                return Redirect("~/administrator/conditions/");
+            }
+            catch
+            {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }

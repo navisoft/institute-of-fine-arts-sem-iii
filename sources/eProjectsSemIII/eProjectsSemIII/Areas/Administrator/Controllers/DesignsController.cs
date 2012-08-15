@@ -54,6 +54,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -80,6 +81,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -106,6 +108,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -132,6 +135,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }

@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/awards/add")">
                 <div class="img_item_content_action" id="add_action">
                 </div>
                 <div class="text_item_content_action">
@@ -71,15 +71,15 @@
             <tr>
                 <td class="text-center num-id">@kinds.ID</td>
                 <td class="text-left">@kinds.Name</td>
-                <td class="text-left">@kinds.Description</td>
+                <td class="text-left description">@kinds.Description</td>
                 <td class="text-left">@kinds.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/awards/edit/" + kinds.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/awards/delete/" + kinds.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
@@ -122,7 +122,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/awards/add")">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
                 <div class="text_item_content_action">

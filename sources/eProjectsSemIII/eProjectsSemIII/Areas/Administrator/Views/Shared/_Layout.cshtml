@@ -34,7 +34,8 @@
                     <a href="#">Help</a> |
                     <a href="#">Admin Profile</a>|
                     <span>Welcome @ViewBag.Name</span>|
-                    @Html.ActionLink("Logout", "logout", "members")
+                    <a href="@Url.Content("~/administrator/members/logout")">Logout</a>
+
                 </div>
                 <div class="banner">
                 
