@@ -2,38 +2,38 @@
 @{
     ViewBag.Title = "ASP.NET MVC Finel Art ";
 }
-                    <!--------------------THE UPCOMING COMPETITIONS--------------------->
+                    <!--------------------THE ONCOMING COMPETITIONS--------------------->
                 	<div class="content-left-title">
-                    	THE UPCOMING COMPETITIONS
+                    	THE ONCOMING COMPETITIONS
                     </div>
-                    @foreach (Competitions upcomming in ViewBag.upcomming)
+                    @foreach (Competitions oncomming in ViewBag.oncomming)
                     {
                     <div class="content-left-content">
                     	<div class="content-left-content-item">
                         	<div class="item-image">
                             
-                            	<img src="@Url.Content("~/Content/Images/competitions/"+@upcomming.Images)" alt="@upcomming.Name" />
+                            	<img src="@Url.Content("~/Content/Images/competitions/" + @oncomming.Images)" alt="@oncomming.Name" />
                        
                             </div>
                             <div class="item-detail">
                             	<div class="item-detail-note">
-                               @upcomming.DeadlineDate.ToString("dd/MMM/yyyy") (deadline)
+                               @oncomming.DeadlineDate.ToString("dd/MMM/yyyy") (deadline)
                                 	
                                 </div>
                             	<div class="item-detail-title">
-                                    <a href="#">@upcomming.Name</a>
+                                    <a href="#">@oncomming.Name</a>
                                 </div>
                             	<div class="item-detail-content">
                               
-                                	@upcomming.Summary.Substring(0,80);
+                                	@oncomming.Summary.Substring(0, 80);
                                 </div>
                             	<div class="item-detail-date">
                                   
-                                    Start date:@upcomming.StartDate.ToString("dd/MMM/yyyy") <br />
-                                    End date:@upcomming.EndDate.ToString("dd/MMM/yyyy")
+                                    Start date:@oncomming.StartDate.ToString("dd/MMM/yyyy") <br />
+                                    End date:@oncomming.EndDate.ToString("dd/MMM/yyyy")
                                 </div>
                                 <div class="item-detail-link">
-                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @upcomming.Alias)")>View detail...</a>
+                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @oncomming.ID)")>View detail...</a>
                                 </div>
                             </div>
                          
@@ -41,9 +41,3 @@
                     </div>
                                 
                     }   
-                      @{Html.RenderAction("Oncomming", "Home");} 
-                
-                	  
-                       @{Html.RenderAction("list_Student", "Home");} 
-                   
-                    @*<div class="content-left-title">d dsf</div>*@
