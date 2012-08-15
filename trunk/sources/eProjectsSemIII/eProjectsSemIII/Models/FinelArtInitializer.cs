@@ -144,10 +144,10 @@ namespace eProjectsSemIII.Models
                 new Members {Images="minhphong6.jpg", Username="minhphong6",Password="123456", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
                 new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
                 new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Khong Biet Ten",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
+                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
               
                
             };
@@ -250,29 +250,80 @@ namespace eProjectsSemIII.Models
             context.SaveChanges();
             var menu = new List<Menus>
             {
-                new Menus {Name = "Home Page", Controller="", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "Logout", Controller="members", Action = "logout",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
-                new Menus {Name = "Menus", Controller="menus", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
-                new Menus {Name = "Roles", Controller="roles", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
-                new Menus {Name = "Designs", Controller="designs", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="designs_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of designs", Controller="designs", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=5,Display=true},
-                new Menus {Name = "Competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=7,Display=true},
-                new Menus {Name = "Kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=9,Display=true},
-                new Menus {Name = "Awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=11,Display=true},
-                new Menus {Name = "Conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=13,Display=true},
-                new Menus {Name = "Exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=15,Display=true},
-                new Menus {Name = "Classes", Controller="classes", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of classes", Controller="classes", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=17,Display=true},
-                new Menus {Name = "Members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
-                new Menus {Name = "List of Members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=19,Display=true},
-                new Menus {Name = "List of Customers", Controller="customers", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=15,Display=true},
-                new Menus {Name = "Awards of Competition", Controller="awards", Action = "awardcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=11,Display=false},
-                               
+                /*1*/new Menus {Name = "Home Page", Controller="", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="home_icon.png", ParentID=-1,Display=true},
+                /*2*/new Menus {Name = "Logout", Controller="members", Action = "logout",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                
+                /*3*/new Menus {Name = "Menus", Controller="menus", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                /*4*/new Menus {Name = "Add new menu", Controller="menus", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*5*/new Menus {Name = "Edit menu", Controller="menus", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*6*/new Menus {Name = "Delete menu", Controller="menus", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*7*/new Menus {Name = "Enable menu", Controller="menus", Action = "enable",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*8*/new Menus {Name = "Disable menu", Controller="menus", Action = "disable",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                
+                /*9*/new Menus {Name = "Roles", Controller="roles", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=true},
+                /*10*/new Menus {Name = "Add new role", Controller="roles", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*11*/new Menus {Name = "Edit role", Controller="roles", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*12*/new Menus {Name = "Delete role", Controller="roles", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                /*13*/new Menus {Name = "View menu of role", Controller="menu", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=1,Display=false},
+                
+                /*14*/new Menus {Name = "Designs", Controller="designs", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="designs_icon.png", ParentID=-1,Display=true},
+                /*15*/new Menus {Name = "List of designs", Controller="designs", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=14,Display=true},
+                /*16*/new Menus {Name = "View exhibition of designs", Controller="exhibitions", Action = "exhibitiondesign",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=14,Display=false},
+                /*17*/new Menus {Name = "Add design to exhibition", Controller="design", Action = "designtoexhibition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=14,Display=false},
+                /*18*/new Menus {Name = "Delete design", Controller="design", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=14,Display=false},
+                
+                /*19*/new Menus {Name = "Competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=-1,Display=true},
+                /*20*/new Menus {Name = "List of competitions", Controller="competitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=true},
+                /*21*/new Menus {Name = "View kinds of competition", Controller="kinds", Action = "kindcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*22*/new Menus {Name = "View conditions of competition", Controller="condititons", Action = "conditioncompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*23*/new Menus {Name = "View awards of competition", Controller="awards", Action = "awardcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*24*/new Menus {Name = "View designs of competition", Controller="designs", Action = "designcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*25*/new Menus {Name = "Add new competition", Controller="competitions", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=true},
+                /*26*/new Menus {Name = "Edit competition", Controller="competitions", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*27*/new Menus {Name = "Delete competition", Controller="competitions", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                
+                /*28*/new Menus {Name = "Kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*29*/new Menus {Name = "List of kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=true},
+                /*30*/new Menus {Name = "View designs have kind", Controller="designs", Action = "designkind",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=false},
+                /*31*/new Menus {Name = "View competition have kind", Controller="competitions", Action = "competitionkind",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=false},
+                /*32*/new Menus {Name = "Add new kind", Controller="kinds", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=true},
+                /*33*/new Menus {Name = "Edit kind", Controller="kinds", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=false},
+                /*34*/new Menus {Name = "Delete kind", Controller="kinds", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=false},
+                
+                /*35*/new Menus {Name = "Awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*36*/new Menus {Name = "List of awards", Controller="awards", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=35,Display=true},
+                /*37*/new Menus {Name = "Add new award", Controller="awards", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=35,Display=true},
+                /*38*/new Menus {Name = "Edit award", Controller="awards", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=35,Display=false},
+                /*39*/new Menus {Name = "Delete award", Controller="awards", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=35,Display=false},
+                
+                /*40*/new Menus {Name = "Conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*41*/new Menus {Name = "List of conditions", Controller="conditions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=40,Display=true},
+                /*42*/new Menus {Name = "Add new condition", Controller="conditions", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=40,Display=true},
+                /*43*/new Menus {Name = "Edit condition", Controller="conditions", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=40,Display=false},
+                /*44*/new Menus {Name = "Delete condition", Controller="conditions", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=40,Display=false},
+                
+                /*45*/new Menus {Name = "Exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*46*/new Menus {Name = "List of exhibitions", Controller="exhibitions", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=45,Display=true},
+                /*47*/new Menus {Name = "View designs of exhibition", Controller="designs", Action = "designexhibition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=45,Display=false},
+                /*48*/new Menus {Name = "Add new exhibition", Controller="exhibitions", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=45,Display=true},
+                /*49*/new Menus {Name = "Edit exhibition", Controller="exhibitions", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=45,Display=false},
+                /*50*/new Menus {Name = "Delete exhibition", Controller="exhibitions", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=45,Display=false},
+                
+                /*51*/new Menus {Name = "Classes", Controller="classes", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*52*/new Menus {Name = "List of classes", Controller="classes", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=51,Display=true},
+                /*53*/new Menus {Name = "View students of class", Controller="members", Action = "membersclass",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=51,Display=false},
+                /*54*/new Menus {Name = "Add new class", Controller="classes", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=51,Display=true},
+                /*55*/new Menus {Name = "Edit class", Controller="classes", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=51,Display=false},
+                /*56*/new Menus {Name = "Delete class", Controller="classes", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=51,Display=false},
+                
+                /*57*/new Menus {Name = "Members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
+                /*58*/new Menus {Name = "List of members", Controller="members", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=true},
+                /*59*/new Menus {Name = "View designs of member", Controller="designs", Action = "designmember",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=false},
+                /*60*/new Menus {Name = "Edit member", Controller="members", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=false},
+                /*61*/new Menus {Name = "Delete member", Controller="members", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=false},
+                
+                /*62*/new Menus {Name = "List of Customers", Controller="customers", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=15,Display=true},
+                             
             };
             menu.ForEach(s => context.Menus.Add(s));
             context.SaveChanges();
@@ -298,6 +349,48 @@ namespace eProjectsSemIII.Models
             menu[18].Role.Add(role[0]);
             menu[19].Role.Add(role[0]);
             menu[20].Role.Add(role[0]);
+            menu[21].Role.Add(role[0]);
+            menu[22].Role.Add(role[0]);
+            menu[23].Role.Add(role[0]);
+            menu[24].Role.Add(role[0]);
+            menu[25].Role.Add(role[0]);
+            menu[26].Role.Add(role[0]);
+            menu[27].Role.Add(role[0]);
+            menu[28].Role.Add(role[0]);
+            menu[29].Role.Add(role[0]);
+            menu[30].Role.Add(role[0]);
+            menu[31].Role.Add(role[0]);
+            menu[32].Role.Add(role[0]);
+            menu[33].Role.Add(role[0]);
+            menu[34].Role.Add(role[0]);
+            menu[35].Role.Add(role[0]);
+            menu[36].Role.Add(role[0]);
+            menu[37].Role.Add(role[0]);
+            menu[38].Role.Add(role[0]);
+            menu[39].Role.Add(role[0]);
+            menu[40].Role.Add(role[0]);
+            menu[41].Role.Add(role[0]);
+            menu[42].Role.Add(role[0]);
+            menu[43].Role.Add(role[0]);
+            menu[44].Role.Add(role[0]);
+            menu[45].Role.Add(role[0]);
+            menu[46].Role.Add(role[0]);
+            menu[47].Role.Add(role[0]);
+            menu[48].Role.Add(role[0]);
+            menu[49].Role.Add(role[0]);
+            menu[50].Role.Add(role[0]);
+            menu[51].Role.Add(role[0]);
+            menu[52].Role.Add(role[0]);
+            menu[53].Role.Add(role[0]);
+            menu[54].Role.Add(role[0]);
+            menu[55].Role.Add(role[0]);
+            menu[56].Role.Add(role[0]);
+            menu[57].Role.Add(role[0]);
+            menu[58].Role.Add(role[0]);
+            menu[59].Role.Add(role[0]);
+            menu[60].Role.Add(role[0]);
+            menu[61].Role.Add(role[0]);
+            menu[62].Role.Add(role[0]);
             context.SaveChanges();
 
             
