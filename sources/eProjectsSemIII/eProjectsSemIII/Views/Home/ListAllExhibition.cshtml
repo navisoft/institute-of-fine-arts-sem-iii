@@ -1,0 +1,46 @@
+﻿@model IEnumerable<eProjectsSemIII.Models.Exhibitions> 
+             <!--------------------THE LIST ALL EXHIBITIONS--------------------->
+                	<div class="content-left-title">
+                    	THE LIST ALL EXHIBITIONS
+                    </div>
+                    @foreach (var exhibition in Model)
+                    {
+                    <div class="content-left-content">
+                    	<div class="content-left-content-item">
+                        	<div class="item-image">
+                            
+                            	<img src="@Url.Content("~/Content/Images/exhibitions/" + @exhibition.Image)" alt="@exhibition.Name" />
+                       
+                            </div>
+                            <div class="item-detail">
+                            	
+                            	<div class="item-detail-title">
+                                    <a href="#">@exhibition.Name</a>
+                                </div>
+                            	
+                            	<div class="item-detail-date">
+                                  
+                                    Start date:@exhibition.StartDate.ToString("dd/MMM/yyyy") <br />
+                                    End date:@exhibition.EndDate.ToString("dd/MMM/yyyy")
+                                </div>
+
+
+                                <div class="item-detail-link">
+                                	<a href="@Url.Content("~/Home/detail_exhibition/" + @exhibition.ID)")>View detail...</a>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                                
+                    } 
+                    
+                    <div class="pagination">
+                    Page:
+                    @for (int p = 1; p <= ViewBag.TotalPage;p++ )
+                    {
+                        <a class="@(p == ViewBag.currentpage ? "current":"")" href="@Url.Action("listAllExhibition", "Home", new { Page=p})">@p</a>
+
+                    }
+                    
+                    </div>  

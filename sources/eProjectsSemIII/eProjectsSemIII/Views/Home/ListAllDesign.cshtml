@@ -1,0 +1,52 @@
+﻿@model IEnumerable<eProjectsSemIII.Models.Designs> 
+             <!--------------------THE LIST ALL DESIGNS--------------------->
+                	<div class="content-left-title">
+                    	THE LIST ALL DESIGNS
+                    </div>
+                    @foreach (var design in Model)
+                    {
+                    <div class="content-left-content">
+                    	<div class="content-left-content-item">
+                        	<div class="item-image">
+                            
+                            	<img src="@Url.Content("~/Content/Images/competitions/" + @design.Images)" alt="@design.Name" />
+                       
+                            </div>
+                            <div class="item-detail">
+                            	<div class="item-detail-note">
+                               @design.DatePost.ToString("dd/MMM/yyyy") (deadline)
+                                	
+                                </div>
+                            	<div class="item-detail-title">
+                                    <a href="#">@design.Name</a>
+                                </div>
+                            	<div class="item-detail-content">
+                              
+                                	@design.Description.Substring(0, 80);
+                                </div>
+                            	<div class="item-detail-date">
+                                  
+                                    IsSold:@design.IsSold <br />
+                                    IsSpecial:@design.IsSpecial
+                                </div>
+
+
+                                <div class="item-detail-link">
+                                	<a href="@Url.Content("~/Home/detail_design/" + @design.ID)")>View detail...</a>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                                
+                    } 
+                    
+                    <div class="pagination">
+                    Page:
+                    @for (int p = 1; p <= ViewBag.TotalPage;p++ )
+                    {
+                        <a class="@(p == ViewBag.currentpage ? "current":"")" href="@Url.Action("listAllDesign", "Home", new { Page=p})">@p</a>
+
+                    }
+                    
+                    </div>  
