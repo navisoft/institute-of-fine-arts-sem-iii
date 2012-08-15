@@ -42,10 +42,10 @@
         	<div class="wrap-item">
             	<ul>
                     <li style="background:none"><a href="@Url.Content("~")">Home</a></li>
-                    <li><a href="#">Competitions</a></li>
-                    <li><a href="#">Designs</a></li>
-                    <li><a href="#">Exhibitions</a></li>
-                    <li><a href="#">Students</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllCompetition")">Competitions</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllDesign")">Designs</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllExhibition")">Exhibitions</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllStudent")">Students</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FAQs</a></li>
                 </ul>
@@ -56,21 +56,7 @@
                 <div class="logo-image">
                     <img src="@Url.Content("~/Content/Images/logo.jpg")" />
                 </div>
-                <div class="lang-form">
-                	<div class="lang-form-link">
-                    	<a href="#">Sign Up</a><span>|</span><a href="#">Login</a>
-                    </div>
-                    <div class="lang-form-choose">
-                    	<div class="lang-form-choose-title">
-                        	Language:
-                        </div>
-                        <div class="lang-form-choose-input">
-                        	<select name="language">
-                            	<option value="0">English</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div><!--#END logo-->
         <div class="animation">
@@ -210,11 +196,12 @@
     	<div class="wrap-item">
         	<div class="menu-footer">
             	<ul>
-                	<li><a href="#">Home</a></li>
-                    <li><a href="#">Competitions</a></li>
-                    <li><a href="#">New Articles</a></li>
-                    <li><a href="#">Specials</a></li>
-                    <li><a href="#">Articles All</a></li>
+                	
+                    <li><a href="@Url.Content("~")">Home</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllCompetition")">Competitions</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllDesign")">Designs</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllExhibition")">Exhibitions</a></li>
+                    <li><a href="@Url.Content("~/Home/listAllStudent")">Students</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FAQs</a></li>
                	</ul>

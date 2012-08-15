@@ -15,25 +15,25 @@ namespace eProjectsSemIII.Controllers
         private FineArtContext db = new FineArtContext();
         const int pagsize=3;
 
-        // list all upcomming
+        // list upcomming with items
         public ActionResult Index()
         {
-            Competitions competition = new Competitions();
-            competition.ID = 1;
-            //var marks = db.Marks.Where(m => m.Competition == competition).GroupBy(m => m.Design.ID).ToList();
-            //foreach (Marks mark in marks)
+            //Competitions competition = new Competitions();
+            //competition.ID = 1;
+            ////var marks = db.Marks.Where(m => m.Competition == competition).GroupBy(m => m.Design.ID).ToList();
+            ////foreach (Marks mark in marks)
+            ////{
+            ////    Response.Write(mark.Mark);
+            ////}
+            //var query = from m in db.Marks
+            //            where m.Design.Competition.ID == 1
+            //            group m by m.Design into gr
+            //            select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
+            //foreach (var item in query)
             //{
-            //    Response.Write(mark.Mark);
+            //    Response.Write(item.Id+"<br>");
+            //    Response.Write(item.avgMark + "<br>");
             //}
-            var query = from m in db.Marks
-                        where m.Design.Competition.ID == 1
-                        group m by m.Design into gr
-                        select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
-            foreach (var item in query)
-            {
-                Response.Write(item.Id+"<br>");
-                Response.Write(item.avgMark + "<br>");
-            }
             var upcomming = db.Competitions.Where(s=>s.StartDate>DateTime.Now).ToList();
             ViewBag.upcomming = upcomming;
             return View(upcomming);
@@ -41,6 +41,16 @@ namespace eProjectsSemIII.Controllers
 
         }
 
+        // detail upcomming
+        public ActionResult detail_upcomming(string id)
+        {
+
+            var upcomming = db.Competitions.Include("Condition").Include("Award").Include("Staffs").Include("Design").Single(g => g.Alias == id);
+            return View(upcomming);
+        }
+
+
+        // list oncomming with take 4 items
         public ActionResult Oncomming()
         {
             var oncomming = db.Competitions
@@ -53,11 +63,10 @@ namespace eProjectsSemIII.Controllers
         }
 
 
-        //paging oncomming
-        public ActionResult listAllOnComming(int page = 1)
+        //paging competition
+        public ActionResult listAllCompetition(int page = 1)
         {
-            var oncomming = db.Competitions
-                              .Where(p => p.StartDate < DateTime.Now && p.EndDate >= DateTime.Now)
+            var competition = db.Competitions
                               .OrderBy(p => p.ID)
                               .Skip((page - 1) * pagsize)
                               .Take(pagsize)
@@ -67,17 +76,39 @@ namespace eProjectsSemIII.Controllers
             ViewBag.TotalPage = Math.Ceiling((double)db.Competitions.Count() / pagsize);
 
             
-            return View(oncomming);
+            return View(competition);
         }
 
-
-        // detail upcomming
-        public ActionResult detail_upcomming(int id)
+        // list all design 
+        public ActionResult ListAllDesign(int page=1)
         {
-
-            var upcomming = db.Competitions.Include("Condition").Include("Award").Single(g => g.ID == id);
-            return View(upcomming);
+            var design = db.Designs.Include("Member").Include("Kind").Include("Competition")
+                              .OrderBy(p => p.ID)
+                              .Skip((page - 1) * pagsize)
+                              .Take(pagsize)
+                              .ToList();
+            ViewBag.currentpage = page;
+            ViewBag.PageSize = pagsize;
+            ViewBag.TotalPage = Math.Ceiling((double)db.Designs.Count() / pagsize);
+            return View(design);
         }
+
+        // list all exhibition 
+        public ActionResult ListAllExhibition(int page = 1)
+        {
+            var exhibition = db.Exhibitions.Include("Designs")
+                              .OrderBy(p => p.ID)
+                              .Skip((page - 1) * pagsize)
+                              .Take(pagsize)
+                              .ToList();
+            ViewBag.currentpage = page;
+            ViewBag.PageSize = pagsize;
+            ViewBag.TotalPage = Math.Ceiling((double)db.Exhibitions.Count() / pagsize);
+            return View(exhibition);
+        }
+
+
+        
 
 
         // list kind as menu left
