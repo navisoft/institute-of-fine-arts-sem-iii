@@ -390,7 +390,6 @@ namespace eProjectsSemIII.Models
             menu[59].Role.Add(role[0]);
             menu[60].Role.Add(role[0]);
             menu[61].Role.Add(role[0]);
-            menu[62].Role.Add(role[0]);
             context.SaveChanges();
 
             
