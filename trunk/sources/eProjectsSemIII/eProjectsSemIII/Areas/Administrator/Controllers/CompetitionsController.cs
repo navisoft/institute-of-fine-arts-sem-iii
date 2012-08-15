@@ -60,6 +60,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -92,7 +93,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     {
                         string alias = form["Alias"].Trim().ToString();
                         var competition = db.Competitions.Where(c => c.Alias == alias).First();
-                        stringBuilder.Append("<li>This competition alias had been in database, try a different</li>");
+                        stringBuilder.Append("<li>This competition alias had been exists in database, try a different</li>");
                     }
                     catch { }
                 }
@@ -195,7 +196,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                         StartDate = StartDate,
                         DeadlineDate = DeadlineDate,
                         EndDate = EndDate,
-                        Summary = form["Summary"]
+                        Summary = form["Summary"].Trim()
                     };
                     db.Competitions.Add(competitionsModels);
                     db.SaveChanges();
@@ -300,7 +301,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                             {
                                 string alias = form["Alias"].Trim().ToString();
                                 var competition = db.Competitions.Where(c => c.Alias == alias).First();
-                                stringBuilder.Append("<li>This competition alias had been in database, try a different</li>");
+                                stringBuilder.Append("<li>This competition alias had been exists in database, try a different</li>");
                             }
                             catch { }
                         }
@@ -414,6 +415,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                         competitonsModels.Condition = listConditions;
                         competitonsModels.Award = listAwards;
                         competitonsModels.Kind = listKinds;
+                        competitonsModels.Summary = form["Summary"].Trim();
                         ViewBag.dataForm = form;
                         ViewBag.success = "Update competition success!";
                         db.SaveChanges();
@@ -430,6 +432,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -462,6 +465,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
 

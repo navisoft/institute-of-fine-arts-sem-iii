@@ -69,6 +69,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -143,6 +144,31 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         {
             Session["admin"] = null;
             return Redirect("/administrator/members/login");
+        }
+
+        public ActionResult Delete(string id)
+        {
+            //base.Authentication();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                List<Marks> listMark = db.Marks.Where(m => m.Staff.ID == idd).ToList();
+                listMark.ForEach(delegate(Marks mark)
+                {
+                    mark.Staff = null;
+                    db.SaveChanges();
+                });
+                Members member = db.Members.Where(m => m.ID == idd).First();
+                db.Members.Remove(member);
+                db.SaveChanges();
+                return Redirect("~/administrator/members/");
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
         }
     }
 }

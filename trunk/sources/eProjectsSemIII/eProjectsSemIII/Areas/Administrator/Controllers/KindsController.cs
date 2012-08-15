@@ -48,6 +48,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
             catch
             {
+                Session["admin"] = null;
                 return Redirect("~/");
             }
         }
@@ -76,7 +77,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
                 if (stringBuilder.ToString() == "<ul>")
                 {
-                    Kinds kind = new Kinds { Name = form["Name"], Alias = form["Alias"], DateUpdate = DateTime.Now, Description = form["Description"] };
+                    Kinds kind = new Kinds { Name = form["Name"], Alias = form["Alias"], DateUpdate = DateTime.Now, Description = form["Description"].Trim() };
                     db.Kinds.Add(kind);
                     db.SaveChanges();
                     ViewBag.success = "Add kind success!";
@@ -130,7 +131,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                         {
                             string alias = form["Alias"].Trim();
                             Kinds kindOther = db.Kinds.Where(k => k.Alias == alias).First();
-                            stringBuilder.Append("<li>This kind alias had been in database, try a different</li>");
+                            stringBuilder.Append("<li>This kind alias had been exists in database, try a different</li>");
                         }
                         catch { }
                     }
@@ -175,7 +176,6 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 Session["admin"] = null;
                 return Redirect("~/");
             }
-
         }
     }
 }

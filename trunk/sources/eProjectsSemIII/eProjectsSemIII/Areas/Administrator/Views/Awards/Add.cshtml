@@ -3,10 +3,10 @@
         <a href="@Url.Content("~/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/kinds")">Kinds</a>
+        <a href="@Url.Content("~/administrator/awards")">Awards</a>
     </div>
     <div class="path_menu_item">
-        <a href="">Add new kind</a>
+        <a href="">Add new awards</a>
     </div>
 </div>
 <div class="path_menu context_menu">
@@ -16,7 +16,7 @@
 <form action="" method="post" enctype="multipart/form-data">
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add new kind
+        Add new award
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/kinds/")">
+            <a href="@Url.Content("~/administrator/awards/")">
                 <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
@@ -37,7 +37,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_kind" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_award" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save
@@ -64,29 +64,19 @@
     <div class="form_panel">
         <div class="tab_form_panel">
             <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
-                Kind Detail
+                Award Detail
             </div>
         </div>
         <div class="content_form_panel">
             <div class="item_content_form_panel" id="item_content_form_panel1">
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Kind Name
+                        <span>*</span> Award Name
                     </div>
                     <div class="input_item_item_form">
                         <input type="text" class="txt_input_item_item" id="Name-Item" name="Name" value="@try
                                                                                                          {@ViewBag.dataForm["Name"]}
                                                                                                          catch { }"/>
-                    </div>
-                </div>
-                <div class="item_item_content_form">
-                    <div class="title_item_item_form">
-                        <span>*</span> Kind Alias
-                    </div>
-                    <div class="input_item_item_form">
-                        <input type="text" class="txt_input_item_item" id="Alias-Item" name="Alias" value="@try
-                                                                                                           {@ViewBag.dataForm["Alias"]}
-                                                                                                           catch { }"/>
                     </div>
                 </div>
                 <div class="item_item_content_form">
@@ -108,7 +98,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add new kind
+        Add new award
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -119,7 +109,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/kinds/")">
+            <a href="@Url.Content("~/administrator/awards/")">
                 <div class="img_item_content_action" id="go_back_action">
                 </div>
                 <div class="text_item_content_action">
@@ -129,7 +119,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_kind" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_award" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save
