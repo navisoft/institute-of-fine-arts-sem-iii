@@ -204,7 +204,13 @@ td.text-left{border-right:1px solid #e7e7e7;line-height:22px;padding:15px 0 15px
     background:url(../images/admins/menu-icon/infomation_icon_30.png) no-repeat left center #f7f7f7;
     line-height: 20px;
 }
-
+.success
+{
+    font-size: 120%;color: #00f;font-weight: bold;
+    text-align: left;float: left;padding: 10px 0px 10px 10%;width: 88.8%;
+    background:url(../images/admins/menu-icon/infomation_icon_30.png) no-repeat left center #f7f7f7;
+    line-height: 20px;
+}
 
 
 
