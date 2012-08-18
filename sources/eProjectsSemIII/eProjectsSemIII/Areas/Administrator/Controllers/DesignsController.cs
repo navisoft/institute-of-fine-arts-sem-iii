@@ -139,5 +139,34 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 return Redirect("~/");
             }
         }
+
+        public RedirectResult Delete(string id)
+        {
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                Designs design = db.Designs.Where(d => d.ID == idd).First();
+                List<Marks> listMark = db.Marks.Where(m => m.Design.ID == design.ID).ToList();
+                listMark.ForEach(delegate(Marks mark)
+                {
+                    db.Marks.Remove(mark);
+                });
+                List<Customers> listCustomer = db.Customers.Where(c => c.Design.ID == design.ID).ToList();
+                listCustomer.ForEach(delegate(Customers customer)
+                {
+                    customer.Design = null;
+                });
+
+                db.SaveChanges();
+                db.Designs.Remove(design);
+                db.SaveChanges();
+                return Redirect("~/administrator/designs");
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
     }
 }

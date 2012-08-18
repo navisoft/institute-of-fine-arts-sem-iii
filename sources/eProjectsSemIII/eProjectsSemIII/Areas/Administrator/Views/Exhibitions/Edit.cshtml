@@ -3,10 +3,10 @@
         <a href="@Url.Content("~/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/menus")">Menu</a>
+        <a href="@Url.Content("~/administrator/exhibitions")">Exhibitions</a>
     </div>
     <div class="path_menu_item">
-        <a href="">Add new menu</a>
+        <a href="">Add new exhibition</a>
     </div>
 </div>
 <div class="path_menu context_menu">
@@ -16,7 +16,7 @@
 <form action="" method="post" enctype="multipart/form-data">
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add new menu
+        Add new exhibition
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/menus/")">
+            <a href="@Url.Content("~/administrator/exhibitions/")">
                 <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
@@ -37,7 +37,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_menu" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_exhibition" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save
@@ -64,101 +64,57 @@
     <div class="form_panel">
         <div class="tab_form_panel">
             <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
-                Menu Detail
+                Exhibition Detail
             </div>
         </div>
         <div class="content_form_panel">
             <div class="item_content_form_panel" id="item_content_form_panel1">
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Menu Name
+                        <span>*</span> Exhibition Name
                     </div>
                     <div class="input_item_item_form">
-                        <input type="text" class="txt_input_item_item" name="Name" id="Name-Item" value="@try
+                        <input type="text" class="txt_input_item_item" id="Name-Item" name="Name" value="@try
                                                                                           {@ViewBag.dataForm["Name"]}
                                                                                           catch { }"/>
-                        <input type="hidden" class="txt_input_item_item" name="Alias" id="Alias-Item" value="@try
-                                                                                                           {@ViewBag.dataForm["Alias"]}
-                                                                                                           catch { }"/>
                     </div>
                 </div>
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Menu Controller
+                        <span>*</span> Exhibition Alias
                     </div>
                     <div class="input_item_item_form">
-                        <input type="text" class="txt_input_item_item" name="Controller" value="@try
-                                                                                                {@ViewBag.dataForm["Controller"]}
-                                                                                                catch { }"/>
+                        <input type="text" class="txt_input_item_item" id="Alias-Item" name="Alias" value="@try
+                                                                                           {@ViewBag.dataForm["Alias"]}
+                                                                                           catch { }"/>
                     </div>
                 </div>
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Menu Action
+                        <span>*</span> Image(W:H ~ 1:1)
                     </div>
                     <div class="input_item_item_form">
-                        <input type="text" class="txt_input_item_item" name="Action" value="@try
-                                                                                            {@ViewBag.dataForm["Action"]}
-                                                                                            catch { }"/>
+                        <input type="file" class="" name="Images" />
                     </div>
                 </div>
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Icon(W:H ~ 1:1)
+                        <span>*</span> Start Date (dd/MM/yyyy)
                     </div>
                     <div class="input_item_item_form">
-                        <input type="file" class="" name="Icon" />
+                        <input type="text" id="StartDate" name="StartDate" class="txt_input_item_item" value="@try
+                                                                                                              {@ViewBag.dataForm["StartDate"]}
+                                                                                                              catch { }"/>
                     </div>
                 </div>
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> Display
+                        <span>*</span> End Date (dd/MM/yyyy)
                     </div>
                     <div class="input_item_item_form">
-                        @try
-                        {
-                            if (ViewBag.dataForm["Display"] != null && ViewBag.dataForm["Display"] == "on")
-                            {
-                            <input type="checkbox" name="Display" checked="checked" />
-                            }
-                            else
-                            {
-                            <input type="checkbox" name="Display" />
-                            }
-                        }
-                        catch
-                        {
-                            <input type="checkbox" name="Display" />
-                        }
-                    </div>
-                </div>
-                <div class="item_item_content_form">
-                    <div class="title_item_item_form">
-                        <span>*</span> Teachers scoring
-                    </div>
-                    <div class="input_item_item_form">
-                        <select size="10" name="Parent">
-                            <option value="-2">Chose parent menu for this menu...</option>
-                            <option value="-1" selected="selected">Sub menu</option>
-                            @foreach (eProjectsSemIII.Models.Menus menu in ViewBag.parentMenu)
-                            {
-                                try
-                                {
-                                    if (menu.ID == Convert.ToInt16(ViewBag.dataForm["Parent"]))
-                                    {
-                                <option value="@menu.ID" selected="selected">@menu.Name</option>
-                                    }
-                                    else
-                                    {
-                                <option value="@menu.ID">@menu.Name</option>
-                                    }
-                                }
-                                catch
-                                {
-                                <option value="@menu.ID">@menu.Name</option>
-                                }
-                            }
-                        </select>
+                        <input type="text" id="EndDate" name="EndDate" value="@try
+                                                                              {@ViewBag.dataForm["EndDate"]}
+                                                                              catch { }" class="txt_input_item_item" />
                     </div>
                 </div>
                 <div class="item_item_content_form">
@@ -180,7 +136,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add new menu
+        Add new exhibition
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -191,7 +147,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/menus/")">
+            <a href="@Url.Content("~/administrator/exhibitions/")">
                 <div class="img_item_content_action" id="go_back_action">
                 </div>
                 <div class="text_item_content_action">
@@ -201,7 +157,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_menu" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_exhibition" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save

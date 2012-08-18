@@ -27,14 +27,14 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             if (Session["admin"] != null)
             {
                 Members member = (Members)Session["admin"];
-                if (member.Name != null && member.Name != "" && member.RoleID < 4)
+                if (member.Name != null && member.Name != "" && member.Role.ID < 4)
                 {
                     ViewBag.Name = member.Name;
                     Menus menusModels = new Menus();
                     menusModels.Controller = RouteData.Values["controller"].ToString().ToLower();
                     menusModels.Action = RouteData.Values["action"].ToString().ToLower();
 
-                    if (menusModels.CheckMenuOfRole(member.RoleID) == false)
+                    if (menusModels.CheckMenuOfRole(member.Role.ID) == false)
                     {
                         Session["admin"] = null;
                         Response.Redirect("/", true);
@@ -61,7 +61,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 rolesModels.ID = 1;//member.RoleID;
                 rolesModels = rolesModels.GetRoleWithID();
                 ViewBag.Title = rolesModels.Name + " Page:";
-                ICollection<Menus> listMenus = rolesModels.Menu;
+                ICollection<Menus> listMenus = rolesModels.Menu.Where(m=>m.Display == true).ToList();
                 //var listParentMenu = listMenu.Where(m => m.ParentID == -1);
                 //foreach (Menus parentMenu in listParentMenu)
                 //{
