@@ -33,7 +33,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/roles/add")">
                 <div class="img_item_content_action" id="add_action">
                 </div>
                 <div class="text_item_content_action">
@@ -66,17 +66,20 @@
                 <td class="text-left">@role.Alias</td>
                 <td class="text-left">@role.Description</td>
                 <td class="text-center">
-                    <a href="@Url.Content("~/administrator/menus/index/role-"+@role.ID)">View Menus</a>
+                    <a href="@Url.Content("~/administrator/menus/menusrole/"+role.ID)">View Menus</a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/roles/edit/"+role.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    @if (role.ID != 1)
+                    {
+                    <a href="@Url.Content("~/administrator/roles/delete/" + role.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
+                    }
                 </td>
             </tr>
             }
@@ -108,7 +111,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/roles/add")">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
                 <div class="text_item_content_action">

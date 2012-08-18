@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eProjectsSemIII.Libs;
 using eProjectsSemIII.Configs;
 using eProjectsSemIII.Models;
+using System.Text;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -47,6 +48,250 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 Session["admin"] = null;
                 return Redirect("~/");
             }
+        }
+
+        public ActionResult Add(FormCollection form, HttpPostedFileBase Images)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            var db = new FineArtContext();
+            if (form["submit_exhibition"] != null)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("<ul>");
+                Strings stringsLibs = new Strings();
+                if (form["Name"].Trim() == "")
+                {
+                    stringBuilder.Append("<li>Please type exhibition name</li>");
+                }
+                if (form["Alias"].Trim() == "" || !Validator.ISAlias(form["Alias"]))
+                {
+                    stringBuilder.Append("<li>Please type exhibition alias</li>");
+                }
+                else
+                {
+                    try
+                    {
+                        string alias = form["Alias"].Trim().ToString();
+                        var exhibition = db.Exhibitions.Where(c => c.Alias == alias).First();
+                        stringBuilder.Append("<li>This exhibition alias had been exists in database, try a different</li>");
+                    }
+                    catch { }
+                }
+                if (form["Description"].Trim() == "")
+                {
+                    stringBuilder.Append("<li>Please type exhibition description</li>");
+                }
+                DateTime StartDate = new DateTime();
+                DateTime EndDate = new DateTime();
+                try
+                {
+                    StartDate = DateTime.Parse(form["StartDate"]);
+                }
+                catch
+                {
+                    stringBuilder.Append("<li>Please type exhibition start date</li>");
+                }
+                try
+                {
+                    EndDate = DateTime.Parse(form["EndDate"]);
+                }
+                catch
+                {
+                    stringBuilder.Append("<li>Please type exhibition deadline date</li>");
+                }
+                try
+                {
+                    if (DateTime.Parse(form["EndDate"]) <= DateTime.Parse(form["StartDate"]))
+                    {
+                        stringBuilder.Append("<li>End date should after start date</li>");
+                    }
+                }
+                catch
+                {
+
+                }
+                if (Images == null)
+                {
+                    stringBuilder.Append("<li>Please chose a image for this exhibition</li>");
+                }
+                if (stringBuilder.ToString() == "<ul>")
+                {
+                    ImagesClass objImageClass = new ImagesClass(Images);
+                    string fileSaveName = Server.MapPath("~/Content/Images/exhibitions/" + form["Alias"] + ".jpg");
+                    objImageClass.CreateNewImage(fileSaveName, 190, 190);
+                    Exhibitions exhibitionsModels = new Exhibitions
+                    {
+                        Name = form["Name"].Trim(),
+                        Alias = form["Alias"].Trim(),
+                        Image = form["Alias"].Trim() + ".jpg",
+                        StartDate = StartDate,
+                        EndDate = EndDate,
+                        Description = form["Description"].Trim()
+                    };
+                    db.Exhibitions.Add(exhibitionsModels);
+                    db.SaveChanges();
+                    ViewBag.success = "Add exhibition success!";
+                }
+                else
+                {
+                    stringBuilder.Append("</ul>");
+                    ViewBag.error = stringBuilder.ToString();
+                    ViewBag.dataForm = form;
+                }
+            }
+            return View();
+        }
+        public ActionResult Edit(string id, FormCollection form, HttpPostedFileBase Images)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                Exhibitions exhibition = db.Exhibitions.Where(c => c.ID == idd).First();
+                if (form["submit_exhibition"] == null)
+                {
+                    form["Name"] = exhibition.Name;
+                    form["Alias"] = exhibition.Alias;
+                    form["StartDate"] = exhibition.StartDate.ToString("dd/MM/yyyy");
+                    form["EndDate"] = exhibition.EndDate.ToString("dd/MM/yyyy");
+                    form["Description"] = exhibition.Description;
+                    ViewBag.dataForm = form;
+                }
+                else
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.Append("<ul>");
+                    Strings stringsLibs = new Strings();
+                    if (form["Name"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type exhibition name</li>");
+                    }
+                    if (form["Alias"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type exhibition alias</li>");
+                    }
+                    else
+                    {
+                        if (form["Alias"].Trim() != exhibition.Alias)
+                        {
+                            try
+                            {
+                                string alias = form["Alias"].Trim().ToString();
+                                var exhibitions = db.Exhibitions.Where(c => c.Alias == alias).First();
+                                stringBuilder.Append("<li>This competition alias had been exists in database, try a different</li>");
+                            }
+                            catch { }
+                        }
+                    } 
+                    if (form["Description"].Trim() == "")
+                    {
+                        stringBuilder.Append("<li>Please type exhibition description</li>");
+                    }
+                    DateTime StartDate = new DateTime();
+                    DateTime EndDate = new DateTime();
+                    try
+                    {
+                        StartDate = DateTime.Parse(form["StartDate"]);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Please type exhibition start date</li>");
+                    }
+                    try
+                    {
+                        EndDate = DateTime.Parse(form["EndDate"]);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Please type exhibition deadline date</li>");
+                    }
+                    try
+                    {
+                        if (DateTime.Parse(form["EndDate"]) <= DateTime.Parse(form["StartDate"]))
+                        {
+                            stringBuilder.Append("<li>End date should after start date</li>");
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
+                    if (stringBuilder.ToString() == "<ul>")
+                    {
+                        if (Images != null)
+                        {
+                            string fileOldName = Server.MapPath("~/Content/Images/exhibitions/" + exhibition.Alias + ".jpg");
+                            FilesClass.DeleteFile(fileOldName);
+                            ImagesClass objImageClass = new ImagesClass(Images);
+                            string fileSaveName = Server.MapPath("~/Content/Images/exhibitions/" + form["Alias"] + ".jpg");
+                            objImageClass.CreateNewImage(fileSaveName, 190, 190);
+                        }
+                        else
+                        {
+                            if (form["Alias"].Trim() != exhibition.Alias)
+                            {
+                                string fileOldName = Server.MapPath("~/Content/Images/exhibitions/" + exhibition.Alias + ".jpg");
+                                string fileNewName = Server.MapPath("~/Content/Images/exhibitions/" + form["Alias"] + ".jpg");
+                                FilesClass.RenameFile(fileOldName, fileNewName);
+                            }
+                        }
+                        Exhibitions exhibitionsModels;
+                        exhibitionsModels = db.Exhibitions.Where(c => c.ID == idd).First();
+                        exhibitionsModels.Name = form["Name"];
+                        exhibitionsModels.Alias = form["Alias"];
+                        exhibitionsModels.Image = form["Alias"] + ".jpg";
+                        exhibitionsModels.StartDate = StartDate;
+                        exhibitionsModels.EndDate = EndDate;
+                        exhibitionsModels.Description = form["Description"].Trim();
+                        ViewBag.dataForm = form;
+                        ViewBag.success = "Update exhibition success!";
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        stringBuilder.Append("</ul>");
+                        ViewBag.error = stringBuilder.ToString();
+                        ViewBag.dataForm = form;
+                    }
+                }
+
+                return View();
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+        }
+        public ActionResult Delete(string id)
+        {
+            //base.Authentication();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                var exhibitionsModels = db.Exhibitions.Where(c => c.ID == idd).First();
+                List<Customers> listCustomer = db.Customers.Where(c => c.Exhibition.ID == exhibitionsModels.ID).ToList();
+                listCustomer.ForEach(delegate(Customers customer)
+                {
+                    customer.Exhibition = null;
+                });
+
+                db.SaveChanges();
+                db.Exhibitions.Remove(exhibitionsModels);
+                db.SaveChanges();
+                return Redirect("~/administrator/exhibitions/");
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+
         }
     }
 }
