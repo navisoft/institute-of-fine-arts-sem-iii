@@ -136,18 +136,18 @@ namespace eProjectsSemIII.Models
 
             var member = new List<Members>
             {
-                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="123456", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=1},
-                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="123456", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=2},
-                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="123456", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="123456", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="123456", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=4},
-                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
-                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),RoleID=3},
+                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="123456", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[0]},//1
+                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="123456", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[1]},//2
+                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="123456", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="123456", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="123456", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
               
                
             };
@@ -322,7 +322,7 @@ namespace eProjectsSemIII.Models
                 /*60*/new Menus {Name = "Edit member", Controller="members", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=false},
                 /*61*/new Menus {Name = "Delete member", Controller="members", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=57,Display=false},
                 
-                /*62*/new Menus {Name = "List of Customers", Controller="customers", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=15,Display=true},
+                /*62*/new Menus {Name = "List of Customers", Controller="customers", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=45,Display=true},
                              
             };
             menu.ForEach(s => context.Menus.Add(s));
