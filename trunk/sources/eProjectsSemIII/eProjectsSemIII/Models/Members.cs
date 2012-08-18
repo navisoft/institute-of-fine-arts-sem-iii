@@ -31,7 +31,6 @@ namespace eProjectsSemIII.Models
 
         //one to many with Role
         //reference with role
-        public int RoleID { get; set; }
         //navigation property
         public Roles Role { get; set; }
 

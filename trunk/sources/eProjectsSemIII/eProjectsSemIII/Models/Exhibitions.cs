@@ -22,6 +22,8 @@ namespace eProjectsSemIII.Models
 
         public string Image { get; set; }
 
+        public string Description { get; set; }
+
         public ICollection<Designs> Designs { get; set; }
 
 
