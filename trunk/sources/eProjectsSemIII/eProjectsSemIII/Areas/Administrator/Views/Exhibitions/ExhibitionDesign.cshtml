@@ -25,7 +25,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/designs")">
                 <div class="img_item_content_action" id="go_back_action">
                 </div>
                 <div class="text_item_content_action">
@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/exhibitions/addexhibitiondesign/")">
+            <a href="@Url.Content("~/administrator/exhibitions/addexhibitiondesign/"+ViewBag.designID)">
                 <div class="img_item_content_action" id="add_action">
                 </div>
                 <div class="text_item_content_action">
@@ -78,12 +78,12 @@
                 <td class="text-center">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center"><a href="@Url.Content("~/administrator/designs/designexhibition/" + exhibition.ID)">Designs</a></td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/exhibitions/edit/"+exhibition.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/exhibitions/removeexhibitiondesign/"+exhibition.ID+"/"+ViewBag.designID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
@@ -117,7 +117,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/designs")">
                 <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
@@ -126,7 +126,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/exhibitions/addexhibitiondesign/"+ViewBag.designID)">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
                 <div class="text_item_content_action">

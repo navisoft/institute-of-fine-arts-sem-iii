@@ -68,7 +68,16 @@
                 <td class="text-center num-id">@design.ID</td>
                 <td class="text-left">@design.Name</td>
                 <td class="text-center paddings design-image"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/" + design.Images)" /></td>
-                <td class="text-left">@design.Kind.Name</td>
+                <td class="text-left">
+                @try
+                    {
+                    @design.Kind.Name
+                    }
+                    catch
+                    {
+                        <span>Not Set</span>
+                    }
+                </td>
                 <td class="text-left">@design.Competition.Name</td>
                 <td class="text-center paddings">@design.Member.Name</td>
                 <td class="text-center paddings">@design.PriceSold</td>

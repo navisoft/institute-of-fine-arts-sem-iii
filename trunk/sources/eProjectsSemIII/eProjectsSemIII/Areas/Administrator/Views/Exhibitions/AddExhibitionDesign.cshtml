@@ -1,0 +1,146 @@
+﻿<div class="path_menu">
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/")">Home Page</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/exhibitions/")">Exhibitions</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="">Add new exhibition</a>
+    </div>
+</div>
+<div class="path_menu context_menu">
+    <a href="#">Danh sách sản phẩm</a> <span>|</span> <a href="#">Danh mục sản phẩm</a>
+    <span>|</span> <a href="#">Đánh giá, nhận xét sản phẩm</a>
+</div>
+<form action="" method="post" enctype="multipart/form-data">
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        Add exhibition for design
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action">
+            </div>
+            <div class="text_item_content_action">
+                Help
+            </div>
+        </div>
+        <div class="item_content_action">
+            <a href="@Url.Content("~/administrator/exhibitions/exhibitiondesign/"+ViewBag.exhibitionID)">
+                <div class="img_item_content_action" id="go_back_action1">
+                </div>
+                <div class="text_item_content_action">
+                    Close
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_exhibition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+@if (ViewBag.error != null)
+{
+    <div class="path_menu error">
+        @Html.Raw(ViewBag.error)
+    </div>
+}
+@if (ViewBag.success != null)
+{
+    <div class="path_menu success">
+        @Html.Raw(ViewBag.success)
+    </div>
+}
+<!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
+<div class="path_menu">
+    <div class="form_panel">
+        <div class="tab_form_panel">
+            <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
+                Add exhibitions for design
+            </div>
+        </div>
+        <div class="content_form_panel">
+            <div class="item_content_form_panel" id="item_content_form_panel1">
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> List exhibition
+                    </div>
+                    <div class="input_item_item_form">
+                        <select multiple="multiple" size="10" name="Exhibitions">
+                            <option value="-1" selected="selected">Chose Exhibitions for design...</option>
+                            @foreach (eProjectsSemIII.Models.Exhibitions exhibition in ViewBag.listExhibitions)
+                            {
+                                try
+                                {
+                                    bool hasItem = false;
+                                    foreach (int item in ViewBag.IDExhibitions)
+                                    {
+                                        if (item == exhibition.ID)
+                                        {
+                                            hasItem = true;
+                                <option value="@exhibition.ID" selected="selected">@exhibition.Name</option>
+                                            break;
+                                        }
+
+                                    }
+                                    if (hasItem == false)
+                                    {
+                                <option value="@exhibition.ID">@exhibition.Name</option>
+                                    }
+                                }
+                                catch
+                                {
+                                <option value="@exhibition.ID">@exhibition.Name</option>
+                                }
+
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        Add exhibitions for design
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action1">
+            </div>
+            <div class="text_item_content_action">
+                Help
+            </div>
+        </div>
+        <div class="item_content_action">
+            <a href="@Url.Content("~/administrator/exhibitions/exhibitiondesign/"+ViewBag.exhibitionID)">
+                <div class="img_item_content_action" id="go_back_action">
+                </div>
+                <div class="text_item_content_action">
+                    Close
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_exhibition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+</form>

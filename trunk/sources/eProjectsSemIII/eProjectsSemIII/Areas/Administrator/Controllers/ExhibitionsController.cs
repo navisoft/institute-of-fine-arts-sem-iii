@@ -41,7 +41,66 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 designsModels.ID = idd;
                 designsModels = designsModels.GetNavigationWithID("Exhibitions");
                 ViewBag.Title += " Exhinitions of " + designsModels.Name + " Designs";
+                ViewBag.designID = idd;
                 return View(designsModels.Exhibitions.ToList());
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+        }
+
+        public ActionResult AddExhibitionDesign(string id,FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                var db = new FineArtContext();
+                int idd = Convert.ToInt16(id);
+                ViewBag.exhibitionID = idd;
+                var design = db.Designs.Include("Exhibitions").Where(d => d.ID == idd).First();
+                var listExhibitions = db.Exhibitions
+                    .Where(e => e.EndDate > DateTime.Now)
+                    .ToList();
+                ViewBag.listExhibitions = listExhibitions.Except(design.Exhibitions).ToList();
+                if (form["submit_exhibition"] != null)
+                {
+                    Strings stringModels = new Strings();
+                    int[] IDExhibitions = stringModels.ListID(form["Exhibitions"]);
+                    ViewBag.IDExhibitions = IDExhibitions;
+                    ICollection<Exhibitions> listExhibitionsOther = db.Exhibitions.Where(s => IDExhibitions.Contains(s.ID)).ToList();
+                    foreach (Exhibitions ex in listExhibitionsOther)
+                    {
+                        design.Exhibitions.Add(ex);
+                    }
+                    db.SaveChanges();
+                    return Redirect("~/administrator/exhibitions/addexhibitiondesign/" + idd);
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public RedirectResult RemoveExhibitionDesign(string id, string param)
+        {
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                int paramm = Convert.ToInt16(param);
+                var db = new FineArtContext();
+                var design = db.Designs.Include("Exhibitions").Where(d => d.ID == paramm).First();
+                var exhibition = design.Exhibitions.Where(e => e.ID == idd).First();
+                design.Exhibitions.Remove(exhibition);
+                db.SaveChanges();
+                return Redirect("~/administrator/exhibitions/exhibitiondesign/" + paramm);
             }
             catch
             {

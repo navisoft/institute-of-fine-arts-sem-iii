@@ -97,6 +97,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 exhibitionsModels.ID = idd;
                 exhibitionsModels = exhibitionsModels.GetNavigationWithID("Designs");
                 ViewBag.Title += " Designs of " + exhibitionsModels.Name + " Exhibition";
+                ViewBag.exhibitionID = idd;
                 List<Designs> listDesign = exhibitionsModels.Designs.ToList();
                 List<Designs> listDesignNew = new List<Designs>();
                 listDesign.ForEach(delegate(Designs design)
@@ -110,6 +111,64 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             {
                 Session["admin"] = null;
                 return Redirect("~/");
+            }
+        }
+
+        public ActionResult AddDesignExhibition(string id,string param, FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                var exhibition = db.Exhibitions.Include("Designs").Where(e => e.ID == idd && e.EndDate > DateTime.Now).FirstOrDefault();
+                if (exhibition == null)
+                {
+                    Session["error"] = "This exhibition had ended.";
+                    return Redirect("~/administrator/designs/designexhibition/" + idd);
+                }
+                else
+                {
+                    if (form["submit_design_exhibition"] == null)
+                    {
+                        int currentPage = Paging.GetPage(param);
+                        decimal totalRecord = GlobalInfo.NumberRecordInPage;
+                        var designs = db.Designs
+                            .Include("Member")
+                            .Include("Kind")
+                            .Include("Competition").ToList();
+                        designs = designs.Except(exhibition.Designs).ToList();
+                        decimal totalDesign = designs.Count;
+                        int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalDesign / totalRecord));
+                        Paging.numPage = totalPage;
+                        Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+                        Paging.currentPage = currentPage;
+                        string url = "administrator/designs/adddesignexhibition/" + idd;
+                        ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+                        ViewBag.Title += " Add design to exhibition";
+                        var listDesigns = designs
+                            .OrderBy(d => d.ID).Skip((int)((currentPage - 1) * totalRecord)).Take((int)totalRecord).ToList();
+                        return View(listDesigns);
+                    }
+                    else
+                    {
+                        Strings stringModels = new Strings();
+                        int[] IDDesigns = stringModels.ListID(form["Design"]);
+                        var designs = db.Designs.Where(d => IDDesigns.Contains(d.ID)).ToList();
+                        designs.ForEach(delegate(Designs design)
+                        {
+                            exhibition.Designs.Add(design);
+                        });
+                        db.SaveChanges();
+                        return Redirect("~/administrator/designs/adddesignexhibition/" + idd);
+                    }
+                }
+            }
+            catch
+            {
+                Response.Write("OKOKO");
+                return null;
             }
         }
 
