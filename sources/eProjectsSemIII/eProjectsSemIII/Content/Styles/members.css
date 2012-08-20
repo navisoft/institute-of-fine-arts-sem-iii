@@ -1,0 +1,122 @@
+﻿/* CSS Document */
+
+*{margin:0;padding:0;font-family:"Lucida Grande", Lucida, "Trebuchet MS", sans-serif;font-size:12px}
+body{background:url(../images/auths/bg.jpg) no-repeat fixed;}
+
+.link-member{position:fixed;right:20px;top:20px}
+.link-member a{float:left;margin:0 5px;color:#545454;text-decoration:none}
+.link-member span{float:left;color:#949494}
+
+.login-box
+{
+    float:right;width:206px;margin:100px 0 0 0;font-size:14px;color:#545454;
+    padding-right:100px;z-index:30000;position:absolute;right:250px
+}
+.title{
+	float:left;width:291px;background:url(../images/auths/bg-title.png) no-repeat;
+	padding:15px 0 5px 15px;font-weight:bold;color:#747474;font-size:19px
+}
+.main{float:left;width:291px;background:url(../images/auths/bg-main.png) repeat-y;padding-left:15px}
+
+.txt-box{
+	float:left;color:#545454;
+	width:250px;
+	padding:9px 10px;
+	margin:12px 0;
+	border:1px solid #ccc;
+	display:inline-block;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-ms-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-o-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	
+	-webkit-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-moz-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-ms-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-o-transition:border linear 0.2s,box-shadow linear 0.2s;
+	transition:border linear 0.2s,box-shadow linear 0.2s;
+	border-radius:5px
+}
+.txt-box:focus{
+	border-color:rgba(82, 168, 236, 0.8);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	outline:0;outline:thin dotted \9;
+}
+
+.remember{float:left;width:100%;margin-bottom:15px}
+.bt-button{
+	background:url(../images/auths/bg-button.jpg) no-repeat;width:109px;height:33px;border:none;color:#545454;font-size:14px;margin-right:5px;
+	cursor:pointer;
+}
+
+.other-action{margin:10px 0}
+.other-action a{color:#545454}
+
+.info{
+	position:fixed;bottom:10px;right:10px;color:#949494;line-height:20px
+}
+
+
+.footer{float:left;width:306px;background:url(../images/auths/bg-footer.png) no-repeat;height:30px}
+
+.register-box{
+	float:right;width:206px;margin:50px 350px 0 0;font-size:14px;color:#545454;margin-bottom:50px
+}
+
+.txt-box-register{
+	float:left;color:#545454;
+	width:250px;
+	padding:7px 10px;
+	margin:5px 0;
+	border:1px solid #ccc;
+	display:inline-block;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-ms-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-o-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	
+	-webkit-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-moz-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-ms-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-o-transition:border linear 0.2s,box-shadow linear 0.2s;
+	transition:border linear 0.2s,box-shadow linear 0.2s;
+	border-radius:5px
+}
+.txt-box-register:focus{
+	border-color:rgba(82, 168, 236, 0.8);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
+	outline:0;outline:thin dotted \9;
+}
+.gender{width:271px}
+.action{margin-top:10px;float:left}
+
+.day{width:70px;margin-right:5px}
+.month{width:111px;margin-right:5px}
+.year{width:80px}
+
+.message{margin-bottom:20px;width:400px}
+.message ul{list-style-position:inside;line-height:22px}
+
+.error{color:#00f}
+.success{color:#00f}
+
+.popup
+{
+    position:absolute;display:none;border:1px solid #d7d7d7;max-width:350px;
+    padding:11px;border-right:none;background:#fbfbfb;color:#949494;line-height:22px;z-index:1000
+}
+
+.birthday{float:left}
+
+.message-register
+{
+    position:absolute;right:50px;top:70px;line-height:22px;width:200px;border-radius:0px 5px 5px 0;
+    background:#fbfbfb;border:1px solid #d7d7d7;border-left:none;z-index:1;
+}
+.message-register ul{list-style-position:inside;margin:10px 5px;}
