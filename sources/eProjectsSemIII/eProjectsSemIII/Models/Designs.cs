@@ -25,7 +25,6 @@ namespace eProjectsSemIII.Models
 
         public bool IsSpecial { get; set; }
         //one to many
-        public int KindID { get; set; }
         public Kinds Kind { get; set; }
 
         //one to many

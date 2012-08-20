@@ -10,23 +10,24 @@ namespace eProjectsSemIII.Models
         public int ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-       [Required(ErrorMessage = "Name is required.")]
-       
+        [Required(ErrorMessage = "Name is required.")]
+
         public string Name { get; set; }
-       [Required(ErrorMessage = "Address is required.")]
-    
-       public string Address { get; set; }
-       public string Images { get; set; }
+        [Required(ErrorMessage = "Address is required.")]
+
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Images { get; set; }
 
         public string Phone { get; set; }
-       [Required(ErrorMessage = "Gender is required.")]
+        [Required(ErrorMessage = "Gender is required.")]
 
         public string Gender { get; set; }
 
-         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
 
-         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Datejoin { get; set; }
 
         //one to many with Role
