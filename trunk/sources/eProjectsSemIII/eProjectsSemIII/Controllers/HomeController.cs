@@ -9,7 +9,7 @@ using System.Text;
 
 namespace eProjectsSemIII.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AuthenticationController
     {
 
         private FineArtContext db = new FineArtContext();
@@ -18,20 +18,35 @@ namespace eProjectsSemIII.Controllers
         // list upcomming with items
         public ActionResult Index()
         {
-            //Competitions competition = new Competitions();
-            //competition.ID = 1;
-            ////var marks = db.Marks.Where(m => m.Competition == competition).GroupBy(m => m.Design.ID).ToList();
-            ////foreach (Marks mark in marks)
-            ////{
-            ////    Response.Write(mark.Mark);
-            ////}
+            base.Authentication();
+            var db = new FineArtContext();
+            var query2 = db.Marks
+                .Join(db.Members,mark=>mark.Design.Member.ID,member=>member.ID,(mark,member)=>new {Member = member,Mark=mark})
+                .Join(db.Competitions,mark1=>mark1.Mark.Design.Competition.ID,competition=>competition.ID,(mark1,competition)=>new{Competition=competition,Mark=mark1})
+                .Where(a=>a.Mark.Mark.Design.Competition.ID == 1)
+                .GroupBy(b=>b.Mark.Mark.Design)
+                .OrderByDescending(c=>c.Average(z=>z.Mark.Mark.Mark))
+                .ToList();
+
+
+            foreach (var item in query2)
+            {
+                Response.Write(item.Key.Name + "<br>");
+                Response.Write(item.Key.Member.Name+"<br>");
+                Response.Write(item.Average(a => a.Mark.Mark.Mark) + "<br>");
+            }
+
+            //.Where(m => m.Design.Competition.ID == 1)
+            //.GroupBy(m => m.Design)
+            //.OrderBy(m => m.Average(z => z.Mark))
             //var query = from m in db.Marks
             //            where m.Design.Competition.ID == 1
             //            group m by m.Design into gr
+            //            orderby gr.Average(z => z.Mark)
             //            select new { Id = gr.Key, avgMark = gr.Average(z => z.Mark) };
             //foreach (var item in query)
             //{
-            //    Response.Write(item.Id+"<br>");
+            //    Response.Write(item.Id + "<br>");
             //    Response.Write(item.avgMark + "<br>");
             //}
             var upcomming = db.Competitions.Where(s=>s.StartDate>DateTime.Now).ToList();

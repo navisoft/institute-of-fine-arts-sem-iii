@@ -77,13 +77,18 @@
     <Compile Include="Areas\Administrator\Controllers\MenusController.cs" />
     <Compile Include="Areas\Administrator\Controllers\RolesController.cs" />
     <Compile Include="Configs\GlobalInfo.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Libs\FilesClass.cs" />
+    <Compile Include="Libs\ImagesClass.cs" />
     <Compile Include="Libs\Log.cs" />
     <Compile Include="Libs\Paging.cs" />
     <Compile Include="Libs\Strings.cs" />
+    <Compile Include="Libs\Validator.cs" />
     <Compile Include="Models\Awards.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Competitions.cs" />
@@ -131,7 +136,13 @@
     <Content Include="Content\Images\admins\menu-icon\video-icon.png" />
     <Content Include="Content\Images\advertise.jpg" />
     <Content Include="Content\Images\animation.jpg" />
-    <Content Include="Content\Images\articles\article-1.jpg" />
+    <Content Include="Content\Images\auths\bg-button.jpg" />
+    <Content Include="Content\Images\auths\bg-footer.png" />
+    <Content Include="Content\Images\auths\bg-info.jpg" />
+    <Content Include="Content\Images\auths\bg-main.png" />
+    <Content Include="Content\Images\auths\bg-text-box.jpg" />
+    <Content Include="Content\Images\auths\bg-title.png" />
+    <Content Include="Content\Images\auths\bg.jpg" />
     <Content Include="Content\Images\bg-search-hover.png" />
     <Content Include="Content\Images\bg-search.png" />
     <Content Include="Content\Images\competitions\competition-1.jpg" />
@@ -153,6 +164,9 @@
     <Content Include="Content\Images\line_border_right.jpg" />
     <Content Include="Content\Images\logo.jpg" />
     <Content Include="Content\Images\students\minhphong1.jpg" />
+    <Content Include="Content\Images\students\minhphong10.jpg" />
+    <Content Include="Content\Images\students\minhphong11.jpg" />
+    <Content Include="Content\Images\students\minhphong12.jpg" />
     <Content Include="Content\Images\students\minhphong2.jpg" />
     <Content Include="Content\Images\students\minhphong3.jpg" />
     <Content Include="Content\Images\students\minhphong4.jpg" />
@@ -161,11 +175,17 @@
     <Content Include="Content\Images\students\minhphong7.jpg" />
     <Content Include="Content\Images\students\minhphong8.jpg" />
     <Content Include="Content\Images\students\minhphong9.jpg" />
+    <Content Include="Content\Styles\admin-content.css" />
     <Content Include="Content\Styles\admin-index.css" />
     <Content Include="Content\Styles\admin-login.css" />
     <Content Include="Content\Styles\admin-style.css" />
+    <Content Include="Content\Styles\members.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\gldatepicker.v1.3\css\android.css" />
+    <Content Include="Scripts\gldatepicker.v1.3\css\default.css" />
+    <Content Include="Scripts\gldatepicker.v1.3\js\glDatePicker.js" />
+    <Content Include="Scripts\gldatepicker.v1.3\js\glDatePicker.min.js" />
     <Content Include="Scripts\scripts\admin-app.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -178,6 +198,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\scripts\user-app.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -208,12 +229,6 @@
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Browse.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Kind.cshtml" />
-    <Content Include="Views\Home\List_Student.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
@@ -253,21 +268,41 @@
     <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Oncomming.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\listAllCompetition.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\ListAllDesign.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\ListAllExhibition.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Areas\Administrator\Views\Awards\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Kinds\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Kinds\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Competitions\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Awards\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Conditions\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Conditions\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Classes\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Classes\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Menus\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Roles\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Menus\MenusRole.cshtml" />
+    <Content Include="Areas\Administrator\Views\Exhibitions\Add.cshtml" />
+    <Content Include="Areas\Administrator\Views\Exhibitions\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Exhibitions\AddExhibitionDesign.cshtml" />
+    <Content Include="Areas\Administrator\Views\Designs\AddDesignExhibition.cshtml" />
+    <Content Include="Areas\Administrator\Views\Kinds\AddKindCompetition.cshtml" />
+    <Content Include="Areas\Administrator\Views\Conditions\AddConditionsCompetition.cshtml" />
     <None Include="Content\Images\exhibitions\Thumbs.db" />
-    <None Include="Content\Images\students\Thumbs.db" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Browse.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\detail_upcomming.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Kind.cshtml" />
+    <Content Include="Views\Home\listAllCompetition.cshtml" />
+    <Content Include="Views\Home\ListAllDesign.cshtml" />
+    <Content Include="Views\Home\ListAllExhibition.cshtml" />
+    <Content Include="Views\Home\List_Student.cshtml" />
+    <Content Include="Views\Home\Oncomming.cshtml" />
+    <Content Include="Views\Shared\Member.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Register.cshtml" />
+    <None Include="Scripts\gldatepicker.v1.3\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
