@@ -10,6 +10,8 @@
         <a href="@Url.Content("~/administrator/designs/")">List of Designs</a>
     </div>
 </div>
+
+<form action="" method="post">
 <div class="path_menu title_and_action">
     <div class="content_title">
         List of Designs
@@ -33,6 +35,15 @@
                 </div>
             </a>
         </div>
+        
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_design_exhibition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
     </div>
     <!--#END content_action-->
 </div>
@@ -53,6 +64,9 @@
                 <td class="text-center">
                     No.
                 </td>
+                <td class="text-center">
+                    Choose
+                </td>
                 <td class="text-left design-name">
                     Name
                 </td>
@@ -71,23 +85,23 @@
                 <td class="text-center paddings">
                     Price
                 </td>
+                <td class="text-center paddings">
+                    Paid for student
+                </td>
                 <td class="text-center date">
                     Date Post
                 </td>
                 <td class="text-center">
                     Exhibition
                 </td>
-                <td class="text-center add">
-                    Add to exhibition
-                </td>
-                <td class="text-center">
-                    Delete
-                </td>
             </tr>
             @foreach (var design in Model)
             {
                 <tr>
                     <td class="text-center num-id">@design.ID
+                    </td>
+                    <td class="text-center">
+                        <input type="checkbox" name="Design" value="@design.ID" />
                     </td>
                     <td class="text-left">@design.Name
                     </td>
@@ -110,6 +124,20 @@
                     </td>
                     <td class="text-center paddings">@design.PriceSold
                     </td>
+                    <td class="text-center paddings">
+                        @if (design.IsPaidStudent)
+                        {
+                            <a>
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_enable.png")" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a>
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/status_disable.png")" />
+                            </a>
+                        }
+                    </td>
                     <td class="text-center">
                         @design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
                     </td>
@@ -117,21 +145,12 @@
                         <a href="@Url.Content("~/administrator/exhibitions/exhibitiondesign/" + @design.ID)">
                             Exhibition</a>
                     </td>
-                    <td class="text-center">
-                        <a href="">
-                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                        </a>
-                    </td>
-                    <td class="text-center">
-                        <a href="@Url.Content("~/administrator/designs/delete/"+design.ID)">
-                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                        </a>
-                    </td>
                 </tr>
             }
         </table>
     </div>
 </div>
+</form>
 @if (ViewBag.pagingString != "" && ViewBag.pagingString != null)
 {
     <div class="path_menu">
@@ -163,6 +182,16 @@
                     Go back
                 </div>
             </a>
+        </div>
+        
+        
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_design_exhibition" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
         </div>
     </div>
     <!--#END content_action-->

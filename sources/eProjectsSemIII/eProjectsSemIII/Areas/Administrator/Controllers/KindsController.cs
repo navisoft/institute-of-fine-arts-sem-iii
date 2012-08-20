@@ -40,6 +40,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             try
             {
                 int idd = Convert.ToInt16(id);
+                ViewBag.competitionID = idd;
                 Competitions competitionsModels = new Competitions();
                 competitionsModels.ID = idd;
                 competitionsModels = competitionsModels.ListNavigation("Kind");
@@ -50,6 +51,73 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             {
                 Session["admin"] = null;
                 return Redirect("~/");
+            }
+        }
+
+        public ActionResult RemoveKindCompetition(string id, string param)
+        {
+            try
+            {
+                int kindID = Convert.ToInt16(id);
+                int competitionID = Convert.ToInt16(param);
+                var db = new FineArtContext();
+                var competition = db.Competitions.Include("Kind").Where(c => c.ID == competitionID).First();
+                var kind = db.Kinds.Where(k => k.ID == kindID).First();
+                competition.Kind.Remove(kind);
+                db.SaveChanges();
+                return Redirect("~/administrator/kinds/kindcompetition/" + competitionID);
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
+        }
+
+        public ActionResult AddKindCompetition(string id, FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                int idd = Convert.ToInt16(id);
+                var db = new FineArtContext();
+                ViewBag.competitionID = idd;
+                var competition = db.Competitions.Include("Kind").Where(c => c.ID == idd && c.EndDate > DateTime.Now).FirstOrDefault();
+                    
+                if (form["submit_kind"] == null)
+                {
+                    if (competition == null)
+                    {
+                        Session["error"] = "This competition had ended.";
+                        return Redirect("~/administrator/kinds/kindcompetition/" + idd);
+                    }
+                    else
+                    {
+                        var listKind = competition.Kind.ToList();
+                        var listKindOther = db.Kinds.ToList();
+                        listKindOther = listKindOther.Except(listKind).ToList();
+                        ViewBag.listKinds = listKindOther;
+                        return View();
+                    }
+                }
+                else
+                {
+                    Strings stringModels = new Strings();
+                    int[] IDKinds = stringModels.ListID(form["Kinds"]);
+                    List<Kinds> listKinds = db.Kinds.Where(k => IDKinds.Contains(k.ID)).ToList();
+                    listKinds.ForEach(delegate(Kinds kind)
+                    {
+                        competition.Kind.Add(kind);
+                    });
+                    db.SaveChanges();
+                    return Redirect("~/administrator/kinds/addkindcompetition/" + idd);
+                }
+
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -162,11 +230,18 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
+            //base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
                 var db = new FineArtContext();
-                Kinds kind = db.Kinds.Where(k => k.ID == idd).First();
+                Kinds kind = db.Kinds.Include("Design").Where(k => k.ID == idd).First();
+                var listDesign = kind.Design.ToList();
+                listDesign.ForEach(delegate(Designs design)
+                {
+                    design.Kind = null;
+                });
+                db.SaveChanges();
                 db.Kinds.Remove(kind);
                 db.SaveChanges();
                 return Redirect("~/administrator/kinds/");
