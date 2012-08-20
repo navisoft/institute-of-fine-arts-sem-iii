@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/members.css")"/>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/scripts/jquery.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/scripts/user-app.js")"></script>
+<title>Login</title>
+</head>
+<!--[if IE 6]>
+<style>
+.login-box{right:100px}
+</style>
+<![endif]-->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#Birthday").glDatePicker(
+        {
+            cssName: "default",
+            onChange: function (target, newDate) {
+                target.val
+                (
+                    newDate.getDate() + "/" +
+                    (newDate.getMonth() + 1) + "/" +
+                    newDate.getFullYear()
+                );
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    function ClearPlaceHolder(input) {
+        if (input.value == input.defaultValue) {
+            input.value = "";
+        }
+    }
+    function SetPlaceHolder(input) {
+        if (input.value == "") {
+            input.value = input.defaultValue;
+        }
+    }
+    </script>
+<body>
+<div class="link-member">
+    <a href="@Url.Content("~/member/")">Sign in</a><span>|</span><a href="@Url.Content("~/member/register")">Register</a>
+</div>
+@RenderBody()
+    <div class="info">
+        <div>Institute of Fine Arts</div>
+        <div>Email: contact@instituteoffinearts.com</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+﻿@{
+    Layout = "~/Views/Shared/Member.cshtml";
+}
+<div class="popup">
+</div>
+@if (ViewBag.error != null)
+{
+<div class="message-register error">
+    @Html.Raw(ViewBag.error)
+</div>
+}
+<div class="register-box">
+@if (ViewBag.success != null && ViewBag.success == true)
+{
+    <div class="title">
+        Register successfully.
+    </div>
+    <div class="main">
+        Register account successfully. Please <a href="@Url.Content("~/member/")">Sign in</a> to<br /> use the website!
+    </div>
+    <div class="footer">
+    
+    </div>
+}
+else
+{
+    <div class="title">
+        Register an account
+    </div>
+    <div class="main">
+        <form action="" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" value="@try
+                                              {@ViewBag.dataForm["name"]}
+                                              catch { ViewBag.fullname = "Full Name"; }@ViewBag.fullname" title="Full name" class="txt-box-register" onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)"/>
+        <input type="text" name="username" value="@try
+                                                  {@ViewBag.dataForm["username"]}
+                                                  catch { ViewBag.username = "Username"; }@ViewBag.username" title="Username" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="text" name="email" value="@try
+                                               {@ViewBag.dataForm["email"]}
+                                               catch { ViewBag.email = "Email"; }@ViewBag.email" title="Email" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="text" name="verifyemail" value="@try
+                                                     {@ViewBag.dataForm["verifyemail"]}
+                                                     catch { ViewBag.verifyemail = "Verify Email"; }@ViewBag.verifyemail" title="Verify Email" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="password" name="password" value="Password" title="Password" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="password" name="verifypassword" value="Password" title="Verify Password"
+            class="txt-box-register" onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <div class="birthday">
+            <select name="day" class="txt-box-register day">
+                <option value="-1">Day</option>
+                @for (int i = 1; i <= 31; i++)
+                {
+                    try
+                    {
+                        if (i.ToString() == ViewBag.dataForm["day"])
+                        {
+                            if (i < 10)
+                            {
+                                ViewBag.istr = "0" + i;
+                    <option value="@i" selected="selected">@ViewBag.istr</option>
+                            }
+                            else
+                            {
+                    <option value="@i" selected="selected">@i</option>
+                            }
+                        }
+                        else
+                        {
+                            if (i < 10)
+                            {
+                                ViewBag.istr = "0" + i;
+                    <option value="@i">@ViewBag.istr</option>
+                            }
+                            else
+                            {
+                    <option value="@i">@i</option>
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        if (i < 10)
+                        {
+                            ViewBag.istr = "0" + i;
+                    <option value="@i">@ViewBag.istr</option>
+                        }
+                        else
+                        {
+                    <option value="@i">@i</option>
+                        }
+                    }
+                }
+            </select>
+            <select name="month" class="txt-box-register month">
+                <option value="-1">Month</option>
+                @for (int i = 1; i < 13; i++)
+                {
+                    try
+                    {
+                        if (ViewBag.dataForm["month"] == i.ToString())
+                        {
+                    <option value="@i" selected="selected">
+                        @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                    </option>
+                        }
+                        else
+                        {
+                    <option value="@i">
+                        @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                    </option>      
+                        }
+                    }
+                    catch
+                    {
+                    <option value="@i">
+                        @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                    </option>
+                    }
+
+                }
+            </select>
+            <select name="year" class="txt-box-register year">
+                <option value="-1">Year</option>
+                @for (int i = 1950; i < DateTime.Now.Year; i++)
+                {
+                    try
+                    {
+                        if (i.ToString() == ViewBag.dataForm["year"])
+                        {
+                    <option value="@i" selected="selected">@i</option>
+                        }
+                        else
+                        {
+                    <option value="@i">@i</option>
+                        }
+                    }
+                    catch
+                    {
+                    <option value="@i">@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <input type="text" name="address" value="@try
+                                                 {@ViewBag.dataForm["address"]}
+                                                 catch { ViewBag.address = "Address"; }@ViewBag.address" title="Verify Email" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="text" name="phone" value="@try
+                                               {@ViewBag.dataForm["phone"]}
+                                               catch { ViewBag.phone = "Phone"; }@ViewBag.phone" title="Phone" class="txt-box-register"
+            onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+        <input type="file" class="txt-box-register" title="Avatar" name="Images" />
+        <select name="gender" class="txt-box-register gender">
+            @try
+            {
+                if (ViewBag.dataForm["gender"] == "1")
+                {
+                <option value="0">Male</option>
+                <option value="1" selected="selected">Female</option>
+                }
+                else
+                {
+                <option value="0" selected="selected">Male</option>
+                <option value="1">Female</option>
+                }
+            }
+            catch
+            {
+                <option value="0" selected="selected">Male</option>
+                <option value="1">Female</option>
+            }
+        </select>
+        <div class="action">
+            <input type="submit" name="submit-register" value="Register" class="bt-button" />
+            <input type="button" name="cancel-register" value="Cancel" class="bt-button" />
+        </div>
+        </form>
+    </div>
+    <div class="footer">
+
+    </div>
+}
+</div>

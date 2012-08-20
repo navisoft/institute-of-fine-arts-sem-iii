@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/Member.cshtml";
+}
+	<div class="login-box">
+        <div class="message error">
+        @ViewBag.error
+        </div>
+        <div class="title">
+        	Sign in
+        </div>
+        <div class="main">
+        	<form action="" method="post">
+            	<input type="text" name="username" value="Username" class="txt-box" onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)"/>
+            	<input type="password" name="password" value="Password" class="txt-box" onfocus="ClearPlaceHolder(this)" onblur="SetPlaceHolder(this)" />
+                <div class="remember">
+            	<input type="radio" name="remember" class="bt-radio" id="remember" /> 
+                <label for="remember">Remember me on this computer</label>
+                </div>
+                <input type="submit" name="submit-login" value="Login" class="bt-button" />
+                <input type="button" name="cancel-login" value="Cancel" class="bt-button" />
+        	</form>
+        </div>
+        <div class="main">
+        	<div class="other-action">
+            	Forgot password. <a href="">Need help?</a>
+            </div>
+        	<div class="other-action">
+            	Don't have an account yet? <a href="@Url.Content("~/member/register")">Register</a>
+            </div>
+        </div>
+        <div class="footer">
+        
+        </div>
+    </div>
+
