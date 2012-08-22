@@ -16,6 +16,8 @@ namespace eProjectsSemIII.Models
 
         public DateTime DateUpdate { get; set; }
 
+        public int Level { get; set; }
+
         // many to many with competition
         public ICollection<Competitions> Competition { get; set; }
 

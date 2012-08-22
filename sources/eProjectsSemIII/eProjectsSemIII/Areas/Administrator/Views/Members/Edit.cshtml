@@ -1,0 +1,240 @@
+﻿<div class="path_menu">
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/")">Home Page</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="@Url.Content("~/administrator/members")">Members</a>
+    </div>
+    <div class="path_menu_item">
+        <a href="">Edit member</a>
+    </div>
+</div>
+<div class="path_menu context_menu">
+    <a href="#">Danh sách sản phẩm</a> <span>|</span> <a href="#">Danh mục sản phẩm</a>
+    <span>|</span> <a href="#">Đánh giá, nhận xét sản phẩm</a>
+</div>
+<form action="" method="post" enctype="multipart/form-data">
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        Edit member
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action">
+            </div>
+            <div class="text_item_content_action">
+                Help
+            </div>
+        </div>
+        <div class="item_content_action">
+            <a href="@Url.Content("~/administrator/members/")">
+                <div class="img_item_content_action" id="go_back_action1">
+                </div>
+                <div class="text_item_content_action">
+                    Close
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_member" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+@if (ViewBag.error != null)
+{
+    <div class="path_menu error">
+        @Html.Raw(ViewBag.error)
+    </div>
+}
+@if (ViewBag.success != null)
+{
+    <div class="path_menu success">
+        @Html.Raw(ViewBag.success)
+    </div>
+}
+<!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
+<div class="path_menu">
+    <div class="form_panel">
+        <div class="tab_form_panel">
+            <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
+                Member Detail
+            </div>
+        </div>
+        <div class="content_form_panel">
+            <div class="item_content_form_panel" id="item_content_form_panel1">
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Member Name
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Name" value="@try
+                                                                                                              {@ViewBag.dataForm["Name"]}
+                                                                                                              catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Role
+                    </div>
+                    <div class="input_item_item_form">
+                        <select name="Role">
+                            @foreach (eProjectsSemIII.Models.Roles role in ViewBag.listRole)
+                            {
+                                if (role.ID.ToString() == ViewBag.dataForm["Role"])
+                                {
+                                <option value="@role.ID" selected="selected">@role.Name</option>
+                                }
+                                else
+                                {
+                                <option value="@role.ID">@role.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Username
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Username" value="@try
+                                                                                                                  {@ViewBag.dataForm["Username"]}
+                                                                                                                  catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Class
+                    </div>
+                    <div class="input_item_item_form">
+                        <select name="Class">
+                            <option value="-1">Not set</option>
+                            @foreach (eProjectsSemIII.Models.Classes item in ViewBag.listClass)
+                            {
+                                if (item.ID.ToString() == ViewBag.dataForm["Class"])
+                                {
+                                <option value="@item.ID" selected="selected">@item.Name</option>
+                                }
+                                else
+                                {
+                                <option value="@item.ID">@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Email
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Email" value="@try
+                                                                                                               {@ViewBag.dataForm["Email"]}
+                                                                                                               catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Address
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Address" value="@try
+                                                                                                                 {@ViewBag.dataForm["Address"]}
+                                                                                                                 catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Phone
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Phone" value="@try
+                                                                                                               {@ViewBag.dataForm["Phone"]}
+                                                                                                               catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Gender
+                    </div>
+                    <div class="input_item_item_form">
+                        <select name="Gender" disabled="disabled">
+                            @if (ViewBag.dataForm["Gender"] == "Male")
+                            {
+                                <option value="Male" selected="selected">Male</option>
+                                <option value="Female">Female</option>
+                            }
+                            else
+                            {
+                                <option value="Male">Male</option>
+                                <option value="Female" selected="selected">Female</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Birthday
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Birthday" value="@try
+                                                                                                                  {@ViewBag.dataForm["Birthday"]}
+                                                                                                                  catch { }"/>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
+                        <span>*</span> Date Join
+                    </div>
+                    <div class="input_item_item_form">
+                        <input type="text" class="txt_input_item_item" readonly="readonly" name="Datejoin" value="@try
+                                                                                                                  {@ViewBag.dataForm["Datejoin"]}
+                                                                                                                  catch { }"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
+<div class="path_menu title_and_action">
+    <div class="content_title">
+        Edit member
+    </div>
+    <div class="content_action">
+        <div class="item_content_action">
+            <div class="img_item_content_action" id="help_action1">
+            </div>
+            <div class="text_item_content_action">
+                Help
+            </div>
+        </div>
+        <div class="item_content_action">
+            <a href="@Url.Content("~/administrator/memebrs/")">
+                <div class="img_item_content_action" id="go_back_action">
+                </div>
+                <div class="text_item_content_action">
+                    Close
+                </div>
+            </a>
+        </div>
+        <div class="item_content_action">
+            <div class="img_item_content_action">
+                <input type="submit" name="submit_member" class="bt_category_submit" value="" />
+            </div>
+            <div class="text_item_content_action">
+                Save
+            </div>
+        </div>
+    </div>
+    <!--#END content_action-->
+</div>
+<!--#END path_menu title_and_action-->
+</form>

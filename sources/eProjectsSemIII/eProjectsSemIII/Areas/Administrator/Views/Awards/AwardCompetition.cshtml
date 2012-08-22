@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/awards/addawardcompetition/"+ViewBag.competitionID)">
                 <div class="img_item_content_action" id="add_action">
                 </div>
                 <div class="text_item_content_action">
@@ -54,12 +54,20 @@
     </div>
 </div>
 }
+@if (Session["error"] != null)
+{
+    <div class="path_menu error">
+        @Session["error"]
+        @{Session["error"] = null;}
+    </div>
+}
 <!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
 <div class="path_menu">
     <div class="list_item">
         <table>
             <tr class="table_title">
                 <td class="text-center">No.</td>
+                <td class="text-center">Level</td>
                 <td class="text-left">Name</td>
                 <td class="text-left">Description</td>
                 <td class="text-left">Date Update</td>
@@ -70,16 +78,17 @@
             {
             <tr>
                 <td class="text-center num-id">@award.ID</td>
+                <td class="text-center">@award.Level</td>
                 <td class="text-left">@award.Name</td>
                 <td class="text-left description">@award.Description</td>
                 <td class="text-left">@award.DateUpdate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/awards/edit/"+award.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
                 <td class="text-center">
-                    <a href="">
+                    <a href="@Url.Content("~/administrator/awards/removeawardcompetition/"+award.ID+"/"+ViewBag.competitionID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
                 </td>
@@ -122,7 +131,7 @@
             </a>
         </div>
         <div class="item_content_action">
-            <a href="#">
+            <a href="@Url.Content("~/administrator/awards/addawardcompetition/"+ViewBag.competitionID)">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
                 <div class="text_item_content_action">

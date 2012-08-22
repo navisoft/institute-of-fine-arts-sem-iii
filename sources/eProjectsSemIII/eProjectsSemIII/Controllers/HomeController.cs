@@ -59,7 +59,6 @@ namespace eProjectsSemIII.Controllers
         // detail upcomming
         public ActionResult detail_upcomming(string id)
         {
-
             var upcomming = db.Competitions.Include("Condition").Include("Award").Include("Staffs").Include("Design").Single(g => g.Alias == id);
             return View(upcomming);
         }

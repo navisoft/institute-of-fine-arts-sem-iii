@@ -29,7 +29,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -107,7 +107,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 ViewBag.IDKinds = IDKinds;
                 ICollection<Members> listStaffs = db.Members.Where(s => IDStaffs.Contains(s.ID)).ToList();
                 ICollection<Conditions> listConditions = db.Conditions.Where(c => IDConditions.Contains(c.ID)).ToList();
-                ICollection<Awards> listAwards = db.Awards.Where(a => IDAwards.Contains(a.ID)).ToList();
+                List<Awards> listAwards = db.Awards.Where(a => IDAwards.Contains(a.ID)).ToList();
                 ICollection<Kinds> listKinds = db.Kinds.Where(k => IDKinds.Contains(k.ID)).ToList();
                 if (listStaffs.Count == 0)
                 {
@@ -120,6 +120,24 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 if (listAwards.Count == 0)
                 {
                     stringBuilder.Append("<li>Please chose awards for this competition</li>");
+                }
+                else
+                {
+                    int j = listAwards.Count;
+                    int i = 0;
+                    int[] Levels = new int[j];
+                    for (i = 0; i < j; i++)
+                    {
+                        Levels[i] = listAwards[i].Level;
+                    }
+                    for (i = 1; i <= j; i++)
+                    {
+                        if (!Levels.Contains(i))
+                        {
+                            stringBuilder.Append("<li>Please choose award for competition. Level of awards not duplicate</li>");
+                            break;
+                        }
+                    }
                 }
                 if (listKinds.Count == 0)
                 {
@@ -150,7 +168,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
                 catch
                 {
-                    stringBuilder.Append("<li>Please type competition deadline date</li>");
+                    stringBuilder.Append("<li>Please type competition end date</li>");
                 }
                 try
                 {
@@ -182,7 +200,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 if (stringBuilder.ToString() == "<ul>")
                 {
                     ImagesClass objImageClass = new ImagesClass(Images);
-                    string fileSaveName = Server.MapPath("~/Content/Images/competitions/"+form["Alias"]+".jpg");
+                    string fileSaveName = Server.MapPath("~/Content/Images/competitions/" + form["Alias"] + ".jpg");
                     objImageClass.CreateNewImage(fileSaveName, 190, 190);
                     Competitions competitionsModels = new Competitions
                     {
@@ -221,15 +239,19 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 var db = new FineArtContext();
                 ICollection<Members> listStaffs;
                 ICollection<Conditions> listConditions;
-                ICollection<Awards> listAwards;
+                List<Awards> listAwards;
                 ICollection<Kinds> listKinds;
                 int[] IDStaffs;
                 int[] IDConditions;
                 int[] IDAwards;
                 int[] IDKinds;
 
-                Competitions competiton = db.Competitions.Include("Staffs").Include("Condition").Include("Award").Include("Kind").Where(c => c.ID == idd).FirstOrDefault();
-
+                Competitions competiton = db.Competitions.Include("Staffs").Include("Condition").Include("Award").Include("Kind").Where(c => c.ID == idd && c.DeadlineDate > DateTime.Now).FirstOrDefault();
+                if (competiton == null)
+                {
+                    Session["error"] = "This competition has finished.";
+                    return Redirect("~/administrator/competitions/");
+                }
                 ViewBag.listStaff = db.Members.Where(m => m.Role.ID == 3).ToList();
                 ViewBag.listCOndition = db.Conditions.ToList();
                 ViewBag.listAward = db.Awards.ToList();
@@ -246,7 +268,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
                     listStaffs = competiton.Staffs;
                     listConditions = competiton.Condition;
-                    listAwards = competiton.Award;
+                    listAwards = competiton.Award.ToList();
                     listKinds = competiton.Kind;
                     IDStaffs = new int[listStaffs.Count];
                     IDConditions = new int[listConditions.Count];
@@ -329,6 +351,24 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     if (listAwards.Count == 0)
                     {
                         stringBuilder.Append("<li>Please chose awards for this competition</li>");
+                    }
+                    else
+                    {
+                        int j = listAwards.Count;
+                        int i = 0;
+                        int[] Levels = new int[j];
+                        for (i = 0; i < j; i++)
+                        {
+                            Levels[i] = listAwards[i].Level;
+                        }
+                        for (i = 1; i <= j; i++)
+                        {
+                            if (!Levels.Contains(i))
+                            {
+                                stringBuilder.Append("<li>Please choose award for competition. Level of awards not duplicate</li>");
+                                break;
+                            }
+                        }
                     }
                     if (listKinds.Count == 0)
                     {

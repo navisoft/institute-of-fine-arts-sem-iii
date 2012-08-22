@@ -3,10 +3,10 @@
         <a href="@Url.Content("~/")">Home Page</a>
     </div>
     <div class="path_menu_item">
-        <a href="@Url.Content("~/administrator/conditions/conditioncompetition/" + ViewBag.competitionID)">Kinds of competition</a>
+        <a href="@Url.Content("~/administrator/awards/awardcompetition/" + ViewBag.competitionID)">Awards of competition</a>
     </div>
     <div class="path_menu_item">
-        <a href="">Add conditions for competition</a>
+        <a href="">Add awards for competition</a>
     </div>
 </div>
 <div class="path_menu context_menu">
@@ -16,7 +16,7 @@
 <form action="" method="post" enctype="multipart/form-data">
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add conditions for competition
+        Add awards for competition
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/conditions/conditioncompetition/" + ViewBag.competitionID)">
+            <a href="@Url.Content("~/administrator/awards/awardcompetition/" + ViewBag.competitionID)">
                 <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
@@ -37,7 +37,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_condition" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_award" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save
@@ -64,43 +64,21 @@
     <div class="form_panel">
         <div class="tab_form_panel">
             <div class="item_tab_form_panel item_tab_form_panel_show" id="item_tab_form_panel1">
-                Add conditions for competition
+                Add awards for competition
             </div>
         </div>
         <div class="content_form_panel">
             <div class="item_content_form_panel" id="item_content_form_panel1">
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
-                        <span>*</span> List conditions
+                        <span>*</span> List awards
                     </div>
                     <div class="input_item_item_form">
-                        <select multiple="multiple" size="10" name="Conditions">
-                            <option value="-1" selected="selected">Chose conditions for competition...</option>
-                            @foreach (eProjectsSemIII.Models.Conditions condition in ViewBag.listConditions)
-                            {
-                                try
-                                {
-                                    bool hasItem = false;
-                                    foreach (int item in ViewBag.IDKinds)
-                                    {
-                                        if (item == condition.ID)
-                                        {
-                                            hasItem = true;
-                                <option value="@condition.ID" selected="selected">@condition.Name</option>
-                                            break;
-                                        }
-
-                                    }
-                                    if (hasItem == false)
-                                    {
-                                <option value="@condition.ID">@condition.Name</option>
-                                    }
-                                }
-                                catch
-                                {
-                                <option value="@condition.ID">@condition.Name</option>
-                                }
-
+                        <select multiple="multiple" size="10" name="Awards">
+                            <option value="-1" selected="selected">Chose award for competition...</option>
+                            @foreach (eProjectsSemIII.Models.Awards award in ViewBag.listAwards)
+                            { 
+                            <option value="@award.ID">Level @award.Level:: @award.Name</option>
                             }
                         </select>
                     </div>
@@ -112,7 +90,7 @@
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">
     <div class="content_title">
-        Add conditions for competition
+        Add awards for competition
     </div>
     <div class="content_action">
         <div class="item_content_action">
@@ -123,7 +101,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/conditions/conditioncompetition/" + ViewBag.competitionID)">
+            <a href="@Url.Content("~/administrator/awards/awardcompetition/" + ViewBag.competitionID)">
                 <div class="img_item_content_action" id="go_back_action">
                 </div>
                 <div class="text_item_content_action">
@@ -133,7 +111,7 @@
         </div>
         <div class="item_content_action">
             <div class="img_item_content_action">
-                <input type="submit" name="submit_condition" class="bt_category_submit" value="" />
+                <input type="submit" name="submit_award" class="bt_category_submit" value="" />
             </div>
             <div class="text_item_content_action">
                 Save

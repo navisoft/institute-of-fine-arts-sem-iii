@@ -185,19 +185,19 @@
                                         if (item == award.ID)
                                         {
                                             hasItem = true;
-                                <option value="@award.ID" selected="selected">@award.Description</option>
+                                <option value="@award.ID" selected="selected">Level @award.Level:: @award.Description</option>
                                             break;
                                         }
 
                                     }
                                     if (hasItem == false)
                                     {
-                                <option value="@award.ID">@award.Description</option>
+                                <option value="@award.ID">Level @award.Level:: @award.Description</option>
                                     }
                                 }
                                 catch
                                 {
-                                <option value="@award.ID">@award.Description</option>
+                                <option value="@award.ID">Level @award.Level:: @award.Description</option>
                                 }
                             }
                         </select>

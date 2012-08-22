@@ -10,30 +10,27 @@ namespace eProjectsSemIII.Models
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
-           
-
             //modelBuilder.Entity<DesignExhibitions>().
             //  HasKey(t => new { t.CustomerID, t.DesignID, t.ExhibitionID });
 
             //modelBuilder.Entity<AwardMembers>().
             //  HasKey(t => new { t.CompetitionID, t.AwardID, t.MemberID });
 
-            modelBuilder.Entity<Conditions>().
-               HasMany(c => c.Competition).
-               WithMany(i => i.Condition).
-               Map(t =>
-                        t.MapLeftKey("ConditionID").
-                        MapRightKey("CompetitionID").
-                        ToTable("ConditionCompetitions"));
+            //modelBuilder.Entity<Conditions>().
+            //   HasMany(c => c.Competition).
+            //   WithMany(i => i.Condition).
+            //   Map(t =>
+            //            t.MapLeftKey("ConditionID").
+            //            MapRightKey("CompetitionID").
+            //            ToTable("ConditionCompetitions"));
 
-            modelBuilder.Entity<Competitions>().
-               HasMany(c => c.Award).
-               WithMany(i => i.Competition).
-               Map(t =>
-                        t.MapLeftKey("AwardID").
-                        MapRightKey("CompetitionID").
-                        ToTable("CompetitionAwards"));
+            //modelBuilder.Entity<Competitions>().
+            //   HasMany(c => c.Award).
+            //   WithMany(i => i.Competition).
+            //   Map(t =>
+            //            t.MapLeftKey("AwardID").
+            //            MapRightKey("CompetitionID").
+            //            ToTable("CompetitionAwards"));
 
             //modelBuilder.Entity<Classes>().
             //   HasMany(c => c.Member).
@@ -43,13 +40,13 @@ namespace eProjectsSemIII.Models
             //            MapRightKey("MemberID").
             //            ToTable("ClassMember"));
 
-            modelBuilder.Entity<Roles>().
-              HasMany(c => c.Menu).
-              WithMany(i => i.Role).
-              Map(t =>
-                       t.MapLeftKey("RoleID").
-                       MapRightKey("MenuID").
-                       ToTable("RoleMenus"));      
+            //modelBuilder.Entity<Roles>().
+            //  HasMany(c => c.Menu).
+            //  WithMany(i => i.Role).
+            //  Map(t =>
+            //           t.MapLeftKey("RoleID").
+            //           MapRightKey("MenuID").
+            //           ToTable("RoleMenus"));      
 
         }
         public FineArtContext()

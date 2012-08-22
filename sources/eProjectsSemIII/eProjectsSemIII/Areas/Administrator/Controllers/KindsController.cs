@@ -83,37 +83,43 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 int idd = Convert.ToInt16(id);
                 var db = new FineArtContext();
                 ViewBag.competitionID = idd;
-                var competition = db.Competitions.Include("Kind").Where(c => c.ID == idd && c.EndDate > DateTime.Now).FirstOrDefault();
-                    
-                if (form["submit_kind"] == null)
+                var competition = db.Competitions.Include("Kind").Where(c => c.ID == idd && c.DeadlineDate > DateTime.Now).FirstOrDefault();
+                if (competition == null)
                 {
-                    if (competition == null)
-                    {
-                        Session["error"] = "This competition had ended.";
-                        return Redirect("~/administrator/kinds/kindcompetition/" + idd);
-                    }
-                    else
-                    {
-                        var listKind = competition.Kind.ToList();
-                        var listKindOther = db.Kinds.ToList();
-                        listKindOther = listKindOther.Except(listKind).ToList();
-                        ViewBag.listKinds = listKindOther;
-                        return View();
-                    }
+                    Session["error"] = "This competition has finished!";
+                    return Redirect("~/administrator/kinds/kindcompetition/" + idd);
                 }
                 else
                 {
-                    Strings stringModels = new Strings();
-                    int[] IDKinds = stringModels.ListID(form["Kinds"]);
-                    List<Kinds> listKinds = db.Kinds.Where(k => IDKinds.Contains(k.ID)).ToList();
-                    listKinds.ForEach(delegate(Kinds kind)
+                    if (form["submit_kind"] == null)
                     {
-                        competition.Kind.Add(kind);
-                    });
-                    db.SaveChanges();
-                    return Redirect("~/administrator/kinds/addkindcompetition/" + idd);
+                        if (competition == null)
+                        {
+                            Session["error"] = "This competition had ended.";
+                            return Redirect("~/administrator/kinds/kindcompetition/" + idd);
+                        }
+                        else
+                        {
+                            var listKind = competition.Kind.ToList();
+                            var listKindOther = db.Kinds.ToList();
+                            listKindOther = listKindOther.Except(listKind).ToList();
+                            ViewBag.listKinds = listKindOther;
+                            return View();
+                        }
+                    }
+                    else
+                    {
+                        Strings stringModels = new Strings();
+                        int[] IDKinds = stringModels.ListID(form["Kinds"]);
+                        List<Kinds> listKinds = db.Kinds.Where(k => IDKinds.Contains(k.ID)).ToList();
+                        listKinds.ForEach(delegate(Kinds kind)
+                        {
+                            competition.Kind.Add(kind);
+                        });
+                        db.SaveChanges();
+                        return Redirect("~/administrator/kinds/addkindcompetition/" + idd);
+                    }
                 }
-
             }
             catch
             {

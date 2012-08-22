@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="item_content_action">
-            <a href="@Url.Content("~/administrator/exhibitions/exhibitiondesign/"+ViewBag.exhibitionID)">
+            <a href="@try{@Url.Content(Session["back-url"].ToString());}catch{}">
                 <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
