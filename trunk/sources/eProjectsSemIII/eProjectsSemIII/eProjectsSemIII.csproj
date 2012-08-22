@@ -181,6 +181,8 @@
     <Content Include="Content\Styles\admin-style.css" />
     <Content Include="Content\Styles\members.css" />
     <Content Include="Content\Styles\style.css" />
+    <Content Include="Errors\404.jpg" />
+    <Content Include="Errors\defaultError.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\gldatepicker.v1.3\css\android.css" />
     <Content Include="Scripts\gldatepicker.v1.3\css\default.css" />
@@ -287,6 +289,9 @@
     <Content Include="Areas\Administrator\Views\Designs\AddDesignExhibition.cshtml" />
     <Content Include="Areas\Administrator\Views\Kinds\AddKindCompetition.cshtml" />
     <Content Include="Areas\Administrator\Views\Conditions\AddConditionsCompetition.cshtml" />
+    <Content Include="Areas\Administrator\Views\Awards\AddAwardCompetition.cshtml" />
+    <Content Include="Areas\Administrator\Views\Menus\AddMenuRole.cshtml" />
+    <Content Include="Areas\Administrator\Views\Members\Edit.cshtml" />
     <None Include="Content\Images\exhibitions\Thumbs.db" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Browse.cshtml" />

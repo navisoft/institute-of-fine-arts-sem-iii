@@ -33,7 +33,7 @@
                 </div>
             </a>
         </div>
-        <div class="item_content_action">
+        @*<div class="item_content_action">
             <a href="@Url.Content("~/administrator/competitions/add/")">
                 <div class="img_item_content_action" id="add_action">
                 </div>
@@ -41,7 +41,7 @@
                     Add
                 </div>
             </a>
-        </div>
+        </div>*@
     </div>
     <!--#END content_action-->
 </div>
@@ -87,9 +87,12 @@
                 <td class="text-center"><a href="@Url.Content("~/administrator/awards/awardcompetition/" + competition.ID)">Awards</a></td>
                 <td class="text-center"><a href="@Url.Content("~/administrator/designs/designcompetition/" + competition.ID)">Designs</a></td>
                 <td class="text-center">
-                    <a href="@Url.Content("~/administrator/competitions/edit/"+competition.ID)">
+                @if (competition.DeadlineDate > DateTime.Now)
+                {
+                    <a href="@Url.Content("~/administrator/competitions/edit/" + competition.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
+                }
                 </td>
                 <td class="text-center">
                     <a href="@Url.Content("~/administrator/competitions/delete/"+competition.ID)">
@@ -134,7 +137,7 @@
                 </div>
             </a>
         </div>
-        <div class="item_content_action">
+        @*<div class="item_content_action">
             <a href="@Url.Content("~/administrator/competitions/add/")">
                 <div class="img_item_content_action" id="add_action1">
                 </div>
@@ -142,7 +145,7 @@
                     Add
                 </div>
             </a>
-        </div>
+        </div>*@
     </div>
     <!--#END content_action-->
 </div>

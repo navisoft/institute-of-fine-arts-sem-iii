@@ -54,6 +54,13 @@
     </div>
 </div>
 }
+@if (Session["error"] != null)
+{
+    <div class="path_menu error">
+        @Session["error"]
+        @{Session["error"] = null;}
+    </div>
+}
 <!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
 <div class="path_menu">
     <div class="list_item">
@@ -87,9 +94,12 @@
                 <td class="text-center"><a href="@Url.Content("~/administrator/awards/awardcompetition/" + competition.ID)">Awards</a></td>
                 <td class="text-center"><a href="@Url.Content("~/administrator/designs/designcompetition/" + competition.ID)">Designs</a></td>
                 <td class="text-center">
-                    <a href="@Url.Content("~/administrator/competitions/edit/"+competition.ID)">
+                @if (competition.DeadlineDate > DateTime.Now)
+                {
+                    <a href="@Url.Content("~/administrator/competitions/edit/" + competition.ID)">
                         <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
                     </a>
+                }
                 </td>
                 <td class="text-center">
                     <a href="@Url.Content("~/administrator/competitions/delete/"+competition.ID)">
@@ -127,7 +137,7 @@
         </div>
         <div class="item_content_action">
             <a href="@Url.Content("~/administrator/")">
-                <div class="img_item_content_action" id="go_back_action">
+                <div class="img_item_content_action" id="go_back_action1">
                 </div>
                 <div class="text_item_content_action">
                     Go back

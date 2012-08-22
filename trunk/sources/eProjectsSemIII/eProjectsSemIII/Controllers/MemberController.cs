@@ -51,6 +51,7 @@ namespace eProjectsSemIII.Controllers
                             string username = form["username"];
                             string password = form["password"];
                             password = stringLib.GetMd5Hash(md5Hash, stringLib.GetMd5Hash(md5Hash, password) + "hashpassword");
+                            Response.Write(password);
                             Members member = new FineArtContext()
                                 .Members
                                 .Where(m => m.Username == username && m.Password == password)
@@ -93,124 +94,131 @@ namespace eProjectsSemIII.Controllers
 
         public ActionResult Register(FormCollection form, HttpPostedFileBase Images)
         {
-            if (form["submit-register"] != null)
+            if (Session["user-loged"] == null)
             {
-                var db = new FineArtContext();
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append("<ul>");
-                if (form["name"].Trim() == "" || form["name"].Trim().ToLower() == "full name")
+                if (form["submit-register"] != null)
                 {
-                    stringBuilder.Append("<li>Please type your full name.</li>");
-                }
-                if (form["username"].Trim() == "" || form["username"].Trim().ToLower() == "username")
-                {
-                    stringBuilder.Append("<li>Please type username.</li>");
-                }
-                else
-                {
-                    string username = form["username"].Trim();
-                    Members member = db.Members.Where(m => m.Username == username).FirstOrDefault();
-                    if (member != null)
+                    var db = new FineArtContext();
+                    StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.Append("<ul>");
+                    if (form["name"].Trim() == "" || form["name"].Trim().ToLower() == "full name")
                     {
-                        stringBuilder.Append("<li>Has been exists this username in database. Try other username.</li>");
+                        stringBuilder.Append("<li>Please type your full name.</li>");
+                    }
+                    if (form["username"].Trim() == "" || form["username"].Trim().ToLower() == "username")
+                    {
+                        stringBuilder.Append("<li>Please type username.</li>");
+                    }
+                    else
+                    {
+                        string username = form["username"].Trim();
+                        Members member = db.Members.Where(m => m.Username == username).FirstOrDefault();
+                        if (member != null)
+                        {
+                            stringBuilder.Append("<li>Has been exists this username in database. Try other username.</li>");
+                        }
+                    }
+                    if (!Validator.ISEmail(form["email"]))
+                    {
+                        stringBuilder.Append("<li>Email not valid.</li>");
+                    }
+                    else if (form["email"] != form["verifyemail"])
+                    {
+                        stringBuilder.Append("<li>Please verify email.</li>");
+                    }
+                    else
+                    {
+                        string email = form["email"].Trim();
+                        Members member = db.Members.Where(m => m.Email == email).FirstOrDefault();
+                        if (member != null)
+                        {
+                            stringBuilder.Append("<li>This email has been using. Try other email.</li>");
+                        }
+                    }
+
+                    if (form["password"].Trim() == "" || form["password"].Trim().ToLower() == "password")
+                    {
+                        stringBuilder.Append("<li>Please type password.</li>");
+                    }
+                    else if (form["password"] != form["verifypassword"])
+                    {
+                        stringBuilder.Append("<li>Please verify password.</li>");
+                    }
+                    string birthday = form["day"] + "/" + form["month"] + "/" + form["year"];
+                    DateTime Birthday = new DateTime();
+                    try
+                    {
+                        Birthday = DateTime.Parse(birthday);
+                    }
+                    catch
+                    {
+                        stringBuilder.Append("<li>Your birthday not valid.</li>");
+                    }
+
+                    if (form["address"].Trim() == "" || form["address"].Trim().ToLower() == "address")
+                    {
+                        stringBuilder.Append("<li>Please type your address.</li>");
+                    }
+
+                    if (form["phone"].Trim() == "" || form["phone"].Trim().ToLower() == "phone")
+                    {
+                        stringBuilder.Append("<li>Please type your phone.</li>");
+                    }
+                    else if (!Validator.ISPhoneNumber(form["phone"]))
+                    {
+                        stringBuilder.Append("<li>Your phone number not valid.</li>");
+                    }
+
+                    if (Images == null)
+                    {
+                        stringBuilder.Append("<li>Please choose your avatar.</li>");
+                    }
+                    string gender;
+                    switch (form["gender"])
+                    {
+                        case "0": gender = "Male"; break;
+                        case "1": gender = "Female"; break;
+                        default: gender = "Male"; break;
+                    }
+
+                    if (stringBuilder.ToString() == "<ul>")
+                    {
+                        MD5 md5Hash = MD5.Create();
+                        Strings stringLib = new Strings();
+                        string password = stringLib.GetMd5Hash(md5Hash, stringLib.GetMd5Hash(md5Hash, form["password"]) + "hashpassword");
+                        eProjectsSemIII.Models.Roles role = db.Roles.Where(r => r.ID == 4).First();
+                        ImagesClass imageLib = new ImagesClass(Images);
+                        string path = Server.MapPath("~/Content/Images/students/" + form["username"] + ".jpg");
+                        imageLib.CreateNewImage(path, 200, 240);
+                        Members member = new Members
+                        {
+                            Name = form["name"].Trim(),
+                            Username = form["username"].Trim(),
+                            Password = password,
+                            Email = form["email"].Trim(),
+                            Birthday = Birthday,
+                            Address = form["address"].Trim(),
+                            Phone = form["phone"].Trim(),
+                            Gender = gender,
+                            Datejoin = DateTime.Now,
+                            Images = form["username"].Trim() + ".jpg",
+                            Role = role,
+                        };
+                        db.Members.Add(member);
+                        db.SaveChanges();
+                        ViewBag.success = true;
+                    }
+                    else
+                    {
+                        ViewBag.dataForm = form;
+                        stringBuilder.Append("</ul>");
+                        ViewBag.error = stringBuilder.ToString();
                     }
                 }
-                if (!Validator.ISEmail(form["email"]))
-                {
-                    stringBuilder.Append("<li>Email not valid.</li>");
-                }
-                else if (form["email"] != form["verifyemail"])
-                {
-                    stringBuilder.Append("<li>Please verify email.</li>");
-                }
-                else
-                {
-                    string email = form["email"].Trim();
-                    Members member = db.Members.Where(m => m.Email == email).FirstOrDefault();
-                    if (member != null)
-                    {
-                        stringBuilder.Append("<li>This email has been using. Try other email.</li>");
-                    }
-                }
-
-                if (form["password"].Trim() == "" || form["password"].Trim().ToLower() == "password")
-                {
-                    stringBuilder.Append("<li>Please type password.</li>");
-                }
-                else if (form["password"] != form["verifypassword"])
-                {
-                    stringBuilder.Append("<li>Please verify password.</li>");
-                }
-                string birthday = form["day"] + "/" + form["month"] + "/" + form["year"];
-                DateTime Birthday = new DateTime();
-                try
-                {
-                    Birthday = DateTime.Parse(birthday);
-                }
-                catch
-                {
-                    stringBuilder.Append("<li>Your birthday not valid.</li>");
-                }
-
-                if (form["address"].Trim() == "" || form["address"].Trim().ToLower() == "address")
-                {
-                    stringBuilder.Append("<li>Please type your address.</li>");
-                }
-
-                if (form["phone"].Trim() == "" || form["phone"].Trim().ToLower() == "phone")
-                {
-                    stringBuilder.Append("<li>Please type your phone.</li>");
-                }
-                else if (!Validator.ISPhoneNumber(form["phone"]))
-                {
-                    stringBuilder.Append("<li>Your phone number not valid.</li>");
-                }
-
-                if (Images == null)
-                {
-                    stringBuilder.Append("<li>Please choose your avatar.</li>");
-                }
-                string gender;
-                switch (form["gender"])
-                {
-                    case "0": gender = "Male"; break;
-                    case "1": gender = "Female"; break;
-                    default: gender = "Male"; break;
-                }
-
-                if (stringBuilder.ToString() == "<ul>")
-                {
-                    MD5 md5Hash = MD5.Create();
-                    Strings stringLib = new Strings();
-                    string password = stringLib.GetMd5Hash(md5Hash, stringLib.GetMd5Hash(md5Hash, form["password"]) + "hashpassword");
-                    eProjectsSemIII.Models.Roles role = db.Roles.Where(r => r.ID == 4).First();
-                    ImagesClass imageLib = new ImagesClass(Images);
-                    string path = Server.MapPath("~/Content/Images/students/" + form["username"] + ".jpg");
-                    imageLib.CreateNewImage(path, 200, 240);
-                    Members member = new Members
-                    {
-                        Name = form["name"].Trim(),
-                        Username = form["username"].Trim(),
-                        Password = password,
-                        Email = form["email"].Trim(),
-                        Birthday = Birthday,
-                        Address = form["address"].Trim(),
-                        Phone = form["phone"].Trim(),
-                        Gender = gender,
-                        Datejoin = DateTime.Now,
-                        Images = form["username"].Trim() + ".jpg",
-                        Role = role,
-                    };
-                    db.Members.Add(member);
-                    db.SaveChanges();
-                    ViewBag.success = true;
-                }
-                else
-                {
-                    ViewBag.dataForm = form;
-                    stringBuilder.Append("</ul>");
-                    ViewBag.error = stringBuilder.ToString();
-                }
+            }
+            else
+            {
+                return Redirect("~/");
             }
             return View();
         }

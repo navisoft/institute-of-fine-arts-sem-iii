@@ -7,6 +7,7 @@ using eProjectsSemIII.Libs;
 using eProjectsSemIII.Models;
 using eProjectsSemIII.Areas.Administrator;
 using eProjectsSemIII.Configs;
+using System.Security.Cryptography;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -74,35 +75,111 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             }
         }
 
+        public ActionResult Edit(string id, FormCollection form)
+        {
+            base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                var db = new FineArtContext();
+                int memberID = Convert.ToInt16(id);
+                var member = db.Members.Include("Role").Include("Class").Where(m => m.ID == memberID).First();
+                ViewBag.listRole = db.Roles.ToList();
+                ViewBag.listClass = db.Classes.ToList();
+                if (form["submit_member"] == null)
+                {
+                    form["Name"] = member.Name;
+                    form["Username"] = member.Username;
+                    form["Role"] = member.Role.ID.ToString();
+                    form["Email"] = member.Email;
+                    form["Address"] = member.Address;
+                    form["Phone"] = member.Phone;
+                    if (member.Class != null)
+                    {
+                        form["Class"] = member.Class.ID.ToString();
+                    }
+                    form["Gender"] = member.Gender;
+                    form["Birthday"] = member.Birthday.ToString();
+                    form["Datejoin"] = member.Datejoin.ToString();
+
+                    ViewBag.dataForm = form;
+                    return View();
+                }
+                else
+                {
+                    int roleID = Convert.ToInt16(form["Role"]);
+                    var role = db.Roles.Where(r => r.ID == roleID).First();
+                    int classID = Convert.ToInt16(form["Class"]);
+                    var classs = db.Classes.Where(c => c.ID == classID).First();
+                    member.Role = role;
+                    member.Class = classs;
+                    db.SaveChanges();
+                    ViewBag.success = "Update member successfully!";
+                    ViewBag.dataForm = form;
+                    return View();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public ActionResult Login(FormCollection form)
         {
-            if (Session["total_login"] != null && 4 - (int)Session["total_login"] <= 0)
+            if (Session["user-loged"] != null)
             {
-                return Redirect("/");
-            }
-            else
-            {
-                if (form["submit_admin_login"] != null && form["submit_admin_login"] == "Login Admin")
+                if (Session["total_login"] != null && 4 - (int)Session["total_login"] <= 0)
                 {
-                    Members membersModels = new Members();
-                    membersModels = membersModels.GetMemberByUserAndPass(form["username"], form["password"]);
-                    try
+                    return Redirect("~/");
+                }
+                else
+                {
+                    if (form["submit_admin_login"] != null && form["submit_admin_login"] == "Login Admin")
                     {
-                        if (membersModels.Name != null && membersModels.Name != "")
+                        Members membersModels = new Members();
+                        Strings stringLib = new Strings();
+                        MD5 md5Hash = MD5.Create();
+                        string password = form["password"];
+                        password = stringLib.GetMd5Hash(md5Hash, stringLib.GetMd5Hash(md5Hash, password) + "hashpassword");
+                        membersModels = membersModels.GetMemberByUserAndPass(form["username"], password);
+                        try
                         {
-                            Session["admin"] = membersModels;
-                            return Redirect("/administrator/");
+                            if (membersModels.Name != null && membersModels.Name != "")
+                            {
+                                Session["admin"] = membersModels;
+                                return Redirect("/administrator/");
+                            }
+                            else
+                            {
+                                if (Session["total_login"] == null)
+                                {
+                                    Session["total_login"] = 1;
+                                }
+                                else
+                                {
+                                    string path = Server.MapPath("~/");
+                                    Log log = new Log(path, "LoginController.Index");
+                                    log.WriteLog("Username: " + form["username"] + " Password: " + form["password"]);
+                                    Session["total_login"] = (int)Session["total_login"] + 1;
+                                }
+                                ViewBag.form_error = "Username or password wrong. Try again! You have to login " +
+                                        (5 - (int)Session["total_login"]) + " time!";
+                            }
                         }
-                        else
+                        catch (Exception e)
                         {
+                            string path = Server.MapPath("~/");
+                            Log log = new Log(path, "LoginController.Login");
                             if (Session["total_login"] == null)
                             {
                                 Session["total_login"] = 1;
                             }
                             else
                             {
-                                string path = Server.MapPath("~/");
-                                Log log = new Log(path, "LoginController.Index");
+                                string pathother = Server.MapPath("~/");
+                                Log objLog = new Log(path, "LoginController.Login");
+                                objLog.WriteLog(e.Message.ToString());
                                 log.WriteLog("Username: " + form["username"] + " Password: " + form["password"]);
                                 Session["total_login"] = (int)Session["total_login"] + 1;
                             }
@@ -110,26 +187,11 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                                     (5 - (int)Session["total_login"]) + " time!";
                         }
                     }
-                    catch (Exception e)
-                    {
-                        string path = Server.MapPath("~/");
-                        Log log = new Log(path, "LoginController.Login");
-                        if (Session["total_login"] == null)
-                        {
-                            Session["total_login"] = 1;
-                        }
-                        else
-                        {
-                            string pathother = Server.MapPath("~/");
-                            Log objLog = new Log(path, "LoginController.Login");
-                            objLog.WriteLog(e.Message.ToString());
-                            log.WriteLog("Username: " + form["username"] + " Password: " + form["password"]);
-                            Session["total_login"] = (int)Session["total_login"] + 1;
-                        }
-                        ViewBag.form_error = "Username or password wrong. Try again! You have to login " +
-                                (5 - (int)Session["total_login"]) + " time!";
-                    }
                 }
+            }
+            else
+            {
+                return Redirect("~/member");
             }
             return View();
         }

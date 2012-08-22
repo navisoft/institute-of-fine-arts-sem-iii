@@ -54,11 +54,11 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public void LoadMenu()
         {
-            //if (Session["admin"] != null)
-            //{
-                //Members member = (Members)Session["admin"];
+            if (Session["admin"] != null)
+            {
+                Members member = (Members)Session["admin"];
                 Roles rolesModels = new Roles();
-                rolesModels.ID = 1;//member.RoleID;
+                rolesModels.ID = member.Role.ID;
                 rolesModels = rolesModels.GetRoleWithID();
                 ViewBag.Title = rolesModels.Name + " Page:";
                 ICollection<Menus> listMenus = rolesModels.Menu.Where(m=>m.Display == true).ToList();
@@ -72,7 +72,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 //    }
                 //}
                 ViewBag.listMenuMain = listMenus;
-            //}
+            }
         }
     }
 }

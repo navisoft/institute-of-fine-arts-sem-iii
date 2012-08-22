@@ -3,24 +3,24 @@
                     	<div class="item_left_main">
                         	<div class="info_data">
                             	<div class="item_info_data">
-                                	<span>123</span> 
-                                    <a href="#">Competitions</a>
+                                	<span>@ViewBag.totalCompetition</span> 
+                                    <a href="@Url.Content("~/administrator/competitions")">Competitions</a>
                                 </div>
                             	<div class="item_info_data">
-                                	<span>1000</span>
-                                    <a href="#">Designs</a>
+                                	<span>@ViewBag.totalDesign</span>
+                                    <a href="@Url.Content("~/administrator/designs")">Designs</a>
                                 </div>
                             	<div class="item_info_data">
-                                	<span>12</span>
-                                    <a href="#">Kinds</a>
+                                	<span>@ViewBag.totalKind</span>
+                                    <a href="@Url.Content("~/administrator/kinds")">Kinds</a>
                                 </div>
                             	<div class="item_info_data">
-                                	<span>100</span>
-                                    <a href="#">Exhibitions</a>
+                                	<span>@ViewBag.totalExhibition</span>
+                                    <a href="@Url.Content("~/administrator/exhibitions")">Exhibitions</a>
                                 </div>
                             	<div class="item_info_data">
-                                	<span>120</span>
-                                    <a href="#">Students</a>
+                                	<span>@ViewBag.totalMember</span>
+                                    <a href="@Url.Content("~/administrator/members")">Members</a>
                                 </div>
                             </div><!--#END info_data-->
                             <div class="statistics">
@@ -37,22 +37,21 @@
                                     	News Designs:
                                     </div>
                                 	<div class="info_title_content_statistics">
-                                    	2 item
+                                    	
                                     </div>
                                 	<div class="link_title_content_statistics">
-                                    	<a href="#">(View all)</a>
+                                    	<a href="@Url.Content("~/administrator/designs")">(View all)</a>
                                     </div>
                                 </div><!--#END title_content_statistics-->
                                 <div class="content_content_statistics">
                                 	<ul>
+                                    @foreach (eProjectsSemIII.Models.Designs design in ViewBag.newDesign)
+                                    {                                        
                                     	<li>
-                                        	<a href="#">Tinh Phong - tinhphong007@gmail.com</a>
-                                            <span class="info_content_content_statistics">(Ngày liên hệ: 28/03/2012 4:53:05 CH)</span>
+                                        	<a href="#">@design.Member.Name - @design.Member.Email</a>
+                                            <span class="info_content_content_statistics">(Date post: @design.DatePost)</span>
                                         </li>
-                                    	<li>
-                                        	<a href="#">No Name - noname@yahoo.com</a>
-                                            <span class="info_content_content_statistics">(Ngày liên hệ: 29/03/2012 14:53:05 CH)</span>
-                                        </li>
+                                    }
                                     </ul>
                                 </div><!--#END content_content_statistics-->
                             	<div class="title_content_statistics">
@@ -63,7 +62,7 @@
                                     	News Contacts:
                                     </div>
                                 	<div class="info_title_content_statistics">
-                                    	No item
+                                    	
                                     </div>
                                 	<div class="link_title_content_statistics">
                                     	<a href="#">(View all)</a>

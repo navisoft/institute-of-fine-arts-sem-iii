@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using eProjectsSemIII.Models;
 
 namespace eProjectsSemIII.Areas.Administrator.Controllers
 {
@@ -23,9 +24,17 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index()
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             ViewBag.Title += " Home";
+            var db = new FineArtContext();
+            ViewBag.totalCompetition = db.Competitions.Count();
+            ViewBag.totalDesign = db.Designs.Count();
+            ViewBag.totalKind = db.Kinds.Count();
+            ViewBag.totalExhibition = db.Exhibitions.Count();
+            ViewBag.totalMember = db.Members.Count();
+
+            ViewBag.newDesign = db.Designs.Include("Member").OrderBy(d => d.DatePost).Skip(0).Take(4);
             return View();
         }
     }

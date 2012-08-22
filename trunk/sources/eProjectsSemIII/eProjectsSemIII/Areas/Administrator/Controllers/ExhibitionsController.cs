@@ -42,6 +42,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 designsModels = designsModels.GetNavigationWithID("Exhibitions");
                 ViewBag.Title += " Exhinitions of " + designsModels.Name + " Designs";
                 ViewBag.designID = idd;
+                Session["back-url"] = "~/administrator/exhibitions/exhibitiondesign/" + idd;
                 return View(designsModels.Exhibitions.ToList());
             }
             catch

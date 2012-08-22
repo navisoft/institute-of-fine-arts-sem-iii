@@ -57,9 +57,10 @@ namespace eProjectsSemIII.Models
         public Members GetMemberByUserAndPass(string user, string pass)
         {
             FineArtContext context = new FineArtContext();
-            var query = (from d in context.Members
-                         where d.Username == user && d.Password == pass
-                         select d).FirstOrDefault();
+            //var query = (from d in context.Members
+                         //where d.Username == user && d.Password == pass
+                         //select d).FirstOrDefault();
+            var query = context.Members.Include("Role").Where(m => m.Username == user && m.Password == pass).FirstOrDefault();
             return query;
         }
 

@@ -29,6 +29,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             string url = "administrator/designs/index";
             ViewBag.pagingString = Paging.GenerateLinkPaging(url);
             ViewBag.Title += " Designs";
+            Session["back-url"] = "~/administrator/designs/";
             return View(exhibitionsModels.ListDesign((int)((currentPage - 1) * totalRecord), (int)totalRecord));
         }
 

@@ -10,7 +10,7 @@ namespace eProjectsSemIII.Models
     {
         protected override void Seed(FineArtContext context)
         {
-            var compatition = new List<Competitions>
+            var competition = new List<Competitions>
             {
                 new Competitions {
                     Name="The Eros Award 2012",
@@ -50,36 +50,52 @@ namespace eProjectsSemIII.Models
                     Summary="New Greenham Arts is based on the de-commissioned American nuclear air base at Greenham Common. Our current visual arts strategy explores the geographic, political and emotional themes drawn from the significance.." },
                
             };
-            compatition.ForEach(s => context.Competitions.Add(s));
+            competition.ForEach(s => context.Competitions.Add(s));
             context.SaveChanges();
 
             var award = new List<Awards>
             {
-                new Awards {Name="1 International winner", Description = "1,000 Euro per student or team (up to four members)",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="2 International runners-up", Description = "500 Euro for each",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="10 international finalists", Description = "Gentletude Award Certificate",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="1st prizes", Description = "3000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="2st prizes", Description = "1000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="1 International winner", Description = "The jury will also award up to a maximum of 4, non-monetary, special mentions",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="1st Place", Description = " R$ 6.000,00 (approx. 3,000 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="2nd Place", Description = "R$ 3.000,00 (approx. 1,500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="3rd Place", Description = "R$ 1.000,00 (approx. 500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="First Award", Description = "5,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
-                new Awards {Name="Award of Merit", Description = "(for 5 caricaturists) is 1,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 1,Name="1 International winner", Description = "1,000 Euro per student or team (up to four members)",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 2,Name="2 International runners-up", Description = "500 Euro for each",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 3,Name="10 international finalists", Description = "Gentletude Award Certificate",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 1,Name="1st prizes", Description = "3000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 2,Name="2st prizes", Description = "1000 Euro",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 1,Name="1 International winner", Description = "The jury will also award up to a maximum of 4, non-monetary, special mentions",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 1,Name="1st Place", Description = " R$ 6.000,00 (approx. 3,000 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 2,Name="2nd Place", Description = "R$ 3.000,00 (approx. 1,500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 3,Name="3rd Place", Description = "R$ 1.000,00 (approx. 500 USD) plus trophy;",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 1,Name="First Award", Description = "5,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
+                new Awards {Level = 2,Name="Award of Merit", Description = "(for 5 caricaturists) is 1,000 $",Competition = new List<Competitions>(),DateUpdate=DateTime.Now},
                
             };
             award.ForEach(s => context.Awards.Add(s));
             context.SaveChanges();
 
-            award[0].Competition.Add(compatition[0]);
-            award[1].Competition.Add(compatition[1]);
-            award[2].Competition.Add(compatition[2]);
-            award[3].Competition.Add(compatition[3]);
-            award[4].Competition.Add(compatition[4]);
-            award[5].Competition.Add(compatition[5]);
+            award[0].Competition.Add(competition[0]);
+            award[1].Competition.Add(competition[0]);
+            award[2].Competition.Add(competition[0]);
+
+            award[0].Competition.Add(competition[1]);
+            award[1].Competition.Add(competition[1]);
+            award[2].Competition.Add(competition[1]);
+
+            award[0].Competition.Add(competition[2]);
+            award[1].Competition.Add(competition[2]);
+            award[2].Competition.Add(competition[2]);
+
+            award[0].Competition.Add(competition[3]);
+            award[1].Competition.Add(competition[3]);
+            award[2].Competition.Add(competition[3]);
+
+            award[0].Competition.Add(competition[4]);
+            award[1].Competition.Add(competition[4]);
+            award[2].Competition.Add(competition[4]);
+
+            award[0].Competition.Add(competition[5]);
+            award[1].Competition.Add(competition[5]);
+            award[2].Competition.Add(competition[5]);
             context.SaveChanges();
             
-
             var condition = new List<Conditions>
             {
                 new Conditions {Name="Condition Name1", Description="The Competition is open to all the caricaturists from all over the world.",Competition = new List<Competitions>(),DateUpdate=DateTime.Now },
@@ -96,11 +112,11 @@ namespace eProjectsSemIII.Models
             condition.ForEach(s => context.Conditions.Add(s));
             context.SaveChanges();
 
-            condition[0].Competition.Add(compatition[0]);
-            condition[1].Competition.Add(compatition[1]);
-            condition[2].Competition.Add(compatition[2]);
-            condition[3].Competition.Add(compatition[3]);
-            condition[4].Competition.Add(compatition[4]);
+            condition[0].Competition.Add(competition[0]);
+            condition[1].Competition.Add(competition[1]);
+            condition[2].Competition.Add(competition[2]);
+            condition[3].Competition.Add(competition[3]);
+            condition[4].Competition.Add(competition[4]);
 
             context.SaveChanges();
 
@@ -128,26 +144,26 @@ namespace eProjectsSemIII.Models
             kind.ForEach(s => context.Kinds.Add(s));
             context.SaveChanges();
 
-            kind[0].Competition.Add(compatition[0]);
-            kind[1].Competition.Add(compatition[1]);
-            kind[2].Competition.Add(compatition[2]);
-            kind[3].Competition.Add(compatition[3]);
+            kind[0].Competition.Add(competition[0]);
+            kind[1].Competition.Add(competition[1]);
+            kind[2].Competition.Add(competition[2]);
+            kind[3].Competition.Add(competition[3]);
             context.SaveChanges();
 
             var member = new List<Members>
             {
-                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="123456", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[0]},//1
-                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="123456", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[1]},//2
-                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="123456", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="123456", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="123456", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="123456", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="123456", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="123456", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="123456", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="123456", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="123456", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[0]},//1
+                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[1]},//2
+                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
+                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
               
                
             };
@@ -228,7 +244,7 @@ namespace eProjectsSemIII.Models
             
             var exhibition = new List<Exhibitions>
             {
-                new Exhibitions {Name="Exhibition graphic design summer 2012",Alias="exhibition-graphic-design-summer-2012",Image="exhibition-graphic-design-summer-2012.jpg", StartDate = DateTime.Parse("2008-09-05"), EndDate = DateTime.Parse("2007-09-10") },
+                new Exhibitions {Name="Exhibition graphic design summer 2012",Alias="exhibition-graphic-design-summer-2012",Image="exhibition-graphic-design-summer-2012.jpg", StartDate = DateTime.Parse("2012-08-05"), EndDate = DateTime.Parse("2012-12-10") },
                 new Exhibitions {Name="Spring 2012 exhibition",Alias="spring-2012-exhibition",Image="spring-2012-exhibition.jpg", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Exhibition, to family life",Alias="exhibition-to-family-life",Image="exhibition-to-family-life.jpg", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") },
                 new Exhibitions {Name="Outdoor Exhibition 2013",Alias="outdoor-exhibition-2013",Image="outdoor-exhibition-2013.jpg", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") },

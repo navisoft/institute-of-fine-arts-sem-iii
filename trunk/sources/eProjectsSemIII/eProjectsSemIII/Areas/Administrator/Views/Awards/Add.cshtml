@@ -81,6 +81,34 @@
                 </div>
                 <div class="item_item_content_form">
                     <div class="title_item_item_form">
+                        <span>*</span> Award Level
+                    </div>
+                    <div class="input_item_item_form">
+                        <select name="Level">
+                            <option value="-1" selected="selected">Chose level for this award...</option>
+                            @for(int level = 1; level<=(int)ViewBag.maxLevel+1;level++)
+                            {
+                                try
+                                {
+                                    if (level.ToString() == ViewBag.dataForm["Level"])
+                                    {
+                            <option value="@level" selected="selected">@level</option>
+                                    }
+                                    else
+                                    {
+                            <option value="@level">@level</option>
+                                    }
+                                }
+                                catch
+                                {
+                            <option value="@level">@level</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="item_item_content_form">
+                    <div class="title_item_item_form">
                         Description
                     </div>
                     <div class="input_item_item_form">

@@ -85,6 +85,38 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
             return View();
         }
 
+        public ActionResult AddMenuRole(string id,FormCollection form)
+        {
+            //base.Authentication();
+            base.LoadMenu();
+            try
+            {
+                var db = new FineArtContext();
+                int roleID = Convert.ToInt16(id);
+                var role = db.Roles.Include("Menu").Where(r => r.ID == roleID).First();
+                var listMenus = db.Menus.ToList();
+                listMenus = listMenus.Except(role.Menu).ToList();
+                ViewBag.listMenus = listMenus;
+                if (form["submit_menu"] != null)
+                {
+                    Strings stringModels = new Strings();
+                    int[] IDMenus = stringModels.ListID(form["Menus"]);
+                    ICollection<Menus> listMenu = db.Menus.Where(s => IDMenus.Contains(s.ID)).ToList();
+                    foreach (Menus menu in listMenu)
+                    {
+                        role.Menu.Add(menu);
+                    }
+                    db.SaveChanges();
+                    return Redirect("~/administrator/menus/addmenurole/" + roleID);
+                }
+                return View();
+            }
+            catch
+            {
+                return Redirect("~/");
+            }
+        }
+
         public ActionResult RemoveMenuRole(string id,string param)
         {
 
