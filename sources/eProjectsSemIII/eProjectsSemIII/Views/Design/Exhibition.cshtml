@@ -1,0 +1,42 @@
+﻿@model List<eProjectsSemIII.Controllers.DesignsKind> 
+<!--------------------THE UPCOMING COMPETITIONS--------------------->
+<div class="content-left-title">
+    List designs of exhibition
+</div>
+<div class="content-left-content">
+    @if (Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+        <div class="content-left-content-item">
+            <div class="item-image">
+                <img src="@Url.Content("~/Content/Images/designs/thumbnails/" + item.Design.Images)" alt="" />
+            </div>
+            <div class="item-detail">
+                <div class="item-detail-note">
+                    Date Post: @item.Design.DatePost.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                </div>
+                <div class="item-detail-title">
+                    <a href="@Url.Content("~/design/detail/" + item.Design.Alias)")>@item.Design.Name</a>
+                </div>
+                <div class="item-detail-content">
+                    @item.Design.Description
+                </div>
+                <div class="item-detail-link">
+                    <a href="@Url.Content("~/design/detail/" + item.Design.Alias)")>Detail</a>
+                </div>
+            </div>
+        </div>
+        }
+    }
+    else
+    {
+        <span>No design in exhibition, Please come back later.</span>
+    }
+</div>
+@if (ViewBag.pagingString != null)
+{
+    <div class="paging">
+        @Html.Raw(ViewBag.pagingString)
+    </div>
+}

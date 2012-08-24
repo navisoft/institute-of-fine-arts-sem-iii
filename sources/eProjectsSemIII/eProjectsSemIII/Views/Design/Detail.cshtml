@@ -1,0 +1,132 @@
+﻿@model eProjectsSemIII.Models.Designs
+@{
+    ViewBag.Title = "Design: " + @Model.Name;
+}
+<div class="content-left-title">
+    @Model.Name
+</div>
+<div class="content-left-content">
+    <div class="content-left-content-item">
+        <div class="item-image">
+            <img src="@Url.Content("~/Content/Images/designs/thumbnails/" + Model.Images)" alt="" />
+        </div>
+        <div class="item-detail">
+            <div class="item-detail-note">
+                @Model.Kind.Name - @Model.DatePost.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                (Datepost)
+            </div>
+            <div class="item-detail-title">
+                <span>@Model.Name </span>
+            </div>
+            <div class="item-detail-title">
+                <span>Competitions : @Model.Competition.Name</span>
+            </div>
+            <div class="item-detail-title">
+                <span>Author : @Model.Member.Name</span>
+            </div>
+            <div class="item-detail-title">
+                <span>Mark : @ViewBag.mark</span>
+            </div>
+        </div>
+        <div class="design-image">
+            <img src="@Url.Content("~/Content/Images/designs/bigimages/" + @Model.Images)" alt="@Model.Name"  width="700px" height="500px"/>
+        </div>
+        <div class="design-description">
+            @Model.Description
+        </div>
+        @if (((List<eProjectsSemIII.Models.Marks>)ViewBag.markDesign).Count > 0)
+        {
+            <div class="design-description">
+                <div class="remark-title">
+                    Comment of teacher
+                </div>
+                @foreach (eProjectsSemIII.Models.Marks mark in ViewBag.markDesign)
+                {
+                    <div class="remark-content">
+                        <div class="remark-content-teacher">
+                            @mark.Staff.Name
+                        </div>
+                        <div class="remark-content-value">
+                            @try
+                            {
+                                if (mark.ReMark.Length > 0)
+                                {
+                                <p>@mark.ReMark</p>
+                                }
+                                else
+                                {
+                    
+                                <p>
+                                    No comment</p>
+                                }
+                            }
+                            catch
+                            {
+                                <p>
+                                    No comment</p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (ViewBag.isStaff != null && ViewBag.isStaff)
+{
+    <div class="content-left-title">
+        Grading for design
+    </div>
+    <div class="content-left-content">
+        <div class="grading">
+            <form action="" method="post">
+            @if (ViewBag.error != null)
+            {
+                <div class="message error">
+                    @Html.Raw(ViewBag.error)
+                </div>
+            }
+            @if (ViewBag.success != null && ViewBag.success)
+            {
+                <div class="message success">
+                    Update success. You can reupdate mark and remark for this design.
+                </div>
+            }
+            <div class="grading-item">
+                <label class="grading-item-title">
+                    Mark</label>
+            </div>
+            <div class="grading-item">
+                <label for="normal" class="grading-item-value">
+                    Normal</label><input type="radio" name="mark" id="normal" value="1" />
+            </div>
+            <div class="grading-item">
+                <label for="moderate" class="grading-item-value">
+                    Moderate</label><input type="radio" name="mark" id="moderate" value="2" />
+            </div>
+            <div class="grading-item">
+                <label for="good" class="grading-item-value">
+                    Good</label><input type="radio" name="mark" id="good" value="3" />
+            </div>
+            <div class="grading-item">
+                <label for="better" class="grading-item-value">
+                    Better</label><input type="radio" name="mark" id="better" value="4" />
+            </div>
+            <div class="grading-item">
+                <label for="best" class="grading-item-value">
+                    Best</label><input type="radio" name="mark" id="best" value="5" />
+            </div>
+            <div class="grading-item">
+                <label class="grading-item-title">
+                    Remark</label>
+            </div>
+            <div class="grading-item">
+                <textarea rows="" cols="" name="remark" class="txt-remark"></textarea>
+            </div>
+            <div class="grading-item">
+                <input type="submit" value="Submit" name="submit_mark" class="bt-login" />
+            </div>
+            </form>
+        </div>
+    </div>
+}

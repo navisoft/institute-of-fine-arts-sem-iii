@@ -1,0 +1,17 @@
+﻿@model eProjectsSemIII.Models.Members
+<div class="profile-image">
+    <img alt="" src="@Url.Content("~/Content/Images/students/"+Model.Images)" />
+</div>
+<div class="profile-username">
+    @{ViewBag.username = new eProjectsSemIII.Libs.Strings().Capacital(Model.Username);}
+    Welcome @ViewBag.username
+</div>
+<div class="profile-username">
+    Date join: @Model.Datejoin.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+</div>
+<div class="profile-action">
+    <a href="@Url.Content("~/member/profile/")">Your profile page</a>
+</div>
+<div class="profile-action">
+    <a href="@Url.Content("~/member/logout")">Logout</a>
+</div>

@@ -54,19 +54,19 @@
                 <td class="text-left design-name">Name</td>
                 <td class="text-center">Image</td>
                 <td class="text-left">Kind</td>
-                <td class="text-left">Competition</td>
+                <td class="text-left name">Competition</td>
                 <td class="text-center">Member</td>
                 <td class="text-center paddings">Price</td>
                 <td class="text-center date">Date Post</td>
                 <td class="text-center">Exhibition</td>
                 <td class="text-center edit">Edit</td>
-                <td class="text-center">Delete</td>
+                <td class="text-center delete">Delete</td>
             </tr>
             @foreach (var design in Model)
             {
             <tr>
                 <td class="text-center num-id">@design.ID</td>
-                <td class="text-left"><a href="">@design.Name</a></td>
+                <td class="text-left"><a href="@Url.Content("~/design/detail/"+design.Alias)">@design.Name</a></td>
                 <td class="text-center paddings design-image"><img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/" + design.Images)" /></td>
                 <td class="text-left">
                 @try
@@ -78,7 +78,7 @@
                         <span>Not Set</span>
                     }
                 </td>
-                <td class="text-left">@design.Competition.Name</td>
+                <td class="text-left name">@design.Competition.Name</td>
                 <td class="text-center">@design.Member.Name</td>
                 <td class="text-center paddings">@design.PriceSold</td>
                 <td class="text-center">@design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>

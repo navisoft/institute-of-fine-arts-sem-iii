@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Data.Entity;
 using eProjectsSemIII.Models;
+using eProjectsSemIII.Libs;
 
 namespace eProjectsSemIII
 {
@@ -25,9 +26,15 @@ namespace eProjectsSemIII
 
             routes.MapRoute(
                 "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+                "{controller}/{action}/{id}/{param}", // URL with parameters
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional, param = UrlParameter.Optional } // Parameter defaults
+            ); 
+            
+            routes.MapRoute(
+                 "HomeOnly", // Route name
+                 "{controller}/{action}/{id}", // URL with parameters
+                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+             );
 
         }
 
@@ -39,5 +46,22 @@ namespace eProjectsSemIII
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
+
+        //protected void Application_Error(object sender, EventArgs e)
+        //{
+        //    Exception ex = HttpContext.Current.Server.GetLastError();
+        //    if (ex is HttpException)
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        string path = Server.MapPath("~/");
+        //        Log logLib = new Log(path, "");
+        //        logLib.WriteLog(ex.ToString());
+        //    }
+
+        //    Response.Redirect("~/error/");
+        //}
     }
 }

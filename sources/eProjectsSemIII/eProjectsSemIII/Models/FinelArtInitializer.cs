@@ -13,39 +13,39 @@ namespace eProjectsSemIII.Models
             var competition = new List<Competitions>
             {
                 new Competitions {
-                    Name="The Eros Award 2012",
+                    Name="The Eros Award 2012",Staffs = new List<Members>(),
                     Alias="the-eros-award-2012", 
-                    StartDate = DateTime.Parse("2012-09-10"), EndDate = DateTime.Parse("2012-12-10") ,DeadlineDate = DateTime.Parse("2012-07-05"),
+                    StartDate = DateTime.Parse("2012-09-10"), EndDate = DateTime.Parse("2013-01-10") ,DeadlineDate = DateTime.Parse("2012-12-10"),
                     Images="the-eros-award-2012.jpg",
-                    Summary="TZIPAC is excited to launch The Eros Award 2012. This is an international juried competition that celebrates the magic of fine art nude photography, honouring the finest in classic and contemporary nude photography.." },
+                    Summary="Poverty is a global issue. Over a decade ago, world leaders at the UN Millennium Summit pledged to ’End poverty by 2015’. With just three years left, they will not meet their commitment. Perhaps surprisingly, Hong Kong too has a serious poverty problem. Amidst great affluence, 18.1% of the population struggles to make ends meet. Images of the personal and social impact of poverty are everywhere. Supported by WYNG Foundation, the WYNG Masters Award for Photography is a non-profit project initiated to spark public awareness and support interest in socially relevant subjects. The intention is to stimulate discussion and encourage social responsibility on important issues in Hong Kong through the medium of photography. The WYNG Masters Award theme for 2012 is POVERTY. The WYNG Masters Award program includes an additional component - the WYNG Poverty Project. The WYNG Poverty Project recipient will develop, with the WYNG Photography Project Trustees, a photographic project highlighting a subject or theme related to poverty in the context of Hong Kong, one of the world’s most dynamic urban centres. All genres of photography and techniques used to produce images are welcome for submission. Photographs must be taken in Hong Kong or the subject of the work must be related to Hong Kong. There is no entry fee." },
                 new Competitions {
-                    Name="The Climate Change Ad Competition 2012",
+                    Name="The Climate Change Ad Competition 2012",Staffs = new List<Members>(),
                     Alias="the-climate-change-ad-competition-2012",  
-                    StartDate = DateTime.Parse("2012-06-06"), EndDate = DateTime.Parse("2012-09-10") ,DeadlineDate = DateTime.Parse("2012-6-10"),
+                    StartDate = DateTime.Parse("2012-12-10"), EndDate = DateTime.Parse("2013-04-10") ,DeadlineDate = DateTime.Parse("2013-03-10"),
                     Images="the-climate-change-ad-competition-2012.jpg",
-                    Summary="Climate change is recognized as a priority challenge that humanity is facing in the 21st century and some of its consequences – like increased frequency and intensity of natural hazards – are already being felt. The.."},
+                    Summary="Poverty is a global issue. Over a decade ago, world leaders at the UN Millennium Summit pledged to ’End poverty by 2015’. With just three years left, they will not meet their commitment. Perhaps surprisingly, Hong Kong too has a serious poverty problem. Amidst great affluence, 18.1% of the population struggles to make ends meet. Images of the personal and social impact of poverty are everywhere. Supported by WYNG Foundation, the WYNG Masters Award for Photography is a non-profit project initiated to spark public awareness and support interest in socially relevant subjects. The intention is to stimulate discussion and encourage social responsibility on important issues in Hong Kong through the medium of photography. The WYNG Masters Award theme for 2012 is POVERTY. The WYNG Masters Award program includes an additional component - the WYNG Poverty Project. The WYNG Poverty Project recipient will develop, with the WYNG Photography Project Trustees, a photographic project highlighting a subject or theme related to poverty in the context of Hong Kong, one of the world’s most dynamic urban centres. All genres of photography and techniques used to produce images are welcome for submission. Photographs must be taken in Hong Kong or the subject of the work must be related to Hong Kong. There is no entry fee." },
                 new Competitions {
-                    Name="ILFORD Student Photo Competition 2012",
+                    Name="ILFORD Student Photo Competition 2012",Staffs = new List<Members>(),
                     Alias="ilford-student-photo-competition-2012",  
-                    StartDate = DateTime.Parse("2012-06-07"), EndDate = DateTime.Parse("2012-08-15") ,DeadlineDate = DateTime.Parse("2012-06-10"),
+                    StartDate = DateTime.Parse("2012-08-10"), EndDate = DateTime.Parse("2012-12-10") ,DeadlineDate = DateTime.Parse("2012-11-10"),
                     Images="ilford-student-photo-competition-2012.jpg",
-                    Summary="The theme of the competition is FAMILY. There is no limit to the number of entries permitted per student. Images must be printed on ILFORD black and white darkroom paper. Negatives or digital files will be called.."},
+                    Summary="Poverty is a global issue. Over a decade ago, world leaders at the UN Millennium Summit pledged to ’End poverty by 2015’. With just three years left, they will not meet their commitment. Perhaps surprisingly, Hong Kong too has a serious poverty problem. Amidst great affluence, 18.1% of the population struggles to make ends meet. Images of the personal and social impact of poverty are everywhere. Supported by WYNG Foundation, the WYNG Masters Award for Photography is a non-profit project initiated to spark public awareness and support interest in socially relevant subjects. The intention is to stimulate discussion and encourage social responsibility on important issues in Hong Kong through the medium of photography. The WYNG Masters Award theme for 2012 is POVERTY. The WYNG Masters Award program includes an additional component - the WYNG Poverty Project. The WYNG Poverty Project recipient will develop, with the WYNG Photography Project Trustees, a photographic project highlighting a subject or theme related to poverty in the context of Hong Kong, one of the world’s most dynamic urban centres. All genres of photography and techniques used to produce images are welcome for submission. Photographs must be taken in Hong Kong or the subject of the work must be related to Hong Kong. There is no entry fee." },
                 new Competitions {
-                    Name="Embracing Our Differences 2013",
+                    Name="Embracing Our Differences 2013",Staffs = new List<Members>(),
                     Alias="embracing-our-differences-2013",  
-                    StartDate = DateTime.Parse("2012-07-08"), EndDate = DateTime.Parse("2012-09-07") ,DeadlineDate = DateTime.Parse("2012-07-20"),
+                    StartDate = DateTime.Parse("2012-07-10"), EndDate = DateTime.Parse("2012-11-10") ,DeadlineDate = DateTime.Parse("2012-10-10"),
                     Images="embracing-our-differences-2013.jpg",
-                    Summary="Embracing Our Differences invites artists, photographers, professionals, amateurs, teachers and students to participate in its new visual art exhibit celebrating diversity. 45 artists will be selected for the exhibit..."},
+                    Summary="Poverty is a global issue. Over a decade ago, world leaders at the UN Millennium Summit pledged to ’End poverty by 2015’. With just three years left, they will not meet their commitment. Perhaps surprisingly, Hong Kong too has a serious poverty problem. Amidst great affluence, 18.1% of the population struggles to make ends meet. Images of the personal and social impact of poverty are everywhere. Supported by WYNG Foundation, the WYNG Masters Award for Photography is a non-profit project initiated to spark public awareness and support interest in socially relevant subjects. The intention is to stimulate discussion and encourage social responsibility on important issues in Hong Kong through the medium of photography. The WYNG Masters Award theme for 2012 is POVERTY. The WYNG Masters Award program includes an additional component - the WYNG Poverty Project. The WYNG Poverty Project recipient will develop, with the WYNG Photography Project Trustees, a photographic project highlighting a subject or theme related to poverty in the context of Hong Kong, one of the world’s most dynamic urban centres. All genres of photography and techniques used to produce images are welcome for submission. Photographs must be taken in Hong Kong or the subject of the work must be related to Hong Kong. There is no entry fee." },
                 new Competitions {
-                    Name="Pink Lady Food Photographer Of The Year 2013",
+                    Name="Pink Lady Food Photographer Of The Year 2013",Staffs = new List<Members>(),
                     Alias="pink-lady-food-photographer-of-the-year-2013",  
-                    StartDate = DateTime.Parse("2012-09-09"), EndDate = DateTime.Parse("2012-10-09") ,DeadlineDate = DateTime.Parse("2012-09-19"),
+                    StartDate = DateTime.Parse("2012-03-10"), EndDate = DateTime.Parse("2012-08-10") ,DeadlineDate = DateTime.Parse("2012-07-10"),
                     Images="pink-lady-food-photographer-of-the-year-2013.jpg",
-                    Summary="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,.." },
+                    Summary="Poverty is a global issue. Over a decade ago, world leaders at the UN Millennium Summit pledged to ’End poverty by 2015’. With just three years left, they will not meet their commitment. Perhaps surprisingly, Hong Kong too has a serious poverty problem. Amidst great affluence, 18.1% of the population struggles to make ends meet. Images of the personal and social impact of poverty are everywhere. Supported by WYNG Foundation, the WYNG Masters Award for Photography is a non-profit project initiated to spark public awareness and support interest in socially relevant subjects. The intention is to stimulate discussion and encourage social responsibility on important issues in Hong Kong through the medium of photography. The WYNG Masters Award theme for 2012 is POVERTY. The WYNG Masters Award program includes an additional component - the WYNG Poverty Project. The WYNG Poverty Project recipient will develop, with the WYNG Photography Project Trustees, a photographic project highlighting a subject or theme related to poverty in the context of Hong Kong, one of the world’s most dynamic urban centres. All genres of photography and techniques used to produce images are welcome for submission. Photographs must be taken in Hong Kong or the subject of the work must be related to Hong Kong. There is no entry fee." },
                 new Competitions {
-                    Name="Greenham Common Open 2012 Competition",
+                    Name="Greenham Common Open 2012 Competition",Staffs = new List<Members>(),
                     Alias="greenham-common-open-2012-competition",  
-                    StartDate = DateTime.Parse("2012-07-10"), EndDate = DateTime.Parse("2012-09-10") ,DeadlineDate = DateTime.Parse("2012-07-20"),
+                    StartDate = DateTime.Parse("2012-01-10"), EndDate = DateTime.Parse("2012-05-10") ,DeadlineDate = DateTime.Parse("2012-04-10"),
                     Images="greenham-common-open-2012-competition.jpg",
                     Summary="New Greenham Arts is based on the de-commissioned American nuclear air base at Greenham Common. Our current visual arts strategy explores the geographic, political and emotional themes drawn from the significance.." },
                
@@ -113,9 +113,33 @@ namespace eProjectsSemIII.Models
             context.SaveChanges();
 
             condition[0].Competition.Add(competition[0]);
+            condition[1].Competition.Add(competition[0]);
+            condition[2].Competition.Add(competition[0]);
+            condition[3].Competition.Add(competition[0]);
+            condition[4].Competition.Add(competition[0]);
+
+            condition[0].Competition.Add(competition[1]);
             condition[1].Competition.Add(competition[1]);
+            condition[2].Competition.Add(competition[1]);
+            condition[3].Competition.Add(competition[1]);
+            condition[4].Competition.Add(competition[1]);
+
+            condition[0].Competition.Add(competition[2]);
+            condition[1].Competition.Add(competition[2]);
             condition[2].Competition.Add(competition[2]);
+            condition[3].Competition.Add(competition[2]);
+            condition[4].Competition.Add(competition[2]);
+
+            condition[0].Competition.Add(competition[3]);
+            condition[1].Competition.Add(competition[3]);
+            condition[2].Competition.Add(competition[3]);
             condition[3].Competition.Add(competition[3]);
+            condition[4].Competition.Add(competition[3]);
+
+            condition[0].Competition.Add(competition[4]);
+            condition[1].Competition.Add(competition[4]);
+            condition[2].Competition.Add(competition[4]);
+            condition[3].Competition.Add(competition[4]);
             condition[4].Competition.Add(competition[4]);
 
             context.SaveChanges();
@@ -145,29 +169,79 @@ namespace eProjectsSemIII.Models
             context.SaveChanges();
 
             kind[0].Competition.Add(competition[0]);
+            kind[1].Competition.Add(competition[0]);
+            kind[2].Competition.Add(competition[0]);
+            kind[3].Competition.Add(competition[0]);
+            kind[4].Competition.Add(competition[0]);
+
+            kind[0].Competition.Add(competition[1]);
             kind[1].Competition.Add(competition[1]);
+            kind[2].Competition.Add(competition[1]);
+            kind[3].Competition.Add(competition[1]);
+            kind[4].Competition.Add(competition[1]);
+
+            kind[0].Competition.Add(competition[2]);
+            kind[1].Competition.Add(competition[2]);
             kind[2].Competition.Add(competition[2]);
+            kind[3].Competition.Add(competition[2]);
+            kind[4].Competition.Add(competition[2]);
+            kind[5].Competition.Add(competition[2]);
+
+            kind[0].Competition.Add(competition[3]);
+            kind[1].Competition.Add(competition[3]);
+            kind[2].Competition.Add(competition[3]);
             kind[3].Competition.Add(competition[3]);
+            kind[4].Competition.Add(competition[3]);
+            kind[5].Competition.Add(competition[3]);
             context.SaveChanges();
 
             var member = new List<Members>
             {
-                new Members {Images="minhphong1.jpg",Username="minhphong1",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="Ba ria vung tau",Phone="0128.66.01281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[0]},//1
-                new Members {Images="minhphong2.jpg", Username="minhphong2",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="Tp.HCM",Phone="0128.66.01282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[1]},//2
-                new Members {Images="minhphong3.jpg", Username="minhphong3",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Thanh Phong",Address="Tp.HCM",Phone="0128.66.01283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong4.jpg", Username="minhphong4",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang My Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong5.jpg", Username="minhphong5",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong6.jpg", Username="minhphong6",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Van Teo",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong7.jpg", Username="minhphong7",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Ba Thanh",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong8.jpg", Username="minhphong8",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong9.jpg", Username="minhphong9",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Hai Yen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4
-                new Members {Images="minhphong10.jpg", Username="minhphong10",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Jenny Nguyen",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong11.jpg", Username="minhphong11",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Khai Phong",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
-                new Members {Images="minhphong12.jpg", Username="minhphong12",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Nhat Kim",Address="Tp.HCM",Phone="0128.66.01284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3
+                new Members {Images="minhphong1.jpg",Username="minhphong1",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601281",Gender="Male",Birthday=DateTime.Parse("1988-09-05"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[0]},//1//1
+                new Members {Images="minhphong2.jpg", Username="minhphong2",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Le Dang Son",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601282",Gender="Male",Birthday=DateTime.Parse("1988-09-06"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[1]},//2//2
+                new Members {Images="minhphong3.jpg", Username="minhphong3",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Thanh Phong",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601283",Gender="Male",Birthday=DateTime.Parse("1988-09-07"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3//3
+                new Members {Images="minhphong4.jpg", Username="minhphong4",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang My Kim",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//4
+                new Members {Images="minhphong5.jpg", Username="minhphong5",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//5
+                new Members {Images="minhphong6.jpg", Username="minhphong6",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Van Teo",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//6
+                new Members {Images="minhphong7.jpg", Username="minhphong7",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Ba Thanh",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//7
+                new Members {Images="minhphong8.jpg", Username="minhphong8",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Minh Phong",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//8
+                new Members {Images="minhphong9.jpg", Username="minhphong9",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Hai Yen",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//9
+                new Members {Images="minhphong10.jpg", Username="minhphong10",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Jenny Nguyen",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3//10
+                new Members {Images="minhphong11.jpg", Username="minhphong11",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Luu Khai Phong",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3//11
+                new Members {Images="minhphong12.jpg", Username="minhphong12",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Cao Ba Quat",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[2]},//3//12
+                new Members {Images="minhphong13.jpg", Username="minhphong13",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Thong Ma La",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//13
+                new Members {Images="minhphong14.jpg", Username="minhphong14",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Hoang Tu",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//14
+                new Members {Images="minhphong15.jpg", Username="minhphong15",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Ho La La",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//15
+                new Members {Images="minhphong16.jpg", Username="minhphong16",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Nguyen Cao Thanh",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//16
+                new Members {Images="minhphong17.jpg", Username="minhphong17",Email="sonld.hv@gmail.com",Password="e45229557b78a24cd11a9b6ec9c55183", Name="Huynh Quang Minh",Address="123 Nguyen Trung Truc, Q1, Tp.HCM",Phone="01286601284",Gender="Female",Birthday=DateTime.Parse("1988-09-08"),Datejoin=DateTime.Parse("2008-09-05"),Role=role[3]},//4//17
               
                
             };
             member.ForEach(s => context.Members.Add(s));
+            context.SaveChanges();
+            competition[0].Staffs.Add(member[9]);
+            competition[0].Staffs.Add(member[10]);
+            competition[0].Staffs.Add(member[11]);
+
+            competition[1].Staffs.Add(member[9]);
+            competition[1].Staffs.Add(member[10]);
+            competition[1].Staffs.Add(member[11]);
+
+            competition[2].Staffs.Add(member[9]);
+            competition[2].Staffs.Add(member[10]);
+            competition[2].Staffs.Add(member[11]);
+
+            competition[3].Staffs.Add(member[9]);
+            competition[3].Staffs.Add(member[10]);
+            competition[3].Staffs.Add(member[11]);
+
+            competition[4].Staffs.Add(member[9]);
+            competition[4].Staffs.Add(member[10]);
+            competition[4].Staffs.Add(member[11]);
+
+            competition[5].Staffs.Add(member[9]);
+            competition[5].Staffs.Add(member[10]);
+            competition[5].Staffs.Add(member[11]);
             context.SaveChanges();
 
             var classs = new List<Classes>
@@ -192,50 +266,84 @@ namespace eProjectsSemIII.Models
                 new Designs {
                     Name = "The Climate Change Ad Competition 2012",Alias = "the-climate-change-ad-competition-2012",
                     Description="TZIPAC is excited to launch The Eros Award 2012. This is an international juried competition that celebrates the magic of fine art nude photography, honouring the finest in classic and contemporary nude photography..", 
-                    MemberID = 4,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    Member = member[3],Competition=competition[4],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
                     Images="the-climate-change-ad-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "ILFORD Student Photo Competition 2012",Alias = "ilford-student-photo-competition-2012",
                     Description="Climate change is recognized as a priority challenge that humanity is facing in the 21st century and some of its consequences – like increased frequency and intensity of natural hazards – are already being felt. The..", 
-                    MemberID = 4,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    Member = member[4],Competition=competition[4],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
                     Images="ilford-student-photo-competition-2012.jpg"
                 },
                 new Designs {
                     Name = "Embracing Our Differences 2013",Alias = "embracing-our-differences-2013",
                     Description="The theme of the competition is FAMILY. There is no limit to the number of entries permitted per student. Images must be printed on ILFORD black and white darkroom paper. Negatives or digital files will be called..", 
-                    MemberID =4,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    Member =member[5],Competition=competition[4],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
                     Images="embracing-our-differences-2013.jpg"
                 },
                 new Designs {
                     Name = "Pink Lady Food Photographer Of The Year 2013",Alias = "pink-lady-food-photographer-of-the-year-2013",
                     Description="Embracing Our Differences invites artists, photographers, professionals, amateurs, teachers and students to participate in its new visual art exhibit celebrating diversity. 45 artists will be selected for the exhibit...", 
-                    MemberID = 4,CompetitionID=4,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    Member = member[6],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
                     Images="pink-lady-food-photographer-of-the-year-2013.jpg"
                 },
                 new Designs {
                     Name = "Greenham Common Open 2012 Competition",Alias = "greenham-common-open-2012-competition",
                     Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
-                    MemberID = 5,CompetitionID=1,DatePost=DateTime.Parse("1988-09-06"),Kind = kind[0],
+                    Member = member[7],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
                     Images="greenham-common-open-2012-competition.jpg"
                 },
-
-                
+                new Designs {
+                    Name = "WYNG Masters Award For Photography",Alias = "wyng-masters-award-for-photography",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[8],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="wyng-masters-award-for-photography.jpg"
+                },
+                new Designs {
+                    Name = "Gentletude Design",Alias = "gentletude-design",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[12],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="gentletude-design.jpg"
+                },
+                new Designs {
+                    Name = "Lorem Ipsum is simply dummy text of the printing",Alias = "lorem-ipsum-is-simply-dummy-text-of-the-printing",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[13],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="lorem-ipsum-is-simply-dummy-text-of-the-printing.jpg"
+                },
+                new Designs {
+                    Name = "It is a long established fact that a reader",Alias = "it-is-a-long-established-fact-that-a-reader",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[14],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="it-is-a-long-established-fact-that-a-reader.jpg"
+                },
+                new Designs {
+                    Name = "Contrary to popular belief",Alias = "contrary-to-popular-belief",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[15],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="contrary-to-popular-belief.jpg"
+                },
+                new Designs {
+                    Name = "There are many variations of passages",Alias = "there-are-many-variations-of-passages",
+                    Description="Pink Lady Food Photographer of the Year is inspired by the proliferation of wonderful food photography in a huge variety of applications. From eye-catching advertising hoardings, to sumptuous editorial features,..", 
+                    Member = member[16],Competition=competition[2],DatePost=DateTime.Parse("2012-10-10"),Kind = kind[0],
+                    Images="there-are-many-variations-of-passages.jpg"
+                },
             };
             design.ForEach(s => context.Designs.Add(s));
             context.SaveChanges();
 
             var mark = new List<Marks>
             {
-                new Marks{Design=design[0],Staff=member[9],Mark=5},
-                new Marks{Design=design[0],Staff=member[10],Mark=5},
-                new Marks{Design=design[0],Staff=member[11],Mark=5},
-                new Marks{Design=design[1],Staff=member[9],Mark=4},
-                new Marks{Design=design[1],Staff=member[10],Mark=5},
-                new Marks{Design=design[1],Staff=member[11],Mark=5},
-                new Marks{Design=design[2],Staff=member[9],Mark=3},
-                new Marks{Design=design[2],Staff=member[10],Mark=5},
-                new Marks{Design=design[2],Staff=member[11],Mark=5},
+                new Marks{Design=design[0],Staff=member[9],Mark=5,ReMark="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
+                new Marks{Design=design[0],Staff=member[10],Mark=5,ReMark="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"},
+                new Marks{Design=design[0],Staff=member[11],Mark=5,ReMark="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."},
+                new Marks{Design=design[1],Staff=member[9],Mark=4,ReMark="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. "},
+                new Marks{Design=design[1],Staff=member[10],Mark=5,ReMark="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur"},
+                new Marks{Design=design[1],Staff=member[11],Mark=5,ReMark="But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."},
+                new Marks{Design=design[2],Staff=member[9],Mark=3,ReMark="No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure."},
+                new Marks{Design=design[2],Staff=member[10],Mark=5,ReMark="To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure"},
+                new Marks{Design=design[2],Staff=member[11],Mark=5,ReMark="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."},
 
             };
 
@@ -244,12 +352,49 @@ namespace eProjectsSemIII.Models
             
             var exhibition = new List<Exhibitions>
             {
-                new Exhibitions {Name="Exhibition graphic design summer 2012",Alias="exhibition-graphic-design-summer-2012",Image="exhibition-graphic-design-summer-2012.jpg", StartDate = DateTime.Parse("2012-08-05"), EndDate = DateTime.Parse("2012-12-10") },
-                new Exhibitions {Name="Spring 2012 exhibition",Alias="spring-2012-exhibition",Image="spring-2012-exhibition.jpg", StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10") },
-                new Exhibitions {Name="Exhibition, to family life",Alias="exhibition-to-family-life",Image="exhibition-to-family-life.jpg", StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10") },
-                new Exhibitions {Name="Outdoor Exhibition 2013",Alias="outdoor-exhibition-2013",Image="outdoor-exhibition-2013.jpg", StartDate = DateTime.Parse("2008-09-08"), EndDate = DateTime.Parse("2007-09-10") },
-                new Exhibitions {Name="Annual Exhibition June 2011",Alias="annual-exhibition-june-2011",Image="annual-exhibition-june-2011.jpg", StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10") },
-                new Exhibitions {Name="Life is beautiful",Alias="life-is-beautiful",Image="life-is-beautiful.jpg", StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10") },
+                new Exhibitions {
+                    Name="Exhibition graphic design summer 2012",
+                    Alias="exhibition-graphic-design-summer-2012",
+                    Image="exhibition-graphic-design-summer-2012.jpg", 
+                    StartDate = DateTime.Parse("2012-08-05"), EndDate = DateTime.Parse("2012-12-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
+                new Exhibitions {
+                    Name="Spring 2012 exhibition",
+                    Alias="spring-2012-exhibition",
+                    Image="spring-2012-exhibition.jpg", 
+                    StartDate = DateTime.Parse("2008-09-06"), EndDate = DateTime.Parse("2007-09-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
+                new Exhibitions {
+                    Name="Exhibition, to family life",
+                    Alias="exhibition-to-family-life",
+                    Image="exhibition-to-family-life.jpg", 
+                    StartDate = DateTime.Parse("2008-09-07"), EndDate = DateTime.Parse("2007-09-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
+                new Exhibitions {
+                    Name="Outdoor Exhibition 2013",
+                    Alias="outdoor-exhibition-2013",
+                    Image="outdoor-exhibition-2013.jpg", 
+                    StartDate = DateTime.Parse("2008-09-08"), 
+                    EndDate = DateTime.Parse("2007-09-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
+                new Exhibitions {
+                    Name="Annual Exhibition June 2011",
+                    Alias="annual-exhibition-june-2011",
+                    Image="annual-exhibition-june-2011.jpg", 
+                    StartDate = DateTime.Parse("2008-09-09"), EndDate = DateTime.Parse("2007-09-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
+                new Exhibitions {
+                    Name="Life is beautiful",
+                    Alias="life-is-beautiful",
+                    Image="life-is-beautiful.jpg", 
+                    StartDate = DateTime.Parse("2008-09-10"), EndDate = DateTime.Parse("2007-09-10"),
+                    Description = "EyeTime 2012 was assembled by photographers, professors and students as a means to publically promote the research, exploration and investigation currently happening amongst today's emerging talent. We invite students and young professionals to share their voices with the collective intelligence of a community of visual thinkers.The proliferation of device culture, social networking, and cloud technology are changing the way we create, and connect on a daily basis. For photography, this means that technology is not only transforming the process of production, but also the processes through which we share, critique, and organize ourselves around the work we do. The competition is first, and foremost an experiment in distributed intelligence. By leveraging the wisdom of crowds every entrant can see and understand how his or her work is experienced by others. It has been predicted that in 2020, there will be 50 billion mobile internet connections worldwide, the equivalent of seven devices per person. Thus, this competition is not simply about the existence of technology, but rather why and how we harness it as artists. As the paradigm shift from analog to digital is paired with the emergence of platforms for the digital consumption of images, photography inherently reassess its methods, media and subjects, in order to establish a dialogue with an audience whose visual abilities are increasingly expanded by technology. Thus, this competition challenges you to confront the world with your photography. By sending it out into the field you will test yourself and your work. You are the artist, the curator and the critic. EyeTime 2012 poses the following questions: How are your photos perceived? What does it take for an image to make a difference within the continuous overflow of data and information we currently inhabit? How can images impact evolving forms of media in order to engage audiences with their message? What is your message? There are two categories: Emerging Talent (students only) uture Voices (young professionals or enthusiasts)All submissions are digital and each entrant may submit a maximum of three collections. Entrants maintain full copyright to their work.There is no entry fee.Eligibility• Emerging Talent submissions: Students must currently be under-graduate or post-graduate students at universities or tertiary institutions. (Tertiary institutions include: junior colleges, colleges of technology, and other relevant vocational schools.)• Future Voices submissions: Competition is open to everyone 35 years old and younger in all creative fields including but not limited to photography, architecture, design, art, sculpture, fashion and technology.All international entries are welcomed.PrizePublication and promotion."
+                },
                
             };
             exhibition.ForEach(s => context.Exhibitions.Add(s));
@@ -297,6 +442,9 @@ namespace eProjectsSemIII.Models
                 /*25*/new Menus {Name = "Add new competition", Controller="competitions", Action = "add",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=true},
                 /*26*/new Menus {Name = "Edit competition", Controller="competitions", Action = "edit",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
                 /*27*/new Menus {Name = "Delete competition", Controller="competitions", Action = "delete",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*27*/new Menus {Name = "Add award for competition", Controller="awards", Action = "addawardcompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*27*/new Menus {Name = "Remove condition of competition", Controller="conditions", Action = "removeconditioncompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
+                /*27*/new Menus {Name = "Add condition for competition", Controller="conditions", Action = "addconditionscompetition",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="competition_icon.png", ParentID=19,Display=false},
                 
                 /*28*/new Menus {Name = "Kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", Icon="kinds_icon.png", ParentID=-1,Display=true},
                 /*29*/new Menus {Name = "List of kinds", Controller="kinds", Action = "",Role = new List<Roles>(),Description="Lorem Ipsum is simply dummy text of the printing and typesetting industry", ParentID=28,Display=true},

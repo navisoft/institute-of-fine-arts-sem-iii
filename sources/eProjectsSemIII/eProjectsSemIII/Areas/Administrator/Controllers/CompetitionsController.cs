@@ -47,7 +47,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult CompetitionKind(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -67,7 +67,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         
         public ActionResult Add(FormCollection form, HttpPostedFileBase Images)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             ViewBag.listStaff = db.Members.Where(m => m.Role.ID == 3).ToList();
@@ -231,7 +231,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Edit(string id, FormCollection form, HttpPostedFileBase Images)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -428,7 +428,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     {
                         if (Images != null)
                         {
-                            string fileOldName = Server.MapPath("~/Content/Images/competitions/" + competiton.Alias + ".jpg");
+                            string fileOldName = Server.MapPath("~/Content/Images/competitions/" + competiton.Images);
                             FilesClass.DeleteFile(fileOldName);
                             ImagesClass objImageClass = new ImagesClass(Images);
                             string fileSaveName = Server.MapPath("~/Content/Images/competitions/" + form["Alias"] + ".jpg");
@@ -478,7 +478,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

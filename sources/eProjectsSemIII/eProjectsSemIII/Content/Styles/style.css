@@ -40,7 +40,7 @@
 
 /***********************************************************CONTENT*********************************************************************/
 .main{float:left;width:100%;}
-.content{float:left;width:940px;padding:10px;border-left:1px solid #e4e4e4;border-right:1px solid #e4e4e4}
+.content{float:left;width:940px;padding:10px;border-left:1px solid #e4e4e4;border-right:1px solid #e4e4e4;margin-bottom:20px}
 
 /*CONTENT TOP*/
 .content-top{float:left;width:940px;margin-bottom:10px}
@@ -57,7 +57,7 @@
 	float:left;width:220px;background:#db1918;
 	height:20px;font-size:180%;color:#fff;text-transform:uppercase;padding:13px 0px 12px 10px
 }
-.content-right-content{float:left;width:230px}
+.content-right-content{float:left;width:230px;padding-bottom:10px}
 .content-right-content ul{width:100%;list-style:disc;margin-bottom:17px}
 .content-right-content ul li{list-style:disc;font-size:200%;color:#BDBDBD;margin-left:20px;padding:3px 0}
 .content-right-content ul li:hover{color:#db1918}
@@ -89,21 +89,39 @@
 }
 .content-left-content{float:left;width:700px;padding:10px 0 0 0}
 .content-left-content-item{float:left;width:700px;margin-bottom:10px}
-.item-image{float:left;width:180px}
-.item-image img{width:150px;padding:10px;border:1px solid #D6D6D6}
+.item-image{float:left;width:150px;padding:10px;border:1px solid #D6D6D6}
+.item-image img{width:150px}
 
 .item-detail{float:left;width:510px;padding-left:10px}
-.item-detail-note{float:left;width:490px;color:#969696;font-size:120%}
-.item-detail-title{float:left;width:490px;margin:10px 0}
+.item-detail-note{float:left;width:490px;color:#969696;font-size:120%;margin-bottom:10px}
+.item-detail-title{float:left;width:490px;margin:5px 0}
 .item-detail-title a{color:#141414;font-size:160%;}
 .item-detail-title a:hover{color:#00AEEF}
+.item-detail-title span{font-size:120%}
 .item-detail-content{float:left;width:490px;color:#4A4A4A;font-size:120%;line-height:22px;margin-bottom:10px;}
 .item-detail-date{float:left;width:250px;font-size:120%;color:#db1918}
-.item-detail-link{float:right;width:240px;text-align:right}
-.item-detail-link a{font-size:120%;color:#00AEEF}
+.item-detail-link{float:right;text-align:left;padding-right:40px}
+.item-detail-link a{font-size:120%;color:#00AEEF;text-decoration:underline}
+.item-detail-link a:hover{text-decoration:none}
 
-.student-item{float:left;width:213px;padding:10px;}
-.student-item img{box-shadow:3px 3px 10px #969696}
+.design-image{float:left;width:680px;margin-top:20px;padding:10px;border:1px solid #d7d7d7}
+.design-image img{width:680px}
+.design-description{float:left;width:700px;font-size:120%;margin-top:20px}
+
+.remark-title{float:left;width:700px;margin-top:20px;font-size:120%;font-weight:bold;margin-bottom:10px}
+.remark-content{float:left;width:700px}
+.remark-content-teacher{float:left;width:700px;line-height:22px;font-size:120%;font-weight:bold}
+.remark-content-value{float:left;width:700px;}
+.remark-content-value p{line-height:22px;font-size:120%}
+
+.student-item{float:left;width:213px;padding:10px;height:240px;box-shadow:3px 3px 10px #969696}
+.award
+{
+    float:left;background:#f60;color:#fff;
+    border-radius:0 0 40px 0;width:30px;height:30px;padding:5px;
+    font-size:160%;font-weight:bold
+}
+.award a{display:block;width:200px;height:240px;float:left;margin-top:-30px}
 
 .footer{float:left;width:100%;background:#000;margin-bottom:-30px}
 
@@ -134,7 +152,7 @@
 
 
 
-.txt-search,.txt-login,select{
+.txt-search,.txt-login,select,.txt-form-submit-design,textarea{
 	border:1px solid #ccc;
 	display:inline-block;color:#555555;
 	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -149,7 +167,7 @@
 	-o-transition:border linear 0.2s,box-shadow linear 0.2s;
 	transition:border linear 0.2s,box-shadow linear 0.2s;
 }
-.txt-search:focus,.txt-login:focus,select:focus{
+.txt-search:focus,.txt-login:focus,select:focus,.txt-form-submit-design:focus,textarea:focus{
 	border-color:rgba(82, 168, 236, 0.8);
 	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
 	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6);
@@ -157,3 +175,98 @@
 	outline:0;outline:thin dotted \9;
 }
 .txt-search{border:4px solid #f1f1f1}
+
+
+.competition{float:left;width:700px;}
+.competition-image{float:left;width:140px;padding:10px;border:1px solid #d7d7d7}
+.competition-image img{width:140px}
+.competition-more{float:left;width:500px;padding:0 10px;}
+.competition-more-item{float:left;width:480px;padding:0 0 10px 0}
+.competiton-more-item-title{float:left;font-size:130%}
+.competiton-more-item-value{float:left;font-size:130%;margin-left:5px}
+
+.competition-summary{font-weight:bold;font-size:130%;text-align:justify;float:left;width:525px;padding-left:10px}
+
+.competition-join{float:left;width:525px;padding-left:10px;margin-top:50px;color:#00AEEF}
+.competition-join a{color:#00AEEF;font-size:120%;padding:0 5px;text-decoration:underline}
+
+.competition-detail{float:left;width:700px;margin:10px 0}
+.competition-detail-title{float:left;width:700px;font-size:140%;font-weight:bold;color:#646464;margin:10px 0}
+.competition-detail-content{float:left;width:700px;font-size:130%;line-height:22px;text-align:justify}
+.competition-detail-content ul{list-style-position:inherit;padding-left:15px}
+.competition-detail-content ul li{font-size:130%}
+
+.submition{float:left;width:700px;margin:10px 0 20px 0}
+
+.submition-title{float:left;width:700px;font-size:140%;color:#646464;margin-bottom:10px;font-weight:bold}
+
+.form-input{float:left;width:700px}
+.submition form{float:left}
+.submition label{float:left;width:700px;font-size:120%;margin:5px}
+.submition label span{color:#f00}
+.submition form input{float:left;margin:5px;}
+
+.submition form textarea{width:600px;height:150px;margin-bottom:10px;font-size:120%;padding:10px}
+
+.txt-form-submit-design{width:300px;padding:5px;font-size:120%}
+
+.message{float:left;width:700px}
+.message ul{float:left;padding-left:10px;}
+.message ul li{font-size:120%;margin:3px 0}
+
+.error{color:#f00}
+
+.message_success{float:left;width:680px;padding:10px;font-size:120%}
+.message_success a{color:#00AEEF;text-decoration:none;font-size:100%}
+
+/*------------------------------------------------------PAGING----------------------------------------------------------*/
+.paging{
+	float:right;width:700px;background:#db1918;text-align:right;text-transform:uppercase;
+}
+.paging a{float: left;display:block;font-size:140%;color:#fff;padding:12px}
+.paging a:hover{background:url(../images/bg-paging-item-hover.png) no-repeat center;}
+.notlink{float: left;background:url(../images/bg-paging-item-hover.png) no-repeat center;padding:12px;font-size:160%;margin:0 5px;color:#fff}
+.link{float: left;font-size:120%;background:url(../images/bg-paging-item.png) no-repeat center;color:#fff;margin:0 5px}
+
+
+/*******************************************************PROFILE***********************************************************/
+.profile-image{float:left;text-align:center;padding:10px 15px 10px 15px}
+.profile-username{float:left;font-size:120%;width:100%;margin:3px 0}
+.profile-action{float:left;width:100%;margin:3px 0}
+.profile-action a{float:left;font-size:120%;color:#00AEEF}
+
+/*------------------------------------------------------PERSONAL MANAGER------------------------------------------------*/
+.profile-note{float:left;width:700px;font-size:120%;margin-top:10px}
+.profile-title{float:left;width:700px;font-size:160%;margin:20px 0}
+
+.profile-design{float:left;width:700px}
+.profile-design table{border-collapse:collapse;width:700px;border:1px solid #d7d7d7}
+.profile-design table tr{border-bottom:1px solid #d7d7d7}
+.profile-design table td{font-size:120%;padding:10px 0;border-right:1px solid #d7d7d7;padding-left:5px}
+.profile-design table td a{font-size:120%;color:#00AEEF}
+.center{text-align:center}
+.padding-left{padding-left:1%}
+.edit{width:70px}
+.design-image-profile{width:140px}
+.design-image-profile img{width:120px}
+td.design-name-profile{width:200px;padding-left:10px}
+.number-no{font-weight:bold}
+
+.birthday{float:left;width:100%}
+.birthday select{padding:5px 10px;font-size:120%}
+
+.success{color:#00AEEF;font-size:120%;font-weight:bold}
+
+.grading{float:left;width:700px}
+.grading-item{float:left;width:700px;text-align:left;padding:5px 0}
+.grading form{float:left;width:700px}
+.grading label{float:left;width:100px;font-size:120%;padding-right:10px}
+.grading input{float:left;text-align:left}
+.grading-item-title{font-weight:bold;text-align:left}
+.grading-item-value{text-align:right}
+.txt-remark{width:500px;height:100px;padding:10px;font-size:120%}
+
+
+
+
+

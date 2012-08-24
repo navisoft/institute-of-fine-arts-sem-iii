@@ -1,49 +1,101 @@
 ﻿@using eProjectsSemIII.Models;
-@{
-    ViewBag.Title = "ASP.NET MVC Finel Art ";
-}
-                    <!--------------------THE UPCOMING COMPETITIONS--------------------->
-                	<div class="content-left-title">
-                    	THE UPCOMING COMPETITIONS
-                    </div>
-                    @foreach (Competitions upcomming in ViewBag.upcomming)
+<!--------------------THE UPCOMING COMPETITIONS--------------------->
+<div class="content-left-title">
+    The upcoming competitions
+</div>
+<div class="content-left-content">
+    @foreach (Competitions upcomming in ViewBag.upcomming)
+    {
+        <div class="content-left-content-item">
+            <div class="item-image">
+                <img src="@Url.Content("~/Content/Images/competitions/" + @upcomming.Images)" alt="@upcomming.Name" />
+            </div>
+            <div class="item-detail">
+                <div class="item-detail-note">
+                    @upcomming.DeadlineDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    (deadline)
+                </div>
+                <div class="item-detail-title">
+                    <a href="@Url.Content("~/competition/detail/" + @upcomming.Alias)">@upcomming.Name</a>
+                </div>
+                <div class="item-detail-content">
+                    @if (upcomming.Summary.Length > 320)
                     {
-                    <div class="content-left-content">
-                    	<div class="content-left-content-item">
-                        	<div class="item-image">
-                            
-                            	<img src="@Url.Content("~/Content/Images/competitions/"+@upcomming.Images)" alt="@upcomming.Name" />
-                       
-                            </div>
-                            <div class="item-detail">
-                            	<div class="item-detail-note">
-                               @upcomming.DeadlineDate.ToString("dd/MMM/yyyy") (deadline)
-                                	
-                                </div>
-                            	<div class="item-detail-title">
-                                    <a href="#">@upcomming.Name</a>
-                                </div>
-                            	<div class="item-detail-content">
-                              
-                                	@upcomming.Summary.Substring(0,80);
-                                </div>
-                            	<div class="item-detail-date">
-                                  
-                                    Start date:@upcomming.StartDate.ToString("dd/MMM/yyyy") <br />
-                                    End date:@upcomming.EndDate.ToString("dd/MMM/yyyy")
-                                </div>
-                                <div class="item-detail-link">
-                                	<a href="@Url.Content("~/Home/detail_upcomming/" + @upcomming.Alias)")>View detail...</a>
-                                </div>
-                            </div>
-                         
-                        </div>
-                    </div>
-                                
-                    }   
-                      @{Html.RenderAction("Oncomming", "Home");} 
-                
-                	  
-                       @{Html.RenderAction("list_Student", "Home");} 
-                   
-                    @*<div class="content-left-title">d dsf</div>*@
+                        @upcomming.Summary.Substring(0, 320);
+                    }
+                    else
+                    {
+                        @upcomming.Summary
+                    }...
+                </div>
+                <div class="item-detail-date">
+                    Start date:@upcomming.StartDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    - @upcomming.EndDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                </div>
+                <div class="item-detail-link">
+                    <a href="@Url.Content("~/competition/detail/" + @upcomming.Alias)")>View detail</a>
+                </div>
+            </div>
+        </div>                 
+    }
+</div>
+<div class="content-left-title">
+    The oncoming competitions
+</div>
+<div class="content-left-content">
+    @foreach (Competitions oncomming in ViewBag.oncomming)
+    {
+        <div class="content-left-content-item">
+            <div class="item-image">
+                <img src="@Url.Content("~/Content/Images/competitions/" + @oncomming.Images)" alt="@oncomming.Name" />
+            </div>
+            <div class="item-detail">
+                <div class="item-detail-note">
+                    @oncomming.DeadlineDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    (deadline) - @oncomming.Design.Count design(s)
+                </div>
+                <div class="item-detail-title">
+                    <a href="@Url.Content("~/competition/detail/" + @oncomming.Alias)">@oncomming.Name</a>
+                </div>
+                <div class="item-detail-content">
+                    @if (oncomming.Summary.Length > 320)
+                    {
+                        @oncomming.Summary.Substring(0, 320);
+                    }
+                    else
+                    {
+                        @oncomming.Summary
+                    }...
+                </div>
+                <div class="item-detail-date">
+                    Start date:@oncomming.StartDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    - @oncomming.EndDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                </div>
+                <div class="item-detail-link">
+                    <a href="@Url.Content("~/competition/detail/" + @oncomming.Alias)")>View detail</a>
+                </div>
+            </div>
+        </div>                     
+    }
+</div>
+<div class="content-left-title">
+    List of students awarded of previous competition
+</div>
+<div class="content-left-content">
+    <div class="content-left-content-item">
+        @{
+            int i = 0;
+            foreach (eProjectsSemIII.Controllers.HomeController.MemberAward item in ViewBag.listMemberAward)
+            {
+                i++;
+                ViewBag.st = i + "st";
+            <div class="student-item" style="background:url(@Url.Content("~/Content/Images/students/" + item.Image)) no-repeat center">
+                <div class="award">
+                    @ViewBag.st
+                    <a href="@Url.Content("~/design/detail/"+item.Design.Alias)"></a>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>

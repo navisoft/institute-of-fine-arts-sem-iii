@@ -1,0 +1,241 @@
+﻿@model List<eProjectsSemIII.Models.Designs>
+<div class="content-left-title">
+    Profile
+</div>
+<div class="content-left-content">
+    <div class="profile-note">
+        Welcome to your personal management page.Here, you can edit your personal information,
+        manage your product.
+    </div>
+    @if (Model.Count > 0)
+    {
+        <div class="profile-title">
+            All your design
+        </div>
+        <div class="profile-design">
+            <table>
+                <tr>
+                    <td class="center">
+                        No.
+                    </td>
+                    <td class="padding-left">
+                        Name
+                    </td>
+                    <td class="center">
+                        Image
+                    </td>
+                    <td class="center">
+                        Date Post
+                    </td>
+                    <td class="center">
+                        Edit
+                    </td>
+                    <td class="center">
+                        Delete
+                    </td>
+                </tr>
+                @{int i = 0;}
+                @foreach (eProjectsSemIII.Models.Designs design in Model)
+                {
+                    i++;
+                    <tr>
+                        <td class="center number-no">@i
+                        </td>
+                        <td class="padding-left design-name-profile">
+                            <a href="@Url.Content("~/design/detail/" + design.Alias)">@design.Name</a>
+                        </td>
+                        <td class="center design-image-profile">
+                            <img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/" + design.Images)" />
+                        </td>
+                        <td class="center">
+                            @design.DatePost.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                        </td>
+                        <td class="center edit">
+                            @if (design.Competition.DeadlineDate > DateTime.Now)
+                            {
+                                <a href="@Url.Content("~/design/edit/" + design.Alias)">
+                                    <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                                </a>
+                            }
+                        </td>
+                        <td class="center delete">
+                            <a href="@Url.Content("~/design/delete/" + design.Alias)">
+                                <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    <div class="profile-title">
+        Update your personal information
+    </div>
+    <div class="profile-edit">
+        <div class="submition">
+            @if (ViewBag.error != null)
+            {
+                <div class="message error">
+                    @Html.Raw(ViewBag.error)
+                </div>
+            }
+            @if (ViewBag.success != null && ViewBag.success)
+            {
+                <div class="message success">
+                    Your infomation has been update successfully.
+                </div>
+            }
+            <form action="" method="post" enctype="multipart/form-data">
+            <label>
+                Your Name <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="name" class="txt-form-submit-design" value="@try
+                                                                                     {@ViewBag.dataForm["name"]}
+                                                                                     catch { }"/>
+            </div>
+            <label>
+                Your Email <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="email"" class="txt-form-submit-design" value="@try
+                                                                                       {@ViewBag.dataForm["email"]}
+                                                                                       catch { }"/>
+            </div>
+            <label>
+                Avatar(If you want to change avatar. Alow .jpg, .png, .gif extension.)</label>
+            <div class="form-input">
+                <input type="file" name="image" class="txt-form-submit-design" />
+            </div>
+            <label>
+                Your Phone <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="phone" class="txt-form-submit-design" value="@try
+                                                                                      {@ViewBag.dataForm["phone"]}
+                                                                                      catch { }"/>
+            </div>
+            <label>
+                Address <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="address" class="txt-form-submit-design" value="@try
+                                                                                        {@ViewBag.dataForm["address"]}
+                                                                                        catch { }"/>
+            </div>
+            <label>
+                Your Birthday <span>*</span></label>
+            <div class="birthday">
+                <select name="day" class="txt-box-register day">
+                    <option value="-1">Day</option>
+                    @for (int i = 1; i <= 31; i++)
+                    {
+                        try
+                        {
+                            if (i.ToString() == ViewBag.dataForm["day"])
+                            {
+                                if (i < 10)
+                                {
+                                    ViewBag.istr = "0" + i;
+                        <option value="@i" selected="selected">@ViewBag.istr</option>
+                                }
+                                else
+                                {
+                        <option value="@i" selected="selected">@i</option>
+                                }
+                            }
+                            else
+                            {
+                                if (i < 10)
+                                {
+                                    ViewBag.istr = "0" + i;
+                        <option value="@i">@ViewBag.istr</option>
+                                }
+                                else
+                                {
+                        <option value="@i">@i</option>
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            if (i < 10)
+                            {
+                                ViewBag.istr = "0" + i;
+                        <option value="@i">@ViewBag.istr</option>
+                            }
+                            else
+                            {
+                        <option value="@i">@i</option>
+                            }
+                        }
+                    }
+                </select>
+                <select name="month" class="txt-box-register month">
+                    <option value="-1">Month</option>
+                    @for (int i = 1; i < 13; i++)
+                    {
+                        try
+                        {
+                            if (ViewBag.dataForm["month"] == i.ToString())
+                            {
+                        <option value="@i" selected="selected">
+                            @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                        </option>
+                            }
+                            else
+                            {
+                        <option value="@i">
+                            @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                        </option>      
+                            }
+                        }
+                        catch
+                        {
+                        <option value="@i">
+                            @System.Globalization.CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat.GetMonthName(i)
+                        </option>
+                        }
+
+                    }
+                </select>
+                <select name="year" class="txt-box-register year">
+                    <option value="-1">Year</option>
+                    @for (int i = 1950; i < DateTime.Now.Year; i++)
+                    {
+                        try
+                        {
+                            if (i.ToString() == ViewBag.dataForm["year"])
+                            {
+                        <option value="@i" selected="selected">@i</option>
+                            }
+                            else
+                            {
+                        <option value="@i">@i</option>
+                            }
+                        }
+                        catch
+                        {
+                        <option value="@i">@i</option>
+                        }
+                    }
+                </select>
+            </div>
+            <label>
+                Old Password <span>*</span></label>
+            <div class="form-input">
+                <input type="password" name="oldPassword" class="txt-form-submit-design" />
+            </div>
+            <label>
+                New Password (If you want to change password)</label>
+            <div class="form-input">
+                <input type="password" name="password" class="txt-form-submit-design" />
+            </div>
+            <label>
+                Confirm Password</label>
+            <div class="form-input">
+                <input type="password" name="verifypassword" class="txt-form-submit-design" />
+            </div>
+            <div class="form-input">
+                <input type="submit" value="Update" name="submit_profile" class="bt-login" />
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

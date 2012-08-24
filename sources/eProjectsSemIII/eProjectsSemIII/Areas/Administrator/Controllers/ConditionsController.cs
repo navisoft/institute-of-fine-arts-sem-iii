@@ -17,7 +17,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -34,7 +34,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult ConditionCompetition(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -55,7 +55,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult RemoveConditionCompetition(string id, string param)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 var db = new FineArtContext();
@@ -83,7 +83,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult AddConditionsCompetition(string id, FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -127,7 +127,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Add(FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             if (form["submit_condition"] != null)
@@ -162,9 +162,9 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Edit(string id, FormCollection form)
         {
-            //base.Authentication();
-            var db = new FineArtContext();
+            base.Authentication();
             base.LoadMenu();
+            var db = new FineArtContext();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -215,7 +215,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

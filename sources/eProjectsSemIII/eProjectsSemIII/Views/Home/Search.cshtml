@@ -1,0 +1,34 @@
+﻿@model IEnumerable<eProjectsSemIII.Models.Designs> 
+<!--------------------THE LIST ALL DESIGNS--------------------->
+<div class="content-left-title">
+    THE RESULT OF SEARCH DESIGNS
+</div>
+@foreach (var design in Model)
+{
+    <div class="content-left-content">
+        <div class="content-left-content-item">
+            <div class="item-image">
+                <img src="@Url.Content("~/Content/Images/competitions/" + @design.Images)" alt="@design.Name" />
+            </div>
+            <div class="item-detail">
+                <div class="item-detail-note">
+                    @design.DatePost.ToString("dd/MMM/yyyy") (deadline)
+                </div>
+                <div class="item-detail-title">
+                    <a href="#">@design.Name</a>
+                </div>
+                <div class="item-detail-content">
+                    @design.Description.Substring(0, 80);
+                </div>
+                <div class="item-detail-date">
+                    IsSold:@design.IsSold
+                    <br />
+                    IsSpecial:@design.IsSpecial
+                </div>
+                <div class="item-detail-link">
+                    <a href="@Url.Content("~/Home/Details/" + @design.Alias)")>View detail...</a>
+                </div>
+            </div>
+        </div>
+    </div>                        
+}

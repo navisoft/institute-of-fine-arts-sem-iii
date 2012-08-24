@@ -1,0 +1,32 @@
+﻿@using eProjectsSemIII.Models
+@model eProjectsSemIII.Models.Exhibitions
+<div class="content-left-title">
+    @Model.Name
+</div>
+<div class="content-left-content">
+    <div class="competition">
+        <div class="competition-image">
+            <img alt="@Model.Name" src="@Url.Content("~/Content/Images/exhibitions/" + Model.Image)" />
+        </div>
+        <div class="competition-more">
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Start Date:</div>
+                <div class="competiton-more-item-value">@Model.StartDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    End Date:</div>
+                <div class="competiton-more-item-value">@Model.EndDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+        </div>
+        <div class="competition-join">
+            [<a href="@Url.Content("~/design/exhibition/"+Model.Alias)">All design this exhibition</a>]
+        </div>
+        <div class="competition-detail">
+            <div class="competition-detail-content">
+                @Model.Description
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,7 +17,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -34,7 +34,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Add(FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             if (form["submit_class"] != null)
@@ -80,7 +80,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Edit(string id, FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             var db = new FineArtContext();
             base.LoadMenu();
             try
@@ -142,7 +142,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
