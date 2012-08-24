@@ -1,6 +1,6 @@
 ﻿@model eProjectsSemIII.Models.Members
 <div class="profile-image">
-    <img alt="" src="@Url.Content("~/Content/Images/students/"+Model.Images)" />
+    <img alt="" src="@Url.Content("~/Content/Images/students/" + Model.Images)" />
 </div>
 <div class="profile-username">
     @{ViewBag.username = new eProjectsSemIII.Libs.Strings().Capacital(Model.Username);}
@@ -9,6 +9,12 @@
 <div class="profile-username">
     Date join: @Model.Datejoin.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
 </div>
+@if (ViewBag.gotoAdmin != null && ViewBag.gotoAdmin)
+{
+    <div class="profile-action">
+        <a href="@Url.Content("~/administrator/members/login")">Go to @Model.Role.Name.ToLower() page</a>
+    </div>
+}
 <div class="profile-action">
     <a href="@Url.Content("~/member/profile/")">Your profile page</a>
 </div>
