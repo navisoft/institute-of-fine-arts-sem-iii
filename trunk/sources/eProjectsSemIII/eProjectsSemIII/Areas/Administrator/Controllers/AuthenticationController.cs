@@ -37,18 +37,18 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     if (menusModels.CheckMenuOfRole(member.Role.ID) == false)
                     {
                         Session["admin"] = null;
-                        Response.Redirect("/", true);
+                        Response.Redirect("~/", true);
                     }
                 }
                 else
                 {
                     Session["admin"] = null;
-                    Response.Redirect("/", true);
+                    Response.Redirect("~/", true);
                 }
             }
             else
             {
-                Response.Redirect("/administrator/members/login", true);
+                Response.Redirect("~/administrator/members/login", true);
             }
         }
 

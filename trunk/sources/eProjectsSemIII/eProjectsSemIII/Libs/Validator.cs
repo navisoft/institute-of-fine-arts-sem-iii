@@ -30,5 +30,14 @@ namespace eProjectsSemIII.Libs
             else
                 return false;
         }
+
+        public static bool ISPrice(string str)
+        {
+            Regex re = new Regex(@"^[0-9]+(\.?[0-9])*(,?[0-9])*$");
+            if (re.IsMatch(str))
+                return true;
+            else
+                return false;
+        }
     }
 }

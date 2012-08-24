@@ -1,0 +1,202 @@
+﻿@using eProjectsSemIII.Models
+@model eProjectsSemIII.Models.Competitions
+<div class="content-left-title">
+    Detail Competition
+</div>
+<div class="content-left-content">
+    <div class="competition">
+        <div class="competition-image">
+            <img alt="@Model.Name" src="@Url.Content("~/Content/Images/competitions/" + Model.Images)" />
+        </div>
+        <div class="competition-more">
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Name:
+                </div>
+                <div class="competiton-more-item-value">
+                    @Model.Name
+                </div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Start Date:</div>
+                <div class="competiton-more-item-value">@Model.StartDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Deadline Date:</div>
+                <div class="competiton-more-item-value">@Model.DeadlineDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    End Date:</div>
+                <div class="competiton-more-item-value">@Model.EndDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+        </div>
+        <div class="competition-detail">
+            <div class="competition-detail-title">
+                Competition Description
+            </div>
+            <div class="competition-detail-content">
+                @Model.Summary
+            </div>
+            <div class="competition-detail-title">
+                Competition Condition
+            </div>
+            <div class="competition-detail-content">
+                <ul>
+                    @foreach (Conditions condition in Model.Condition)
+                    {
+                        <li>@condition.Description</li>
+                    }
+                </ul>
+            </div>
+            <div class="competition-detail-title">
+                Competition Award
+            </div>
+            <div class="competition-detail-content">
+                <ul>
+                    @foreach (Awards award in Model.Award)
+                    {
+                        <li>@award.Description</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a name="submition"></a>
+@if (Session["success"] == null)
+{
+    <div class="content-left-title">
+        Update your design
+    </div>
+    <div class="content-left-content">
+        <div class="submition">
+            <div class="submition-title">
+                Please type infomation into form and submit to server</div>
+            @if (ViewBag.error != null) {
+            <div class="message error">
+                @Html.Raw(ViewBag.error)
+            </div>
+            }
+            <form action="" method="post" enctype="multipart/form-data">
+            <label>
+                Design Title <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="Name" id="Name-Item" class="txt-form-submit-design" value="@try
+                                                                                                    {@ViewBag.dataForm["Name"]}
+                                                                                                    catch { }"/>
+            </div>
+            <label>
+                Design Alias <span>*</span></label>
+            <div class="form-input">
+                <input type="text" name="Alias" id="Alias-Item" class="txt-form-submit-design" value="@try
+                                                                                                      {@ViewBag.dataForm["Alias"]}
+                                                                                                      catch { }"/>
+            </div>
+            <label>
+                Design Image <span>*</span>(Note: Please keep the original image, easy to edit later. Alow .jpg, .png, .gif extension.)</label>
+            <div class="form-input">
+                <input type="file" name="Images" class="txt-form-submit-design" />
+            </div>
+            <label>
+                Description (The quotations or the story or the description for the painting)</label>
+            <div class="form-input">
+                <textarea rows="" cols="" name="Description">@try
+                                                             {@ViewBag.dataForm["Description"]}
+                                                             catch { }</textarea>
+            </div>
+            <label>
+                Design Kind <span>*</span></label>
+            <div class="form-input">
+                <select name="Kind" class="txt-form-submit-design">
+                    <option value="-1">Choose kind for design of you...</option>
+                    @foreach (Kinds kind in Model.Kind)
+                    {
+                        try
+                        {
+                            if (kind.ID.ToString() == ViewBag.dataForm["Kind"])
+                            {
+                        <option value="@kind.ID" selected="selected">@kind.Name</option>
+                            }
+                            else
+                            {
+                        <option value="@kind.ID">@kind.Name</option>
+                            }
+                        }
+                        catch
+                        {
+                        <option value="@kind.ID">@kind.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+            <label>
+                Sell (If this design is chosen to exhibitions.)</label>
+            <div class="form-input">
+                @try
+                {
+                    if (ViewBag.dataForm["IsSold"] == "on")
+                    {
+                    <input type="checkbox" checked="checked" name="IsSold" />
+                    }
+                    else
+                    {
+                    <input type="checkbox" name="IsSold" />
+                    }
+                }
+                catch
+                {
+                    <input type="checkbox" name="IsSold" />
+                }
+            </div>
+            <label>
+                Price ($) Ex:1234.567,8</label>
+            <div class="form-input">
+                <input type="text" name="PriceSold" class="txt-form-submit-design" value="@try
+                                                                                          {@ViewBag.dataForm["PriceSold"]}
+                                                                                          catch { }"/>
+            </div>
+            <label>
+                Paid for you(If this design has been sold.)</label>
+            <div class="form-input">
+                @try
+                {
+                    if (ViewBag.dataForm["IsPaidStudent"] == "on")
+                    {
+                    <input type="checkbox" checked="checked" name="IsPaidStudent" />
+                    }
+                    else
+                    {
+                    <input type="checkbox" name="IsPaidStudent" />
+                    }
+                }
+                catch
+                {
+                    <input type="checkbox" name="IsPaidStudent" />
+                }
+            </div>
+            <div class="form-input">
+                <input type="submit" value="Submit to server" name="submit_design" class="bt-login" />
+            </div>
+            </form>
+        </div>
+    </div>
+        
+}
+else
+{
+    <div class="content-left-title">
+        Update successfully!
+    </div>
+    <div class="content-left-content">
+        <div class="message_success">
+            Update success. <a href="@Url.Content("~/design/detail/" + Session["success"])">
+                Go to</a> this design detail, <a href="@Url.Content("~/design/edit/" + Session["success"])">edit</a> this design or 
+                <a href="@Url.Content("~/member/profile")">manage</a> all your design.
+        </div>
+    </div>
+    Session["success"] = null;
+}

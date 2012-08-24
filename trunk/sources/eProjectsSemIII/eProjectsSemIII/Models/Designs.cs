@@ -11,31 +11,23 @@ namespace eProjectsSemIII.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Alias { get; set; }
-        [Required]
         public string Description { get; set; }
 
-        [Required]
         public string Images { get; set; }
         //one to many with member
-        public int MemberID { get; set; }
         public Members Member { get; set; }
-
-        // one to many
-        public int StaffID { get; set; }
-
+        
         public bool IsSpecial { get; set; }
         //one to many
         public Kinds Kind { get; set; }
 
         //one to many
-        public int CompetitionID { get; set; }
         public Competitions Competition { get; set; }
 
         public bool IsSold { get; set; }
         public decimal PriceSold { get; set; }
         public bool IsPaidStudent { get; set; }
-        
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+       
         public DateTime DatePost { get; set; }
         
         public ICollection<Exhibitions> Exhibitions { get; set; }

@@ -1,0 +1,73 @@
+﻿@using eProjectsSemIII.Models
+@model eProjectsSemIII.Models.Competitions
+<div class="content-left-title">
+    @Model.Name
+</div>
+<div class="content-left-content">
+    <div class="competition">
+        <div class="competition-image">
+            <img alt="@Model.Name" src="@Url.Content("~/Content/Images/competitions/" + Model.Images)" />
+        </div>
+        <div class="competition-more">
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Start Date:</div>
+                <div class="competiton-more-item-value">@Model.StartDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    Deadline Date:</div>
+                <div class="competiton-more-item-value">@Model.DeadlineDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+            <div class="competition-more-item">
+                <div class="competiton-more-item-title">
+                    End Date:</div>
+                <div class="competiton-more-item-value">@Model.EndDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</div>
+            </div>
+        </div>
+        
+        <div class="competition-join">
+        @if (Model.DeadlineDate > DateTime.Now && Model.StartDate < DateTime.Now)
+        {
+            <div>[<a href="@Url.Content("~/design/submit/"+Model.Alias)">Join this competition</a>]</div>
+        }
+        @if (Model.StartDate < DateTime.Now)
+        {
+            <div>[<a href="@Url.Content("~/design/competition/" + Model.Alias)">All design this competition</a>]</div>
+        }   
+        </div>
+        <div class="competition-join">
+            
+        </div>
+        <div class="competition-detail">
+            <div class="competition-detail-title">
+                Competition Description
+            </div>
+            <div class="competition-detail-content">
+                @Model.Summary
+            </div>
+            <div class="competition-detail-title">
+                Competition Condition
+            </div>
+            <div class="competition-detail-content">
+                <ul>
+                    @foreach (Conditions condition in Model.Condition)
+                    {
+                        <li>@condition.Description</li>
+                    }
+                </ul>
+            </div>
+            <div class="competition-detail-title">
+                Competition Award
+            </div>
+            <div class="competition-detail-content">
+                <ul>
+                    @foreach (Awards award in Model.Award)
+                    {
+                        <li>@award.Description</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

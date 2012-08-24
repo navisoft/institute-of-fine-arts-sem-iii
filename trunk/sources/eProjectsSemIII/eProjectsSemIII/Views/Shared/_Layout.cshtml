@@ -1,11 +1,21 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/style.css")" />
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
-<title>Fine Art</title>
-<!--[if IE 6]>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/style.css")" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet'
+        type='text/css' />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/scripts/jquery.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/scripts/user-app.js")"></script>
+    @if (ViewBag.Title != null)
+    {
+        <title>@ViewBag.Title</title>
+    }
+    else
+    {
+        <title>Institute of Fine Arts</title>
+    }
+    <!--[if IE 6]>
 <style>
     .bt-search{padding:8px 60px 9px 50px;}
     .content-right-content ul{margin-bottom:14px}
@@ -15,93 +25,121 @@
 	.student-item img{width:199px;padding:6px;border:1px solid #e7e7e7}
 </style>
 <![endif]-->
-<!--[if IE 7]>
+    <!--[if IE 7]>
 <style>
 	.student-item img{width:199px;padding:6px;border:1px solid #e7e7e7}
 </style>
 <![endif]-->
-<!--[if IE 8]>
+    <!--[if IE 8]>
 <style>
 	.student-item img{width:199px;padding:6px;border:1px solid #e7e7e7}
 </style>
 <![endif]-->
 </head>
 <body>
-<div id="fb-root"></div>
-<script type="text/javascript">    
-(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    } (document, 'script', 'facebook-jssdk'));
-</script>
+    <div id="fb-root">
+    </div>
+    <script type="text/javascript">
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="header">
         <div class="navigation">
-        	<div class="wrap-item">
-            	<ul>
-                    <li style="background:none"><a href="@Url.Content("~")">Home</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllCompetition")">Competitions</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllDesign")">Designs</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllExhibition")">Exhibitions</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllStudent")">Students</a></li>
+            <div class="wrap-item">
+                <ul>
+                    <li><a href="@Url.Content("~/")">Home</a></li>
+                    <li><a href="@Url.Content("~/competition")">Competitions</a></li>
+                    <li><a href="@Url.Content("~/design")">Designs</a></li>
+                    <li><a href="@Url.Content("~/exhibition")">Exhibitions</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FAQs</a></li>
                 </ul>
             </div>
-        </div><!--#END navigation-->
+        </div>
+        <!--#END navigation-->
         <div class="logo">
-        	<div class="wrap-item">
+            <div class="wrap-item">
                 <div class="logo-image">
                     <img alt="" src="@Url.Content("~/Content/Images/logo.jpg")" />
                 </div>
                 <div class="lang-form">
-                	<div class="lang-form-link">
-                    	<a href="@Url.Content("~/member/logout")">Logout</a>
+                    <div class="lang-form-link">
+                        <a href="@Url.Content("~/member/logout")">Logout</a>
                     </div>
                     <div class="lang-form-choose">
-                    	<div class="lang-form-choose-title">
-                        	Language:
+                        <div class="lang-form-choose-title">
+                            Language:
                         </div>
                         <div class="lang-form-choose-input">
-                        	<select name="language">
-                            	<option value="0">English</option>
+                            <select name="language">
+                                <option value="0">English</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--#END logo-->
+        </div>
+        <!--#END logo-->
         <div class="animation">
-        	<div class="wrap-item">
-            	<div class="animation-content">
-                	<img alt="" src="@Url.Content("~/Content/Images/animation.jpg")" />
+            <div class="wrap-item">
+                <div class="animation-content">
+                    <img alt="" src="@Url.Content("~/Content/Images/animation.jpg")" />
                 </div>
             </div>
-        </div><!--#END animation-->
-    </div><!--#END header-->
+        </div>
+        <!--#END animation-->
+    </div>
+    <!--#END header-->
     <div class="main">
-    	<div class="wrap-item">
-        	<div class="content">
-            	<div class="content-top">
-                	<form action="#">
-                    	<input type="text" name="txt_search" class="txt-search" placeholder="Find the perfect art..." />
-                        <input type="submit" name="sub_search" class="bt-search" value="Search" />
+        <div class="wrap-item">
+            <div class="content">
+                <div class="content-top">
+                    <form action="@Url.Content("~/design/parsesearch")" method="get">
+                    <input type="text" name="txt_search" class="txt-search" placeholder="Find the perfect art..." />
+                    <input type="submit" name="submit_search" class="bt-search" value="Search" />
                     </form>
                 </div>
                 <!--##########################################CONTENT RIGHT##############################################-->
-            	<div class="content-right">
-                	<div class="content-right-title">
-                    	List of menu
+                <div class="content-right">
+                    <div class="content-right-title">
+                        List of menu
                     </div>
                     <div class="content-right-content">
-                    	  @{Html.RenderAction("kind", "Home");} 
+                        <ul>
+                            <li><a href="@Url.Content("~/")">Home</a></li>
+                            <li><a href="@Url.Content("~/competition")">Competitions</a></li>
+                            <li><a href="@Url.Content("~/design")">Designs</a></li>
+                            <li><a href="@Url.Content("~/exhibtition")">Exhibtitions</a></li>
+                            <li><a href="@Url.Content("~/contact")">Contact us</a></li>
+                            <li><a href=@Url.Content("~/faqs")"">FAQs</a></li>
+                        </ul>
                     </div>
-                	@*<div class="content-right-title">
-                    	Login Form
+                    <div class="content-right-title">
+                        List of categories
                     </div>
-                    <form action="#" method="post">
+                    <div class="content-right-content">
+                        @{Html.RenderAction("Kind", "Home");}
+                    </div>
+                    <div class="content-right-title">
+                        Your Profile
+                    </div>
+                    
+                    <div class="content-right-content">
+                    @try
+                    {
+                        Html.RenderAction("Profile", "Home");
+                    }
+                    catch
+                    {
+
+                    }
+                    </div>
+                    @*<form action="#" method="post">
                         <div class="login-form">
                             <div class="login-form-title">
                                 Username:
@@ -126,89 +164,102 @@
                             </div>
                         </div>
                     </form>*@
-                    <div class="advertise">
-                    	<img alt="" src="@Url.Content("~/Content/Images/advertise.jpg")" />
+                    <div class="content-right-title">
+                        Advertise
                     </div>
+                    <div class="advertise">
+                        <img alt="" src="@Url.Content("~/Content/Images/advertise.jpg")" />
+                    </div>@*
                     <div class="empty-right">
-                    
                     </div>
                     <div class="advertise">
-                    	<img alt="" src="@Url.Content("~/Content/Images/advertise.jpg")" />
-                    </div>
+                        <img alt="" src="@Url.Content("~/Content/Images/advertise.jpg")" />
+                    </div>*@
                     <div class="special">
-                    	<div class="special-title">
-                        	SPECIAL
+                        <div class="special-title">
+                            SPECIAL
                         </div>
                         <div class="special-content">
-                        	<img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/pink-lady-food-photographer-of-the-year-2013.jpg")" />
+                            <img alt="" src="@Url.Content("~/Content/Images/designs/thumbnails/pink-lady-food-photographer-of-the-year-2013.jpg")" />
                         </div>
                         <div class="special-note">
-                        	Bolt Barbers
+                            Bolt Barbers
                         </div>
                     </div>
-                </div><!--#END content-right-->
+                </div>
+                <!--#END content-right-->
                 <!--######################################CONTENT LEFT#####################################-->
-            	<div class="content-left">
+                <div class="content-left">
                     @RenderBody()
-                </div><!--#END content-left-->
-            </div><!--#END content-->
-        </div><!--#END wrap-item-->
-    </div><!--#END main-->
-
+                </div>
+                <!--#END content-left-->
+            </div>
+            <!--#END content-->
+        </div>
+        <!--#END wrap-item-->
+    </div>
+    <!--#END main-->
     <div class="footer">
-    	<div class="wrap-item">
-        	<div class="footer-item">
-            	<div class="footer-item-title">
-                	FREE GOODIES
-                </div>
-                <div class="free-goodies">
-                	<div class="free-goodies-icon">
-                    	<img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-1.jpg")" />
-                    </div>
-                    <div class="free-goodies-content">
-                    	If you use Outlook, iPad, iPhone or any other iCalendar compatible application, you can <a href="#">Subscribe</a> or <a href="#">Download</a> for free our up-to-date calendar with the latest competitions deadlines.
-                    </div>
-                </div>
-                <div class="free-goodies">
-                	<div class="free-goodies-icon">
-                    	<img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-2.jpg")" />
-                    </div>
-                    <div class="free-goodies-content">
-                    	If you use a Mac, you can <a href="#">Download</a> our free Dashboard Widget to stay always up-to-date with the latest contests directly from your desktop.
-                    </div>
-                </div>
-                <div class="free-goodies">
-                	<div class="free-goodies-icon">
-                    	<img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-3.jpg")" />
-                    </div>
-                    <div class="free-goodies-content">
-                    	Worldwide map where all our visitors came from, 188 countries and counting!
-                    </div>
-                </div>
-            </div><!--#END FOOTER ITEM-->
+        <div class="wrap-item">
             <div class="footer-item">
-            	<div class="footer-item-title">
-                	Facebook
+                <div class="footer-item-title">
+                    FREE GOODIES
+                </div>
+                <div class="free-goodies">
+                    <div class="free-goodies-icon">
+                        <img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-1.jpg")" />
+                    </div>
+                    <div class="free-goodies-content">
+                        If you use Outlook, iPad, iPhone or any other iCalendar compatible application,
+                        you can <a href="#">Subscribe</a> or <a href="#">Download</a> for free our up-to-date
+                        calendar with the latest competitions deadlines.
+                    </div>
+                </div>
+                <div class="free-goodies">
+                    <div class="free-goodies-icon">
+                        <img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-2.jpg")" />
+                    </div>
+                    <div class="free-goodies-content">
+                        If you use a Mac, you can <a href="#">Download</a> our free Dashboard Widget to
+                        stay always up-to-date with the latest contests directly from your desktop.
+                    </div>
+                </div>
+                <div class="free-goodies">
+                    <div class="free-goodies-icon">
+                        <img alt="" src="@Url.Content("~/Content/Images/free-goodies-icon-3.jpg")" />
+                    </div>
+                    <div class="free-goodies-content">
+                        Worldwide map where all our visitors came from, 188 countries and counting!
+                    </div>
+                </div>
+            </div>
+            <!--#END FOOTER ITEM-->
+            <div class="footer-item">
+                <div class="footer-item-title">
+                    Facebook
                 </div>
                 <div class="facebook">
-                    <fb:fan profile_id="123384497805228" stream="0" connections="10" logobar="1" width="300" height="300"></fb:fan>
+                    <fb:fan profile_id="123384497805228" stream="0" connections="10" logobar="1" width="300"
+                        height="300"></fb:fan>
                 </div>
-            </div><!--#END FOOTER ITEM-->
+            </div>
+            <!--#END FOOTER ITEM-->
             <div class="footer-item">
-            	<div class="footer-item-title">
-                	FLICKR GROUP
+                <div class="footer-item-title">
+                    FLICKR GROUP
                 </div>
                 <div class="flickr-group">
-                	<img alt="" src="@Url.Content("~/Content/Images/flickr-group.jpg")" />
+                    <img alt="" src="@Url.Content("~/Content/Images/flickr-group.jpg")" />
                 </div>
-            </div><!--#END FOOTER ITEM-->
+            </div>
+            <!--#END FOOTER ITEM-->
         </div>
-    </div><!--#END footer-->
+    </div>
+    <!--#END footer-->
     <div class="copy-right">
-    	<div class="wrap-item">
-        	<div class="menu-footer">
-            	<ul>
-                	
+        <div class="wrap-item">
+            <div class="menu-footer">
+                <ul>
                     <li><a href="@Url.Content("~")">Home</a></li>
                     <li><a href="@Url.Content("~/Home/listAllCompetition")">Competitions</a></li>
                     <li><a href="@Url.Content("~/Home/listAllDesign")">Designs</a></li>
@@ -216,10 +267,10 @@
                     <li><a href="@Url.Content("~/Home/listAllStudent")">Students</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FAQs</a></li>
-               	</ul>
+                </ul>
             </div>
             <div class="copy-right-content">
-            	&copy; Copyright by <span>Tình Phong</span>
+                &copy; Copyright by <span>Tình Phong</span>
             </div>
         </div>
     </div>

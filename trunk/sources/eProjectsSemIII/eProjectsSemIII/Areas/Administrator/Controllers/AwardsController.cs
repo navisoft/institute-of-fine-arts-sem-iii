@@ -17,7 +17,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -34,7 +34,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult AwardCompetition(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -55,10 +55,10 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult AddAwardCompetition(string id, FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
-            //try
-            //{
+            try
+            {
                 int competitionID = Convert.ToInt16(id);
                 var db = new FineArtContext();
                 var competition = db.Competitions
@@ -124,18 +124,17 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     }
                     return View();
                 }
-            //}
-            //catch
-            //{
-            //    Session["admin"] = null;
-            //    return null;
-            //    //return Redirect("~/");
-            //}
+            }
+            catch
+            {
+                Session["admin"] = null;
+                return Redirect("~/");
+            }
         }
 
         public ActionResult Add(FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             if (form["submit_award"] != null)
@@ -177,9 +176,9 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Edit(string id, FormCollection form)
         {
-            //base.Authentication();
-            var db = new FineArtContext();
+            base.Authentication();
             base.LoadMenu();
+            var db = new FineArtContext();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -231,7 +230,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

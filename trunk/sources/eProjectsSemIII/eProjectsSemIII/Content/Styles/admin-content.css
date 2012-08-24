@@ -169,6 +169,8 @@ tr.table_title td.text-center{padding:10px 5px;line-height:normal;border-right:1
 .date{min-width:100px}
 .add{min-width:100px}
 
+.name{width:200px;padding-right:50px}
+
 td.text-center{text-align:center;border-right:1px solid #e7e7e7;}
 td.text-left{border-right:1px solid #e7e7e7;line-height:22px;padding:15px 0 15px 1%}
 

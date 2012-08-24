@@ -1,9 +1,11 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
-
-@{
-    ViewBag.Title = "Error";
-}
-
-<h2>
-    Sorry, an error occurred while processing your request.
-</h2>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/Content/Styles/error.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

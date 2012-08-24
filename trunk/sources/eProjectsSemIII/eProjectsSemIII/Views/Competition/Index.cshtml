@@ -1,0 +1,47 @@
+﻿@model IEnumerable<eProjectsSemIII.Models.Competitions> 
+<!--------------------THE LIST ALL COMPETITIONS--------------------->
+<div class="content-left-title">
+    List of the competitions
+</div>
+<div class="content-left-content">
+    @foreach (var competition in Model)
+    {
+        <div class="content-left-content-item">
+            <div class="item-image">
+                <img src="@Url.Content("~/Content/Images/competitions/" + @competition.Images)" alt="@competition.Name" />
+            </div>
+            <div class="item-detail">
+                <div class="item-detail-note">
+                    @competition.DeadlineDate.ToString("MMMM dd, yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    (deadline)
+                </div>
+                <div class="item-detail-title">
+                    <a href="@Url.Content("~/competition/detail/" + competition.Alias)">@competition.Name</a>
+                </div>
+                <div class="item-detail-content">
+                    @if (@competition.Summary.Length > 240)
+                    {
+                        @competition.Summary.Substring(0, 240)
+                    }
+                    else
+                    {
+                        @competition.Summary
+                    }...
+                </div>
+                <div class="item-detail-date">
+                    Start Date: @competition.StartDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    - @competition.EndDate.ToString("dd/MMM/yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                </div>
+                <div class="item-detail-link">
+                    <a href="@Url.Content("~/competition/detail/" + @competition.Alias)")>View detail</a>
+                </div>
+            </div>
+        </div>                       
+    }
+</div>
+@if (ViewBag.pagingString != null)
+{
+    <div class="paging">
+        @Html.Raw(ViewBag.pagingString)
+    </div>
+}
