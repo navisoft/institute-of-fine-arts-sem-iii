@@ -16,7 +16,9 @@ namespace eProjectsSemIII.Controllers
         // list upcomming with items
         public ActionResult Index()
         {
+
             base.Authentication();
+            
             if (Session["user-loged"] != null && Session["user-loged"].ToString() != "")
             {
                 var upcomming = db.Competitions.Where(s => s.StartDate > DateTime.Now).ToList();
@@ -78,13 +80,12 @@ namespace eProjectsSemIII.Controllers
                 string username = Session["user-loged"].ToString();
                 var db = new FineArtContext();
                 var member = db.Members.Include("Role").Where(m => m.Username == username).First();
-                var menus = db.Menus.Include("Role").ToList();
-                foreach (Menus menu in menus)
+                Roles role = member.Role;
+                var menus = db.Menus.Include("Role").Where(m => m.Role.Any(r => r.ID == member.Role.ID)).ToList();
+                if (menus.Count > 0)
                 {
-                    Response.Write(menu.Role.Contains(member.Role));
+                    ViewBag.gotoAdmin = true;
                 }
-
-                Response.Write(menus.Count);
                 return PartialView(member);
             }
             catch
