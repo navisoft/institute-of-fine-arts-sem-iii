@@ -322,6 +322,7 @@
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Member\Profile.cshtml" />
     <Content Include="Views\Design\Search.cshtml" />
+    <Content Include="Views\Home\GotoManagerPage.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -340,7 +341,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6104</DevelopmentServerPort>
+          <DevelopmentServerPort>13205</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

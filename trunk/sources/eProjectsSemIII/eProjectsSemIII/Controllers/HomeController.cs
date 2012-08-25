@@ -53,14 +53,6 @@ namespace eProjectsSemIII.Controllers
                     memberAward.Design = item.Key;
                     listMemberAward.Add(memberAward);
                 }
-                string username = Session["user-loged"].ToString();
-                var memberOther = db.Members.Include("Role").Where(m => m.Username == username).First();
-                var menus = db.Menus.Include("Role").Where(m => m.Role.Any(r => r.ID == memberOther.Role.ID)).ToList();
-                if (menus.Count > 0)
-                {
-                    ViewBag.gotoAdmin = true;
-                    ViewBag.page = memberOther.Role.Name;
-                }
                 ViewBag.listMemberAward = listMemberAward;
                 return View(upcomming);
             }
@@ -95,6 +87,27 @@ namespace eProjectsSemIII.Controllers
                     ViewBag.gotoAdmin = true;
                 }
                 return PartialView(member);
+            }
+            catch
+            {
+                return Redirect("~/member");
+            }
+        }
+        [ChildActionOnly]
+        public virtual ActionResult GotoManagerPage()
+        {
+            try
+            {
+                var db = new FineArtContext();
+                string username = Session["user-loged"].ToString();
+                var memberOther = db.Members.Include("Role").Where(m => m.Username == username).First();
+                var menus = db.Menus.Include("Role").Where(m => m.Role.Any(r => r.ID == memberOther.Role.ID)).ToList();
+                if (menus.Count > 0)
+                {
+                    ViewBag.gotoAdmin = true;
+                    ViewBag.page = memberOther.Role.Name;
+                }
+                return PartialView();
             }
             catch
             {

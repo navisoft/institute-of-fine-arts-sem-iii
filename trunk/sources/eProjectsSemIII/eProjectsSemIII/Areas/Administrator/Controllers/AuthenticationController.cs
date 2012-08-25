@@ -22,7 +22,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          * Author: Le Dang Son
          * Date: 06/08/2012
          */
-        public void Authentication()
+        public int Authentication()
         {
             if (Session["admin"] != null)
             {
@@ -33,22 +33,29 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     Menus menusModels = new Menus();
                     menusModels.Controller = RouteData.Values["controller"].ToString().ToLower();
                     menusModels.Action = RouteData.Values["action"].ToString().ToLower();
-
-                    if (menusModels.CheckMenuOfRole(member.Role.ID) == false)
+                    var db = new FineArtContext();
+                    var query = db.Menus.Include("Role")
+                        .Where(m => m.Controller == ((menusModels.Controller == "index") ? "" : menusModels.Controller)
+                            && m.Action == ((menusModels.Action == "index") ? "" : menusModels.Action))
+                            .FirstOrDefault();
+                    var role = query.Role.Where(r => r.ID == member.Role.ID).FirstOrDefault();
+                    if (role == null)
                     {
-                        Session["admin"] = null;
-                        Response.Redirect("~/", true);
+                        return 2;
+                    }
+                    else
+                    {
+                        return 1;
                     }
                 }
                 else
                 {
-                    Session["admin"] = null;
-                    Response.Redirect("~/", true);
+                    return 0;
                 }
             }
             else
             {
-                Response.Redirect("~/administrator/members/login", true);
+                return 0;
             }
         }
 

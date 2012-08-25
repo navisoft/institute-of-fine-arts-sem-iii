@@ -33,31 +33,31 @@
 .item_content_action{float:right;background:#fff;margin:0 10px;text-align:center;cursor:pointer;color:#0681C8}
 .item_content_action:hover{color:#F90}
 .item_content_action a{color:#0681C8;text-decoration:none}
-#help_action{width:35px;height:35px;background:url(../images/admins/menu-icon/help_icon_35.png) no-repeat}
-#help_action:hover{background:url(../images/admins/menu-icon/help_icon_35_hover.png) no-repeat}
-#add_action{width:35px;height:35px;background:url(../images/admins/menu-icon/add_icon_35.png) no-repeat}
-#add_action:hover{background:url(../images/admins/menu-icon/add_icon_35_hover.png) no-repeat}
-#update_action{width:35px;height:35px;background:url(../images/admins/menu-icon/update_icon_35.png) no-repeat}
-#update_action:hover{background:url(../images/admins/menu-icon/update_icon_35_hover.png) no-repeat}
-#delete_action{width:35px;height:35px;background:url(../images/admins/menu-icon/delete_icon_35.png) no-repeat}
-#delete_action:hover{background:url(../images/admins/menu-icon/delete_icon_35_hover.png) no-repeat}
-#go_back_action{width:35px;height:35px;background:url(../images/admins/menu-icon/go_back_icon_35.png) no-repeat}
-#go_back_action:hover{background:url(../images/admins/menu-icon/go_back_icon_35_hover.png) no-repeat}
-#edit_action{width:35px;height:35px;background:url(../images/admins/menu-icon/edit_icon_35.png) no-repeat}
-#edit_action:hover{background:url(../images/admins/menu-icon/edit_icon_35_hover.png) no-repeat}
+#help_action{width:35px;height:35px;background:url(../images/admins/menu-icon/help_icon_35.png) no-repeat;float:left}
+#help_action:hover{background:url(../images/admins/menu-icon/help_icon_35_hover.png) no-repeat;float:left}
+#add_action{width:35px;height:35px;background:url(../images/admins/menu-icon/add_icon_35.png) no-repeat;float:left}
+#add_action:hover{background:url(../images/admins/menu-icon/add_icon_35_hover.png) no-repeat;float:left}
+#update_action{width:35px;height:35px;background:url(../images/admins/menu-icon/update_icon_35.png) no-repeat;float:left}
+#update_action:hover{background:url(../images/admins/menu-icon/update_icon_35_hover.png) no-repeat;float:left}
+#delete_action{width:35px;height:35px;background:url(../images/admins/menu-icon/delete_icon_35.png) no-repeat;float:left}
+#delete_action:hover{background:url(../images/admins/menu-icon/delete_icon_35_hover.png) no-repeat;float:left}
+#go_back_action{width:35px;height:35px;background:url(../images/admins/menu-icon/go_back_icon_35.png) no-repeat;float:left}
+#go_back_action:hover{background:url(../images/admins/menu-icon/go_back_icon_35_hover.png) no-repeat;float:left}
+#edit_action{width:35px;height:35px;background:url(../images/admins/menu-icon/edit_icon_35.png) no-repeat;float:left}
+#edit_action:hover{background:url(../images/admins/menu-icon/edit_icon_35_hover.png) no-repeat;float:left}
 
-#help_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/help_icon_35.png) no-repeat}
-#help_action1:hover{background:url(../images/admins/menu-icon/help_icon_35_hover.png) no-repeat}
-#add_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/add_icon_35.png) no-repeat}
-#add_action1:hover{background:url(../images/admins/menu-icon/add_icon_35_hover.png) no-repeat}
-#update_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/update_icon_35.png) no-repeat}
-#update_action1:hover{background:url(../images/admins/menu-icon/update_icon_35_hover.png) no-repeat}
-#delete_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/delete_icon_35.png) no-repeat}
-#delete_action1:hover{background:url(../images/admins/menu-icon/delete_icon_35_hover.png) no-repeat}
-#go_back_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/go_back_icon_35.png) no-repeat}
-#go_back_action1:hover{background:url(../images/admins/menu-icon/go_back_icon_35_hover.png) no-repeat}
-#edit_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/edit_icon_35.png) no-repeat}
-#edit_action1:hover{background:url(../images/admins/menu-icon/edit_icon_35_hover.png) no-repeat}
+#help_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/help_icon_35.png) no-repeat;float:left}
+#help_action1:hover{background:url(../images/admins/menu-icon/help_icon_35_hover.png) no-repeat;float:left}
+#add_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/add_icon_35.png) no-repeat;float:left}
+#add_action1:hover{background:url(../images/admins/menu-icon/add_icon_35_hover.png) no-repeat;float:left}
+#update_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/update_icon_35.png) no-repeat;float:left}
+#update_action1:hover{background:url(../images/admins/menu-icon/update_icon_35_hover.png) no-repeat;float:left}
+#delete_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/delete_icon_35.png) no-repeat;float:left}
+#delete_action1:hover{background:url(../images/admins/menu-icon/delete_icon_35_hover.png) no-repeat;float:left}
+#go_back_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/go_back_icon_35.png) no-repeat;float:left}
+#go_back_action1:hover{background:url(../images/admins/menu-icon/go_back_icon_35_hover.png) no-repeat;float:left}
+#edit_action1{width:35px;height:35px;background:url(../images/admins/menu-icon/edit_icon_35.png) no-repeat;float:left}
+#edit_action1:hover{background:url(../images/admins/menu-icon/edit_icon_35_hover.png) no-repeat;float:left}
 
 /*------------------------------------------------FORM------------------------------------------------------------*/
 .form_panel{

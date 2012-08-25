@@ -50,14 +50,14 @@
                 @foreach (var parentMenu in listParentMenu)
                 {
                     <a href="@Url.Content("~/administrator/" + parentMenu.Controller + "/" + parentMenu.Action)" class="item_navigation_content">
-                        <div>
-                    	    <div class='logo_item_navigation'>
+                        <span>
+                    	    <span class='logo_item_navigation'>
                                 <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/"+parentMenu.Icon)" />
-                            </div>
-                            <div class='text_item_navigation'>
+                            </span>
+                            <span class='text_item_navigation'>
                                 @parentMenu.Name
-                            </div>
-                        </div> 
+                            </span>
+                        </span> 
                     </a>
                     var listChildMenu = listMenuMain.Where(m => m.ParentID == parentMenu.ID && m.Display == true);
                     <div class='item_navigation_son'>
@@ -74,6 +74,13 @@
                 }
                 </div>
 				<div class="main_content">
+                @if (Session["errorContorllerAction"] != null)
+                {
+                    <div class="path_menu">
+                        <span class="error-controller-action">This action no have in your action. Please contact administrator for this issue, thank!</span>
+                    </div>
+                    Session["errorContorllerAction"] = null;
+                }
                 @RenderBody()                	
                 </div><!--#END main_content-->
             </div><!--#END content-->

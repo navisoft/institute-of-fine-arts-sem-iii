@@ -24,18 +24,30 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index()
         {
-            base.Authentication();
-            base.LoadMenu();
-            ViewBag.Title += " Home";
-            var db = new FineArtContext();
-            ViewBag.totalCompetition = db.Competitions.Count();
-            ViewBag.totalDesign = db.Designs.Count();
-            ViewBag.totalKind = db.Kinds.Count();
-            ViewBag.totalExhibition = db.Exhibitions.Count();
-            ViewBag.totalMember = db.Members.Count();
+            int admin = base.Authentication();
+            if (admin == 0)
+            {
+                return Redirect("~/member/logout");
+            }
+            else if (admin == 1)
+            {
+                base.LoadMenu();
+                ViewBag.Title += " Home";
+                var db = new FineArtContext();
+                ViewBag.totalCompetition = db.Competitions.Count();
+                ViewBag.totalDesign = db.Designs.Count();
+                ViewBag.totalKind = db.Kinds.Count();
+                ViewBag.totalExhibition = db.Exhibitions.Count();
+                ViewBag.totalMember = db.Members.Count();
 
-            ViewBag.newDesign = db.Designs.Include("Member").OrderBy(d => d.DatePost).Skip(0).Take(4);
-            return View();
+                ViewBag.newDesign = db.Designs.Include("Member").OrderBy(d => d.DatePost).Skip(0).Take(4);
+                return View();
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
+            }
         }
     }
 }

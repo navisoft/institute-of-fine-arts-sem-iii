@@ -17,83 +17,45 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            base.Authentication();
-            base.LoadMenu();
-            int currentPage = Paging.GetPage(id);
-            decimal totalRecord = GlobalInfo.NumberRecordInPage;
-            Classes classesModels = new Classes();
-            decimal totalClasses = classesModels.TotalClasses();
-            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalClasses / totalRecord));
-            Paging.numPage = totalPage;
-            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
-            Paging.currentPage = currentPage;
-            string url = "administrator/classes/index";
-            ViewBag.pagingString = Paging.GenerateLinkPaging(url);
-            ViewBag.Title += " Classes";
-            return View(classesModels.ListClasses((int)((currentPage - 1) * totalRecord), (int)totalRecord));
+            int admin = base.Authentication();
+            if (admin == 0)
+            {
+                return Redirect("~/member/logout");
+            }
+            else if (admin == 1)
+            {
+                base.LoadMenu();
+                int currentPage = Paging.GetPage(id);
+                decimal totalRecord = GlobalInfo.NumberRecordInPage;
+                Classes classesModels = new Classes();
+                decimal totalClasses = classesModels.TotalClasses();
+                int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalClasses / totalRecord));
+                Paging.numPage = totalPage;
+                Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+                Paging.currentPage = currentPage;
+                string url = "administrator/classes/index";
+                ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+                ViewBag.Title += " Classes";
+                return View(classesModels.ListClasses((int)((currentPage - 1) * totalRecord), (int)totalRecord));
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
+            }
         }
         public ActionResult Add(FormCollection form)
         {
-            base.Authentication();
-            base.LoadMenu();
-            var db = new FineArtContext();
-            if (form["submit_class"] != null)
+            int admin = base.Authentication();
+            if (admin == 0)
             {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append("<ul>");
-                Strings stringsLibs = new Strings();
-                if (form["Name"].Trim() == "")
-                {
-                    stringBuilder.Append("<li>Please type class name</li>");
-                }
-                if (form["Alias"].Trim() == "")
-                {
-                    stringBuilder.Append("<li>Please type class alias</li>");
-                }
-                else
-                {
-                    try
-                    {
-                        string alias = form["Alias"].Trim().ToString();
-                        var classModels = db.Classes.Where(c => c.Alias == alias).First();
-                        stringBuilder.Append("<li>This class alias had been exists in database, try a different</li>");
-                    }
-                    catch { }
-                }
-
-                if (stringBuilder.ToString() == "<ul>")
-                {
-                    Classes classModels = new Classes { Name = form["Name"],Alias=form["Alias"], DateUpdate = DateTime.Now};
-                    db.Classes.Add(classModels);
-                    db.SaveChanges();
-                    ViewBag.success = "Add class success!";
-                }
-                else
-                {
-                    stringBuilder.Append("</ul>");
-                    ViewBag.error = stringBuilder.ToString();
-                    ViewBag.dataForm = form;
-                }
+                return Redirect("~/member/logout");
             }
-            return View();
-        }
-
-        public ActionResult Edit(string id, FormCollection form)
-        {
-            base.Authentication();
-            var db = new FineArtContext();
-            base.LoadMenu();
-            try
+            else if (admin == 1)
             {
-                int idd = Convert.ToInt16(id);
-                Classes classModels = db.Classes.Where(c => c.ID == idd).FirstOrDefault();
-                if (form["submit_class"] == null)
-                {
-                    form["Name"] = classModels.Name;
-                    form["Alias"] = classModels.Alias;
-                    ViewBag.dataForm = form;
-                }
-                else
+                base.LoadMenu();
+                var db = new FineArtContext();
+                if (form["submit_class"] != null)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
                     stringBuilder.Append("<ul>");
@@ -106,23 +68,23 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                     {
                         stringBuilder.Append("<li>Please type class alias</li>");
                     }
-                    else if(form["Alias"] != classModels.Alias)
+                    else
                     {
                         try
                         {
                             string alias = form["Alias"].Trim().ToString();
-                            var classes = db.Classes.Where(c => c.Alias == alias).First();
+                            var classModels = db.Classes.Where(c => c.Alias == alias).First();
                             stringBuilder.Append("<li>This class alias had been exists in database, try a different</li>");
                         }
                         catch { }
                     }
+
                     if (stringBuilder.ToString() == "<ul>")
                     {
-                        classModels.Name = form["Name"];
-                        classModels.Alias = form["Alias"];
+                        Classes classModels = new Classes { Name = form["Name"], Alias = form["Alias"], DateUpdate = DateTime.Now };
+                        db.Classes.Add(classModels);
                         db.SaveChanges();
-                        ViewBag.dataForm = form;
-                        ViewBag.success = "Update class success!";
+                        ViewBag.success = "Add class success!";
                     }
                     else
                     {
@@ -133,29 +95,115 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
                 }
                 return View();
             }
-            catch
+            else
             {
-                Session["admin"] = null;
-                return Redirect("~/");
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
+            }
+        }
+
+        public ActionResult Edit(string id, FormCollection form)
+        {
+            int admin = base.Authentication();
+            if (admin == 0)
+            {
+                return Redirect("~/member/logout");
+            }
+            else if (admin == 1)
+            {
+                var db = new FineArtContext();
+                base.LoadMenu();
+                try
+                {
+                    int idd = Convert.ToInt16(id);
+                    Classes classModels = db.Classes.Where(c => c.ID == idd).FirstOrDefault();
+                    if (form["submit_class"] == null)
+                    {
+                        form["Name"] = classModels.Name;
+                        form["Alias"] = classModels.Alias;
+                        ViewBag.dataForm = form;
+                    }
+                    else
+                    {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.Append("<ul>");
+                        Strings stringsLibs = new Strings();
+                        if (form["Name"].Trim() == "")
+                        {
+                            stringBuilder.Append("<li>Please type class name</li>");
+                        }
+                        if (form["Alias"].Trim() == "")
+                        {
+                            stringBuilder.Append("<li>Please type class alias</li>");
+                        }
+                        else if (form["Alias"] != classModels.Alias)
+                        {
+                            try
+                            {
+                                string alias = form["Alias"].Trim().ToString();
+                                var classes = db.Classes.Where(c => c.Alias == alias).First();
+                                stringBuilder.Append("<li>This class alias had been exists in database, try a different</li>");
+                            }
+                            catch { }
+                        }
+                        if (stringBuilder.ToString() == "<ul>")
+                        {
+                            classModels.Name = form["Name"];
+                            classModels.Alias = form["Alias"];
+                            db.SaveChanges();
+                            ViewBag.dataForm = form;
+                            ViewBag.success = "Update class success!";
+                        }
+                        else
+                        {
+                            stringBuilder.Append("</ul>");
+                            ViewBag.error = stringBuilder.ToString();
+                            ViewBag.dataForm = form;
+                        }
+                    }
+                    return View();
+                }
+                catch
+                {
+                    Session["admin"] = null;
+                    return Redirect("~/");
+                }
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
             }
         }
 
         public ActionResult Delete(string id)
         {
-            base.Authentication();
-            try
+            int admin = base.Authentication();
+            if (admin == 0)
             {
-                int idd = Convert.ToInt16(id);
-                var db = new FineArtContext();
-                Classes classes = db.Classes.Where(c => c.ID == idd).First();
-                db.Classes.Remove(classes);
-                db.SaveChanges();
-                return Redirect("~/administrator/classes/");
+                return Redirect("~/member/logout");
             }
-            catch
+            else if (admin == 1)
             {
-                Session["admin"] = null;
-                return Redirect("~/");
+                try
+                {
+                    int idd = Convert.ToInt16(id);
+                    var db = new FineArtContext();
+                    Classes classes = db.Classes.Where(c => c.ID == idd).First();
+                    db.Classes.Remove(classes);
+                    db.SaveChanges();
+                    return Redirect("~/administrator/classes/");
+                }
+                catch
+                {
+                    Session["admin"] = null;
+                    return Redirect("~/");
+                }
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
             }
         }
     }

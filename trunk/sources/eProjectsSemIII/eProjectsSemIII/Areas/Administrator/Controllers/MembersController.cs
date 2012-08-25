@@ -32,96 +32,132 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index(string id)
         {
-            base.Authentication();
-            base.LoadMenu();
-            int currentPage = Paging.GetPage(id);
-            decimal totalRecord = GlobalInfo.NumberRecordInPage;
-            Members membersModels = new Members();
-            decimal totalMember = membersModels.TotalMember();
-            int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalMember / totalRecord));
-            Paging.numPage = totalPage;
-            Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
-            Paging.currentPage = currentPage;
-            string url = "administrator/members/index";
-            ViewBag.pagingString = Paging.GenerateLinkPaging(url);
-            ViewBag.Title += " Members";
-            return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
+            int admin = base.Authentication();
+            if (admin == 0)
+            {
+                return Redirect("~/member/logout");
+            }
+            else if (admin == 1)
+            {
+                base.LoadMenu();
+                int currentPage = Paging.GetPage(id);
+                decimal totalRecord = GlobalInfo.NumberRecordInPage;
+                Members membersModels = new Members();
+                decimal totalMember = membersModels.TotalMember();
+                int totalPage = (int)Math.Ceiling(Convert.ToDecimal(totalMember / totalRecord));
+                Paging.numPage = totalPage;
+                Paging.numLinkDisplay = GlobalInfo.NumLinkPagingDisplay;
+                Paging.currentPage = currentPage;
+                string url = "administrator/members/index";
+                ViewBag.pagingString = Paging.GenerateLinkPaging(url);
+                ViewBag.Title += " Members";
+                return View(membersModels.ListMembers((int)((currentPage - 1) * totalRecord), (int)totalRecord));
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
+            }
         }
 
         public ActionResult MembersClass(string id)
         {
-            base.Authentication();
-            base.LoadMenu();
-            try
+            int admin = base.Authentication();
+            if (admin == 0)
             {
-                int idd = Convert.ToInt16(id);
-                Classes classModels = new Classes();
-                classModels.ID = idd;
-                classModels = classModels.GetNavigationWithID("Member");
-                ViewBag.Title += " Members of " + classModels.Name + " Class";
-                List<Members> listMembers = classModels.Member.ToList();
-                List<Members> listMembersNew = new List<Members>();
-                listMembers.ForEach(delegate(Members member)
-                {
-                    member = member.GetMemberWithID();
-                    listMembersNew.Add(member);
-                });
-                return View(listMembersNew);
+                return Redirect("~/member/logout");
             }
-            catch
+            else if (admin == 1)
             {
-                Session["admin"] = null;
-                return Redirect("~/");
+                base.LoadMenu();
+                try
+                {
+                    int idd = Convert.ToInt16(id);
+                    Classes classModels = new Classes();
+                    classModels.ID = idd;
+                    classModels = classModels.GetNavigationWithID("Member");
+                    ViewBag.Title += " Members of " + classModels.Name + " Class";
+                    List<Members> listMembers = classModels.Member.ToList();
+                    List<Members> listMembersNew = new List<Members>();
+                    listMembers.ForEach(delegate(Members member)
+                    {
+                        member = member.GetMemberWithID();
+                        listMembersNew.Add(member);
+                    });
+                    return View(listMembersNew);
+                }
+                catch
+                {
+                    Session["admin"] = null;
+                    return Redirect("~/");
+                }
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
             }
         }
 
         public ActionResult Edit(string id, FormCollection form)
         {
-            base.Authentication();
-            base.LoadMenu();
-            try
+            int admin = base.Authentication();
+            if (admin == 0)
             {
-                var db = new FineArtContext();
-                int memberID = Convert.ToInt16(id);
-                var member = db.Members.Include("Role").Include("Class").Where(m => m.ID == memberID).First();
-                ViewBag.listRole = db.Roles.ToList();
-                ViewBag.listClass = db.Classes.ToList();
-                if (form["submit_member"] == null)
+                return Redirect("~/member/logout");
+            }
+            else if (admin == 1)
+            {
+                base.LoadMenu();
+                try
                 {
-                    form["Name"] = member.Name;
-                    form["Username"] = member.Username;
-                    form["Role"] = member.Role.ID.ToString();
-                    form["Email"] = member.Email;
-                    form["Address"] = member.Address;
-                    form["Phone"] = member.Phone;
-                    if (member.Class != null)
+                    var db = new FineArtContext();
+                    int memberID = Convert.ToInt16(id);
+                    var member = db.Members.Include("Role").Include("Class").Where(m => m.ID == memberID).First();
+                    ViewBag.listRole = db.Roles.ToList();
+                    ViewBag.listClass = db.Classes.ToList();
+                    if (form["submit_member"] == null)
                     {
-                        form["Class"] = member.Class.ID.ToString();
-                    }
-                    form["Gender"] = member.Gender;
-                    form["Birthday"] = member.Birthday.ToString();
-                    form["Datejoin"] = member.Datejoin.ToString();
+                        form["Name"] = member.Name;
+                        form["Username"] = member.Username;
+                        form["Role"] = member.Role.ID.ToString();
+                        form["Email"] = member.Email;
+                        form["Address"] = member.Address;
+                        form["Phone"] = member.Phone;
+                        if (member.Class != null)
+                        {
+                            form["Class"] = member.Class.ID.ToString();
+                        }
+                        form["Gender"] = member.Gender;
+                        form["Birthday"] = member.Birthday.ToString();
+                        form["Datejoin"] = member.Datejoin.ToString();
 
-                    ViewBag.dataForm = form;
-                    return View();
+                        ViewBag.dataForm = form;
+                        return View();
+                    }
+                    else
+                    {
+                        int roleID = Convert.ToInt16(form["Role"]);
+                        var role = db.Roles.Where(r => r.ID == roleID).First();
+                        int classID = Convert.ToInt16(form["Class"]);
+                        var classs = db.Classes.Where(c => c.ID == classID).First();
+                        member.Role = role;
+                        member.Class = classs;
+                        db.SaveChanges();
+                        ViewBag.success = "Update member successfully!";
+                        ViewBag.dataForm = form;
+                        return View();
+                    }
                 }
-                else
+                catch
                 {
-                    int roleID = Convert.ToInt16(form["Role"]);
-                    var role = db.Roles.Where(r => r.ID == roleID).First();
-                    int classID = Convert.ToInt16(form["Class"]);
-                    var classs = db.Classes.Where(c => c.ID == classID).First();
-                    member.Role = role;
-                    member.Class = classs;
-                    db.SaveChanges();
-                    ViewBag.success = "Update member successfully!";
-                    ViewBag.dataForm = form;
-                    return View();
+                    return null;
                 }
             }
-            catch
+            else
             {
-                return null;
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
             }
         }
 
@@ -205,31 +241,43 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         public ActionResult Logout()
         {
             Session["admin"] = null;
-            return Redirect("/administrator/members/login");
+            return Redirect("/member/logout");
         }
 
         public ActionResult Delete(string id)
         {
-            base.Authentication();
-            try
+            int admin = base.Authentication();
+            if (admin == 0)
             {
-                int idd = Convert.ToInt16(id);
-                var db = new FineArtContext();
-                List<Marks> listMark = db.Marks.Where(m => m.Staff.ID == idd).ToList();
-                listMark.ForEach(delegate(Marks mark)
-                {
-                    mark.Staff = null;
-                    db.SaveChanges();
-                });
-                Members member = db.Members.Where(m => m.ID == idd).First();
-                db.Members.Remove(member);
-                db.SaveChanges();
-                return Redirect("~/administrator/members/");
+                return Redirect("~/member/logout");
             }
-            catch
+            else if (admin == 1)
             {
-                Session["admin"] = null;
-                return Redirect("~/");
+                try
+                {
+                    int idd = Convert.ToInt16(id);
+                    var db = new FineArtContext();
+                    List<Marks> listMark = db.Marks.Where(m => m.Staff.ID == idd).ToList();
+                    listMark.ForEach(delegate(Marks mark)
+                    {
+                        mark.Staff = null;
+                        db.SaveChanges();
+                    });
+                    Members member = db.Members.Where(m => m.ID == idd).First();
+                    db.Members.Remove(member);
+                    db.SaveChanges();
+                    return Redirect("~/administrator/members/");
+                }
+                catch
+                {
+                    Session["admin"] = null;
+                    return Redirect("~/");
+                }
+            }
+            else
+            {
+                Session["errorContorllerAction"] = true;
+                return Redirect("~/administrator");
             }
         }
     }
