@@ -11,7 +11,6 @@ namespace eProjectsSemIII.Controllers
 {
     public class HomeController : AuthenticationController
     {
-        private FineArtContext db = new FineArtContext();
 
         // list upcomming with items
         public ActionResult Index()
@@ -21,6 +20,7 @@ namespace eProjectsSemIII.Controllers
             
             if (Session["user-loged"] != null && Session["user-loged"].ToString() != "")
             {
+                var db = new FineArtContext();
                 var upcomming = db.Competitions.Where(s => s.StartDate > DateTime.Now).ToList();
                 ViewBag.upcomming = upcomming;
 
@@ -53,6 +53,14 @@ namespace eProjectsSemIII.Controllers
                     memberAward.Design = item.Key;
                     listMemberAward.Add(memberAward);
                 }
+                string username = Session["user-loged"].ToString();
+                var memberOther = db.Members.Include("Role").Where(m => m.Username == username).First();
+                var menus = db.Menus.Include("Role").Where(m => m.Role.Any(r => r.ID == memberOther.Role.ID)).ToList();
+                if (menus.Count > 0)
+                {
+                    ViewBag.gotoAdmin = true;
+                    ViewBag.page = memberOther.Role.Name;
+                }
                 ViewBag.listMemberAward = listMemberAward;
                 return View(upcomming);
             }
@@ -66,6 +74,7 @@ namespace eProjectsSemIII.Controllers
         [ChildActionOnly]
         public virtual ActionResult Kind()
         {
+            var db = new FineArtContext();
             var kinds = db.Kinds.ToList();
             ViewBag.kind = kinds;
             return PartialView();
@@ -80,7 +89,6 @@ namespace eProjectsSemIII.Controllers
                 string username = Session["user-loged"].ToString();
                 var db = new FineArtContext();
                 var member = db.Members.Include("Role").Where(m => m.Username == username).First();
-                Roles role = member.Role;
                 var menus = db.Menus.Include("Role").Where(m => m.Role.Any(r => r.ID == member.Role.ID)).ToList();
                 if (menus.Count > 0)
                 {

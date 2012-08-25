@@ -27,7 +27,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index()
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             List<Menus> listMenu = new FineArtContext().Menus.ToList();
             ViewBag.Title += " Menus";
@@ -51,7 +51,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult MenusRole(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -87,7 +87,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult AddMenuRole(string id,FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -119,8 +119,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult RemoveMenuRole(string id,string param)
         {
-
-
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -142,7 +141,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Disable(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -160,7 +159,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Enable(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -178,7 +177,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Add(FormCollection form, HttpPostedFileBase Icon)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             var query = db.Menus.Where(m => m.ParentID == -1);
@@ -264,7 +263,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Edit(string id, FormCollection form, HttpPostedFileBase Icon)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -368,7 +367,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
