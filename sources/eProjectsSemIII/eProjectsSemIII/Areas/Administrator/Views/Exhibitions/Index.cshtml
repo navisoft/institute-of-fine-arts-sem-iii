@@ -43,63 +43,87 @@
             </a>
         </div>
     </div>
-    <!--#END content_action-->
+<!--#END content_action-->
 </div>
 <!--#END path_menu title_and_action-->
 @if (ViewBag.pagingString != "" && ViewBag.pagingString != null)
 {
-<div class="path_menu">
-    <div class="paging">
-        @Html.Raw(ViewBag.pagingString)
+    <div class="path_menu">
+        <div class="paging">
+            @Html.Raw(ViewBag.pagingString)
+        </div>
     </div>
-</div>
 }
 <!--===================================CHO DANH CHO VIEC SHOW FORM=================================================-->
 <div class="path_menu">
     <div class="list_item">
         <table>
             <tr class="table_title">
-                <td class="text-center">No.</td>
-                <td class="text-left">Name</td>
-                <td class="text-center">Image</td>
-                <td class="text-center">Start Date</td>
-                <td class="text-center">End Date</td>
-                <td class="text-center">Designs</td>
-                <td class="text-center edit">Edit</td>
-                <td class="text-center">Delete</td>
+                <td class="text-center">
+                    No.
+                </td>
+                <td class="text-left">
+                    Name
+                </td>
+                <td class="text-center">
+                    Image
+                </td>
+                <td class="text-center">
+                    Start Date
+                </td>
+                <td class="text-center">
+                    End Date
+                </td>
+                <td class="text-center">
+                    Designs
+                </td>
+                <td class="text-center edit">
+                    Edit
+                </td>
+                <td class="text-center">
+                    Delete
+                </td>
             </tr>
             @foreach (var exhibition in Model)
             {
-            <tr>
-                <td class="text-center num-id">@exhibition.ID</td>
-                <td class="text-left">@exhibition.Name</td>
-                <td class="text-center paddings exhibition-image"><img alt="" src="@Url.Content("~/Content/Images/exhibitions/"+@exhibition.Image)" /></td>
-                <td class="text-center">@exhibition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</td>
-                <td class="text-center"><a href="@Url.Content("~/administrator/designs/designexhibition/" + exhibition.ID)">Designs</a></td>
-                <td class="text-center">
-                    <a href="@Url.Content("~/administrator/exhibitions/edit/"+exhibition.ID)">
-                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                    </a>
-                </td>
-                <td class="text-center">
-                    <a href="@Url.Content("~/administrator/exhibitions/delete/"+exhibition.ID)">
-                        <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
-                    </a>
-                </td>
-            </tr>
+                <tr>
+                    <td class="text-center num-id">@exhibition.ID
+                    </td>
+                    <td class="text-left">@exhibition.Name
+                    </td>
+                    <td class="text-center paddings exhibition-image">
+                        <img alt="" src="@Url.Content("~/Content/Images/exhibitions/" + @exhibition.Image)" />
+                    </td>
+                    <td class="text-center">@exhibition.StartDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    </td>
+                    <td class="text-center">@exhibition.EndDate.ToString("dd-MMM-yyyy", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Content("~/administrator/designs/designexhibition/" + exhibition.ID)">
+                            Designs</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Content("~/administrator/exhibitions/edit/" + exhibition.ID)">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Content("~/administrator/exhibitions/delete/" + exhibition.ID)">
+                            <img alt="" src="@Url.Content("~/Content/Images/admins/menu-icon/edit_icon_20.png")" />
+                        </a>
+                    </td>
+                </tr>
             }
         </table>
     </div>
 </div>
-
 @if (ViewBag.pagingString != "" && ViewBag.pagingString != null)
 {
-<div class="path_menu">
-    <div class="paging">
-        @Html.Raw(ViewBag.pagingString)
+    <div class="path_menu">
+        <div class="paging">
+            @Html.Raw(ViewBag.pagingString)
+        </div>
     </div>
-</div>
 }
 <!--================================#END CHO DANH CHO VIEC SHOW FORM===============================================-->
 <div class="path_menu title_and_action">

@@ -48,7 +48,7 @@
                                     @foreach (eProjectsSemIII.Models.Designs design in ViewBag.newDesign)
                                     {                                        
                                     	<li>
-                                        	<a href="#">@design.Member.Name - @design.Member.Email</a>
+                                        	<a href="@Url.Content("~/design/detail/"+design.Alias)">@design.Member.Name - @design.Member.Email</a>
                                             <span class="info_content_content_statistics">(Date post: @design.DatePost)</span>
                                         </li>
                                     }

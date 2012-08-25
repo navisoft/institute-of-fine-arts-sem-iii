@@ -56,3 +56,4 @@ a .item_navigation_content{border:1px solid #dfdfdf;border-bottom: none;}
 .main_content{float:left;width:100%;margin-bottom:15px;}
 
 .footer{float:left;width:100%;height:30px;margin:20px auto 10px auto;text-align:center;font-weight:bold;color:#0681C8;font-size:110%}
+.error-controller-action{float:left;width:100%;padding:20px 20px;color:#f00;font-size:12px;font-weight:bold;}

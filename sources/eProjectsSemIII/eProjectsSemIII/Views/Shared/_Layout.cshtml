@@ -68,13 +68,7 @@
                     <img alt="" src="@Url.Content("~/Content/Images/logo.jpg")" />
                 </div>
                 <div class="lang-form">
-                    <div class="lang-form-link">
-                    @if (ViewBag.gotoAdmin != null && ViewBag.gotoAdmin)
-                    {
-                        <a href="@Url.Content("~/administrator/members/login")">@ViewBag.page page</a><span>|</span>
-                    }
-                        <a href="@Url.Content("~/member/logout")">Logout</a>
-                    </div>
+                    @{Html.RenderAction("GotoManagerPage", "Home");}
                     <div class="lang-form-choose">
                         <div class="lang-form-choose-title">
                             Language:
@@ -265,10 +259,9 @@
             <div class="menu-footer">
                 <ul>
                     <li><a href="@Url.Content("~")">Home</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllCompetition")">Competitions</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllDesign")">Designs</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllExhibition")">Exhibitions</a></li>
-                    <li><a href="@Url.Content("~/Home/listAllStudent")">Students</a></li>
+                    <li><a href="@Url.Content("~/competition/")">Competitions</a></li>
+                    <li><a href="@Url.Content("~/design/")">Designs</a></li>
+                    <li><a href="@Url.Content("~/exhibition")">Exhibitions</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">FAQs</a></li>
                 </ul>
