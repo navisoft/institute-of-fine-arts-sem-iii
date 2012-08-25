@@ -27,7 +27,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index()
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             Roles rolesModels = new Roles();
             ViewBag.listRole = rolesModels.ListRole();
@@ -37,7 +37,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Add(FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             ViewBag.listMenu = db.Menus.ToList();
@@ -93,7 +93,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Edit(string id, FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -190,7 +190,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

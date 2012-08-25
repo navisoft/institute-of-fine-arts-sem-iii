@@ -14,7 +14,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
     {
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -32,7 +32,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult ExhibitionDesign(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -54,7 +54,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult AddExhibitionDesign(string id,FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -92,6 +92,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public RedirectResult RemoveExhibitionDesign(string id, string param)
         {
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
@@ -112,7 +113,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Add(FormCollection form, HttpPostedFileBase Images)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             var db = new FineArtContext();
             if (form["submit_exhibition"] != null)
@@ -204,7 +205,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Edit(string id, FormCollection form, HttpPostedFileBase Images)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -329,7 +330,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
         }
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

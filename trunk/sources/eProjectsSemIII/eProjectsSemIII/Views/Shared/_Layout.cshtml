@@ -69,6 +69,10 @@
                 </div>
                 <div class="lang-form">
                     <div class="lang-form-link">
+                    @if (ViewBag.gotoAdmin != null && ViewBag.gotoAdmin)
+                    {
+                        <a href="@Url.Content("~/administrator/members/login")">@ViewBag.page page</a><span>|</span>
+                    }
                         <a href="@Url.Content("~/member/logout")">Logout</a>
                     </div>
                     <div class="lang-form-choose">

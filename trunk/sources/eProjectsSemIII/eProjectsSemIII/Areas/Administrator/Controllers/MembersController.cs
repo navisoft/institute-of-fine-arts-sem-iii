@@ -32,7 +32,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
          */
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -50,7 +50,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult MembersClass(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -210,7 +210,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Delete(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);

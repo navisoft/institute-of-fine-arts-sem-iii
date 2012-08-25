@@ -16,7 +16,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult Index(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             int currentPage = Paging.GetPage(id);
             decimal totalRecord = GlobalInfo.NumberRecordInPage;
@@ -35,7 +35,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult DesignCompetition(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -62,7 +62,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult DesignKind(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -89,7 +89,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult DesignExhibition(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -117,7 +117,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult AddDesignExhibition(string id,string param, FormCollection form)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -175,7 +175,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public ActionResult DesignMember(string id)
         {
-            //base.Authentication();
+            base.Authentication();
             base.LoadMenu();
             try
             {
@@ -202,6 +202,7 @@ namespace eProjectsSemIII.Areas.Administrator.Controllers
 
         public RedirectResult Delete(string id)
         {
+            base.Authentication();
             try
             {
                 int idd = Convert.ToInt16(id);
